@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var str = 'https://www.baidu.com/s?wd=unicode&rsv_spt=1&rsv_iqid=0xa5772f9d00014a85&issp=1&f=3&rsv_bp=0&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_sug3=1&rsv_sug1=1&rsv_sug7=001&rsv_sug2=1&rsp=0&rsv_sug9=es_2_1&rsv_sug4=4997&rsv_sug=9';
+    var str1 = 'a?b=c&d=e'
+   // window.decodeURIComponent()
+    var ary = str.split('?');// 首先通过?将字符串分成2部分,第二部分属于我们要拿到的参数
+    console.log(ary[1]);//['a','b=c&d=e']
+    var aryTwo = ary[1].split('&');// 我们再将参数中以&进行分隔,变成数组
+    console.log(aryTwo);// 'b=c&d=e' => ['b=c','d=e']
+    var obj = {};
+    // 开始循环这个数组,将数组中的每一项以=号进行分隔,分别存入到对象当中
+    for(var i=0;i<aryTwo.length;i++){
+        // 拿到数组中的每一项,以=号进行分隔
+        var cur = aryTwo[i].split('=');// aryTwo[i]=>'b=c'.split('=')=>['b','c']
+        obj[cur[0]]=cur[1]
+    }
+    console.log(obj);
+
+    var str = 'a1aa1aa2bb2bb3bccc3cc'
+    // 找出字符串中重复的项是什么,有多少个
+    var obj = {};
+    for (var i=0;i<str.length;i++){
+        var cur = str[i];
+        if(obj[cur]){
+            obj[cur]++
+        }else{
+            obj[cur]=1//{a:1}
+        }
+    }
+    console.log(obj);
+
+</script>

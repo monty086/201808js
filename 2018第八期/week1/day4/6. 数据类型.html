@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * js中的数据类型:
+    * 基本数据类型: number[数字] string[字符串] boolean[布尔] null[null] undefined[undefined]   // symbol [es6 独一无二的数据类型]
+    * 引用数据类型: object[对象] array[数组] regexp[正则]  function[函数] date[时间] // set map
+    * es6.ruanyifeng.com
+    * 基本数据类型和引用数据类型区别:
+    * 1. 基本数据类型操作的值,引用数据类型操作的引用地址
+    * 2. 基本数据类型放在栈内存中,引用数据类型放在堆内存中
+    * */
+
+    var num = 1 ; // 阿拉伯数字都属于数字数据类型  NaN
+    var str = '可以插入任何的内容';// 都可以表示字符串数据类型
+    var str1 = "双引号也可以";
+    var boo =  true ; // false 布尔数据类型
+    var a = null ; // null
+    var b = undefined // undefined
+
+    // 浏览器的内存分为 栈内存和堆内存
+    var obj = {name:'zf'} // 属性名:键  属性值:值 => 键值对
+    // 属性名都是字符串 属性值可以是任何的数据类型
+    // 他们用逗号来分隔
+    var ary = [1,true,'a',null,undefined,{name:'zf'},new Date()]
+    // 数组中可以放入任何的数组类型
+    // 数组也属于对象数据类型,我们称数组中的属性名叫做索引
+    // 数组是有序的
+    var reg = /\d+/ // 放入元字符和修饰符
+
+    var fn = function () {
+        // 将函数体中的代码变成字符串,存入堆内存当中
+    }
+    fn();
+    var date = new Date() // 时间
+
+</script>

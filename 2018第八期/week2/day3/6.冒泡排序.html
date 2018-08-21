@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 冒泡排序
+    *
+    *
+    * */
+    var ary = [4 ,90 ,5 ,12, 0, 6]
+    // 5 ary.length-1-0
+    // 4 ary.length-1-1
+    // 3 ary.length-1-2
+    // 2 ary.length-1-3
+    // 1 ary.length-1-4
+// 大循环=> 5次 => ary.length-1次
+for(var j =0;j<ary.length-1;j++){
+        // j 0 1 2 3 4 5?
+
+    // 小循环会依次递减  我们让条件再减去大循环的索引即可
+    for(var i = 0 ;i<ary.length-1-j ; i++){
+
+        if(ary[i]> ary[i+1]){
+            var cur = null;
+            cur = ary[i];
+            ary[i] = ary[i+1];
+            ary[i+1] = cur
+        }
+    }
+}
+
+
+
+
+    a=1
+    b=2
+    var c =null
+    c = b; // 2 c这个空瓶先存b的值
+    b = a; // 1 a的值给b =>
+    a = c; // 2 a的值存入c的值
+
+    //
+    a = a+b; //3
+    b = a-b // 3-2 => 1
+    a = a-b // 3-1 => 2
+
+
+//大循环 =>ary.length-1
+for(var j =0 ;j<ary.length-1;j++){
+    //  每一次大循环,里面的小循环都全部执行一遍
+    //  小循环的循环次数 : 5  4  3 2 1
+    //  我们发现大循环的 初始值 j 可以做为一个条件
+    //  j => 0 1 2 3 4
+    //
+    for(var i = 0 ;i<ary.length-1-j; i++){
+        if(ary[i]> ary[i+1]){
+            var cur =null;
+            cur = ary[i];
+            ary[i] = ary[i+1];
+            ary[i+1] = cur;
+        }
+    }
+}
+
+
+    // ary[ary.length-1] =>90
+
+    var a =1 ; //2
+    var b =2 ; //1
+    var c =null;
+    c = a // c=>1
+    a = b // a=>2
+    b = c // b=>1
+
+</script>

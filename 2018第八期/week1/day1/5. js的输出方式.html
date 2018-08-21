@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    /*
+    * js的输出方式:让浏览器输出js让输出的内容
+    * alert
+    * confirm
+    * prompt
+    *
+    * document.write()
+    * innerHTML
+    * innerText
+    *
+    * console
+    *
+    * */
+    // 1. alert 浏览器弹出一个框
+
+    // alert('请输入用户名');
+    // 页面会弹出一个框 ，参数的内容会默认转成字符串，在弹窗中显示，【原理用的是toString()方法】
+    // 只有一个确定按钮，没有返回值 ，返回值是undefined
+
+    //  2. confirm
+    //  页面也会弹出一个框，有两个按钮 一个确定一个取消，点击确定返回一个true，点击取消返回一个false
+    /*var a = confirm('你确定登录了吗？');
+    console.log(a);*/
+
+    //  3. prompt
+    //  prompt会多出一个输入框，然后输入你要输入的内容，点击确定返回值会拿到你输入的内容。点击取消返回null
+    /*var b = prompt('请输入你的姓名？');
+    console.log(b);*/
+    // if(b=='123456'){
+    //     //页面开始显示
+    // }else{
+    //
+    // }
+
+    // 4. document.write()
+    // 在document文档中插入我们输入的内容
+    // 在body的末尾插入文本内容或插入html标签元素
+    /*document.write('珠峰')
+    document.write("<h1>培训</h1>")*/
+
+    // 5. innerHTML
+    // 通过innerHTML可以给制定元素插入内容，内容既可以是文本，有可以是标签
+    var box = document.getElementById('box'); // 获取元素
+    box.innerHTML = 'zf';
+    box.innerHTML += '<h1>zhufengpeixun</h1>'  // 指定的元素中添加一组标签
+
+    //  6. innerText
+    //  通过innerText 给制定元素插入内容，且只能插入文本内容
+    box.innerText = 'china';
+    box.innerText += '<h1>usa</h1>';
+
+    //  7. console
+    //  在浏览器控制台输出我们要输出的内容
+    console.log('你好棒！！！');
+    console.info('信息');
+    console.error('错误'); // 输出错误
+    console.dir('详细输出');
+    console.warn('警告') //
+    // ...
+    // console.log(1+1)
+    // 1.log+tab // webstorm中的快捷键，快速输出
+
+</script>

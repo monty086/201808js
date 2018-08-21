@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <!--注释1-->
+        我们是文字
+        <p id="p"></p>
+    </div>
+</body>
+</html>
+<script>
+    /*
+    * 节点: 在dom中最小的组成部分,节点: 元素节点\文本节点[空格\换行\文字]\注释节点\document
+    *
+    *
+    * */
+
+    /*
+    *  node       nodeType   nodeName      nodeValue
+    * 元素节点        1        大写的标签名     null
+    * 文本节点        3          text         文本中的内容
+    * 注释节点        8         comment       注释中的内容
+    * document       9        document       null
+    * */
+
+
+    // parentNode  父节点
+    var p = document.getElementById('p');
+    console.log(p.parentNode);
+    // childNodes   子节点
+    console.log(p.parentNode.childNodes);
+    // children  元素子节点  [ie低版本不兼容]
+    var p1 = p.parentNode.children
+    console.log(p1);
+
+    // previousSibling  上一个哥哥节点
+    console.log(p1[0].previousSibling); // 文本节点
+
+    // nextSibling  下一个弟弟节点
+    console.log(p1[0].nextSibling)
+
+    // firstChild 父元素下第一个子节点
+    console.log(box.firstChild);
+
+    // lastChild 父元素下的最后一个子节点
+    console.log(box.lastChild);
+</script>

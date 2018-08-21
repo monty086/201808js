@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    /*
+    * 1.sort排序
+    * 2.indexOf
+    * 3.for循环
+    * 4.Set
+    * */
+    var ary = [1,2,3,3,2,1];
+    /*
+    ary.sort(function (a,b) {
+        return a-b
+    })
+    var newAry = [];
+    for(var i=0;i<ary.length;i++){
+        if(ary[i]!=ary[i+1]){
+            newAry[newAry.length] = ary[i];
+        }
+    }*/
+
+    // indexOf
+    /*var newAry = [];
+    for(var i=0;i<ary.length;i++){
+        if(newAry.indexOf(ary[i])===-1){
+            newAry.push(ary[i])
+        }
+    }*/
+
+    // 双循环
+    var obj = {},newAry = [];
+    for(var i=0;i<ary.length;i++){
+        obj[ary[i]] = ary[i]//{} {1:1,2:2,3:3} // 2=> 1
+    }
+    for(var key in obj){
+        newAry.push(obj[key])//
+    }
+    console.log(newAry);
+
+    // Set
+    console.log([...new Set(ary)])
+</script>

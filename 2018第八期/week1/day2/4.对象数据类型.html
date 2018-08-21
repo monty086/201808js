@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 对象数据类型：
+    * 它是一个引用数据类型，存放在浏览器的堆内存当中，在大括号中放的都是键值对【key:value】 key：属性名  value：属性值；在对象当中键值对都是无序的。
+    * {}
+    *
+    * */
+    var ary = [12,2,3,4];
+    var obj = {name:'zf',age:8,0:123};
+
+    // 对象的增删改查
+    //增：给当前对象增加一个属性
+    obj.add = '回龙观'; // 相当于给obj增加了一个属性名为add ，属性值为'回龙观' 的一组键值对
+    obj['color'] = 'blue'; // 在对象数据类型中，[]是属于找到索引的意思，里面放的是属性名，【一般情况下，对象的属性名都是字符串】；像这种情况下，属于给obj这个对象增加了属性名为color，属性值为blue的一组键值对；它和.这种方式效果一样
+    // 区别： 属性名为数字的时候，不可以用.的这种方式增加；通过中括号这种方式可以增加键值对；
+    obj[1] = 999;
+    console.log(obj); //{0: 123, 1: 999, name: "zf", age: 8, add: "回龙观", color: "blue"};
+
+    // 删除 给对象删除一组键值对
+    obj.name = null ; // 通过这种方式，只是将对象中属性名对应的属性值赋值为空，这组键值对依然存在，它属于假删除
+
+    delete obj.name ; // delete这种方式，可以将对象中的键值对彻底移除；这个属于真删除
+    console.log(obj);
+
+    // 改
+    obj.age = 0 ; // 修改对象中的属性值；属性值是变量也可以。
+    var b = 3 ;
+    obj['age'] = b ;
+    console.log(obj);
+
+    // 查
+    console.log(obj.color); // 'blue'
+    var key = 'color';
+    console.log(obj['color']); // 'blue'
+    console.log(obj[key]); // 'blue' obj中括号中可以放一个变量,变量所代表的值就是对象obj的属性名
+    var name = 'zf';
+    obj[name] = 'zhufeng';
+    console.log(obj); //{0: 123, 1: 999, age: 3, add: "回龙观", color: "blue", zf: "zhufeng"}
+
+    var obj3 = {}
+    console.log(obj3.age); // undefined
+    // 求一个对象中未知的属性名所对应的属性值，返回undefined
+
+    obj.name = ary;
+
+    var obj1 = {name:'china',age:5000};
+    var obj2 = obj1 ;
+    //obj1 = {};
+    obj2.age = 9;
+    console.log(obj1.age); // undefined
+
+    // 两个相同的对象进行比较。属于两个堆内存比较，他们分别在浏览器中属于不同的引用地址，所以一般比较的时候不相等
+    console.log([] == []);
+    console.log(({name:1}) == ({name:1}));
+    //  我们将obj1的引用地址赋值给了obj2，此时，obj2拿到的是obj1的引用地址。所以他们一般比较的时候是相等的
+    console.log(obj1 == obj2);
+
+
+</script>

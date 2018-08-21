@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    // 数字 字母[大,小]
+
+    var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+"abcdefghijklmnopqrstuvwxyz"+'1234567890';
+    var newStr = '';
+
+    for (var i = 0; i < 4; i++) {
+        // (m-n)+n
+        var index = Math.round(Math.random()*(str.length-1-0)+0)//
+        if(newStr.indexOf(str[index])==-1){
+            newStr+=str[index]
+        }else{
+            i-- // 如果字符串中有重复的字符,我们让i--,让当前这一轮重新在执行一次
+        }
+    }
+    box.innerHTML = newStr
+</script>

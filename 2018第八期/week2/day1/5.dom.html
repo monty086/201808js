@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <div class="p">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <input type="password" name="password">
+        </div>
+        <div class="p">
+
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    /*
+    * dom
+    * 文档对象模型:
+    * 浏览器给js提供了一些操作dom元素的属性和方法
+    * dom不属于js的语法规范,但是js离开了dom也就失去了意义
+    * */
+
+    // 通过js来获取dom元素
+    // id
+    var box = document.getElementById('box')// id名
+    // className
+    var p = document.getElementsByClassName('p')// 通过类名获取到的元素集合; 同时它也是类数组 ie6~8不兼容
+    // tagName
+    var lis = document.getElementsByTagName('li')// 通过标签名获取到一个元素集合 ,=>类数组
+    // name
+    var psd = document.getElementsByName('password')// 通过name属性获取到一个元素集合
+    // 获取html元素
+    var html = document.documentElement;
+    // 获取到body元素
+    var body = document.body;
+    // 获取当前浏览器可视窗口的宽度
+    document.documentElement.clientWidth || document.body.clientWidth
+    // 获取当前浏览器可视窗口的高度
+    document.documentElement.clientHeight || document.body.clientHeight
+
+    // 移动端  [不兼容低版本浏览器]
+    // 只能获取到第一个值
+    var box = document.querySelector('#box') // 通过id来获取
+    var p = document.querySelector('.p') // 通过className来获取
+    var li = document.querySelector('li') // 通过标签名来获取
+
+    // 获取到一个元素集合,也是一个类数组
+    var boxs = document.querySelectorAll('#box')// 通过id获取到的元素集合
+    var ps = document.querySelectorAll('.p')// 通过类名获取到的元素集合
+    var lis = document.querySelectorAll('li')// 通过id获取到的元素集合
+
+    console.log(lis);
+</script>

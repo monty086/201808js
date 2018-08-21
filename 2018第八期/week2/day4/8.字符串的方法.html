@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 字符串: 在双引号或者单引号中包裹的任何字符;
+    * 字符串有索引有length,所以我们可以对他进行便利
+    * 字符串中的索引只能进行获取,不可以进行修改
+    * 字符串中使用单双引号混用的时候,要对他进行区分;
+    * 字符串中遇到+加号,将不是字符串类型的值调用toString方法,然后再进行拼接
+    * */
+
+    var str = 'true';
+    var str = 'function(){}';
+    str[0]=0;
+    console.log(str);
+
+    console.log(str + 5);
+    console.log(str + {});
+    console.log(str + null);
+
+    // es6 模板字符串
+    var str = ``
+    // `${a}` '${a}'
+
+    // 字符串的方法
+    /*
+    * 作用: 主要的功能
+    * 参数: 参数需要传入哪些值
+    * 返回值: 字符串方法执行的结果
+    * 原字符串是否发生改变: 不会
+    * */
+
+    // charAt 通过索引来找字符
+    // 如果传入的参数索引不再这个范围内,返回空
+    var str = 'zhu珠fenge峰';
+    console.log(str.charAt(5));//e
+    console.log(str.charAt(-15));//
+
+    //  charCodeAt 通过索引找字符,找到字符转化成unicode编码
+    console.log(str.charCodeAt(5));
+
+    // indexOf 通过字符来找索引
+    console.log(str.indexOf('e'));
+    console.log(str.indexOf('p'));// 如果这个字符没有的话返回-1
+
+    // lastIndexOf 从后向前找,通过字符来找索引
+    console.log(str.lastIndexOf('e')); //8
+
+    // toUpperCase 将字符串转化成大写
+    console.log(str.toUpperCase());
+
+    // toLowerCase 将字符串转化为小写
+    console.log(str.toLowerCase());
+
+    // 字符串中截取
+    //str.substr(n,m)// n:索引 m:个数
+    console.log(str.substr(0, 1));
+
+    // substring(n,m) // n:索引 m:索引
+    console.log(str.substring(0, 2)); // 包前不包后
+
+    // slice(n,m) // n:索引 m:索引  ; 支持负值
+    console.log(str.slice(0, 2));
+    console.log(str.slice(0)); // 如果第二个值没有传的话,表示截取到最后
+
+    // replace 字符串中的替换
+    console.log(str.replace('e', '*'));
+    var newStr = str.replace('e',function (item) {
+        return item+'000'
+    });
+    console.log(newStr);
+
+    // match 找到字符串中的详细信息
+    console.log(str.match('e'));//["e", index: 5, input: "zhu珠fenge峰", groups: undefined]
+
+    // split 将字符串转化为数组
+    console.log(typeof str.split('e')[0]);// string
+    console.log(str.split('e1'));
+
+    // search 通过字符找索引
+    console.log(str.search('e'))//5
+
+    // trim  清除左右两边的空格
+    console.log(' a '.trim());
+
+
+</script>

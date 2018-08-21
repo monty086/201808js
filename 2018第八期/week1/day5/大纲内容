@@ -1,0 +1,65 @@
+
+
+1. js数据类型
+   基本数据类型
+   number string boolean null undefined
+   引用数据类型
+      对象数据类型
+        object array regexp date
+      函数数据类型
+
+
+        function
+1. number
+   正数 负数 小数 0 NaN
+   isNaN() 判断是否是一个数  true  false
+   // NaN == NaN NaN和任何数据类型比较都是false
+   Number() 强制转化  成功=>数字   不成功=>NaN
+   // true [1] '1' =>1  false '' [] null=> 0  undefined => NaN
+   // [1] {name:1} => toString() => 数字
+   parseInt() 非强制转换  => 整数
+   //  成功=> 数字  不成功=>NaN
+   parseFloat() 非强制转换  => 小数 [多识别一个小数点]
+   //  成功=> 数字  不成功=>NaN
+   toFixed()  => 保留小数点后几位数字  =>字符串
+2. string
+   双引号和单引号种包裹的任何内容都叫做字符串
+   双引号和单引号混用,单引号包裹引号否则反之
+   字符串数据类型 碰到 + 号 => 字符串拼接
+   +两边 如果两边不是字符串,会最终转换成数字进行运算,运算不成功返回NaN
+   +两边 如果是引用数据类型,会调用toString()方法,进行字符串拼接
+   toString() => 用来转换字符串的,所有的数据类型都有这个方法,出了null和undefined
+   es6 => `` 模板字符串
+   插入变量 => `${}`
+
+3. boolean
+   true false
+   0 NaN '' null undefined  => false
+   其他数全部返回true
+   Boolean() => 直接转化成布尔值
+   !xx => 先转布尔值 再取反
+   !!xx => 直接转布尔
+   // 注意:转布尔值不会进行不同类型的转换[引用数据类型转基本数据类型]
+   if(0){} // => Boolean(0)
+4. null和undefined
+   null 空
+   1. 变量初始化
+   2. 清空对象
+   undefined  未定义
+   1.  变量未赋值
+   2.  对象没有属性名
+   3.  函数的返回值 形参
+object :
+   键值对组成: 属性名[字符串]和属性值[任意数据类型]组成
+   obj.name
+   obj['name']
+   var a = 'name'
+   obj[a]
+
+
+   + - * /
+   除了 + 以外,其他的算符运算符,都会转化成数字进行运算 ; 计算不成功返回NaN
+   + 碰到字符串,变成字符串拼接
+
+
+

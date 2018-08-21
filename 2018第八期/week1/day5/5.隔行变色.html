@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            width: 300px;
+            height: 360px;
+            border:1px solid red;
+            margin:50px auto;
+            list-style: none;
+        }
+        ul li{
+            box-sizing: border-box;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-bottom: 1px solid #666;
+        }
+        /*li:nth-child(odd){*/
+            /*background: orange;*/
+        /*}*/
+        /*li:nth-child(even){*/
+            /*background: rosybrown;*/
+        /*}*/
+        /*li:hover{*/
+            /*background: red;*/
+        /*}*/
+        .bg1{
+            background: orange;
+        }
+        .bg2{
+            background: rosybrown;
+            /*visibility: hidden;*/
+        }
+        .bg3{
+            background: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <!--ul>li{$}*9 + tab -->
+    <ul>
+        <li class="bg1">1</li>
+        <li class="bg2">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+    </ul>
+</body>
+</html>
+<script>
+    /*
+    * 获取元素 :
+    * getElementById()  // 通过id名获取的元素
+    * getElementsByClassName() // 通过类名获取的元素集合
+    * getElementsByTagName() // 通过标签名获取到的元素集合
+    * // 元素集合属于 类数组 有索引有length 可以进行便利
+    * */
+    // 同过标签名拿到所有的li
+    var lis = document.getElementsByTagName('li')// 元素集合
+
+    for(var i =0 ;i<lis.length ;i++){
+        // i = 0   bg1
+        // i = 1   bg2
+        // i = 2   bg1
+        // 通过i取模可以获得不同的值 ,在和bg进行字符串拼接,变成类名
+         lis[i].className = 'bg'+(i%2+1);
+         lis[i].index = 'bg'+(i%2+1);
+         // 鼠标划入触发的事件
+         lis[i].onmouseover = function () {
+             // onmouseover这个事件属于异步事件,[不知道什么时候触发],当时当我触发的时候,就会执行这个函数,代码从上到下执行,碰到变量i,
+             // 可是在当前的私有作用域中没有声明变量i,需要去它的上级找,
+             // 但是它上级的变量i,已经循环到最大值了,并不会等它
+             // 所以变量i拿到循环体中最大的值=>9
+             // lis[i].className = 'bg3'
+             // this来拿到,this=>事件中,哪个元素触发这个事件,this就是谁
+             this.className = 'bg3'
+         }
+         // 我们还需要让鼠标移出的时候变为原来的颜色
+        lis[i].onmouseout = function () {
+             // 鼠标移出的时候, 我们需要拿到原来的颜色值,所以就需要我们一开始渲染 时候就保存起来,用自定义属性保存,鼠标滑出的时候,直接拿到这个属性值就可以了
+            this.className = this.index
+        }
+    }
+</script>

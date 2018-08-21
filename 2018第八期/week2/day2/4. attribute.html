@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    var box = document.getElementById('box');
+    box.index = 1 ;
+    console.dir(box)
+    /*
+    * 自定义属性
+    * attribute : 都是给一个元素设置一个属性,但是会在行内进行显示
+    * attribute 和 . 区别
+    * 共同点: 都是给一个元素设置一个属性
+    * 不同点:用attribute设置的属性可以在行内进行显示,用.的话设置自定义属性不能在行内显示
+    * 注意: 用. 设置就用. 获取,用attribute设置,就用attribute获取
+    * */
+    box.setAttribute('push','zhufeng');
+    var value = box.getAttribute('push');
+    console.log(value);
+    // box.removeAttribute('push')
+
+    console.log(box.push);
+    console.log(box.getAttribute('index'));
+    box.style.color = 'red'
+</script>

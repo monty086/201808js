@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    /*
+    * 每一个数据类型都有他所属的类，除了null和undefined；
+    * 每一个数据类型都可以通过__proto__找到基类Object
+    * 所有的元素都有它所属的类
+    * */
+    // js中的内置类
+    // Number Boolean String Object Array RegExp Function Date Set Map
+    // HTMLDivElement  => HTMLElement  => Element  => Node => EventTarget => Object
+    // new Number
+    // Math.max()
+
+    var num = 1 ;
+    console.log(typeof num); // 'number'
+    console.log(num);
+    // 通过字面量的方式创建一个数字数据类型
+
+    // 实例化的方式来创建一个数字数据类型变量
+    var num2 = new Number(1);
+    console.log(num2);
+
+    var str = 'b';
+    var str1 = new String('a') // 通过new这个关键字可以创建当前类的一个实例
+    new Array('1')
+    // new Function('a','return a')//
+
+    console.dir(box);//
+    // HTMLDivElement  => HTMLElement  => Element  => Node => EventTarget => Object
+
+
+    // instanceof : 检测数据类型
+    // 检测当前实例是否属于这个类
+    // 缺点： 不可以检测字面量方式创建的基本数据类型
+    console.log(str instanceof String);
+    console.log(str1 instanceof String);
+    console.log([1,2] instanceof Array);
+    console.log({name:'zf'} instanceof Object);
+
+    // in  判断当前属性是否在当前对象中; 通过in这种方式既可以检测私有属性，也可以检测公有属性； 检测出来的返回值是一个布尔值
+
+    var obj = {name:'zf'}; // name是 obj的私有属性
+    // constructor hasOwnProperty 属于obj中的公有属性
+    console.dir(obj)
+    console.log('name' in obj);
+    console.log('constructor' in obj);
+    console.log('hasOwnProperty' in obj);
+    // hasOwnProperty 私有属性 :检测当前的值是否是对象的私有属性 ，返回值是一个布尔值
+    console.log(obj.hasOwnProperty('name'));
+    console.log(obj.hasOwnProperty('constructor'));
+
+    // 问题来了： 封装一个方法，检测当前属性值是否是对象的一个公有属性
+    function hasPubProperty (obj,key){
+        // 判断当前属性名是否是对象的一个属性
+        if(key in obj){
+            // 返回值是true 你是我的属性，不确定公有或者私有
+            if(obj.hasOwnProperty(key)){
+                // 返回true
+                // console.log('私有属性')
+                return false
+            }else{
+                // console.log('公有属性')
+                return true
+            }
+        }else{
+            //console.log('sorry 你不是我的属性')
+            return false
+        }
+        return key in obj && !obj.hasOwnProperty(key)
+    }
+    hasPubProperty(obj,'name')// false
+    hasPubProperty(obj,'constructor')// true
+    hasPubProperty(obj,'12312312312312')//
+</script>

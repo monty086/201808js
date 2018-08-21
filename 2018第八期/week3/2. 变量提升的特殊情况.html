@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 变量提升的特殊情况
+    * 1. 等号右边不会进行变量提升
+    * 2. 自执行函数不会进行变量提升
+    * 3. return右边的不进行变量提升，return下面的会进行变量提升
+    * 4. 函数当作参数的时候不会进行变量提升
+    * 5. 在碰到块级作用域的时候，函数只声明不定义，比如判断，当条件一旦成立，进入到块级作用域中，第一时间给函数进行定义
+    * */
+
+    /*var a = function b(){
+
+    }
+    console.log(b);
+    box.onclick = function fn(){
+
+    }
+    console.log(fn);*/
+
+    /*(function fn(){
+
+    })();
+    console.log(fn);*/
+
+    /*function fn(){
+        console.log(c);//
+        console.log(b);
+        return function b(){};
+        function c(){}
+    }
+    fn()*/
+
+    /*console.log(fn,f1)
+    [1,2,3].forEach(function fn(item,index,input){
+        console.log(fn);
+    })
+    setTimeout(function f1(){
+        console.log(f1);
+    })*/
+
+
+    //console.log(fn);
+    // if(true){
+    //     console.log(fn);
+    //     function fn(){}
+    // }
+
+    //判断 for swith ... 除了对象
+    {
+        //console.log(fn);
+        function fn(){}
+    }
+    // console.log(fn);
+</script>

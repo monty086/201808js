@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        ul:after{
+            display: block;
+            content: '';
+            clear:both;
+        }
+        #box{
+            width: 300px;
+            height: 400px;
+            border:1px solid red;
+            margin:50px auto;
+        }
+        ul li{
+            width: 100px;
+            height: 100px;
+            background: #aaaaaa;
+            float:left;
+            text-align: center;
+            line-height: 100px;
+        }
+        #box div{
+            background: lightblue;
+            width: 100%;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            display: none;
+        }
+        ul li.active{
+            background: orangered;
+        }
+        #box div.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+ <div id="box">
+     <ul>
+         <li class="active">选项1</li>
+         <li>选项2</li>
+         <li>选项3</li>
+     </ul>
+     <div class="active">内容1</div>
+     <div>内容2</div>
+     <div>内容3</div>
+ </div>
+</body>
+</html>
+<script>
+    // 1获取元素 [你要操作谁,你就需要先获取谁]
+    var box = document.getElementById('box');
+    var lis = box.getElementsByTagName('li');
+    var contents = box.getElementsByTagName('div');//类数组
+    
+    // 2.给每一个选项添加点击实现,利用咱们学过的for循环来添加
+    for(var i=0;i<lis.length;i++){
+        // 利用自定义属性,给每一个li都保存一个索引值
+        lis[i].index = i ;// 我们用自定义属性index保存到变量i的真实的值
+        lis[i].onclick = function () {
+            // 我需要再点击这一项的时候,其他两项都恢复到原来的状态
+            for(var j=0;j<lis.length;j++){
+                lis[j].className = '';// 点击的时候,再发生一次循环,让所有的标签都清空;所有的标签都清空结束后,我再给你添加类名active
+                contents[j].className = '';//把内容的每一项类名都清空,只有点击的那一项显示就可以了
+            }
+            //我点击的时候想让这个选项变成橙色,我可以通过事件中是this给它添加
+            this.className = 'active';
+            //我们希望点击选项1的时候,内容1也跟着显示,但是i值已经到了最大;我们再内容[contents]的索引中添加一个属性this.index=> 保存的是最真实的索引
+            contents[this.index].className = 'active'
+        }
+    }
+</script>

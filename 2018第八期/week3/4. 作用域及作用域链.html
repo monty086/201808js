@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 作用域：
+    * 全局作用域和私有作用域
+    * 全局作用域：浏览器一打开就形成一个全局作用域，[会自动生成一个全局对象window]，在全局作用域下声明的变量属于全局变量
+    * 私有作用域：函数执行的时候会形成一个私有的作用域，私有作用域中声明的变量属于私有变量，同时形参也属于私有变量
+    *
+    * 块级作用域：es6中定义的大括号属于块级作用域，除了对象
+    * */
+
+    var a = 1 ;
+    // console.log(window);
+    // console.log(window.alert());
+    // console.log(alert());
+    var a =7;
+    function fn(b){
+        // 遇到相同的变量不会进行重复声明，但是会进行重新赋值
+        console.log(b); // 7
+        var  b =2 ;
+        console.log(a); // undefined
+        var a =1
+        console.log(a);// 1
+    }
+    fn(a)
+    /*
+    * 函数执行的步骤
+    * 1. 形成一个私有的作用域
+    * 2. 形参赋值
+    * 3. 变量提升
+    * 4. 代码从上到下执行
+    * 5. 决定其私有作用域是否销毁
+    * */
+
+    /*function a(){
+         var fn =function (){}
+        // return fn
+        window.c = fn
+    }
+    //var b =a()
+    a()*/
+
+    /*
+    * 作用域链
+    * 定义：在作用域中找到一个变量，优先到当前的作用域中去查找，如果自己的作用域没有的话，会到上级【就看当前作用域在哪里定义的，跟在哪执行的没有关系】查找，如果上级还没有，会一直找到全局，全局也没有会直接报错。【xxx is not defined】
+    *
+    * */
+   /* var b =5;
+    function fn2(){
+        var b =4
+        f()
+    }
+    function f(){
+        console.log(b) // un  5  4  4  5
+    }
+    fn2();*/
+
+    var c = 6
+    function fn3(){
+       c = 4;
+        // console.log(fn4());
+        return function fn4(){
+            console.log(c); //4
+        }
+    }
+    fn3()();
+    // var f = fn3()
+    // f()
+</script>

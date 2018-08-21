@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * toString 方法：用来转化成字符串
+    * 所有的数据类型上都有这个方法；除了null和undefined
+    * 对象上的toString是用来检测数据类型
+    * Object.prototype.toString.call() // 检测数据类型
+    *
+    * */
+
+    Number([])  // [].toString()
+    parseInt([]) // 首先调用toString方法将引用数据类型转化成基本数据类型的字符串
+    true.toString() // 'true'
+    false.toString() // 'false'
+    (123).toString()  // '123'
+</script>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 字符串:在双引号或者单引号中包裹的任何数据都叫字符串
+    * 字符串有索引有length
+    * es6:模板字符串 `` ; 插入变量 ${}
+    * */
+    var str = '1';
+    var str = "a";
+    str.indexOf('a');
+    /*
+    * 分析和使用字符串的方法,4个维度
+    * 1. 作用:方法主要是用来干什么
+    * 2. 参数:要知道给字符串传什么参数
+    * 3. 返回值:当前字符串方法的返回结果
+    * 4. 原字符串是否改变:全部不改变
+    * */
+
+    var str = 'zhu珠feng峰pei培xun训';
+
+    // charAt 根据索引找字符
+    // 参数 : 数字索引
+    // 返回值: 索引对应的那个字符
+    var a = str.charAt(5);  // 参数为索引
+    console.log(a);//e
+
+    // charCodeAt  根据索引找字符,找到这个字符相对应的unicode编码
+    var a = str.charCodeAt(4)
+    console.log(a);
+
+    // indexOf  根据字符找索引 ,找到返回对应的索引,找不到返回-1
+    var a = str.indexOf('珠峰'); // 没有这个字符串返回-1
+    var a = str.indexOf('珠');
+    console.log(a);
+
+    // lastIndexOf 根据字符找索引,从后往前找
+    var a = str.lastIndexOf('n'); // 15
+    console.log(a);
+
+    // substr(n,m) 字符串截取 n:索引  m:个数
+    var a = str.substr(); // 不传的话相当于克隆
+    var a = str.substr(0) // 传0也属于克隆
+    var a = str.substr(1) // 从索引1 截取到最后
+    var a = str.substr(-1) // 参数为负数表示 负数+字符串的长度
+    var a = str.substr(2,4) // 从索引2 截取4个
+    console.log(a);
+
+    // substring(n,m) 字符串截取 n:索引,m:索引 ; 包前不包后
+    // 不支持负数
+    var a = str.substring() //
+    var a = str.substring(0) //
+    var a = str.substring(1) //
+    // var a = str.substring(0,-1) // 不支持负数
+    var a = str.substring(0,5) //
+    console.log(a);
+
+    // slice(n,m) 字符串截取 n:索引,m:索引 ; 包前不包后
+    // 它支持负数,如果是负数表示,字符串的长度+负数的值
+     var a = str.slice(0,-1) ;//
+     var a = str.slice(-5,-1);//
+     console.log(a);
+
+     // toUpperCase 将字符串转成大写 ,没有参数
+    var a = str.toUpperCase();
+    console.log(a);
+
+    //  toLowerCase 将字符串换成小写,没有参数
+    var a = a.toLowerCase();
+    console.log(a);
+
+    //  split(指定符) 将字符串[根据制定符]转换成数组
+    var a = str.split('e');// 将e变成逗号,然后转换成数组
+    console.log(a);
+
+    //  replace(旧,新) 将字符串中的旧的字符串替换成新的字符串
+    // 第二个参数可以传入一个函数,字符串识别第一个参数,函数执行一次
+    var a = str.replace('e','x');
+    var value = str.replace('e',function (item,index,input) {
+        console.log(item,index,input);
+    })
+    // var str = 'zhu珠feng峰pei培xun训';
+    // var value = str.replace(/e/g,function (item,index,input) {
+    //     console.log(item,index,input,);
+    // })
+    console.log(value);
+    console.clear();
+    // match() 输出字符串的详细信息 , 结合正则使用较多
+    var value = str.match('e');
+    console.log(value); //["e", index: 5, input: "zhu珠feng峰pei培xun训", groups: undefined]
+
+    // search() 根据字符找索引, 结合正则使用较多
+    var value = str.search(/e/);
+    console.log(value);
+
+    // trim() 清除两边的空格
+    var str = '   china   ';
+    console.log(str.trimLeft());
+    console.log(str.trimRight());
+    console.log(str.trim());
+
+
+    /*
+    * charAt
+    * charCodeAt
+    * indexOf
+    * lastIndexOf
+    * substr
+    * substring
+    * slice
+    * toUpperCase
+    * toLowerCase
+    * replace
+    * match
+    * search
+    * split
+    * trim
+    *
+    * */
+
+    // var ary = [1,2,4,3,3,1,2,4,45,5,3,2,23,3,34];
+    /*var newAry = ary;
+    newAry[0]=2;
+    console.log(ary[0]);// 2 */
+    // 通过克隆
+    // var newAry = ary.concat();
+    // newAry[0]=2;
+    // console.log(ary[0]);//
+
+    // var str = 'a';
+    // var newStr = str;
+    // newStr[0] = 'b';
+    // console.log(str[0]);
+</script>

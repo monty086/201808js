@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary = [4 ,90 ,5 ,12, 0, 6];
+
+    var myCard = [];
+    myCard.push(ary[0]); // [4,5,90 ?]
+
+    for(var i=1;i<ary.length;i++){
+        // ary[i] 90 5
+        for(var j = myCard.length;j>=0;j--){ // 1 0
+            // j==1?console.log(myCard[j]):void 0;
+            if(ary[i] > myCard[j]){//90 == 4
+                myCard.splice(j+1,0,ary[i]);
+                break
+            }
+        }
+        // ary[i]
+        if(myCard.indexOf(ary[i])===-1){
+            myCard.unshift(ary[i])
+        }
+    }
+    console.log(myCard);
+
+
+    // for(var i=0;i<5;i++){
+    //     console.log(i);// 0 1 2 3 4
+    // }
+    // for(var i=5;i>0;i--){
+    //     console.log(i);// 5 4 3 2 1
+    // }
+</script>

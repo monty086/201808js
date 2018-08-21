@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * for
+    * for in
+    * while
+    *
+    * */
+    var ary = [1,2,3,4];
+    var num = ary[0]+ary[1]+ary[2]+ary[3];
+
+    var count = 0
+    for(var i=0;i<ary.length;i++){
+        count += ary[i]//0 1
+    }
+    console.log(count);
+
+    /*
+    * for [关键字] (var i=0 [初始值]; 判断条件; i++[累加的基础] ) {
+    *     循环体: 代码执行的地方
+    * }
+    * 1. 申明了变量:初始值 =0
+    * 2. 让我们声明的初始的变量和条件进行对比,如果条件满足,进入循环体,代码从上到下执行;
+    * 3. 代码执行结束后,让初始的变量进行累加运算
+    * 4. 累加完成以后,再和条件进行对比,满足条件,继续执行循环体,循环往复,直到这个变量和条件不满足的时候,循环体结束
+    *
+    * 注意: 一般情况下,条件判断中有多少次,循环体就执行多少次
+    * */
+    //var count = 0;
+    // 写循环的目的就是想让循环数组中的每一项
+    for(var i=0;i<ary.length;i++){
+        // 满足条件才可以执行循环体
+        count += ary[i]//0 1
+    }
+    // i=0 // i<4  // =>循环体  count += ary[0]=>1   count =>1   // i++ i=1
+    // i=1 // i<4  // => count+= ary[1]=> 2 count => 3 // i++ i=2
+    // i=2 // i<4  // => count+= ary[2]=> 3 count => 6 // i++ i=3
+    // i=3 // i<4  // => count+= ary[3]=> 4 count => 10 // i++ i=4
+    // i=4 // i<4 判断不成立,循环结束
+
+    /*  count // 10
+    i  // 4 */
+
+
+    /////////////////////////
+    /*
+    * 循环2
+    * for in
+    * 一般用于循环对象
+    * key : 对象中的属性名
+    * 循环次数: 看对象有多少组键值对,循环体就会执行多少次
+    * */
+    var obj = {name:'zf',age:8};//2
+    //var ary = ['a','b']; // 循环数组也可以,但大多数都是循环对象
+    for(var key in obj){
+        console.log(key);// name age
+        // 再对象中,如果用.这种方式拿属性值,属性名必须存在; 会把.后面这个值当成字符串
+        // console.log(obj.key); //
+        console.log(obj[key]);//属性值 zf 8
+    }
+
+    /*
+    * 循环3
+    * while()
+    * 当我们不知道循环多少次的时候,我们才会使用while循环
+    * while(条件){
+    *   条件满足执行循环体
+    * }
+    * 注意: 写while循环的时候,一定要防止死循环
+    * */
+    var x = 0
+    while(x<10){
+        x++;
+        console.log(x);
+    }
+
+
+</script>

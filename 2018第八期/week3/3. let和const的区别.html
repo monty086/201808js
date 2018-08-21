@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * let和const的区别
+    * es6中的变量提升
+    * let 【变量】
+    * 1. let声明的变量没有变量提升
+    * 2. let不允许重复声明
+    * 3. let声明的变量不会给全局对象window增加属性
+    *
+    * const  【常量=》静态变量】
+    * 1. let的变量提升的特点，const都具有
+    * 2. const声明的变量必须赋值
+    * 3. const声明的变量不允许修改,其中可以修改引用数据类型的值，
+    * */
+
+    // console.log(a);//
+    // let a =1 ;
+    let a =2;
+    console.log(a); //2
+    console.log(window.a)// 2 un bao 2 un
+
+     // const b ;
+    // const b = 2 ;
+    // b =3 ;
+    const b = [1];
+    b[0]=2 ;
+    // b = [];
+    console.log(b);// [2]
+
+
+</script>

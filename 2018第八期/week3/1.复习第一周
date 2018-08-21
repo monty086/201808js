@@ -1,0 +1,35 @@
+
+
+git
+
+gitlab
+github 代码托管平台
+
+打开命令窗口
+右键+gitbash
+在文件夹的地址栏输入cmd
+win+R =》 cmd
+
+dos命令
+cd 进入某个文件夹
+mkdir 创建一个文件夹
+touch 创建一个文件
+./  当前的目录下
+../  当前目录的上一级
+clear 清屏
+
+
+git
+git init 初始化仓库
+git config --global user.name '名'  全局配置git用户名
+git config --global user.email '邮箱' 全局配置git邮箱地址
+git remote add origin 'url地址' 将本地的文件夹和git仓库连接一起
+git add .  将代码添加到暂存区 【-A：全部，1.html:指定文件】
+git commit -m"备注的内容" 将代码添加到历史区
+git push origin master 将代码推送到远程托管平台
+
+git pull origin master  将远程仓库的内容拉取下来
+git pull
+
+git clone [url地址]  将远程的仓库克隆下来
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * = 赋值
+    * == 一般比较
+    * === 严格比较
+    *
+    * */
+
+    // 同类型进行一般比较: 直接比就可以了
+    true == true
+    1== 4
+    null == undefined // true
+    'a' == 'b' // false
+    '1' == '0';
+    // 同类型的引用数据类型比较 => 全部都是false
+    [] == [] // false
+    ![] == [] // true  !true == '' false == 0  0==0
+    ![1] == [1] // false
+
+    // 基本数据类型=>不同数据类型进行的比较
+    // 数字 和 字符串  => Number数字
+    1 == '1' // true
+    1 == true // true
+    1 == undefined // false
+    0 == null // false
+
+    // null 和undefined 和任何数据类比较都是false
+    // 注意: null 和 undefined 比较 => true
+    null == undefined // true
+    null === undefined // false
+
+
+</script>

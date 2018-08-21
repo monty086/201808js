@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <!--haha-->
+        <!--<i>dd</i>-->
+        <!--<div>en </div>-->
+        <!--zhege -->
+        好吧我的文字
+        <p>我是p标签</p>
+        <!--     -->
+        <div>d</div>
+    </div>
+</body>
+</html>
+<script>
+    // 兼容低版本
+    // 找到box元素下的所有的元素节点
+    // 找到p标签上一个元素节点,将它打印出来
+
+    var box = document.getElementById('box');
+    var child = box.childNodes; // 所有的子节点,它是一个节点集合=>类数组
+    var newAry = [];
+    for(var i=0;i<child.length;i++){
+        var cur = child[i];
+        if(cur.nodeType===1){ // 便利子节点,如果子节点的nodeType 为 1 证明它是元素节点
+            newAry.push(cur)
+        }
+    }
+
+    //
+    var p = document.getElementsByTagName('p')[0];
+    p.previousSibling // p标签的上一个哥哥节点
+    // 我们要在p标签上找一个元素节点,要不断的向上一个哥哥节点确认,如果不是元素节点,继续向上一级找,直到找到元素节点
+    // 我们要便利循环所有的哥哥节点; 在所有的哥哥节点中找元素节点
+    // while =>不知道循环多少次可以使用这个循环
+    var prev = p.previousSibling;
+    // 判断上一个哥哥节点是否是一个元素节点
+    //console.dir(prev);
+    while(prev.nodeType != 1){ // 如果不是元素节点,就再往上一级继续查找
+        prev = prev.previousSibling;// 查找的过程中,我们需要把这个哥哥变量重新赋值为哥哥节点的上一个哥哥节点,以此进行循环,直到它的上一个哥哥节点为元素的节点的,才会停止循环
+        if(!prev)break;
+    }
+     console.log(prev);
+</script>

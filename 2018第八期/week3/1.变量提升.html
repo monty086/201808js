@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+</html>
+
+<script>
+    /*
+    * 变量提升
+    * 本意：变量的提前声明
+    * 定义： 全局作用域形成之后，代码执行之前，对带var和带function 关键字进行变量提升，带var只声明不定义，带function的 声明加定义；
+    *
+    *
+    * */
+
+    console.log(a); // undefined
+    var a = 1 ;
+    console.log(a); // 1
+    console.log(fn); //
+    console.log(fn()); //  alert(1)
+    function fn(){
+        alert(1)
+    }
+    console.log(fn);
+    console.log(fn());
+    console.log(fn1);// undefined
+    var fn = function fn1 (){
+
+    }
+
+    // 带var和不带var的区别
+    /*
+    * 通过变量名声明的变量，既是在当前作用域下声明的一个变量，也是给全局对象window增加的一个属性
+    *
+    * 给window全局对象赋值，window.可以忽略不写
+    *
+    * */
+    // console.log(window.a);
+
+    var a = 1 ;
+    window.b =2;
+    b=2
+    console.log(window.a); //  1
+    console.log(b);  // 2
+
+    var a =1, b=2 ,c=3;
+    console.log(b, c); // 2 3
+    // 连等的情况下
+    var a = b = c =4; // b和c相当于给全局对象window增加的一个属性
+    console.log(b,c); // 4
+
+    a = 5;
+    console.log(c);//4
+
+
+</script>

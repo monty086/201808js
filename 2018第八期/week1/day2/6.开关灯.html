@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        #box{
+            width: 100%;
+            height: 100%;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    var box = document.getElementById('box');
+    var bg = box.style.background;
+    console.log(bg);
+
+    box.onclick = function () {
+        bg = box.style.background;// ''
+        console.log(bg);
+        // black =》 red => green => yellow => white => black
+        // if(bg == 'red'){
+        //     box.style.background = 'black'
+        // }else{
+        //     box.style.background = 'red'
+        // }
+
+        // if(bg == ''){
+        //     box.style.background = 'red'
+        // }else if(bg == 'red'){
+        //     box.style.background = 'black'
+        // }else if (bg == 'black'){
+        //     box.style.background = 'red'
+        // }
+
+
+       /* else if(bg == 'green' ){
+            bg= 'yellow'
+        }else if(bg == 'yellow'){
+            bg= 'white'
+        }else if(bg == 'white' ){
+            bg= 'black'
+        }*/
+        // box.style.background = bg
+    }
+</script>

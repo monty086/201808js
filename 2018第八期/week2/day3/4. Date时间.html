@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+
+    /*
+    * Date()
+    * 时间数据类型, 表示时间
+    *
+    * */
+    // 一般情况下,我们显示当前时间
+    var date = new Date();
+    console.log(date);
+
+    // 显示年份
+    var year = date.getFullYear();
+    console.log(year);
+
+    // 显示月份 1-12 // 0-11
+    // 显示月份 是从0开始的,所以我们需要给月份+1
+    var month = date.getMonth()+1;
+    console.log(month);
+
+    // 显示日, 1-31 //date显示的是日期
+    var day = date.getDate();
+    console.log(day);
+
+    // 显示星期
+    var week = date.getDay();
+    console.log(week); // 显示 周日=0  // 0-6
+
+    // 显示小时
+    var hour = date.getHours();
+    console.log(hour); //
+
+    // 显示分钟
+    var minute = date.getMinutes();
+    console.log(minute);
+
+    // 显示秒
+    var second = date.getSeconds();
+    console.log(second)
+
+    // 显示毫秒
+    // 显示的毫秒数 是 从 现在的时间 距离1970年1月1号早上8点00分,这段时间的毫秒数
+    var time = date.getTime();
+    console.log(time);
+
+    // 一个时间的毫秒数
+    // 1000ms => 1s
+    // 1000ms * 60  =>1m
+    // 1000ms * 60 *60  =>1h
+    // 1000ms * 60 *60 *24 =>1d
+    // 1000ms * 60 *60 *24 *30 => 1月
+    // 1000 * 60 *60 *24 *30 *12  => 1年
+    // var fullYear = time/( 1000 * 60 * 60 *24 *30 *12 );
+    // console.log( Math.floor(fullYear));
+
+    // 获取一个具体时间的毫秒数
+    new Date('2017-08-09 01:00:00')
+
+    // 让两个时间进行相减 => 首先会转化成毫秒数进行相减
+    var oneDay = new Date('2017-08-09 01:00:00')-new Date('2017-08-08 01:00:00')
+    /*
+    86400000/(1000*60*60*24)=> 1 天
+    86400000/(1000*60*60) => 24小时
+    86400000/(1000*60) => 1440分钟
+    86400000/(1000) =>86400秒
+    */
+
+    // 如果想在页面中实时显示时间
+    // console.dir(new Date())
+
+    setInterval(function () {
+        // box.innerHTML = '现在时间是:'+year+'年'+month+'月'+day+'日  '+hour+'小时'+minute+'分钟'+second+'秒'
+        var date = new Date();
+        var obj = {0:'日',1:'一',2:'二',3:'三',4:'四',5:'五',6:'六'};
+        // var week = obj[data.getDay()]
+        box.innerHTML = `现在时间是:${date.getFullYear()}年${date.getMonth()+1}月${date.getDate()}日 星期${obj[date.getDay()]} ${date.getHours()}时${date.getMinutes()}分${date.getSeconds()}秒`
+    },1000)
+
+
+</script>

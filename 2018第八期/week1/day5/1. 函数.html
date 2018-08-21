@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 函数: 也是一个方法
+    * 函数分为 : 定义函数 和执行函数
+    *
+    * 函数: 有名函数和匿名函数
+    * 函数名: function后面的名字;它代表函数本身
+    * */
+    // 函数声明式
+    function fn (){
+
+    }
+
+    console.log(fn);
+    // 函数的表达式
+    var fn  = function () {
+
+    }
+    /*
+    * 定义函数[堆内存]没有意义
+    * 执行函数[栈内存:执行js代码]才有意义
+    * 定义函数[浏览器发生变化]
+    * 1. 浏览器从上到下加载的时候,碰到函数,会开辟一个新的内存空间
+    * 2. 将函数中的js代码变成字符串存入内存中
+    * 3. 浏览器为了识别这个内存,会赋予一个16进制的内存地址
+    * 4. 最后将这个内存地址指向函数声明的变量
+    *
+    * 函数执行
+    * fn()
+    * 1. 形参一个私有的作用域[栈内存]
+    * 2. 形参赋值
+    * 3. 变量提升
+    * 4. 代码从上到下执行
+    * 5. 分情况判断是否销毁该内存
+    *
+    * */
+    var ary = [1,2]
+    function num (b,c,x){ // 形参
+        console.log(b+c)// 2 3
+        console.log(x);// undefined //[1,2]
+        x[0]= 'a'
+    }
+    num(2,3,ary)//实参
+    console.log(ary);// ['a',2]
+
+   /* var a = 1 ;
+    var b = a ; //1
+    console.log(b);
+    a++ // a+=1   a=>2
+    console.log(a);//2
+    console.log(b);//1
+
+    var c = [];// {name:'zf'}
+    var d = c ;//
+    d[0]=0; //
+    d = [] // d => 重新等于另外一个空间地址 []
+    console.log(c);//[0]*/
+
+   // arguments 实参的集合
+    function f(){
+        console.log(arguments);//类数组
+        // 没有数组的方法
+        // 有索引 有length 你可以通过 索引找到实参出入进来的值
+    }
+    //f(1,2,3);
+    ///f(1,2,3,4,'5','9','a',[1],NaN);
+    // 任意数求和=>
+
+
+    /*function f(){
+        console.log(arguments);// 实参的集合[1, 2, 3, 4, "5", "9", "a", [1], NaN,]
+        // for 循环 => 循环便利数组\对象\类数组中的每一项
+    }
+    f(1,2,3,4,'5','9','a',[1],NaN);//*/
+
+    /*var ary = [1,2,3];
+    for(var i = 0 ;i<ary.length;i++){
+        ary[i]+=10
+    }
+    console.log(ary);//[]*/
+
+    // return 返回值
+    // f1() 的返回结果,就看f1这个函数有没有return, 如果有return,输出return后面的值, 如果没有return返回undefined[return后面没值]
+    // return 后面的代码不再继续执行
+    function f1 (){
+        console.log(1);
+        console.log(2);
+        console.log(3);
+        var a = [1] ;
+        var b ;
+        return a+b
+        b=true;
+
+    }
+    console.log(f1); // f()
+    f1() // 1
+    console.log(f1()); //'10' '1undefined' 这一块输出的是f1这个函数执行的返回结果
+
+    // 总结函数
+    // 是一个方法,我们一般将执行多次的功能进行封装成一个函数; 这样做的好处可以提高代码的利用率,减少代码冗余 [低耦合高内聚]
+    //  函数执行,每一次执行都没有任何相互的关联,执行函数的时候,代码都会从上到下执行一遍
+    //  函数中有两个关键字 1.arguments : 实参的集合,[把实参依次放入类数组中] => 类数组:长的和数组一样,但是不具有数组的属性和方法
+    // 2. return : 函数的返回值, 一个函数执行看它的返回结果,就看它有没有return; 没有return 或者return后面没有值返回都是undefined; 如果有值,return后面是什么返回就是什么;
+    // 注意:碰到return ; 后面的代码不再继续执行
+
+    /*var a =1 ;
+    a++
+    console.log(a);
+
+    var a =1 ;
+    a++
+    console.log(a);
+
+    var a =1 ;
+    a++
+    console.log(a);
+
+    var a = 1
+    function fn(){
+        a++
+        return a
+    }
+    fn()
+    fn()
+    fn()*/
+
+</script>

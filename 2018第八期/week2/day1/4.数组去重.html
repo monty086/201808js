@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    数组去重
+    * 1. 排序法
+    * 2. indexof
+    * 3. 双循环 => for
+    * 4. 引用数据类型操作的是引用地址 => indexof splice
+    * 5. es6
+    *
+    * */
+
+    var ary = [1,2,1,2,44,3,2,1,2,3,5,44];
+
+
+
+    // 排序法
+    function sortAry(ary){
+        // 先对数组进行排序
+        var newAry = [];
+        ary.sort(function(a,b){
+            return a-b
+        })
+        // console.log(ary); [1, 1, 1, 2, 2, 2, 2, 3, 3, 5, 44, 44]
+        for(var i=0;i<ary.length;i++){//i=>1
+            /*
+            // 方案1
+            if(ary[i]==ary[i+1]){
+                // 使用当前项和后一项进行对比,如果不相等的话,把不相等的那一项放到新数组中
+            }else{
+                newAry.push(ary[i])
+            }*/
+
+            if(ary[i]==ary[i+1]){
+                ary.splice(i,1);
+                i-- // splice删除数组中的某一项,会形成数组塌陷,导致比较的时候会跳过当前项,我们为了防止数组塌陷,我们使用i--,让循环体再按原来的值循环一次
+                // splice会截取出重复的项,剩余的原数组就会形成一个不重复的数组
+            }
+
+        }
+        return ary
+    }
+
+    // console.log(sortAry(ary));
+
+    // 排序2 indexOf
+    function indexAry(ary) {
+        var newAry = [];
+        // 循环数组中的每一项
+        for (var i =0;i<ary.length;i++){
+            // 通过一个新的空数组去检查每一项是否在这个数组中,如果不在,就添加进去;如果有的话,不用管
+            /*
+            方案1
+            if(newAry.indexOf(ary[i])==-1){
+                newAry.push(ary[i]) // [1,2]
+            }*/
+            // includes 判断数组中是否有这一项,有的话为true,没有为false
+            if(!newAry.includes(ary[i])){
+                newAry.push(ary[i])
+            }
+        }
+        return newAry
+    }
+
+    // console.log(indexAry(ary));
+
+    // 双循环
+    function dbfor(ary) {
+        var obj = {},newAry =[];
+        // 循环每一个ary 拿到数组中的每一项值
+        for(var key in ary){
+            var cur = ary[key];// [1,2,1,2]
+            // 把数组中的每一项既当作属性名又当作属性值,储存到对象中,
+            // 但是因为对象中的属性名是独一无二的,所以对象中只会保存到不重复的键值对[是每一组键值对]
+            obj[cur] = cur;// {1:1,2:2,}
+        }
+        for (var key in obj){
+            // 又因为属性名都是属于字符串,我们不能给新数组单独添加key,因为全部都是字符串,我们需要把对象的属性值添加到新数组当中
+            newAry.push(obj[key]) //['1','2']
+        }
+        return newAry
+    }
+
+    // console.log(dbfor(ary));
+
+    // es6 去重
+    // es6 中的去重是利用了set这个数据类型,中存储的值都是独一无二的特性进行实现的.
+    console.log([...new Set(ary)]);
+
+    // 判断一个数组中,重复的项是什么,出现了多少次
+    var ary = [1,2,1,2,1];
+    // {1:3,2:2}
+    function replay(){
+        var obj = {};
+        for(var i=0;i<ary.length;i++){
+            var cur = ary[i]
+            if(obj[cur] != undefined){ // {}=>{1:?,2:?}
+                obj[cur]++ //{1:3,2:2}
+            }else{
+                obj[cur]=1//{1:1,2:1}
+            }
+        }
+    }
+    console.log(replay(ary));
+</script>

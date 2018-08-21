@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * = 赋值
+    * == 一般比较
+    * === 严格比较 : 数据类型和值都相同的情况下才会返回true
+    * 判断之switch case
+    *
+    * */
+
+    console.log('1' === 1); // false
+    console.log('1' === '1'); // true
+
+    /*switch 再判断当中属于 严格比较
+    switch (条件x){
+        case 条件1: //条件x === 条件1
+            执行这一块的代码;
+            break; // 中断代码
+        case 条件2: //条件x === 条件2
+            执行这一块的代码;
+            break;
+        default: // 条件都不满足执行default里面的代码
+            执行这一块的代码;
+    } */
+
+    switch ('1'){
+        case 1:
+            console.log(1);
+            break;
+        case 2:
+            console.log(2);
+            break;
+        default:
+            console.log(3);
+    }
+
+</script>

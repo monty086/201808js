@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border:1px solid yellow;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box" style="" class="box1"></div>
+<input type="button" value="变长" id="he">
+<input type="button" value="变宽" id="wi">
+<input type="button" value="变色" id="co">
+<input type="button" value="恢复" id="re">
+</body>
+</html>
+<script>
+ /*   var  divBox = document.getElementById('box')
+    divBox// 元素
+    divBox.innerHTML='<h1>11</h1>';
+    divBox.style.background = 'black'*/
+    var he = document.getElementById('he')
+    var wi = document.getElementById('wi')
+    var co = document.getElementById('co')
+    var re = document.getElementById('re')
+    var box = document.getElementById('box')
+    he.onclick = function () {
+        box.style.height = '200px'
+    }
+    wi.onclick = function () {
+        box.style.width = '200px'
+    }
+    co.onclick = function () {
+        box.style.background = 'blue'
+    }
+    re.onclick = function () {
+        box.style.height = '100px';
+        box.style.width = '100px';
+        box.style.background = '';
+    }
+</script>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * number 数据类型
+    * 0 100 0.1 -100.01
+    * 正数 负数 小数  0 NaN
+    * isNaN  Number parseInt parseFloat
+    * */
+
+    // NaN ： not a number 不是一个数
+    console.log(NaN == NaN); // false
+
+    //1： isNaN()  判断参数是否是一个数，如果是一个数，返回false、 如果不是一个数，返回true
+    // 返回值：一共有2个，一个是true ，一个是false
+    console.log(isNaN('1')); // false  不是一个数吗？
+    console.log(isNaN(1)); // false
+    console.log(isNaN('a')); // true
+    console.log(isNaN(true)); // false
+    console.log(isNaN(NaN)) // 它确实不是一个数 所以返回true
+
+    // 在isNaN中如果传了一个不是数字的值，我们需要将这个值转化成数字，通过Number(0)
+    // 2： Number() => 强制转化，将数据类型强制转换成一个数字，如果转换不成功返回NaN; 转化成功，结果是一个数字
+    console.log(Number(1));
+    console.log(Number('1')); // 1
+    console.log(Number('a')); // NaN
+    console.log(Number('true')); // NaN
+    // 特殊的几种情况
+    console.log(Number('')); // 0
+    console.log(Number('     ')); // 0
+    // console.log(Number('     1')); // 1
+    console.log(Number(true));// 1
+    console.log(Number(false));// 0
+    console.log(Number(null));// 0
+    console.log(Number(undefined));// NaN
+
+    // 强制转化的时候，只有遇到引用数据类型才会进行toString转化，否则在基本数据类型中直接判断，【特殊的几点 true false null ''】
+    console.log(Number({name:'zf'}));// NaN
+    console.log(Number([1]));// 数组执行toString=> '1' //1
+    console.log(Number([1,2]));// '1,2' 没有办法转换，所以返回 NaN
+    console.log(Number(/1/));// NaN
+
+    // 非强制转换
+
+    // 3. parseInt 转化整数 ；里面是一个字符串
+    // 将参数从左到右进行转化，只取里面的整数 ；一旦遇见第一个值不是数字，停止转化，返回NaN
+    console.log(parseInt(1.2));//1
+    console.log(parseInt('22px'));//22
+    console.log(parseInt('p3x3')); // NaN
+    console.log(parseInt('.56')); // NaN
+    console.log(parseInt('-12355.333')); // -12355
+    console.log(parseInt('0.333')); // 0
+    parseInt([]) // []是引用数据类型 => toString() 用来转化成字符串
+    // 4. parseFloat 转化小数
+    // 将参数从左到右进行转化，包括小数，一旦遇见第一个值不是数字，停止转化，返回NaN；如果遇到中间的字符不是数字，返回前面转化到的数字
+    console.log(parseFloat(1.2));//1.2
+    console.log(parseFloat('1.2px2.3'));//1.2
+    console.log(parseFloat('1.212312312'));//1.2
+
+    // 5.toFixed
+    console.log((5).toFixed(2));// 5.00
+
+
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 自执行函数  自运行函数
+    * 浏览器再加载的时候, 立刻执行的一个函数
+    * 写法
+    * (function(){})() // 这个比较常用
+    * +-!~ function(){}()
+    * */
+    (function(){
+        console.log(123);
+    })();
+    //!~+-
+    !function(){
+        console.log('!');
+    }();
+    ~function(){
+        console.log('~');
+    }();
+    +function(){
+        console.log('+');
+    }();
+    -function(){
+        console.log('-');
+    }()
+
+    var a = (function(){
+        return 1
+    })();
+
+    console.log(a);
+</script>

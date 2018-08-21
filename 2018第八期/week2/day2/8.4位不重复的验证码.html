@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+    <input type="button" value="点击" id="input">
+</body>
+</html>
+<script>
+    /*
+    * 4位不重复的验证码
+    *
+    *
+    * */
+    var str = 'abcdefghijklmnopqrstuvwxyz'+"ABCDEFGHIJKLMNOPQRSTUVWXYZ"+'1234567890';
+    var box = document.getElementById('box');
+    function fn () {
+        box.innerHTML='';
+        for(var i=0;i<4;i++){
+            // 从索引 n
+            // -m  {(m-n)+n} 0  str.length-1
+            var index = Math.round(Math.random()*(str.length-1-0)+0);
+
+             str[index]==undefined?console.log(index):void 0;
+
+            if(box.innerHTML.indexOf(str[index])==-1){ // 重复项
+                box.innerHTML += str[index];
+            }else{
+                i--
+            }
+        }
+    }
+     // setInterval(fn,100)
+
+    // var str1 = '123';
+    // console.log(Math.round(Math.random() * str1.length));
+
+
+</script>

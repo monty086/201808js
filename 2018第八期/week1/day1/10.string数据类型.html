@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * string 数据类型
+    * 用双引号或者单引号包裹内容都叫字符串
+    * 字符串中可以放任意的内容。
+    * 外面用双引号，里面用单引号，尽量不要让字符串中的引号引起冲突
+    * */
+
+    var str1 = '1';
+    var str2 = 'true';
+    var str3 = 'true function var typeof';
+    //  I am a 'student'
+    var str4 = "I am a 'student'";
+    var str5 = "[1,2,4]";
+
+    /*
+    * 当字符串遇到加号的时候，属于字符串拼接
+    * 碰到不是+以外的字符，都会进行运算。会转化成数字进行运算，运算不成功返回NaN
+    * */
+
+    var str6 = ' this is '+ undefined;
+    var str7 = '2a' - 1; //
+    console.log(str7);
+
+    console.log(str4 + str6) //'I am a 'student' this is undefined'
+
+    // length 长度 表示字符串一共有几个字符
+    console.log(str4.length);
+
+    //es6
+    // '123'
+    // `123`
+    // '123'+str4
+    // `123${str4}`
+</script>

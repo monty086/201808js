@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="p">
+        <a href="javascript:;" id="old">我是a标签</a>
+        <i id="i">我是i标签</i>
+    </p>
+</body>
+</html>
+<script>
+    //动态创建元素
+    var newDiv = document.createElement('div');// 通过标签名创建一个元素
+    newDiv.innerText = '我是这个新的div'
+    // 拿到p标签
+    var p = document.querySelector('#p');
+    // 把newDiv放入p标签中
+    // appendChild: 将newDiv放到p标签元素的末尾
+    p.appendChild(newDiv);
+    // innerHTML // 通过+=将这个newDiv放入到p标签的末尾
+    console.log(newDiv);
+    p.innerHTML += '<h1 >我是h1</h1>'
+
+    // 克隆一个标签元素  父级元素.cloneNode()
+    // 克隆标签元素,注意是深克隆还是浅克隆,
+    // 如果是深克隆,传入true,表示将标签的子孙后代全部克隆
+    // 如果是浅克隆,传入false,表示只克隆当前这个标签
+    var a = p.cloneNode(false)
+    console.log(a);
+    var b = p.cloneNode(true)
+    console.log(b);
+
+    var old = document.getElementById('old');
+    var i = document.getElementById('i');
+    var ul =document.createElement('ul');
+    // 插入元素
+    // 父级元素.insertBefore(新,旧) :表示在父级元素下,在旧标签元素前插入新的标签元素
+    p.insertBefore(b,old); // 在a标签前插入b标签
+
+    // 替换标签   父级.replaceChild(新,旧)
+    // 在父级元素下,将旧的标签替换成新的标签
+    // 因为dom中有映射关系,所以替换的时候,只会移动位置,不会重新创建;
+    p.replaceChild(ul,i) // 将旧的b标签替换成新的old标签
+
+    // removeChild 移除标签
+    // 父级元素.removeChild(要移除的标签)
+    p.removeChild(old) // 在p标签内,将old元素标签移除
+
+    /*
+    * createElement('标签名')  // 动态创建一个标签
+    * 父级.appendChild('标签') // 在父级的末尾插入一个标签
+    * 父级.removeChild('标签') // 在父级中移除这个标签
+    * 元素.cloneNode(true/false) // 深或者浅拷贝当前这个元素
+    * 父级.insertBefore(新,旧) // 在父级中,在指定的旧标签前面插入新标签
+    * 父级.replaceChild(新,旧) // 在父级中,将旧的标签替换成新的标签元素
+    * */
+
+</script>

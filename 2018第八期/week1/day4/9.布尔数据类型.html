@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 布尔数据类型有2个值
+    * 一个true 一个false
+    * 在数据类型中 0 NaN '' null undefined 为 false 其他的全部为true ;
+    *
+    * 方法
+    * 1. Boolean() // 执行这个方法,将值转化成布尔数据类型
+    * 2. !  取反// 先将其转化成布尔数据类型,然后再取反
+    * 3. !!  先取反后取反 // 直接转化成布尔数据类型即可
+    * */
+    Boolean('  '); // true
+    Boolean('');   // false
+    Boolean([]);   // true
+
+    console.log(!'     ');//false
+    console.log(![]); // false
+    console.log(!isNaN('5'));//true
+
+    //!!(1+2)// 就表示将其转话成布尔
+
+    // 思考
+    /*function Boolean(value){
+
+        return false
+        return true
+    }
+    Boolean(NaN)*/
+
+    if(1){ // Boolean(1)
+
+    }
+    if(1==1){}
+</script>

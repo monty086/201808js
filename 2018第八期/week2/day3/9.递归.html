@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 递归: 函数调用函数,叫做递归
+    *
+    *
+    * */
+
+    function fn() {
+        // fn()
+    }
+    fn()
+
+    function sum(num){
+        if(num == 0){
+            return 0
+        }
+        return num+sum(num-1)
+        // 100 + sum(99)
+        // 100 + 99 + sum(98)
+        // 100+ 99 + 98 + sum(97)
+        // ...
+        // 100 + 99 + 98 + ... + sum(0)
+        // 100 + 99 + 98 + ... + 0
+    }
+
+    console.log(sum(100));
+    //  100以内,能被3和5整除的数相加 , 用递归执行
+</script>

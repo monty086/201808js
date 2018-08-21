@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隔行变色</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+            width: 300px;
+            /*height: 270px;*/
+            margin: 100px auto;
+            border: 1px solid red;
+        }
+        li{
+            width: 100%;
+            height: 30px;
+            border-bottom: 1px solid green;
+        }
+        .bg1{
+            background: gold;
+        }
+        .bg2{
+            background: yellowgreen;
+        }
+        .bg3{
+            background: lightblue;
+        }
+
+        /*li:nth-child(odd){
+            background: gold
+        }
+        li:nth-child(even){
+            background: yellowgreen;
+        }*/
+    </style>
+</head>
+<body>
+<ul>
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+</ul>
+</body>
+</html>
+<script>
+    var lis = document.getElementsByTagName('li')//通过标签名获取到的元素集合
+
+    // 给每一行进行渲染颜色,需要循环每一行
+    for(var i=0;i<lis.length;i++){
+        //i =0
+        //lis[0].className = 'bg1'
+        // 0 1 2 3 4 5 6 7 8
+        // 0 1 0 1 0 1 0 1 0
+        //lis[i].className = 'bg1';
+        if(i%2) { // 我们可以通过判断i的值,如果i的值是奇数,我们让奇数行变成黄色,如果i属于偶数值,我们可以让偶数行变成绿色[奇数偶数从0开始算起]
+            lis[i].className = 'bg2';
+            lis[i].index = 'bg2'
+            // 奇数行[从索引1开始算起]变成 绿色
+        }else{
+            lis[i].className = 'bg1';
+            lis[i].index = 'bg1'
+            // 偶数行[从索引0开始算起]变成 金色
+        }
+        // css中 hover是一样的效果
+        lis[i].onmouseover = function () {
+            // this <li>?<li>
+            // console.log(this.innerHTML);
+            this.className = 'bg3'
+        }
+        // 自定义属性:再当前的li标签中将之前设置的颜色当作属性保存起来
+        // 滑出的时候,我们直接拿到li标签上的属性名为index所对应的属性值,就是就每个li原来的类名
+        lis[i].onmouseout = function () {
+            // this=> 滑出的时候,鼠标滑出的那一项li
+            this.className = this.index;// this.index就是一开始渲染隔行的时候保存的那个原始的值
+        }
+    }
+
+</script>

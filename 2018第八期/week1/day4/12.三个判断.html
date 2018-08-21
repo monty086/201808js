@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * if else
+    * 三元运算符
+    * switch case
+    * && ||
+    *
+    * */
+    // 在if else if else中只要有一个条件满足,其他的判断都不会执行
+    if('条件'){
+        // 条件满足的情况下执行的代码
+    }else if('条件2'){
+        // 满足条件2 执行的代码
+    }else{
+        // 条件1 和条件2 都不满足执行的代码
+    }
+    if(true){'执行'}
+    // else if(){}
+    // else {}
+    // else 和 else if 不能单独执行,必须搭配if条件进行执行
+
+    if(true){
+        if(0){
+            if(1){
+                console.log(1);
+            }
+        }
+    }
+    // var num = parseFloat('1.2px');
+    // if(isNaN(num)){
+    //     console.log(1);
+    // }else if(num === num){
+    //     console.log(2);
+    // }else{
+    //
+    // }
+
+    // 三元运算符
+    //  条件 ? 满足条件执行这块代码 : 不满足条件执行的代码
+    1===2 ? console.log(1):console.log(2);
+    1==1 ? console.log(0): void 0;
+    var a = []==[] ? null : undefined;
+
+    if(true){
+        if(false){
+            console.log(1);
+        }
+    }
+    // 思考题:将这个if 条件转化成三元运算符
+
+    // switch case
+    // 比较方式分为2种
+     // == : 一般比较  => 如果两边数据类型不同,最后都会转化成数字进行对比
+    // ===  : 严格比较 => 两边的值,数据类型和值都相等的情况下才会返回true,否则返回false
+    1 =='1' //true
+    1 === '1' // false
+    // switch case 使用的严格模式进行比较
+
+    var num = 12 ;
+    switch(num){
+        case '12':
+            console.log(5);
+            break; // 中断代码
+        case 12:
+            console.log(6);
+            break; // 中断代码
+        case [12]:
+            console.log(7);
+            break; // 中断代码
+        default:
+            console.log(8);
+    }
+
+    // 思考题:将这个switch case 变成if else
+
+    //  && ||  可以理解为简单的if else
+    // && 在当作比较语句的时候,两边都true 才为true,如果有一边为false,则为false
+    // || 比较语句:  两边只要有一边为true,则为true, 两边都为false 返回false
+
+    // 当 && 和 || 逻辑运算符 作为表达式的时候:
+    //  && 只要前面为true,后面代码不管是什么都会执行
+    //  || 如果前面为false,不管后面的代码是什么都会执行
+
+    if( 1==1 && 2==2){ // 必须两边都相等
+        if(1==true && '1'===1){
+
+        }
+    }
+    if( 1==1 || 1==='1'){
+
+    }
+    1==1 && console.log(1) ;
+    1==1 || console.log(2) ;
+    1==='1' || console.log(3);
+
+    var a = b || c //
+    function fn(b){
+        // b =>undefined
+       var a = b || 1000
+       return a
+    }
+    fn(3)
+    fn()
+ </script>

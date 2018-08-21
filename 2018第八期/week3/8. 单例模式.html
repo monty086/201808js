@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    *  单例模式
+    *  模块化开发：将一个项目按照页面或者功能分割，交给不同的人员进行开发，就叫做模块化开发
+    *  由于不同人员进行开发，会造成全局变量的污染，我可以使用闭包的形式，来防止全局变量的污染。
+    *  仅仅使用闭包的形式是不完美的，我们需要搭配设计模式来完成项目的模块化开发
+    *  单例模式的本质就是一个对象
+    *  单例模式：将项目中具有相同属性和功能放到一个对象中，就属于单例模式
+    * */
+
+
+</script>
+<script>
+    // 赵江硕
+    // (function(){
+    //     var name = 'jd'
+    // })()
+    var header  = {
+        name:'jd',
+        message : function(){
+            console.log(this.name);
+        }
+    }
+    header.message()
+</script>
+<script>
+    // 魏留佳
+    // (function(){
+    //     var name = 'JD'
+    // })()
+    var content  = {
+        name:'JD'
+    }
+    console.log(content.name);
+</script>
+<script>
+    // 刘徐强
+    // (function(){
+    //     var name = 'jindong'
+    // })()
+    var footer ={
+        name:'jindong'
+    }
+</script>
+<script>
+    console.log(name);
+</script>
+
+<script>
+    /*
+    * 高级单例模式
+    * 高级单例模式就是一个自执行函数，返回一个对象，将我们需要的属性和方法添加到返回的对象当中
+    *
+    * 在单例模式当中，想要实现里面的方法链式调用，最关键词是return this
+    * */
+
+    var header = (function(){
+        var a = 1 ;
+        var message = function(){
+            console.log(a++);
+            return this
+        }
+        var show = function(){
+            return this
+        }
+
+        return {
+            message,
+            show,// es6中属性名和属性值是一样的话，只写一个就行
+        }
+    })()
+    header.message().show()
+
+    // 这是一个项目
+    var demo = (function(){
+        var a = 1 ;
+        var header = function(){
+            console.log(a++);
+        }
+        var content =function(){
+
+        }
+        var footer = function (){
+
+        }
+        return {
+            init:function(){
+                header();
+                content()
+                footer()
+            },
+        }
+    })()
+    demo.init()
+
+    // 利用高级单例模式封装一些方法
+    var public = (function(){
+        var qc = function(){
+            //...
+            return //...
+        }
+        var quickSort = function(){
+            //....
+        }
+        var tab = function(){
+            // ...
+        }
+        return {
+            qc:qc,
+            quickSort:quickSort,
+            tab:tab,
+        }
+    })();
+    //  <script src='public.js'/>
+     // public.qc()
+
+</script>

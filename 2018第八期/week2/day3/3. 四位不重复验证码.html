@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            font-size:40px;
+            width: 100px;
+            height: 50px;
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+<p id="p">60</p>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    var str = 'abcdefghijklmnopqrstuvwxyz'+"ABCDEFGHIJKLMNOPQRSTUVWXYZ"+'1234567890';
+    var box = document.getElementById('box');
+    var p = document.getElementById('p');
+    // 把验证码封装到一个函数中
+    function code(){
+        var newStr = '';
+        // 我们需要循环4次,保证拿到4位不重复的验证码
+        for(var i=0;i<4;i++){
+            // 我们需要拿到[0到 61 之间的一个随机数]一个随机的索引
+            var index = Math.round(Math.random()*(str.length-1-0)+0);
+            // 我们讲不同的字符拼接到字符串中
+            if(newStr.includes(str[index])){
+                i-- // 让i的值保持不变,再循环一次
+            }else{
+                newStr+= str[index] // 找到一个随机的字符,拼接到newStr中
+            }
+        }
+        box.innerHTML = newStr;
+        box.style.background = `rgba(${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.random()})`
+    }
+    code()
+    var count = 60;
+    var timer = setInterval(function () {
+        // 让时间不断递减
+        count--;
+        // 让页面显示递减后的数字
+        p.innerText = count;
+        // 当数字为0的时候,我们可以清除定时器
+        if(count ===0){
+            //count=61;
+             clearTimeout(timer);
+             // 让验证码重新在变换一次
+            code()
+        }
+    },100)
+</script>

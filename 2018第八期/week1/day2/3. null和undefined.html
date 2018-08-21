@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * null 和 undefined
+    * 都表示没有的意思
+    * null ：空
+    * 1. 给变量初始化一个默认值
+    * 2. 给引用数据类型赋值空，清除内存；
+    *
+    * undefined : 未定义
+    * 1. 声明了一个变量没有赋值，那这个变量属于未定义
+    * 2. 函数中没有返回值，输出函数执行的结果就是undefined
+    * 3. 函数中的参数，再没有赋值的情况下属于undefined
+    *
+    * */
+
+    var a ; //
+    console.log(a); // undefined
+
+    var a = null; //
+    a = 1
+    a = 'b';
+    a = function(){};
+
+    var obj = {name:'zf'}; // 把这个对象【引用数据类型】
+    //obj = null // 指向空指针；
+    obj.name = null; // 也相当于把属性值给删除了
+
+    var x = 12 ;
+    x = null; // 相当于删除了一个值
+    console.log(x); // null
+
+    // undefined
+    var y;
+    console.log(y); // undefined
+
+    function fn(){ return;  } // return 返回值
+    console.log(fn()); // undefined
+
+    function fn(a){
+        console.log(a); // undefined
+    }
+
+
+</script>

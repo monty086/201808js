@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // f(1,2,3,4,'5','9','a',[1],NaN);//
+
+    function f(){
+        console.log(arguments);// 实参的集合 [1, 2, 3, 4, "5", "9", "a", [1], NaN]
+        // argument.length // 实参的个数
+        // for 循环 => 循环便利数组\对象\类数组中的每一项
+        // 声明一个变量,接收所有值的和
+        var count = 0 ;
+        for(var i=0;i<arguments.length;i++){
+            //arguments[i] 每一次循环这个arguments[i]值都不一样
+            // count += 在count的基础上进行累加
+            if(!isNaN(arguments[i])){//如果是数字的话进执行这个判断体
+                // '5' '9' [1] // 这些值我们可以通过转换将其变成数字,然后累加
+                // 只要能进来这个判断,都是通过toString 或者 Number 转化成数字后没问题才可以进来
+                // Number() => 数字
+                count += Number(arguments[i])
+            }
+
+            // 0 + 1
+            // 1 + 2
+            // 10 + '5' =>'105'
+            // '105'+'9' =>'1059'
+            // '1059'+ 'a' => '1059a'
+        }
+        return count
+    }
+    console.log(f(1, 2, 3, 4, '5', '9', 'a', [1], NaN, '1px'));//25
+
+    var ary1 =[];
+    ary1[0]=0;
+    ary1[0]+=10
+    console.log(ary1);//[10]
+
+    var ary = [1,2,3];
+    for(var i = 0 ;i<ary.length;i++){
+        ary[i]+=10
+    }
+    console.log(ary);//[11,12,13]
+
+    // for 循环
+    // for 循环 一般情况下是用来循环数组, 类数组
+    /*for(初始值;条件[循环多少次,循环到第几次的时候不再继续循环];循环持续累加){
+        满足条件执行的循环体
+    }*/
+    // i =>2
+    for (var i =0 ;i<5;i++){
+        if(i === 2){ //
+            continue // 下面的代码不再继续执行 ; 循环还在继续;[i值还在继续累加,紧接着执行下一轮循环]
+        }else if( i === 3 ){
+            break // 结束整个循环,跳出循环体
+        }
+        // 0 1 2 3 4
+        console.log(i);// 0 1
+    }
+    // continue  结束当前循环 ,继续执行下一轮
+    // break  结束整个循环
+    //console.log(i);//6
+
+    var b =0 ; // 2 4 5 6 7
+    for(var i =0 ;i<5;i++){ // 0 1 2 3 4 5
+        b++;
+        if(b>3){
+            console.log(b);//5 6 7
+            continue
+        }else if (b==4){
+            console.log(b);
+            break
+        }else{
+            b++
+        }
+    }
+    // 输出几次,输出多少
+    // 5 6 7
+    //
+    //
+
+    var c = 1 ; // 2 3
+    for (var i=1;i<6;i++){ // 2 3 4 5 6
+        if(c==3){
+            continue;
+            console.log(c++);
+        }else if (c>3){
+            console.log(c++);
+            break
+        }else{
+            c++
+            continue
+        }
+    }
+    // 0
+    // 3 345
+    // 3 234
+    // 0
+
+    // for in
+    // 循环一个对象的可枚举属性
+    // 可枚举属性: 手动给对象设置的属性[包括私有属性和公有属性]
+    var obj = {name:'china',age:5000};
+    for(var key in obj){
+        console.log(key); // 对象中的属性名
+        console.log(obj[key]) // 对象中的属性值
+    }
+    // in 判断一个属性名是否属于这个对象  true false
+    console.log('name1' in obj); //
+    // obj.name1 === undefined
+
+    // while 不知道循环次数我们可以用while循环
+    var n = -1
+    while(n){
+        n++
+    }
+    console.log(n); //0
+
+
+</script>

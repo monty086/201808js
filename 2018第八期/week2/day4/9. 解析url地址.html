@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var str = 'https://www.baidu.com/s?wd=d&rsv_spt=1&rsv_iqid=0xede7f79e00005cdb&issp=1&f=8&rsv_bp=0&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=0&rsv_sug3=1&inputT=1073&rsv_sug4=1073';
+    // 通过indexOf找到字符串中的?对应的索引
+    var index = str.indexOf('?');
+    // 通过?这个符号,截取?到末尾的字符串
+    var newStr = str.substring(index+1);
+    // 通过split,将指定符&,将字符串转变成数组
+    console.log(newStr);
+    var ary = newStr.split('&');
+    console.log(ary);
+    var obj = {};
+    // 可以调用数组上的方法forEach.对其进行便利
+    ary.forEach(function (item) {
+        // 再将里面的每一项调用split通过指定符=,将其转变成一个新的数组
+        var cur = item.split('=')
+        // 通过对象进行接收
+        obj[cur[0]] = cur[1]
+    })
+    console.log(obj);
+</script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+     /*
+     * js中的数据类型：基本数据类型、引用数据类型
+     * 基本数据类型：number【数字】 string【字符串】 boolean【布尔】null【null】、undefined【undefined】
+     * 引用数据类型：object【对象】 array【数组】 regexp【正则】 function【函数】 date【时间】
+     *
+     * typeof 检测数据类型
+     * */
+
+     //number
+    // 1 2， 100  0  0.1  NaN
+     console.log(typeof 100);
+     console.log(typeof NaN);
+
+     // 栈内存和堆内存  虚拟内存
+    // string  "a" 'b'
+     console.log(typeof '1');
+     console.log(typeof 'true false ...');
+
+     // boolean // 只有两个值
+     // true false
+     console.log(typeof true); //
+     console.log(typeof 'true');//
+
+     // null 和 undefined // 只有一个值
+     console.log(typeof null); // typeof 检测不到null 返回值是object
+     console.log(typeof undefined); //undefined
+
+     // 基本数据类型放在栈内存中，引用数据类型放在堆内存中
+     // 基本数据类型和引用数据类型的区别：
+     // 基本数据类型操作的值，引用数据类型操作的是引用地址
+     //object array regexp function
+     var obj = {name:'zhufeng',age:8} // 对象中用{}来包裹 ，里面都是键值对  属性名：属性值... 这些键值对用 ，【逗号】来分隔
+     var ary = [1,2,3,true,'a',null,function(){},{name:'zf'}] // 数组用[]来表示，里面可以放任意的数据类型
+     var reg = /\d\w/ // 正则就是两个斜杠中插入正则的内容
+
+     var fn = function (){} // 这个是一个函数
+     function fn (){} // 都表示一个函数
+     console.log(fn); // 函数的名就代表整个函数
+
+     console.log(typeof function () {});
+     console.log(typeof obj);
+     console.log(typeof ary);
+     console.log(typeof reg);
+
+     /*
+     * typeof 检测数据类型1
+     * 可以检测大多数的数据类型，但是不能检测 null 和 array 和 regexp 这些详细的数据类型
+     * 两个及两个以上的typeof ，最后检测出来的值都是字符串
+     * */
+
+     console.log(typeof NaN);//'number'
+     console.log(typeof (typeof NaN));//'string'
+     console.log(typeof typeof typeof 1); //'string'
+
+</script>

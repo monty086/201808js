@@ -1,0 +1,28 @@
+1. 自定义属性
+2. 动态创建元素
+   指定元素末尾添加一项元素  => box.innerHTML +='<h1>'
+   替换元素
+   插入元素 insetBefore(新,旧)
+   移除元素 removeChild(元素对象)
+3. 节点有几个
+   父级节点 parentNode
+   子节点 childNods
+   上一个哥哥
+   下一个弟弟
+   父元素
+   元素节点名称 => nodeName =>
+4. 数组方法
+   翻转和排序  sort()
+   循环 => forEach()  map()
+   数组克隆=> splice(0) slice() slice(0) concat()
+   数组截取 splice(n,m,x)
+   // 想要在数组中某一个数字前面插入一个数
+   m=>0   splice(5,0,'x')
+   slice(n,m) [n,m) 索引
+5. slice(n,m)
+   substr(n,m)
+   substring(n,m)
+6. math
+   ceil  floor  round  random
+   Math.round(Math.random()*(m-n)+n)
+   max min abs

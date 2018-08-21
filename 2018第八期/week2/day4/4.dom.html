@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <p id="p"></p>
+</div>
+<div class="box"></div>
+<input type="text" name="username" id="input">
+</body>
+</html>
+<script>
+    /*
+    * dom 文档对象模型 document object model
+    * 浏览器给js提供了一些属性和方法用来操作dom,dom不属于js语法,但是js离开了dom也就是去了他的意义
+    * */
+
+    // 获取元素
+    var box = document.getElementById('box');//id名
+    var box2 = document.getElementsByClassName('box')//类名=>元素集合
+    var divs = document.getElementsByTagName('div')//标签名 => 元素集合=>类数组
+    var name = document.getElementsByName('username')// name属性=> 元素集合 => 类数组
+    document.documentElement // html
+    document.body // body
+    document.querySelector('#box');//.box div 有兼容问题 ie6~8
+    document.querySelectorAll('div')//
+
+
+    // 创建元素
+    var a = document.createElement('a');//创建一个元素
+    var i = document.createElement('i');//创建一个元素
+    box.appendChild(a)// 向box元素的末尾插入div标签
+    box.appendChild(i);
+    box.innerHTML+='<div></div>';
+    // var b = a.cloneNode(false) // 深拷贝 浅拷贝
+    // var b = a.cloneNode(true) // 深拷贝 :将a标签中的所有元素都进行复制
+     box.insertBefore(a,p)  // 在box元素下,将新的标签插入到旧的标签前面
+    // dom映射
+     box.replaceChild(p,a) //  在box元素下,将旧的标签替换成新的标签
+    // 操作元素
+
+    /*
+    * cloneNode() // 克隆
+    * appendChild() // 向元素的末尾增加一个新的元素
+    * removeChild() // 在父元素中移除这个元素
+    * insertBefore(新,旧) // 在父元素中,在旧的元素前面插入新的元素
+    * replaceChild(新,旧) // 在父元素中,将旧的元素替换成新的元素
+    * document.createElement(标签名) // 在js创建一个元素
+    * */
+
+    /*
+    * classList.add()
+    * classList.remove()
+    * classList.toggle()
+    * */
+
+    /*
+    box.style.background = 'red'
+    box.innerText='1';
+    box.innerHTML ='2';
+    box.onclick = function () {};
+    */
+</script>

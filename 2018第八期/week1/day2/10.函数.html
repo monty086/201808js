@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 函数 又叫做方法
+    * 函数属于函数数据类型,又属于引用数据类型
+    * 函数分为2部分,一个是定义函数 一个执行函数
+    * 定义一个函数不执行的话,这个函数没有任何意义,只有执行的时候,这个函数才有意义
+    * 实参和形参是一一对应
+    * 函数每次执行的都相互之间没有任何关系,都是独立存在的;
+    *
+    * // 函数的定义阶段
+    * function 函数名 (形参) {
+         函数体:代码执行的地方
+      }
+    * // 函数的执行阶段
+    * 函数名(实参)
+    * */
+    /*function fn() {
+       var a = 1 ;
+       a =2 ;
+       console.log(a)//2
+    }
+    fn()
+    fn()
+    fn()*/
+
+    /*function fn(a,b) {
+        console.log(a)//1
+        console.log(b);// b=undefined
+    }
+    fn(1,2,3)*/
+    ////////////
+    /*
+    * 函数中的返回值 return
+    *
+    * 如果函数执行的时候,没有return ,那么函数执行的返回结果就是undefined;
+    * 如果有写return,但是return后面没有任何值,那么它的返回结果是undefined;
+    * 如果写了return,return后面也有值,那么它的返回结果就是后面的那个值;
+    * 如果写了return,return下面的代码全部不执行;
+    *
+    * */
+
+    function fn(){
+        // 函数的执行返回结果,看这个函数中是否有return
+        //return;
+        return 1;
+        console.log(2);
+    }
+
+    console.log(   fn()   ); // 让fn这个函数执行的返回结果输出出来
+    console.log(    fn    ); // fn函数名,结果是整个函数;  函数名代表整个函数
+
+    var f = function(){}
+    console.log(   f()   ); // undefined
+    console.log(    f     ); // function(){}
+
+    /////////////////
+    /*
+    * 函数中的 实参集合 arguments
+    * 类数组 arguments 是一个类似数组的集合,它不具有数组上的功能和方法,但是它和数组长的一模一样
+    * arguments 里面包括所有实参的集合 // [1,2,3,4]
+    *
+    * */
+
+    function fun(a){
+        console.log(a);//1
+        console.log(arguments);// 类似数组的东西 [1,2,3,4]
+        console.log(arguments[3]); // [索引] 找到实参 4
+        console.log(arguments.length);// 4
+        arguments[arguments.length-1] // 4
+    }
+    fun(1,2,3,4,5,6,4,3,2,1)
+
+    ///
+
+    function b(){
+        var a = 1 ;
+        a = a+3;
+        return a //4
+    }
+
+    console.log(   b()   );//4
+
+    box.onclick =  function () {
+        var a = '100px'
+        box.style.width = a;
+    }
+</script>

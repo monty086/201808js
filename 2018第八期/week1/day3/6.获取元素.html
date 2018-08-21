@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li>4</li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<div id="box"></div>
+<p class="p"></p>
+<input type="password" name="password">
+</body>
+</html>
+<script>
+    // 获取元素
+    var box = document.getElementById('box'); // 通过id拿到这个元素
+    var p = document.getElementsByClassName('p')[0]; // 通过类名获取到的元素是一个集合,它是一个类数组 [argument 元素集合]
+    console.log(p);
+    var lis = document.getElementsByTagName('li') // 通过标签名获取到的也是元素结合
+    console.log(lis);
+    var pass = document.getElementsByName('password') // 通过name属性获取到是表单元素集合
+    console.log(pass);
+</script>

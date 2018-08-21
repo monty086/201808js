@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * i++ 先取值后运算
+    * ++i 先运算后取值
+    *
+    * */
+    var i= 1 ;
+    console.log(i++) // 1
+    console.log(i); //  2
+    console.log(++i);// 3
+    console.log(i);  // 3
+
+    // ()  // 小括号 提高优先级
+    // +-*/ % // 算术运算符
+    // && || 逻辑运算符
+    // 三元运算符
+    // 赋值 =
+
+    // 1%5 =>1  1除5
+    // 5%1 =>0
+    /*
+    * 除不尽:余数就是 1
+    * 能除尽:余数为 0
+    * */
+
+    // 判断一堆数字中,能被2整数的数 相加
+    var n = 18;
+    // n%2 == 0
+    // 100内能被3整除的数相加
+    // 思考题
+    // fn(100) => ? 1683
+    var b = 0;
+    for(var i=0;i<100;i++){
+        if(i%3==0){
+            b+=i;
+        }
+    }
+
+</script>

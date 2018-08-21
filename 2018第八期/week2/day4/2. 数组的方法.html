@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 数组的方法
+    * 有很多私有的方法和公有方法
+    * 任何一个数组实例都可以调用数组中的公有方法
+    *
+    * */
+    var ary = [1]
+    console.dir(ary);
+
+    ary.push('1');
+    /*
+    * 了解数组的方法,从几个维度
+    * 1. 需要了解这个方法主要的作用
+    * 2. 需要了解这个方法执行的时候传的参数是什么
+    * 3. 需要了解这个方法的返回值是什么
+    * 4. 需要了解这个方法是否会将原数组改变
+    * */
+
+    // push 向数组的末尾增加一项或者多项
+    var a = ary.push('1',3,true)
+    console.log(a);//
+    console.log(ary); //
+
+    // unshift 向数组的开头增加一项或者多项
+    var a = ary.unshift(4,1,6)
+    console.log(a); // 数组的长度
+    console.log(ary); // 原数组发生改变
+
+    // pop 向数组的末尾进行删除
+    var a = ary.pop();
+    console.log(a); // 删除后的那一项数
+    console.log(ary); // 原数组发生改变
+
+    // shift 向数组的开头删除一项
+    var a = ary.shift()
+    console.log(a);// 删除后的那一项数
+    console.log(ary);// 原数组发生改变
+
+    // splice(n,m,x) // 数组的截取: n: 索引 m:个数 x: 插入
+    var newAry = [1];
+    var a = newAry.splice(1,0,2)
+    console.log(a);//[]
+    console.log(newAry);//
+    console.log(newAry.splice());// []
+    console.log(newAry.splice(0));// 数组克隆
+
+    // slice(n,m)  // n:数组的索引  m: 索引
+    // slice截取属于包前不包后  [n,m)
+    var newAry = [1,2,3];
+    var a = newAry.slice(1,newAry.length);
+    console.log(a);
+    console.log(newAry);
+    // 数组克隆
+    console.log(newAry.slice());
+    console.log(newAry.slice(0));
+
+    // indexOf()  根据字符找索引
+    var a = ary.indexOf('1');
+    var a = ary.indexOf('12');
+    console.log(a); // 3  -1
+    console.log(ary); // 没有发生改变
+
+    // lastIndexOf()  根据字符找索引, 从后向前找
+    var a = ary.lastIndexOf('1');
+    console.log(a); //4
+    console.log(ary);
+
+    // sort(function(){})
+    // 数组排序
+    var a = ary.sort(function(a,b){
+        return a-b
+    }); // 没有参数是10以下的数字
+    console.log(a); // 排号序的数组
+    console.log(ary); // 原数组改变
+
+    // reverse 数组的翻转
+    var a = ary.reverse();
+    console.log(a);
+    console.log(ary);// 原数组也会发生改变
+
+    // forEach() 便利数组
+    var a = ary.forEach(function (item,index) {
+        // item: 数组中每一项
+        // index: 数组中的索引
+    })
+    console.log(a);
+
+    // map()  便利数组
+    // 返回值 : 计算后的结果
+    var a = ary.map(function (item,index) {
+        if(item=='1'){
+            return
+        }
+        return item+'a'
+    })
+    console.log(a);
+    console.log(ary);
+
+    // join 根据指定符将数组转成字符串
+    // 将数组的逗号全部换成指定符,再执行toString方法
+    console.log(ary.join('a'));
+    console.log(ary);// 没有发生改变
+
+    // toString 将数组转成字符串
+
+    // concat 数组中的拼接
+    console.log(ary.concat('1', ['a']));
+    console.log(ary);
+
+</script>

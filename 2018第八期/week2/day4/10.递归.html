@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 递归:函数自己调用自己,就会形成递归
+    *
+    * */
+    function fn(){
+        // a()
+    }
+    var a = fn
+    fn()
+
+    // 100以内的值进行累加
+    function sum(num){
+        if(num <= 0){
+            return 0
+        }
+        return sum+sum(num-1)
+        // 100 + sum(99)=>sum+sum(num-1)
+        // 100 + 99+ sum(98)
+        // 100 + 99+ ... sum(1)
+        // 100 + 99+ ... 1 + sum(0)
+        // 100 + 99+ ... 1 + 0
+    }
+    sum(100)
+
+    // 100以内能被 3 和 5 整除的值相加
+    // % => 0
+    function plus (num){
+        if(num <=0){
+            return 0
+        }
+        if(!(num % 3) && !(num % 5) ){
+            return num + plus(num-1)
+        }
+        return plus(num-1)
+    }
+
+    console.log(plus(100));
+</script>

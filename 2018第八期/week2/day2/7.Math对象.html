@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * Math 它是一个对象,它不是一个数据类型
+    *
+    * */
+
+    // 取最大的值
+    var a = Math.max(1,2,3,4,9);
+    // var a = Math.max(...[1,2,3,4,9]);
+    console.log(a);
+
+    // 取最小值
+    var a = Math.min(1,2,3,4,9);
+    console.log(a);
+
+    // ceil 取大于当前值的最小整数
+    var a = Math.ceil(1.2);// 2 3 4 5
+    console.log(a);//2
+
+    // floor 取小于当前值的最大整数
+    var a = Math.floor(1.2);// 1 0 -1-2-3-4
+    console.log(a);//1
+
+    // abs  取绝对值
+    var a = Math.abs(-1.2)//
+    console.log(a);//1.2
+
+    // sqrt 开平方
+    var a = Math.sqrt(16);
+    console.log(a); //4
+
+    // pow 幂平方
+    var a = Math.pow(2,3)//2
+    console.log(a);
+
+    // round 四舍五入
+    var a = Math.round(4.4) //
+    console.log(a);
+
+    // random 取随机的小数
+    // 不传表示 从0-1之间的一个随机小数
+    var a = Math.random()
+    console.log(a);
+    // 取100以内的一个随机小数
+    var a = Math.random()*100;
+    var a = Math.round(Math.random()*100)//
+
+    // 10-100
+    // 公式:(m-n)+n
+    // 获取n到m之间的一个随机整数;包括n和 m
+    // Math.round(Math.random()*(m-n)+n)
+    var a = Math.round(Math.random()*(100-10)+10);
+    console.log(a);
+</script>

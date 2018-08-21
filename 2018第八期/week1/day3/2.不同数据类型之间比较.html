@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * = 赋值
+    * == 一般比较
+    * === 严格比较 : 数据类型和值都相等的情况下返回true
+    *
+    * 一般比较:判断两边的值是否相等,返回是true和false
+    * */
+
+    console.log(1 == 2);
+    console.log(1 == '1');  // 将字符串转换成数字 Number()
+    console.log(1 == true); // 将布尔转化成数字
+    console.log(0 == null); // 将null 除了和undefined相比属于true,和其他数据类型相比返回false
+    console.log(0 == undefined ); // 将undefined转化成数字 =>NaN
+
+    console.log(NaN == NaN); // NaN和任何数据类型相比都是false
+    console.log(null == undefined); // 特殊情况,返回true
+
+    console.log([] == []); //false
+    console.log([] == ![]); // true
+    // []=> toString() => '' => Number() => 0
+    // ![]=> Boolean() => !true => false => Number=> 0
+
+    console.log([1] == ![1]);//false
+    // '1' 1 ==  false 0
+    console.log([] == '0'); // false
+    // '' ==  '0'
+    console.log(0 == null); // false
+    // false
+    console.log(!'1.2px' == [1.2]); // false
+    // false 0 == '1.2' 1.2
+    console.log(!NaN == {name: 'zf'}); // false
+    //  true 1 ==  '[object Object]' NaN
+    console.log(!!5 == [true]); // false
+    // true 1 == 'true' NaN
+
+    // != 一般比较中的不等于 ;用的是一般比较中的比较方式
+    // !== 严格比较中的不相等 ; 用的是严格比较中的比较方式
+
+
+</script>

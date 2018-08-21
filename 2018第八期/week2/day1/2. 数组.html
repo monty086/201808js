@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>
+<script>
+    /*
+    * 数组:是引用数据类型,它是操作是引用地址,有序;
+    * 数组有索引,有length,索引就是属性名;
+    *
+    *
+    * */
+    var ary = ['a','b','c']; // 0 1 2 ?=>3:
+    console.log(ary[2]);//c
+    // 数组中的长度length
+    // 可以通过这种方式拿到数组中的最后一项
+    // 不用知道数组中有多少项
+    ary[ary.length-1] // ary.length=>3 -1
+    // 给数组末尾增加一项
+    // ary[3] = 'd';
+    console.log(ary);//
+    ary[ary.length]='d'
+    console.log(ary);
+
+    // 把数组的末尾那一项删除
+    // delete ary[ary.length-1]
+    ary.length = ary.length-1;
+    ary.length--;
+    console.log(ary);
+
+    /*
+    * 类数组
+    * 类数组和数组是一模一样的,它有索引,有length属性,但是它没有数组上的方法
+    * 类数组有哪些?
+    * 1. arguments  =>函数的实参集合
+    * 2. 元素集合  =>通过dom方法获取到的多个元素
+    * */
+    ary.push('x')// 在数组的末尾增加一下x,类数组不能调用这个方法
+    console.log(ary);
+
+    var lis = document.getElementsByTagName('li')// 在document这个范围下,获取所有标签名为li的元素集合
+    // 它是一个类数组,没有数组上的属性和方法
+</script>

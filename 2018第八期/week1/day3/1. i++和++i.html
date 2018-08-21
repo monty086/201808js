@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 算术运算符 + - * /  %[取模]
+    * 1+1 =2 2-1=1
+    *  A + B
+    * 在两项相加的时候,只要碰到字符串,就属于字符串拼接
+    * 在计算不成功的时候,一般情况下返回NaN;
+    * 任何数值和NaN相加,返回都是NaN
+    * 如果两项不是字符串的时候,会利用数字数据类型中的Number进行转化成数字数据类型,再进行相加
+    * 只要是引用数据类型进行相加,都会首先调用toString()方法,转成字符串进行拼接
+    * */
+   /*
+    'a'+'b' => 'ab';
+    'a'+1 ='a1'
+    1+'b' = '1b'
+    'a'+true = 'atrue'
+    null+'b' = 'nullb'
+    'c'+function(){} = "cfunction(){}"
+    [123]+'b' = '123b'
+    'a'+({name:'zf'}) = "a[object Object]"
+    */
+
+   /* 1+true = 2
+    1+false= 1
+    true+false =1
+    null+undefined = NaN*/
+
+    /*
+    * i++ : 先取值 后运算
+    * ++i : 先运算 后取值
+    * 注意: 不管是先运算还是后运算,变量 i值都会发生改变
+    *
+    * i++ : 在这个变量i值的基础加1
+    * i+=1 :
+    * i=i+1 :
+    * 这三种写法都是在i的基础上加上1
+    * */
+    /*var i =0 ;//1
+    i++;
+    console.log(i); //1
+    //i=1
+    console.log(i++) // 1
+    console.log(i); // 2*/
+
+    /*var i = 1 ;
+    console.log(i++);//1  先取值后运算
+    console.log(i); //2*/
+
+    /*var i = 1 ;
+    console.log(++i);// 2 先运算后取值
+    console.log(i); // 2*/
+
+    // var i= 1 ; // 2 3 4 5 6 7
+    // (i++) + (i++) + (i++) + (++i) + (i++) + (++i) + (i++) //
+    // 1 + 2 + 3 + 5 + 5 + 7 + 7 = 30
+    var b = 5; //4 5 4 5 4 5
+    (b--) + (b++) + (--b) + (++b) + (b--) + (++b);
+    // 5+ 4 + 4+ 5 + 5+ 5
+    //28
+</script>

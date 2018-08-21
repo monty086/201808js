@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="1">
+<input type="button" value="2">
+<input type="button" value="3">
+</body>
+</html>
+<script>
+    /*
+    * 闭包：
+    * 闭包是什么？
+    * 定义： 闭包是一种保护机制，保护私有变量不受外界的干扰；
+    * 保护： 闭包是为了保护私有作用域中的私有变量不受全局变量的污染
+    * 保存： 当前作用域下的引用数据类型被外界的变量或者对象所占有，导致当前作用域变成一个不销毁的作用域，当前作用域下的私有变量就变成不销毁的变量，就被保存下来了。
+    *
+    * */
+    /*var a = 1,b=2;
+    function fn(){
+       var a =2 ;
+       b=3;
+        console.log(a);
+    }
+    console.log(a);
+    console.log(b);//3*/
+
+    /*function fn1(){
+        var a =0; // 1 2
+        return function(){
+            console.log(a++)
+        }
+    }
+    var f = fn1();*/
+   /* f() // 1  0
+    f() // 2  1
+    f()*/ // 3  2
+
+    // 比如有一个函数fn， 有一个变量a, fn每执行一次，a都会进行累加 输出
+    // 1 2 3 4 5
+
+    (function (){
+        var a =0;
+        function f(){
+            console.log(a++);
+        }
+        window.f = f
+    })()
+    f() // 0
+    f() // 1
+    f() // 2
+
+    /*var f = {
+        a:1,
+        fn:function(){
+            console.log(this.a++);
+        }
+    }
+    var o = f.fn;*/
+
+
+    var inputs = document.getElementsByTagName('input');
+    for (var i = 0; i < 3; i++) {
+        // function fn (){
+        //     //i++
+        //     inputs[i].onclick = function (){
+        //         alert(i);
+        //     }
+        // }
+        // fn()
+        // 自定义属性
+      /*  inputs[i].index = i;
+        inputs[i].onclick = function(){
+            alert(this.index+1)
+        }*/
+      // 闭包的方式来实现
+        /*inputs[i].onclick = (function(i){
+            // 形参属于私有变量 i=0 i=1
+            return function(){
+                alert(i+1)
+            }
+        })(i)*/
+
+        // 闭包2
+        // 0
+        /*(function(i){
+            // 0 1 2
+            inputs[i].onclick = function(){
+                alert(i+1)
+            }
+        })(i)*/
+    }
+
+    for (let i = 0; i < 3; i++) {
+        inputs[i].onclick = function (){
+            alert(i+1)
+        }
+    }
+
+   /* {
+        let i =0;
+        {
+            inputs[i].onclick = function (){
+                alert(i+1)
+            }
+        }
+    }*/
+</script>

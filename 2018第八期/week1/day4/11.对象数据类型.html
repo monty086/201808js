@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 对象数据类型属于引用数据类型
+    * 它存放在堆内存当中
+    * 对象就是在大括号中存储的键值对,属性名[键]:属性值[值],通过逗号分隔,组成对象;
+    * 一般情况下,对象中的属性名都是字符串,属性值可以是任何数据类型
+    * 在对象中,属性名都是唯一的,都是独一无二的
+    *
+    * */
+
+    var obj = {name:'zf',1:'索引',age:8};
+    for(var key in obj){
+        console.log(typeof key);//
+    }
+
+    // 给对象增加一组属性
+    obj.index = 5;
+    obj['index'] = 6;
+    var a = 'index';
+    obj[a] = 7; // obj['index']=7
+    console.log(obj);
+
+
+    // 思考题,将newObj融合到obj中
+    var newObj = {sex:1}
+    obj.sex = newObj.sex
+
+    // 给对象删除一组属性
+    // 假删除
+    obj.age = null
+    // 真删除
+    delete obj.age // 通过关键字 delete 就把age这一组键值对整个移除
+
+
+    // 修改
+    // 对象.属性名 = 新属性值
+    obj.name = 'china';
+    obj['name'] = 'china';
+    console.log(obj);
+
+    // 查看
+    console.log(obj.name);// 'china'
+    console.log(obj.add); //如果对象没有属性值返回 undefined
+
+    var person1 = {
+        name:'马化腾',
+        age:55,
+        sex:1,
+        hobby:'qq',
+        product:['qq','微信','游戏'],
+    }
+    console.log(person1.length);
+    console.log('123'.length);//3
+    console.log([1, 2, 3, 4].length);//4
+
+</script>

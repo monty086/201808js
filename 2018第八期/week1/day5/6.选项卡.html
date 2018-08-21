@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body,#box{
+            width: 100%;
+            height:100%
+        }
+        #box ul{
+            width: 300px;
+            height:30px;
+            background: #fbfbfb;
+            list-style: none;
+            position: absolute;
+            left:50%;
+            margin-left:-150px;
+            top:10%;
+            border-radius:4px;
+        }
+        ul li{
+            float: left;
+            width: 100px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 13px;
+        }
+        li.active:nth-child(1){
+            color:royalblue
+        }
+        li.active:nth-child(2){
+            color:yellowgreen
+        }
+        li.active:nth-child(3){
+            color:lightcoral
+        }
+        /*li.active{*/
+            /*color:orangered;*/
+        /*}*/
+        .mid{
+            border-left:1px solid #cdcdcd;
+            border-right:1px solid #cdcdcd;
+            box-sizing: border-box;
+        }
+        #box div{
+            width: 100%;
+            height: 100%;
+            /*background: #e4393c;*/
+            display: none;
+        }
+        #box div.active{
+            display: block;
+        }
+        #box>div:nth-of-type(1){
+            background: royalblue
+        }
+        #box>div:nth-of-type(2){
+            background: yellowgreen
+        }
+        #box>div:nth-of-type(3){
+            background: lightcoral
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li class="active">Html</li>
+        <li class="mid">Css</li>
+        <li>JavaScript</li>
+    </ul>
+    <div class="active" ></div>
+    <div></div>
+    <div></div>
+</div>
+</body>
+</html>
+<script>
+    // 获取元素
+    var box = document.getElementById('box');
+    var lis = box.getElementsByTagName('li');//元素集合
+    var contains = box.getElementsByTagName('div');// 拿到下面色块的元素集合
+    // 循环给每一个li元素添加点击事件
+    for(var i =0 ;i< lis.length;i++){
+        //通过自定义属性 给每一个li标签保存一个值
+        lis[i].index = i;
+        // html =>{index:0} css => {index:1} js =>{index:2}
+        lis[i].onclick = function () {
+            //因为每次点击都会全部变色,所以我们需要清空它,通过for循环来清空
+            for(var j =0 ;j<lis.length;j++){
+                // 在点击的时候把渲染到的active全部清空
+                lis[j].classList.remove('active');
+                // 把色块其他的颜色都清除
+                contains[j].classList.remove('active')
+            }
+            //this => 当前点击的元素
+            // 选项卡进行变色
+            this.classList.add('active'); //this=>不确定
+            // html =>{index:0} css => {index:1}  js =>{index:2}
+            // 色块[类数组]进行变色
+            contains[this.index].classList.add('active')
+        }
+    }
+</script>

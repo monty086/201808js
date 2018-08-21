@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            /*padding: 0;*/
+        }
+    </style>
+</head>
+<body>
+    <!--js的行内式-->
+    <div id="box" onclick="alert(0)"  index="5">00000</div>
+</body>
+</html>
+<script>
+    // 内嵌式
+    // 在script 标签内写入js的代码
+
+    // 单行注释  ctrl+/
+    /* 多行注释: ctrl+shift+/ */
+</script>
+<!--js中的外链式-->
+<!--在script标签中 引入属性src 属性值是js的外部连接 -->
+<script src="../day1/1.js">
+    // 这个标签内不可以写内容,写了也不会识别
+</script>
+<script>
+    /*
+    * js的引入方式
+    * 行内式  内嵌式  外链式  导入式[import 导入js模块]
+    *
+    * 外链式需要找到所属的路径
+    * ../ 上一级
+    * / 下一级
+    * ./ 当前目录 ,默认可以不用写
+    * ../../../../ 连续找四个上一级
+    *
+    * */
+    //导入式  import day from '../week3/1.js'
+</script>
+
+<script>
+    // js的输出方式
+    /*
+    * 浏览器弹出一个框
+    * alert('弹出内容')
+    * confirm('弹出内容') : 它有两个按钮[确定按钮和取消按钮] ;它的返回值就是你点击确定和取消所对应的true 和 false
+    * prompt('弹出内容') : 它会出现一个输入框, 你在这输入框中输入内容,点击确定按钮,它的返回值就是你输入的内容;
+    * 什么也没有输,返回是null;点击取消按钮返回null
+    * */
+    /*
+    var a = alert('你很棒');
+    console.log(a)
+    var b = confirm('是吗') //
+    console.log(b);
+    */
+    /*var c = prompt('请输入你的大名?')//
+    console.log(c);*/
+
+    /*
+    * 浏览器页面显示相对应的内容
+    * document.write() : 在body标签的尾部增加内容 ,[内容可以是文本,也可以是标签元素]
+    * innerHTML : 指定元素的身上添加内容[内容可以是文本,也可以是标签]
+    * innerText : 在元素身上添加内容,只可以识别文本
+    * */
+
+    //document.write("<script src='../week3/1.js'/>")
+    document.write("<h1>nihao</h1>");
+    box.innerHTML = '哎呦 不错哦';
+    box.innerHTML = '<h3>我是h3</h3>';
+    box.innerHTML += '<h1>我是h1</h1>'
+    box.innerText = '我只能识别文本哦'
+
+    /*
+    * console 在控制台输出要输出内容
+    *
+    * console.log()//
+    * console.dir() // 详细输出
+    * console.warn()
+    * console.error()
+    * ....
+    * */
+    console.log('')
+</script>

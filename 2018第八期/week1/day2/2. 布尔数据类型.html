@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 布尔数据类型 boolean
+    * 一共有两个值 一个true 一个是false
+    * 再js的布尔数据类型，有 0 NaN '' null undefined 返回的是false ，其余的返回都是true
+    * ! 取反： 先将数据类型转化成布尔值，然后再取反
+    * !! 先取反再取反： 先将后面的值转化成布尔值，先取反再取反，相当于没有取反【相当于只把这个值转化成布尔值】
+    * */
+    console.log(Boolean(0));
+    console.log(Boolean(NaN));
+    console.log(Boolean(''));
+    console.log(Boolean(null));//false
+    console.log(Boolean(undefined)); // false
+    console.log(Boolean([])); // 在布尔数据类型中不会将引用数据类型转化  true
+    console.log(Boolean(false)); // false
+
+    console.log(!true);// false
+    console.log(!1);// false
+    var a = null;
+    console.log(!a);// true
+    var b ;
+    console.log(!b); // true
+    var obj = {name:'zf'};
+    var value = obj.name
+    console.log(value); // 'zf'
+    console.log(!obj.name); // false
+
+    console.log(!!0); // false
+    console.log(!!false); // false
+
+    var fn = function () {};
+    console.log(!!fn);  // true ;
+
+    if(null){
+        console.log(1);
+    }
+
+</script>

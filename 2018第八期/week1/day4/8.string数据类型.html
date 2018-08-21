@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * string数据类型
+    * 只要包裹在双引号或者单引号中的任何字符都叫字符串
+    * 在字符串中如果遇到 + ;属于字符串拼接
+    *
+    * */
+
+    // "1" "true" "  function(){} "
+    " '你懂得' " // 字符串中里面如果含有引号,需要和外面包裹的引号有一个区分
+    " I'm a student "
+
+    var num = 9 ;
+    document.body.innerHTML = '<h1>'+ num+'</h1>' // 字符串拼接变量
+    // es5 中的拼接
+
+    // es6 中的拼接
+    // es6中的模板字符串 ``
+    // 在es6中的模板字符串使用变量需要用 来${}表示
+    document.body.innerHTML += `<h2>${num+1}<h2>`;
+
+    // toString()
+    // 将值转化成字符串
+    // 任何数据类型都有toString()这个方法,出了null和undefined
+    // 对象 {} 上的toString不是用来转字符串,它是用来检测数据类型
+    Object.prototype.toString.call(null)//'[object Null]'
+
+    1 .toString();
+    true.toString();
+    [1,2].toString();
+    /\d/.toString();
+    (function (){}).toString();
+    (new Date).toString();
+
+
+
+
+
+
+
+</script>

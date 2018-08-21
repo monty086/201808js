@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary = [4 ,90 ,5 ,12, 0, 6];
+
+    function quickSort(ary){
+        if(ary.length<=1){
+            return ary
+        }
+        // 取中间的一个索引
+        var midIndex = Math.floor(ary.length/2)
+        //通过索引找到中间值
+        var mid = ary.splice(midIndex,1);
+        // 创建左右手
+        var left =[],right=[];
+        // 让数组中的每一项都和中间值进行比较
+        for(var i=0;i<ary.length;i++){
+            // 如果当前项比中间值小的话,放到左手边,如果大的话放到右手边
+            if(ary[i]<mid){
+                left.push(ary[i])
+            }else{
+                right.push(ary[i])
+            }
+        }
+        // 函数调用函数就是递归
+       return  quickSort(left).concat(mid,quickSort(right))
+    }
+
+    console.log(quickSort(ary));
+
+
+    var i =0;
+    function fn() {
+      i++
+        if(i==100){
+          return
+        }
+      fn()
+    }
+    fn()
+
+
+
+
+
+</script>
+<script>
+    var ary = [4 ,90 ,5 ,12, 0, 6];
+
+    function quickSort(ary) {
+        if(ary.length<=1){
+            return ary
+        }
+        var index = Math.ceil(ary.length/2);
+
+        // ary[index]
+        var mid = ary.splice(index,1);
+        var left = [],right=[];
+
+        // fori+tab
+        for (var i = 0; i <ary.length ; i++) {
+            if(ary[i]<mid){
+                left.push(ary[i])
+            }else{
+                right.push(ary[i])
+            }
+        }
+        // 左右手数组都有了值
+        // 再进行分解
+        return quickSort(left).concat(mid,quickSort(right))
+    }
+    quickSort(ary)
+
+
+</script>

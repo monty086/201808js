@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 数组中的常用方法
+    *
+    * */
+
+    console.log([]); //通过 __proto__ 找到数组数据类型上的所有公有方法;
+    // 作为任意一个数组的数据类型,都可以调用数组上的属性和方法
+    // 调用方法,就是执行函数
+    /*
+    * 我们要分析使用一个方法[函数],我们必须要知道4个维度
+    * 1. 先知道这个方法的作用
+    * 2. 必须知道执行函数传递的参数
+    * 3. 知道函数的返回值是什么
+    * 4. 判断原数组是否会改变
+    * */
+    var ary = [9,'zhu',8,'feng',7,'pei',6,'xun'];
+    console.log(ary);
+    /*
+    * push
+    * 作用:给数组的末尾增加一项
+    * 参数:任意多个数据类型
+    * 返回值: 数组的长度
+    * 原数组是否改变: 改变
+    * */
+    // var a = ary.push(10,9); // ary[ary.length]=10
+    // console.log(a);
+    // console.log(ary);
+
+    /*
+   * unshift
+   * 作用:给数组的开头增加一项
+   * 参数:任意多个数据类型
+   * 返回值: 数组的长度
+   * 原数组是否改变: 改变
+   * */
+    // var a = ary.unshift(10,9);
+    // console.log(a);
+    // console.log(ary);
+
+    /*
+   * pop
+   * 作用:给数组的末尾删除一项
+   * 参数:没有
+   * 返回值: 删除的那一项
+   * 原数组是否改变: 改变
+   * */
+    // var a = ary.pop(9,9998); // ary.length--
+    // console.log(a);
+    // console.log(ary);
+
+    /*
+  * shift
+  * 作用:给数组的开头删除一项
+  * 参数:没有
+  * 返回值: 删除的那一项
+  * 原数组是否改变: 改变
+  * */
+    // var a = ary.shift(9998); // 参数:没有,或者任意参数都无意义
+    // console.log(a); // 返回值:表示删除的那一项
+    // console.log(ary); // 原数组:删除后的数组
+
+    /*
+  * splice(n,m,x)
+  * 作用: 数组截取\克隆\替换
+  * 参数: n:索引,m表示个数,x:插入的内容
+  * 返回值: 截取后的数组
+  * 原数组是否改变: 改变
+  * */
+    //var a = ary.splice(); // []  原数组不变
+    //var a = ary.splice(0); // 表示克隆数组  清空原数组
+    //var a = ary.splice(3); // 如果第二个参数不传,表示从索引3,一路截取到最后
+    //var a = ary.splice(3,1); // 只截取索引3,这个一个 ,返回值也是数组
+    //var a = ary.splice(3,1,'b'); // 从索引3截取1个数值,用'b'来替换它, 返回值为截取到的值,原数组变为替换后的数组
+    //var a = ary.splice(3,0,'b');  // 这个表示在索引3前面插入一个数值'b'
+    // var a = ary.splice(ary.length,0,'b');  // 这个表示在数组的末尾增加一项
+    // console.log(a);
+    // console.log(ary);
+
+    /*
+    * slice(n,m)
+    * 作用: 数组截取
+    * 参数: n:索引 ; m:索引
+    * 返回值: 截取后的数组
+    * 原数组是否改变: 不改变
+    * */
+    //var a = ary.slice(); // 表示克隆数组
+    //var a = ary.slice(0); // 表示克隆数组
+    //var a = ary.slice(2); // 表示从索引2一路截取到最后,返回值是截取后的数组,原数组不改变
+    //var a = ary.slice(2,4); // 表示从索引2 截取到索引4,不包括索引4, 属于抱前不报后;   [2,4)
+    // var a = ary.slice(-4,-2); // 如果索引为负数,表示将负数+数组长度返回的值,然后再进行截取,依然遵循包前不包后
+    // console.log(a);
+    // console.log(ary);
+
+
+        /*
+     * concat
+     * 作用:给数组的末尾进行拼接
+     * 参数: 任何数组类型
+     * 返回值: 拼接后的数组
+     * 原数组是否改变: 不改变
+     * */
+    //var a = ary.concat(9998); // 数组的末尾加了9998
+    //var a = ary.concat(true,function(){}); // 任何数据类型
+    //var a = ary.concat([1,2,3]); // 如果传入的是一个数组,会将数组展开,每个都拼接到数组末尾
+    // var a = ary.concat(); // 克隆数组
+    // console.log(a); //
+    // console.log(ary); //
+
+       /*
+     * indexOf()
+     * 作用:根据字符找索引
+     * 参数: 指定字符
+     * 返回值: 对应的索引,如果找不到返回-1
+     * 原数组是否改变: 不改变
+     * */
+    // var a = ary.indexOf(8); //2
+    // var a = ary.indexOf('zhu'); // 1
+    var a = ary.indexOf('zhufeng'); // -1
+    if(ary.indexOf('zhufeng') !== -1) // 判断数组中是否有指定的值
+    console.log(a);
+    console.log(ary);
+
+    /*
+    * lastIndexOf()
+    * 作用:根据字符找索引,从后往前找
+    * 参数: 指定字符
+    * 返回值: 对应的索引,如果找不到返回-1
+    * 原数组是否改变: 不改变
+    * */
+    // ary.push(8)
+    // console.log(ary);
+    // var a = ary.lastIndexOf(8);
+    // console.log(a);
+    // console.log(ary);
+
+    /*
+    * reverse()
+    * 作用: 数组翻转
+    * 参数: 无
+    * 返回值: 翻转后的数组
+    * 原数组是否改变: 改变
+    * */
+    // var a = ary.reverse(9);
+    // console.log(a); // 翻转后的数组
+    // console.log(ary); // 改变
+
+    /*
+    * sort()
+    * 作用: 数组排序,按从小到大
+    * 参数: 函数(a,b)
+    * 返回值: 排好序的数组
+    * 原数组是否改变: 改变
+    * */
+    // var newAry = [6,10,4,2,1];
+    // var a = newAry.sort(); // 在不传函数的时候只能排10以内的数字
+    // var a = newAry.sort(function (a,b) { // 针对所有的数字
+    //     //return a-b // a-b 属于让数组正序[从小到大]排列
+    //     return b-a // b-a 属于让数组倒序[从大到小]排列
+    // })
+    // console.log(a); // 排好序的数组
+    // console.log(ary); // 改变
+
+
+    /*
+   * forEach()
+   * 作用: 便利数组
+   * 参数: 函数(item,index,input),改变参数函数中的this
+   * 返回值: 没有
+   * 原数组是否改变: 不改变
+   * */
+    var a = ary.forEach(function (item,index,input) {
+        // 数组有多少项,当前这个函数执行多少次
+        // item :数组中的每一项
+        // index : 数组中每一项对应的索引
+        // input : 表示整个数组
+        console.log(item, index);
+    });
+    console.log(a); //
+    console.log(ary); //
+
+    /*
+  * map()
+  * 作用: 便利数组
+  * 参数: 函数(item,index,input),改变参数函数中的this
+  * 返回值: 有,返回一个计算后的数组 ; 没有return ,返回undefined
+  * 原数组是否改变: 不改变
+  * */
+    var a = ary.map(function (item,index,input) {
+        // 数组有多少项,当前这个函数执行多少次
+        // item :数组中的每一项
+        // index : 数组中每一项对应的索引
+        // input : 表示整个数组
+        return item*10;
+    });
+    console.log(a); // 每一项计算后的新数组
+    console.log(ary); // 不改变
+
+        /*
+      * join()
+      * 作用: 转字符串, 根据指定符号
+      * 参数: 指定符号
+      * 返回值: 字符串
+      * 原数组是否改变: 不改变
+      * */
+    //var a = ary.join('X'); // 将数组中所有的逗号,变成指定符号,整体转成字符串
+    //var a = ary.join(' '); // 将数组中所有的逗号,变成指定符号,整体转成字符串
+    var a = ary.join(); // 如果不传字符串,相当于toString
+    var a = ary.join(''); // 如果传空字符串,相当于将逗号去掉,然后转字符串
+    console.log(a); //"9 zhu 8 feng 7 pei 6 xun"
+
+    console.log(ary); // 不改变
+
+    /*
+    * push
+    * unshift
+    * pop
+    * shift
+    * splice
+    * slice
+    * concat
+    * indexOf
+    * lastIndexOf
+    * reverse
+    * sort
+    * forEach
+    * map
+    * toString
+    * join
+    *
+    *
+    * */
+
+    /*
+    * 克隆数组
+    * ary.concat()
+    * ary.splice(0)
+    * ary.slice()
+    * ary.slice(0)
+    *
+    * */
+
+</script>

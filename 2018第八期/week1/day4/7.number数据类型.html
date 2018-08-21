@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 数字数据类型:
+    * 正式 负数 小数 0 NaN
+    *
+    * 方法:
+    * isNaN()
+    * Number()
+    * parseInt()
+    * parseFloat()
+    * toFixed() // 保留小数点后几位数
+    * */
+
+    // 100 0.5 -100 0 -0 -0.5 +0.5 .5 NaN
+    // NaN : not a number 不是一个数
+    console.log( typeof NaN );
+    // 检测不了 null regexp array => object
+    // typeof typeof 9  => string
+
+    // 判断是否是一个数 // 并非是数字数据类型
+    // 它的返回值是一个布尔值
+    // 如果是数字的返回 false ;不是数字返回 true
+    console.log(isNaN(9)); // false;
+    console.log(isNaN(NaN)) ; // 不是一个数返回 true
+    // console.log(NaN == NaN); // 两个不是数字的值进行对比,返回false
+    // NaN和任何类型对比都不相等
+    console.log(isNaN([])) //false=> 0  引用数据类型 => toString()=> 将引用数据类型转变成字符串 => Number() => 将字符串转化成数字
+    console.log(isNaN('1px'));//
+    // 如果括号中不是数字,会调用Number()方法进行强制转化
+
+    // Number() 强制转化
+    // 转化结果一共有2种情况,一种是转化成功后的数字,一种是转化不成功的NaN
+    Number('1px') // NaN
+    Number('1') //  1
+    // 特殊情况,需要单独记忆
+    Number(true) //  1
+    Number(false) //  0
+    Number('') // 0
+    Number('    ')//0
+    Number('  1  ')//1
+    Number(null) // 0
+    Number(undefined) // NaN
+    Number([1])// 1
+    Number(NaN) // NaN
+    // 注意: 其他字符串数据类型 转数字数据类型,只要其中包含非数字,直接返回NaN,这种方式非常不友好, 我们为了取得字符串中的有效数字,我们需要采取非强制转化:parseInt \ parseFloat ;
+
+    // 非强制转化
+    parseInt()// 转化成整数=> 根据字符串从左到右依次进行识别,如果碰到非数字停止识别[即使后面还有数字不再识别],将识别到的数字转化出来; 如果一开始就碰到非数字,直接返回NaN
+
+    parseInt('12px12')// 12
+    parseInt('px12')// NaN
+    parseInt(NaN) // NaN
+    parseInt(null) //null与undefined 都识别不了  NaN
+    parseInt(['12px'])// ['12px'] => toString() =>'12px'=>12
+    parseInt([1,'a'])//
+
+    parseFloat() // 和parseInt 一样,但是它可以多识别一个小数
+    parseFloat('1.2px')// 1.2
+    parseFloat('.2')// 0.2
+    parseFloat(.2) // 0.2
+
+    // toFixed() : 保留小数点后几位数
+    // 会将数字转化成字符串
+    // 属于number类型下的方法,任何一个数字都可以进行调用
+    (5).toFixed(2) // "5.00"
+
+</script>

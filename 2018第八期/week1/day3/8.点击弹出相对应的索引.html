@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="1">
+<input type="button" value="2">
+<input type="button" value="3">
+</body>
+</html>
+<script>
+    var inputs = document.getElementsByTagName('input');
+    for (var i=0;i<inputs.length;i++){ // 当i循环累加到 3 的时候,循环体结束,i值永久变成了3
+        //console.log(i);// 0 1 2
+        inputs[i].index = i+'a' ;// 通过循环给每一个元素添加属性名和属性值,代替手写value='1'...这种方式
+        inputs[i].onclick = function () {
+            //console.log(this.value);
+            console.log(this.index);// 点击的时候,就会出现,当前点击元素属性名index值所对应的属性值
+        }
+    }
+</script>
