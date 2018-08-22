@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 类分为内置类和自定义类
+    * 类都是由构造函数生成的
+    * 类本身是一个函数，所以作为一个函数，它都是Function类的一个实例
+    * 而万物皆对象，所有的数据类型都可以通过__proto__找到基类Object
+    *
+    * */
+
+    function Fn(){}
+    var f = new Fn();//实例都的对象
+    console.log(Fn instanceof Function);//true;
+    console.log(Array instanceof Function);// true
+    console.log(Object instanceof Function) // true
+    /*function Array (){
+        this.length=xxx
+    }
+    Array.prototype.mypush = function(){
+
+    };
+    var ary = new Array('1','2');
+    var newAry = [2,3,4]
+    newAry.mypush()*/
+    // function Object (){
+    //
+    // }
+    // var newObj = new Object() // 实例化创建
+    // var obj = {}  // 字面量创建
+
+    console.log(f instanceof Object); //true
+    console.log(Fn instanceof Object); // true
+    console.log(Function instanceof Object); // true
+
+
+    console.log(Function.__proto__ == Function.prototype);
+
+    //f.constructor
+
+    /*
+    * 检测数据类型
+    * constructor
+    * 检测当前实例是否属于某个类，除了null和undefined
+    * */
+    console.log(Array.prototype.constructor == Array);
+    console.log([1, 2, 3].constructor);//
+    // name
+    var ary = [];
+    ary.constructor.name ==='Array'
+</script>
+
+<script>
+    jQuery
+
+    (function(){
+        function jQuery(){
+            return
+        }
+        new jQuery();
+        window.$ = window.jQuery = jQuery;
+    })()
+
+</script>

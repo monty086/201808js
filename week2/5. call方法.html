@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * call 函数上的公共方法，主要是用来改变this
+    * 1. call的第一个参数，改变call前面函数中的this
+    * 2. 让call前面的函数执行
+    * 3. call方法中第二个及第二个以后的参数作为实参传给call前面的这个函数
+    * */
+
+    function fn(a,b){
+        // 'use strict';
+        // esLink jslink
+        console.log(this);// 'a'
+        console.log(a, b);//1 2
+    };
+    /*fn.call();
+    fn.call(null)
+    fn.call(undefined)*/
+    // fn.call('a',1,2)
+    fn.call(null,1);
+
+    function fn(){
+        console.log(this);//box window
+        //this.style.color ='red'
+    }
+
+    // box.onclick = function(){
+    //     console.log(this);//box
+    //     fn.call(this)
+    // }
+
+    // setTimeout(fn.call(box),1000)
+    // setTimeout(undefined,1000)
+    function fn2(){
+        console.log(this);//
+    }
+    setTimeout(function(){
+        fn2.call('box')
+    },1000)
+
+    // 碰到2个及2个以上的call都是让第一个参数执行，
+    // 第一个参数必须是函数，
+    // 第二个参数是改变第一个参数中的this，
+    // 第三个及第三个以后的参数作为实参传给第一个参数
+    function fn3(a,b){
+        console.log(this); // 'box'
+        console.log(a, b); // 1,2
+    }
+    fn.call.call.call.call(fn3,'box',1,2,3,4)
+</script>

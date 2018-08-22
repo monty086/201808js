@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * apply
+    * apply和call方法使用一样
+    * 唯一不同的是：第二个参数传入的是一个数组，让apply前面的这个函数执行的时候，是依次传入进去
+    *
+    * */
+    function fn(a,b){
+        console.log(this);//window
+        console.log(a, b);//1,2
+    }
+    fn.apply(null,[1,2])
+
+    var ary = [4,2,5,0,1,2];
+    // 求数组中的最大值
+    // 排序法
+    ary.sort(function(a,b){return b-a})
+    console.log(ary[0])
+
+    // Math.max
+    // Math.max(2,3,4,1,2,4)
+    console.log(Math.max(...ary));
+    console.log(Math.max.apply(null,ary));
+
+    // 假设法
+    var a = 0;
+    for (var i = 0; i < ary.length; i++) {
+        if(a<ary[i]){
+            a = ary[i]
+        }
+    }
+    // 去除一个最大值，去除一个最小值，剩下的求平均数
+    var ary  = [4,3,1,5,6,8,11,2,323,90,98]
+</script>

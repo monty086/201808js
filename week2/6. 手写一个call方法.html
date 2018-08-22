@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    /*Function.prototype = {
+        call:function(){
+            this
+        }
+    }*/
+    // 手写一个call方法
+    // fn执行
+    // 改变fn中的this
+    // 将call中第二个以后的参数传给fn
+    Function.prototype.call = function(obj){
+        //console.log(this);//fn
+        var ary = []
+        //[undefined,1,2,3]
+        for (var i = 1; i <arguments.length ; i++) {
+            ary.push(arguments[i])
+        }
+        // console.log(ary);[1,2,3]
+        if(obj == undefined){ // null ==undefined undefined==undefined
+            //fn()
+            this(...ary)// ...[1,2,3] => 1,2,3
+        }else{
+            obj.__proto__.fn = this//box
+            obj.fn(...ary) // this() fn()
+        }
+    }
+    // 1.
+    function fn(a,b,c){
+        //this
+        // a 1 b 2 c 3
+        console.log(this);
+        console.log(a);
+    }
+    // fn.call();
+    // fn.call(null);
+    // fn.call(undefined);
+    fn.call(undefined,1,2,3)
+    fn.call('box',1,2,3)
+
+</script>
+
+<script>
+    function fn(){
+        console.log(this);//obj
+    }
+    fn()
+    var obj = {}
+    obj.fn=fn
+    obj.fn()
+
+</script>

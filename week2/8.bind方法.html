@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * bind和call一样
+    * 唯一不同的是：bind不会执行函数，且会返回一个改变this后的新函数
+    *
+    * */
+
+    function fn(a,b,c){
+        console.log(this);
+        console.log(a, b, c);
+    }
+    var f = fn.bind('box',1,2,3)
+    console.log(f());
+    // f = fn.bind(null)
+
+    setTimeout(fn.bind('box'),1000)
+
+</script>
