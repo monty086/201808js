@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Fn(){
+        this.name = 'zf'
+    }
+    Fn.prototype.name = 'china';
+    Fn.prototype.age = 5000;
+    Fn.prototype.getX = function(){
+       // console.log(this.name);
+        return this
+    }
+    // Fn.prototype = {
+    //     // constructor:Fn
+    // };
+    var f = new Fn();
+    console.log(f.constructor);//Object
+    console.log(f.__proto__.age == f.age);
+    console.log(f.__proto__.getX() == Fn.prototype.getX());//true
+    // f.__proto__ == Fn.prototype
+    console.log(f.getX() == Fn.prototype.getX());//false
+    // f == Fn.prototype
+</script>
+
+<script>
+    if(true){
+        console.log(a);//暂时性死区
+        let a = 1;
+    }
+</script>

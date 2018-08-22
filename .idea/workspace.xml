@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75ec7cf8-f450-409c-b841-102d3e172c52" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/week2/3.Function和Object.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/4. 函数的三种身份.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/5. call方法.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/6. 手写一个call方法.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/7. apply方法.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/8.bind方法.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/9. 原型中的this.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -34,8 +29,17 @@
       <file leaf-file-name="2. 原型模式.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week2/2. 原型模式.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="554">
+            <state relative-caret-position="248">
               <caret line="64" column="27" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="9. 原型中的this.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/week2/9. 原型中的this.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="826">
+              <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -79,7 +83,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="7. apply方法.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="7. apply方法.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week2/7. apply方法.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="214">
@@ -102,15 +106,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
               <caret line="21" column="28" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="10.js中的内置类.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week1/10.js中的内置类.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-578">
-              <caret line="32" column="25" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -139,6 +134,7 @@
         <option value="$PROJECT_DIR$/week2/6. 手写一个call方法.html" />
         <option value="$PROJECT_DIR$/week2/7. apply方法.html" />
         <option value="$PROJECT_DIR$/week2/8.bind方法.html" />
+        <option value="$PROJECT_DIR$/week2/9. 原型中的this.html" />
       </list>
     </option>
   </component>
@@ -224,15 +220,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534901319350</updated>
-      <workItem from="1534901323569" duration="18552000" />
+      <workItem from="1534901323569" duration="20230000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18552000" />
+    <option name="totallyTimeSpent" value="20230000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="704" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18347895" />
@@ -277,13 +273,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1282">
           <caret line="18" column="60" lean-forward="true" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week2/2. 原型模式.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="64" column="27" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -336,6 +325,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
           <caret line="32" column="39" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week2/2. 原型模式.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="64" column="27" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week2/9. 原型中的this.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="826">
+          <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
         </state>
       </provider>
     </entry>
