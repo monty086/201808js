@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * js中的内置类
+    * js中的自定义类
+    * 构造函数：又叫自定义类，它是一个函数，函数名又叫做类名，它是通过关键字new来执行的；【为了让构造函数和普通函数进行区分，建议将类名首字母大写】
+    *
+    * 当你发现一个函数通过new【关键字】来执行，它就不是一个普通函数了，它是一个构造函数，如果没有参数的话，后面的小括号可以忽略不写
+    *
+    * 我们一般去封装一些库、插件、组件、框架的时候，用到构造函数模式来实现，在项目中编写业务逻辑不会用构造函数来写
+    *
+    * 构造函数执行后的返回值是一个实例，所有的实例都是对象，就是在构造函数中定义的this
+    * */
+    function fn(){
+
+    }
+    fn();
+   /* function Fn(){
+
+    }
+    new Fn() */// 小括号用来传参，不是用来执行函数的
+
+    // 普通函数的执行步骤
+    /*
+    * 1. 形成私有作用域
+    * 2. 形参赋值
+    * 3. 变量提升
+    * 4. 代码从上到下执行
+    * 5. 决定其是否销毁
+    *
+    * */
+
+    // 构造函数的执行步骤
+    /*
+    * 1. 形成一个私有的作用域
+    * 2. 形参赋值
+    * 3. 变量提升
+    * 4. 浏览器开辟一个内存空间，将引用地址指向了this，this是一个对象
+    * 5. 代码从上到下执行
+    * 6. 将this返回：判断当前构造函数是否有关键字return ，如果没有return，直接返回this，如果有return，且return了一个基本数据类型，对返回this没有任何影响，如果return一个引用数据类型，那么返回值会被覆盖
+    *
+    * */
+
+    function Fn(name){
+        var a = name;
+        this.name =a;
+    }
+    var f = new Fn('zf');
+    console.log(f);//
+    console.log(f instanceof Fn);
+    console.log(Fn instanceof Function);
+    console.log(typeof f);//
+    //
+</script>

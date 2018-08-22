@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 原型模式：
+    * 学习原型模式需要记住三句话
+    * 1. 所有的类天生自带一个属性prototype【原型】，它是一个对象，【既然是对象，浏览器会默认开辟一个堆内存】
+    * 2. 在prototype【堆内存】当中，天生自带一个属性constructor【构造函数】，它指向当前类本身
+    * 3. 所有的对象天生自带一个属性__proto__【原型链】,它指向当前所属类的原型
+    *
+    * */
+
+    function People (name,age){
+        this.name = name;
+        this.age = age;
+        this.say = function(){
+            console.log(this)
+        }
+        // 实例真正私有属性
+    }
+    People.prototype.say = function(){
+        // 实例的公有属性
+        console.log(this.name+'am '+this.age)
+    }
+    var person1 = new People('zf',8);
+    var person2 = new People('china',5000);
+
+    console.log(person1.say === person2.say);//
+    console.log(person1.say === People.prototype.say);
+    console.log(person1.constructor === People.prototype.constructor);
+    console.log(person1.haha);//undefined
+    console.log(person1.__proto__ === People.prototype);
+    console.log(person1.__proto__.name ='beijing');;
+    console.log(person2.name);// 'china'
+    console.log(person2.__proto__.name);//'beijing'
+    console.log(People.prototype.age = 90);
+</script>
+
+<script>
+
+    /*
+    * 原型链
+    * __proto__
+    * 在实例上找一个属性，优先到自己的私有属性上找，如果没有的话，通过__prot__找到自己所属类的原型上去查找，如果自己所属类的原型上还没有，在通过__proto__向上一次查找，直到找到Object基类的原型上，如果还没有直接返回undefined，这种查找机制，我们叫做原型链
+    *
+    *
+    * */
+</script>
+
+<script>
+
+    var  ary = [1,2,3];
+    var ary2 = [2,3,4,0];
+    // map 是Array这个类的公有属性方法
+    // ary.map() ary2.map()
+    var ary3 =[0];
+    console.log(ary.length);//3
+    console.log(ary2.length);//4
+</script>
