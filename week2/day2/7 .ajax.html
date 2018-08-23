@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // ajax  async javascript and xml
+    // ajax是用来请求数据，并且和后台进行数据交互的，它可以同步操作也可以异步操作，它可以实现页面无刷新展示数据
+    // 创建一个ajax对象
+    var xhr = new XMLHttpRequest();
+    // 通过实例打开一个连接 xhr.open('请求方式','请求地址','是否异步')
+    xhr.open('get','data.json',false);
+    // 监听请求的状态
+    xhr.onreadystatechange = function(){
+        // readyState准备状态为4表示准备结束
+        // status 返回的状态为200 表示返回成功
+        if(xhr.readyState ==4 && xhr.status == 200){
+            console.log(JSON.parse(xhr.responseText));
+        }
+    }
+    // 发送请求
+    xhr.send()
+
+</script>

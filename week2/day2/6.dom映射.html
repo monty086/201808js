@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul id="box">
+        <li>3</li>
+        <li>4</li>
+        <li>1</li>
+        <li>2</li>
+    </ul>
+</body>
+</html>
+<script>
+    /*
+    * arguments映射
+    * dom映射
+    * 在js中通过DOM提供的方法获取到的这个元素，和页面结构存在着一一对应的关系就叫做dom映射
+    * */
+    /*function fn(a,b){
+        console.log(arguments[0]);
+        a=2;
+        console.log(arguments[0]);
+    }
+    fn(1,2)*/
+
+    var box = document.getElementById('box');
+    var lis = box.getElementsByTagName('li');
+
+    console.log(lis[0].innerHTML);
+    // sort
+    lis = [...lis];
+    // console.log(lis instanceof Array);
+    lis.sort(function (a,b){
+        // a li b li
+        return a.innerHTML - b.innerHTML
+    })
+    console.log(lis);
+    var flag = document.createDocumentFragment();
+    //console.dir(flag);
+
+    for (var i = 0; i < lis.length; i++) {
+        // box.appendChild(lis[i])
+        flag.appendChild(lis[i]) //<li>1</li>
+    }
+    box.appendChild(flag)
+
+    // sort
+    var ary = [5,2,1,6];
+    var ary = [{name:'zf',age:9},{name:'china',age:5000},{name:'beijing',age:100}];
+    //[{name:'zf',age:9},{name:'beijing',age:100},{name:'china',age:5000}]
+    ary.sort(function(a,b){
+        return a.age-b.age
+    })
+    //console.log(ary);
+
+    /*
+    * 回流和重绘
+    * 回流：当dom结构中的元素位置发生变化，或者增加元素以及删除元素，浏览器有监听机制，当页面元素发生变化以后，他会重新计算结构的位置，并且进行渲染，回流消耗的内存大，一般我们尽量减少真实dom的操作【浏览器不断监听导致的】，防止内存消耗；
+    * 重绘：dom结构中的样式发生变化，比如【颜色、字体大小、背景】发生变化，浏览器监听到元素的样式改变，会进行重新渲染，重绘内存消耗小
+    * 注意： 1. 必须是元素的内置属性发生改变，浏览器才能监听到
+    *       2. querySelectorAll这种方式获取到的元素集合，没有dom映射
+    *       3. 如果元素本身就有，不会发生增加，会进行替换
+    * createDocumentFragment 文档碎片
+    * 将变化的元素暂时存放到文档碎片当中，最后再添加给真实的元素，保证我们的内存消耗降到最低
+    * */
+
+
+</script>

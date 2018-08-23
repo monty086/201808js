@@ -1,0 +1,106 @@
+body,p{
+    margin: 0;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    background: #e5e5e5;
+}
+#shop{
+    width: 1200px;
+    height: 50px;
+    background: #fff;
+    margin: 10px auto;
+}
+#header  span{
+    float: left;
+    width: 100px;
+    text-align: center;
+    line-height: 50px;
+}
+#header a {
+    padding:0 20px;
+    text-decoration: none;
+    line-height: 50px;
+    color:#666;
+    position: relative;
+}
+#header a i{
+    width: 0;
+    height: 0;
+    border:5px solid transparent;
+    /*border-left-color:blue;*/
+    /*border-right-color:purple;*/
+    position: absolute;
+    top:0;
+    right:0;
+    margin-top:6px
+}
+#header a i.up{
+    border-bottom-color:#666;
+    margin-top:2px
+}
+#header a i.up.bg{
+    border-bottom-color:red
+}
+#header a i.down{
+    border-top-color:#666;
+    margin-top:13px
+}
+#header a i.down.bg{
+    border-top-color:red
+}
+#header a:hover{
+    color:red
+}
+#header:after{
+    display: block;
+    clear: both;
+    content: '';
+}
+
+/*shopList*/
+#shopList{
+    margin-top: 10px;
+}
+#shopList li{
+    float: left;
+    width: 210px;
+    margin: 0 10px 10px 0;
+    background: #fff;
+    font-size: 14px;
+    padding:10px;
+}
+#shopList li img{
+    width: 100%;
+    margin-top:10px;
+}
+#shopList li p{
+    line-height: 30px;
+    color:#aaa;
+}
+#shopList li .hot{
+    color:red
+}
+#shopList li span{
+    color:red;
+    line-height: 30px;
+}
+#shopList li p.time{
+    color:green;
+}
+#shopList li:hover{
+    position: relative;
+    top:-5px;
+    box-shadow: 1px 2px 5px #666;
+    transition: all 1s;
+
+}
+#shopList li:hover img{
+    transform: scale(1.1);
+}
