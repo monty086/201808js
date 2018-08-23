@@ -2,8 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75ec7cf8-f450-409c-b841-102d3e172c52" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/week2/9. 原型中的this.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/day2/1. 复习.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/day2/2. 类数组转数组.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/day2/3. js中的报错机制.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/day2/4. 检测数据类型.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/day2/5. json格式.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/day2/大纲" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week2/1.构造函数.html" beforeDir="false" afterPath="$PROJECT_DIR$/week2/day1/1.构造函数.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week2/2. 原型模式.html" beforeDir="false" afterPath="$PROJECT_DIR$/week2/day1/2. 原型模式.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week2/3.Function和Object.html" beforeDir="false" afterPath="$PROJECT_DIR$/week2/day1/3.Function和Object.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week2/4. 函数的三种身份.html" beforeDir="false" afterPath="$PROJECT_DIR$/week2/day1/4. 函数的三种身份.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week2/5. call方法.html" beforeDir="false" afterPath="$PROJECT_DIR$/week2/day1/5. call方法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week2/6. 手写一个call方法.html" beforeDir="false" afterPath="$PROJECT_DIR$/week2/day1/6. 手写一个call方法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week2/7. apply方法.html" beforeDir="false" afterPath="$PROJECT_DIR$/week2/day1/7. apply方法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week2/8.bind方法.html" beforeDir="false" afterPath="$PROJECT_DIR$/week2/day1/8.bind方法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week2/9. 原型中的this.html" beforeDir="false" afterPath="$PROJECT_DIR$/week2/day1/9. 原型中的this.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,83 +31,80 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="1.构造函数.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week2/1.构造函数.html">
+      <file leaf-file-name="5. call方法.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week2/day1/5. call方法.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1282">
-              <caret line="18" column="60" lean-forward="true" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
+            <state relative-caret-position="374">
+              <caret line="53" column="22" lean-forward="true" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2. 原型模式.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week2/2. 原型模式.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="64" column="27" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="9. 原型中的this.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/week2/9. 原型中的this.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="826">
-              <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="3.Function和Object.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week2/3.Function和Object.html">
+      <file leaf-file-name="1. 复习.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week2/day2/1. 复习.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="384">
-              <caret line="56" column="17" lean-forward="true" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
-              <folding>
-                <element signature="n#script#1;n#!!top" />
-              </folding>
+              <caret line="128" column="8" lean-forward="true" selection-start-line="128" selection-start-column="8" selection-end-line="128" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="4. 函数的三种身份.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week2/4. 函数的三种身份.html">
+      <file leaf-file-name="2. 类数组转数组.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week2/day2/2. 类数组转数组.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="36" />
+            <state relative-caret-position="282">
+              <caret line="72" column="34" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="10.递归.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/freeWeek2/day4/10.递归.html">
+      <file leaf-file-name="大纲" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week2/day2/大纲">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+            <state relative-caret-position="272">
+              <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="5. call方法.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week2/5. call方法.html">
+      <file leaf-file-name="4. 检测数据类型.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week2/day2/4. 检测数据类型.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+            <state relative-caret-position="418">
+              <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="5. json格式.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/week2/day2/5. json格式.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="38" column="19" lean-forward="true" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="3. js中的报错机制.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week2/day2/3. js中的报错机制.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="7. apply方法.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week2/7. apply方法.html">
+        <entry file="file://$PROJECT_DIR$/week2/day1/7. apply方法.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
+            <state relative-caret-position="1122">
               <caret line="32" column="39" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="8.bind方法.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week2/8.bind方法.html">
+        <entry file="file://$PROJECT_DIR$/week2/day1/8.bind方法.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
               <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
@@ -102,7 +113,7 @@
         </entry>
       </file>
       <file leaf-file-name="6. 手写一个call方法.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week2/6. 手写一个call方法.html">
+        <entry file="file://$PROJECT_DIR$/week2/day1/6. 手写一个call方法.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
               <caret line="21" column="28" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="28" />
@@ -135,6 +146,13 @@
         <option value="$PROJECT_DIR$/week2/7. apply方法.html" />
         <option value="$PROJECT_DIR$/week2/8.bind方法.html" />
         <option value="$PROJECT_DIR$/week2/9. 原型中的this.html" />
+        <option value="$PROJECT_DIR$/week2/day2/1. 复习.html" />
+        <option value="$PROJECT_DIR$/week2/day2/大纲" />
+        <option value="$PROJECT_DIR$/week2/day2/2. 类数组转数组.html" />
+        <option value="$PROJECT_DIR$/week2/day2/js.html" />
+        <option value="$PROJECT_DIR$/week2/day2/3. js中的报错机制.html" />
+        <option value="$PROJECT_DIR$/week2/day2/4. 检测数据类型.html" />
+        <option value="$PROJECT_DIR$/week2/day2/5. json格式.html" />
       </list>
     </option>
   </component>
@@ -174,6 +192,12 @@
               <item name="201808js" type="462c0819:PsiDirectoryNode" />
               <item name="week2" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="201808js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="201808js" type="462c0819:PsiDirectoryNode" />
+              <item name="week2" type="462c0819:PsiDirectoryNode" />
+              <item name="day2" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -195,6 +219,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yuanmeng\Desktop\201808js\week2\day1" />
       <recent name="C:\Users\yuanmeng\Desktop\201808js" />
     </key>
   </component>
@@ -220,12 +245,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534901319350</updated>
-      <workItem from="1534901323569" duration="20230000" />
+      <workItem from="1534901323569" duration="32860000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20230000" />
+    <option name="totallyTimeSpent" value="32860000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
@@ -269,14 +294,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week2/1.构造函数.html">
+    <entry file="file://$PROJECT_DIR$/week2/day1/1.构造函数.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1282">
           <caret line="18" column="60" lean-forward="true" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week2/3.Function和Object.html">
+    <entry file="file://$PROJECT_DIR$/week2/day1/3.Function和Object.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="56" column="17" lean-forward="true" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
@@ -286,7 +311,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week2/4. 函数的三种身份.html">
+    <entry file="file://$PROJECT_DIR$/week2/day1/4. 函数的三种身份.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="36" />
@@ -300,45 +325,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week2/6. 手写一个call方法.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="21" column="28" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week2/5. call方法.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week2/8.bind方法.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week2/7. apply方法.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="32" column="39" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week2/2. 原型模式.html">
+    <entry file="file://$PROJECT_DIR$/week2/day1/2. 原型模式.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
           <caret line="64" column="27" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week2/9. 原型中的this.html">
+    <entry file="file://$PROJECT_DIR$/week2/day1/9. 原型中的this.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="826">
-          <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+        <state relative-caret-position="680">
+          <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week2/day1/8.bind方法.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week2/day1/7. apply方法.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="32" column="39" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week2/day1/6. 手写一个call方法.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week2/day1/5. call方法.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="53" column="22" lean-forward="true" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week2/day2/1. 复习.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="128" column="8" lean-forward="true" selection-start-line="128" selection-start-column="8" selection-end-line="128" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week2/day2/2. 类数组转数组.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="72" column="34" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week2/day2/3. js中的报错机制.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week2/day2/大纲">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week2/day2/4. 检测数据类型.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week2/day2/5. json格式.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="38" column="19" lean-forward="true" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
         </state>
       </provider>
     </entry>

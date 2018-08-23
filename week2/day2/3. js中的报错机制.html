@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * js中的报错机制
+    * 再js中使用try catch 来捕获报错信息，try中放入执行的代码，如果有报错，通过catch中的参数e来进行接收
+    * 如果没有报错不会执行catch内容
+    * finally 报错与不报错都会执行
+    *
+    * throw new Error('报错的内容') 手动抛出一个报错信息，参数是报错的内容
+    * */
+
+    try {
+        function fn(){
+            fn()
+        };
+        fn()
+    }catch(e){
+        console.dir(e)
+        console.log(e.message);
+    }finally {
+        console.log(2);
+    }
+
+    //throw new Error('xinxi')
+    throw new RangeError('xinxi')
+    console.log(3);
+
+    // try catch 一起写
+    try{
+
+    }catch(a){
+
+    }
+</script>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类数组转数组</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>
+<script>
+    /*
+    * 类数组： arguments 元素集合
+    *
+    *
+    * */
+    var lis = document.getElementsByTagName('li');
+
+    [].slice.call(lis);//返回一个数组，里面是类数组的内容
+    //[].splice.call(lis,0);//返回一个数组，里面是类数组的内容
+    [].concat.call(lis);//返回一个数组，里面是类数组的内容
+    // 达到类数组转数组的目的
+    /*[].__proto__.call(lis)
+    Array.prototype.slice.call(lis)*/
+    getComputedStyle// 获取计算后的样式，它是window上的一个属性
+    //window.getComputedStyle() // ie低版本不兼容
+    lis.previousElementSibling // ie低版本不兼容
+    // 类数组转数组
+    var newAry = []
+    for (var i = 0; i <lis.length ; i++) {
+        newAry.push(lis[i])
+    }
+    console.log(newAry);
+
+
+    console.log([].slice); // f()
+    console.log([].push); // f()
+
+    Array.prototype.push = function(){
+        // this[this.length]= arguments[0]
+        // return this.length
+        for (var i = 0; i < arguments.length ; i++) {
+            this[this.length] = arguments[i]
+        }
+        return this.length
+    }
+    var ary =[1,2]
+    var f = ary.push(3,2)
+    console.log(f);// 3
+    console.log(ary);//[1,2,3]
+
+    // Array.prototype.slice = function(){
+    //     this
+    // }
+    // [1].slice
+</script>
+
+<script>
+    function toArray(ary){
+        if('getComputedStyle' in window){
+            // 表示是标准浏览器
+            return [].slice.call(ary)
+        }else{
+            // ie浏览器
+            var newAry = []
+            for (var i = 0; i <ary.length ; i++) {
+                newAry.push(ary[i])
+            }
+            return newAry
+        }
+    }
+    var ary = toArray(lis)
+    ary.push(1)
+    console.log(ary);
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * JSON 它不是一个数据类型，它是一个数据格式
+    * JSON分为JSON对象 JSON字符串
+    * JSON是 window全局对象上的一个属性
+    * JSON 格式非常常用，现阶段非常流行，一般用于前后端交互使用的格式，现在大中小企业都再使用这种格式传输数据
+    * */
+
+    var a = {name:'zf'};
+    var a = {"name":"zf"}
+    /*
+    * JSON对象，
+    * JSON对象和普通对象使用方法一样【都可以调用对象上的公有属性和方法】，不同的是表现形式，JSON对象中的属性名和属性值都必须添加双引号来表示
+    * JSON字符串
+    * 和普通字符串没有特别大的差别
+    * */
+    var a = '[{"name":"zf"},{"age":8}]'
+    // mock数据  模拟假数据
+
+    /*
+    * JSON的方法，一个有2个，
+    * 1. JSON.parse => JSON字符串转JSON对象
+    * 2. JSON.stringify =>JSON对象转JSON字符串
+    *
+    * */
+    var b =JSON.parse(a)
+    console.log(b);
+    var c = JSON.stringify(b)
+    console.log(c);
+
+    /*
+    * 一般情况下，我们接收到的后台返回给我们的数据，都是JSON字符串，因为JSON对象比较大，而且还会开辟堆内存，不方便用来进行数据传输；但是拿到JSON字符串后，我们想要拿到里面的属性和方法，我们需要将其转化成JSON对象，这样我们就可以调用对象上的方法进行读取显示
+    *
+    * */
+</script>
