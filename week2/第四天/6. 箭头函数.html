@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // function fn(){} // 函数声明式
+    // var fn = function(){} // 函数表达式
+
+
+    let fn = ()=>{} // 箭头函数
+    // let fn = (形参)=>{函数体}
+
+    fn()// 箭头函数执行和普通函数执行无异
+
+    /*
+    * 1. 在箭头函数中，如果形参只有一个的话，可以不用加括号
+    *
+    * */
+    let fn1 = value =>{return value}
+    //let fn1 = (value) =>{return value}
+
+    // 2. 箭头函数中，如果返回值return 只有一行的时候，可以不用加大括号，不用加return
+    let fn2 = value =>value++// 相当于{return value++}
+
+    // 3. 箭头函数中，没有arguments，我们可以用【...形参】来表示arguments，而且它还是数组
+
+    let fn3 = (...arg) =>{
+        console.log(arguments);// 没有arguments
+        console.log(arg);// 实参集合
+    }
+
+    // 4. 箭头函数中，没有this，它是this是当前箭头函数定义的上下文【环境】
+
+    function fn(){
+        let fn4 =()=>{
+            console.log(this);
+        }
+    }
+    fn()
+    new fn
+
+    // 5. 箭头函数中，没有所谓的构造函数，【不能通过关键字new来执行】，也没有实例，再es6中定义一个类，是通过class保留字来定义
+
+    let fn5 = ()=>{};
+    // new fn5()
+    class Fn{}
+</script>

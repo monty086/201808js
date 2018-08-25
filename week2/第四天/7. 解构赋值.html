@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary = [5,3,2];
+    console.log(ary[1]);
+    let [a,b,c] = ary;
+    console.log(b);
+    let [,b,] = ary;
+    console.log(b);
+    // [...b] = b
+    let [,...b] =ary
+    console.log(b);
+
+    var a =1 ;
+    var b =2 ;
+    var c = null;
+    c = a;
+    a = b;
+    b = c;
+    let [a,b] = [b,a]
+
+
+    let [a,b=0] = [1,2]
+
+    // 对象的解构赋值
+    let {age} = {name:'zf',age:'9'}
+    //console.log(name);
+    console.log(age);
+
+    let {sex=0} = {name:'zf'};
+    let {name:china} = {name:'zf'};
+    console.log(name);
+    console.log(china);
+</script>
