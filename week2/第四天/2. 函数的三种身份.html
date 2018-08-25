@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    /*
+    * 普通函数
+    * 构造函数
+    * 函数类的一个实例
+    *
+    * */
+
+    function fn(){
+
+    }
+    fn()
+    new fn();
+    fn.fn = function(){}
+    fn.fn()
+    var box = document.getElementById('box')
+    function fn(value){
+        // 过滤
+        return document.getElementById(value)
+    }
+    window.$ = fn;
+    fn('box')
+    $('#box')
+    // (function(){
+    //
+    // })()
+    // $('div');
+    // $.ajax()
+
+</script>

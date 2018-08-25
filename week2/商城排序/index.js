@@ -49,6 +49,7 @@ for (var i = 0; i < buttons.length; i++) {
 }
 
 function productSort(value){
+    console.log(this);//button[i]
     var _this = this;
     if(value === 'time'){
         // 如果点击的是时间的话，我们需要将时间转换成毫秒数来进行相减

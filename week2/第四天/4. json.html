@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * JSON:不是数据类型，它是数据格式
+    * JSON字符串，和JSON对象
+    * JSON是全局对象window上的一个属性
+    * window.JSON
+    *
+    * */
+    console.dir(window.JSON)
+
+    /*
+    * parse : JSON字符串转JSON对象
+    * stringify：JSON对象转JSON字符串
+    *
+    * */
+
+    /*
+    * JSON对象，它和普通对象的功能是相同的，不同是表示形式，属性用双引号包裹
+    * JSON字符串，
+    * */
+
+    var obj = {"name":"zf"}
+    // var obj = {name:'zf'}
+    console.log(JSON.stringify(obj));
+
+    // 克隆一个对象
+    var obj1 = obj;
+    obj1.name = 'china';
+    console.log(obj);// {name:'china'};
+    console.log(JSON.parse(JSON.stringify(obj)));
+
+    // 克隆一个函数
+    //fn.bind(null)
+
+</script>

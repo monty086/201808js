@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 什么是面向对象？
+    * 面向类的封装、继承和多态，通过简单的实例化，调用其方法和属性
+    * 单例模式
+    * 本质就是一个对象
+    * 高级单例模式
+    * 利用了闭包机制，返回一个对象
+    * 闭包
+    * 构造函数：如果一个函数通过new来执行，那么它就是一个构造函数，也可以说它是一个类，函数名就是类名，我们一般建议函数名首字母大写；默认会返回一个实例对象，
+    * 私有属性和公有属性
+    * */
+
+    /*var a = (function(){
+        var b = 1;
+        function fn(){
+
+        }
+        return {
+            fn:fn
+        }
+    })()
+    a.fn()*/
+
+    var a =1
+    function Fn(){
+        this.a = 2
+        console.log(this.a);
+        this.getX =function(){
+            console.log(this.a);
+        }
+    }
+    Fn()// 2
+    Fn.prototype.getX = function(){
+        console.log(this);
+         // return this
+    }
+    var f = new Fn()
+    f.getX()// f.__proto__.getX() => Fn.prototype.getX()
+    // 通过 __proto__原型链来找
+    console.log(f.__proto__.getX() === Fn.prototype); // this=> f.__proto__
+    // undefined === {getx:...}
+    // f.__proto__ === Fn.prototype
+
+    /*
+    * __proto__原型链查找机制
+    * 构造函数的执行过程
+    * 1. 开辟一个私有作用域 2. 形参赋值 3.变量提升 4. 浏览器创建this对象 5. 代码从上到下执行 6. 默认返回this对象
+    *
+    * 在类的原型上扩展的方法，都是实例的公有方法
+    * 在类当中给this对象添加的方法，都是实例的私有方法
+    * */
+    Fn.prototype.get=function(){};
+    // Fn.prototype.getX=function(){};
+    Fn.prototype.name='zf';
+    Fn.prototype.age=8
+    var obj = {
+        // constructor:Fn,
+        get:function(){},
+        name:'zf',
+        age:8
+    }
+    Fn.prototype = obj
+    console.log(f.constructor);//Object
+    /*
+    * 如果批量替换类的原型上的方法，会导致原型上的constructor丢失，我们为了构造函数的机制完成，需要手动给类的原型上添加一个constructor属性
+    * 注意一点：
+    * 内置类的原型可以对其进行添加和修改，但是不允许替换
+    * */
+
+    // Array.prototype.mypush = function(){
+    //     console.log(this)
+    // };
+    // Array.prototype.push = function(){
+    //     console.log(this)
+    // };
+    Array.prototype = {
+        mypush:function(){
+            console.log(this);
+        }
+    }
+    var ary = [1]
+    ary.mypush(1)
+    console.log(ary);// [1,1] this
+    // [1] instanceof Array
+
+    /*
+    * 原型模式：最重要三句话
+    * */
+
+    Array.prototype.push = function(){
+        console.log(this);//[1]
+        this[this.length] = arguments[0] // [1,5]
+    }
+    [1].push(5)
+
+    // slice splice push pop unshift shift
+
+
+
+</script>

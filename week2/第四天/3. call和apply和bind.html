@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    /*
+    * this
+    * 1.全局作用于this=window
+    * 2.自执行函数 this =window
+    * 3. 函数之前的.
+    * 4. 事件中的this，是元素本身
+    * 5. 构造函数this=》实例
+    * 6. call、apply、bind可以改变this指向
+    * 7. 函数做为参数，this=》window
+    *
+    *
+    * */
+
+    /*
+    * call apply bind 这三个方法存在于函数的原型上，那么任何一个函数都可以对其调用
+    * call：改变函数的this指向，让当前函数执行，第二个及第二个以后的参数作为实参传入前面的函数
+    * apply:改变this指向，让当前函数执行，第二个是一个数组，
+    * bind：改变this执行，函数不执行，返回一个改变完this后的新函数
+    *
+    * */
+    function fn(a){
+        console.log(a);
+        console.log(this);
+        this.style.color = 'red'
+    }
+
+    box.onclick = function (){
+        console.log(this);
+        fn.call(this,1)
+    }
+
+    /*
+    * 类数组转数组
+    * arguments 元素集合
+    * */
+    function fn2 (){
+        // console.dir(arguments);
+        // 类数组转数组
+        console.log([].slice.call(arguments));;// 返回一个数组，而不是类数组
+        console.log([...arguments]);
+        var ary = [];
+        for (var i = 0; i < arguments.length; i++) {
+            ary.push(arguments[i])
+        }
+        console.log(ary);
+    }
+    fn2(0,1,2,3,4)
+    // [].slice.call(arguments)
+
+    // apply
+    // 求最大值
+    var ary = [5,321,112,4,2];
+
+    // Math.max
+    Math.max(4,7,2,0)
+    Math.max(...ary)
+    Math.max.apply(null,ary)
+
+    // sort排序
+    ary.sort(function(a,b){return b-a})
+
+    // 假设法
+    var max = 0
+    for (var i = 0; i < ary.length; i++) {
+        if(ary[i]>max){
+            max = ary[i]
+        }
+    }
+
+    // 去掉一个最小值，去掉一个最大值，剩余数求平均数
+    function fn(ary){
+        ary.sort(function (a,b){return a-b});
+        ary.shift()
+        ary.pop();
+        var newAry = 0;
+        for (var i = 0; i < ary.length; i++) {
+            newAry+=ary[i]
+        }
+        return newAry/ary.length
+    }
+    fn(ary)
+    //
+    function fn(){
+         // console.log(eval("(" + arguments.toString() + ")"));
+
+        ;[].sort.call(arguments, function (a, b) {
+            return a - b
+        });
+        [].shift.call(arguments);
+        [].pop.call(arguments);
+        return eval([].join.call(arguments,'+'))/arguments.length
+    }
+    fn(1,2,4,211,32)
+
+    //bind;
+    // 改this ，返回一个改变this后的新函数
+    function fn6(a){
+        console.log(this);
+        console.log(a);
+    }
+    var f = fn6.bind([9,4],123)
+    console.dir(f);
+    setTimeout(fn6.bind(6),1000);
+
+    Function.prototype.apply = function (obj,ary) {
+        // obj? undefined ==null
+        // this fn6
+        // ary [1,2]
+        if(obj === undefined){
+            this(...ary)//this(1,2)
+        }else{
+            /*['a'].fn6 = fn6
+            ['a'].fn6() // ['a']=>obj fn6 =>this*/
+            obj.__proto__.a = this
+            obj.a(...ary);
+            delete obj.__proto__.a
+        }
+    }
+    /*fn6.apply()
+    fn6.apply(null,[1,2])*/
+    fn6.apply({a:'a1'},[1,2]);
+
+    // var obj = {}
+    // obj['fn6']= fn6 ;
+    // obj.fn6()
+
+    // call.call.call.call
+    function fn6(a,b){
+        console.log(this);
+        console.log(a);
+        console.log(a+b);
+    }
+    fn6.call(1)// 1 un NaN
+    fn6.call.call(1)// baocuo
+    fn6.call.call.call(1,2)// baocuo
+    fn6.call.call.call.call(fn6,1)// 1 un NaN
+    fn6.call.call.call.call.call(fn6,1,2,3)// 1 2 5
+    /*
+    * 遇到2个及2个以上的call，第一个参数必须是函数，否则会报错
+    * 第二个参数是改变第一个参数的this，让第一个参数执行
+    * 第三个及第三个以后的参数分别传给第一个参数作为实参
+    *
+    * */
+</script>
