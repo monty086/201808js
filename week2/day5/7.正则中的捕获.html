@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 正则中的捕获：exec，会先进行校验，如果校验成功，返回字符串的详细信息，如果校验失败返回null
+    * 修饰符g表示全局匹配，会按照字符串从左到右的顺序依次进行匹配
+    *
+    * */
+    var reg = /\d/g;
+    var str = 'z1f2p3x4';
+    console.log(reg.exec(str));//['1',index:1,input:xxx,groups:undefined]；
+    console.log(reg.exec(str))//2
+    console.log(reg.exec(str))//3
+    console.log(reg.exec(str))//4
+    console.log(reg.exec(str))// null
+    //console.log(reg.exec(str))//1
+    // 封装一个方法，讲全局捕获到的内容全部放入到一个数组中
+    RegExp.prototype.execAll = function (str) {
+        var value = this.exec(str);
+        var newAry = [];
+        // console.dir(this);
+        if(!this.global){
+            return value
+        }
+        while(value){
+            newAry.push(value[0]);
+            value = this.exec(str)
+        }
+        return newAry
+    }
+    console.log(reg.execAll(str));//['1','2','3','4']
+    console.log(str.match(reg));
+
+    /*
+    * 正则的懒惰性；每次捕获都只捕获第一位
+    * 解决正则的懒惰性：加一个量词元字符即可
+    * */
+    var reg = /\d+/;
+    var str = 'a123'
+    /*
+    * 正则的贪婪性：每次捕获都全部捕获出来，是因为有量词元字符的存在，
+    * 解决方法：需要在量词元字符的后面加一个？,按最少的输出
+    *
+    * */
+    var reg = /\d{2,4}?/;
+    var str = 'a123456789';
+    console.log(reg.exec(str));//1234
+</script>

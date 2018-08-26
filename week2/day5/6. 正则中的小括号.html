@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 正则中的小括号()
+    * 1. 提高优先级
+    * 2. 分组捕获
+    * 3. 分组引用
+    * */
+
+    var reg = /^1|9$/;
+    var reg = /^(1|9)$/;
+
+    // 分组捕获
+    var reg = /\w(\d)/;
+    console.log(reg.exec('zf9'));
+    //["f9", "9", index: 1, input: "zf9", groups: undefined]
+
+    // 分组引用
+    // \1表示引用的是第一个小分组 要和第一个小分组的内容必须相同
+    // \2表示第二个小分组
+    var reg = /^(\w)(\w)\1\2$/;
+    // 'abab' 'cdcd'
+    console.log(reg.test('oppo'));
+    console.log(reg.test('http'));
+    console.log(reg.test('good'));
+    console.log(reg.test('foot'));
+    console.log(reg.test('feel'));
+    console.log(reg.test('loop'));
+    console.log(reg.test('look'));
+
+</script>

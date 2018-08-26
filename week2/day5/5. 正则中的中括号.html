@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 正则中的中括号
+    * 正则中的中括号表示，括号中的字符取任意一个
+    * 中括号中 ^ - 表示 非 和 范围的意思【a-z A-Z 0-9 0-z】
+    * 中括号中 \d \w \s 都表示特殊的元字符，其他的符号都没有任何含义;
+    * */
+    /*var reg = /[xyz]/;
+    reg.test('x')
+    reg.test('xyz')
+    console.log(reg.test('axb'));//true*/
+
+    var reg = /[^xyz]/;
+    console.log(reg.test('x'));
+
+    var reg = /[a-z]/;
+    console.log(reg.test('0'));
+
+    var reg = /^[xyz]$/;
+    console.log(reg.test('y'));
+    console.log(reg.test('xy'));
+
+    var reg = /^[\d]$/;
+    var reg = /^[\w]$/;
+    var reg = /^[\s]$/;
+    var reg = /^[.]$/;
+    var reg = /^[\b]$/;
+    var reg = /^[&*$]$/;
+    console.log(reg.test('1'));
+
+    var reg = /^[12-89]$/;// 1 9 2-8
+    console.log(reg.test('12'));
+
+    var reg = /[12-89]/;
+    console.log(reg.test('12'));
+
+    var reg = /^18|19$/;
+    console.log(reg.test('8'));
+    console.log(reg.test('19'));
+    console.log(reg.test('181'));
+    console.log(reg.test('919'));
+    console.log(reg.test('819'));
+    console.log(reg.test('1819'));
+
+    // 取一个年龄段的人 18-65
+    // 18-19 20-59 60-65
+    var reg = /^(1[8-9])|([2-5]\d)|(6[0-5])$/;
+
+    // 0-78 人  0-9 10-78  [1-6]\d  7[0-8]
+    // (\d)|([1-6]\d)|(7[0-8])
+
+    // 思考题：找一个出生日期为 1949-2018，用正则匹配
+
+    // 匹配一个完整数字  0 0.5 -5 -0.5 1.55555 123 1.0000001 1.00
+    // 0-9 1-9 0-9+  1.000000
+    var reg = /^-?(\d|[1-9]\d+)(\.(\d+))?$/
+    console.log(reg.test('-1.2'));
+    console.log(reg.test('123'));
+    console.log(reg.test('0.05'));
+    console.log(reg.test('-222.009'));
+
+
+</script>
