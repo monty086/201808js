@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 箭头函数
+    *
+    *
+    * */
+    //function fn(){}
+    let fn = (形参)=>{'函数体'; console.log(形参)};
+    fn(1)
+    // 当前形参只有一个时候，忽略写小括号
+    // 当函数体，只有一行+return的时候，可以忽略写大括号
+    let fn1 = a=>++a;
+    console.log(fn1(2));
+
+    // 在箭头函数中没有arguments
+    let  fn2 = (...arg)=>arg;
+    fn2(1,2,3,4)
+
+    // 箭头函数中没有this
+    // 输出this，this是当前函数定义的上下文【环境】
+    let fn3 =()=>this;
+    console.log(fn3());
+
+    // 箭头函数没有构造函数之分
+    // 在es6使用class来定义构造函数
+    class Fn{}
+
+    // 高级箭头函数
+    let fn4 = a=>b=>c=>a+b+c;
+    fn4(1)(2)(3)
+
+</script>

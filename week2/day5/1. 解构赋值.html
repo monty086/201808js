@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    /*
+    * 解构赋值：根据一个数据值的结构，进行解析获取其中的内容，就叫做解构赋值
+    * 解构赋值有很多种，在项目比较常用的是对象和数组
+    * */
+
+    /*var ary = [4,2,7,9];
+    ary[0]
+    ary[ary.length-1];*/
+
+    // 1通过相同位置来拿到相对应的值
+    /*let [a] = ary ;
+    console.log(a);// 4
+    //let [,,,b] = ary;
+    let [,,,b] = ary;
+    // let [b] = ary//
+    console.log(b);*/
+
+    // 2通过剩余运算符拿到一些值组成的数组
+   /* var ary = [4,2,7,9];
+    let [...newAry] = ary;
+    console.log(newAry);
+    let [,,...c] = ary;
+    console.log(c);*/
+
+    // 3.我们可以通过解构赋值定义初始的值
+    /*var ary = [8]
+     let [d,e] = ary;
+    console.log(e);// undefined
+    ary.push(6);//[8,6]
+    let [d,e=7] = ary;//
+    console.log(e);//6
+    console.log(e);//6*/
+
+    // 4. 通过es6结构赋值，将两个值进行互换
+    /*let a = 1 ,b=2;
+    /!*a = a+b;//3
+    b = a-b //3-2=1
+    a = a-b *!/// 3-1=2
+    [a,b] = [b,a];
+    console.log(a, b);*/
+
+    // 对象的解构赋值
+    var obj = {name:'zf',age:8};
+    // 在对象的解构赋值中，我们定义的变量名必须和对象的属性名相同，才可以正确的结构
+    // let {a,b} = obj;
+    //let {name,age} = obj
+    //let {name:name,age:age} = obj
+    let {age} = obj;
+    console.log(age); // obj.age,通过这种方法拿到的值，修改或者替换的话，原有的对象也会发生变化；而且单独的变量age，更加简洁
+    age = 9;
+    obj.age = 10;
+    console.log(obj);
+
+    // 可以通过对象的解构赋值定义初始的值
+    let {sex='man'} = obj;
+    console.log(sex);
+    function fn({name:newName1,age,sex=1}={}){//函数传参可以定义初始的值
+        //console.log(option);//undefined
+        console.log(newName1, age,sex);
+    }
+    fn(obj)
+
+    // 可以给对象的解构赋值起一个别名
+    let {name:newName,age:newAge}= obj;
+    console.log(name);
+    // 通过起一个别名，将对象的属性名对应的属性值重新赋值
+    console.log(newName, newAge);
+
+     var obj = {name:'zf',age:'8',sex:[3,5,2,1]}
+    // 通过对象的解构赋值，三个变量 a,b,c 找到这个对象中的 ’zf‘, 3 [2,1]
+    let {name:a,sex:[b,,...c]} = obj
+    console.log(a, b, c);
+
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 剩余运算符
+    * ... : 剩余运算符 、 扩展运算符、
+    *
+    *
+    * */
+
+    let ary = [4,2,1,5];// 通过...这种方式可以实现对数组的克隆
+    let [...newAry] = ary;
+    let oldAry = [...ary];
+    // 通过这种方式可以拿到剩余数组成的数组
+    //let [,,...ary1] =ary;
+    // 剩余运算符必须包括最后一项，不能取数组中间的某个值
+    //let [,...ary2,] =ary;
+    // 把数组中的最后一项拿到，并且放入到数组中
+    let [,,,...ary3] = ary ;
+    console.log(ary3);
+    //console.log(ary2);
+    // console.log(ary1);
+
+    // 可以在函数中使用剩余运算符
+    let ary4 = [5,3,2,1];
+    function fn(a,b,c,d){
+        console.log(a);// [5,3,2,1]
+    }
+    fn(...ary4)
+
+    function fn(...arg){
+        console.log(arg);//[1,2,3,4]
+        console.log(arguments);// [1,2,3,4]
+    }
+    fn(1,2,3,4)
+    let fm = (...arg)=>{
+        console.log(arg);// 在箭头函数中，通过剩余运算符可以拿到实参的集合，它是一个数组
+    }
+    fm(1,2,3,4)
+
+    // 还可以通过剩余运算符实现扩展
+    var obj = {name:'zf'};
+    let obj1 = {...obj,age:8};
+    let obj2 = Object.assign(obj,{age:8})// 在对象的基础上进行添加键值对
+    console.log(obj2);
+
+    var ary = [1,2,3];
+    let ary1 = [...ary,4,5,6];
+    ary.concat([4,5,6]) // 在原有数组的基础上实现拼接
+    console.log(ary1);
+
+
+</script>
