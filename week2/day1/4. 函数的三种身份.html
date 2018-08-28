@@ -28,4 +28,21 @@
     fn.aaa =123;
     console.log(fn.aaa);
     console.dir(fn(1))
+
+    // new fn
+    fn.prototype.getX =function(){}
+    fn().getX()
+    new fn().getX()
+    fn.getX()
+
+    fn
+    fn()
+    new fn()
+    fn.aaa = 'bbb'
+    fn.prototype = {getX:function () {
+
+    }}
+    fn.getX()
+    new fn().getX()
+
 </script>
