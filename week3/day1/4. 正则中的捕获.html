@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    /*
+    * 正则中的捕获
+    * exec
+    * 在捕获的过程会先进行校验，如果校验通过会返回字符串的详细信息，如果校验不通过返回null
+    * lastIndex: 下一次按照这个索引的位置进行捕获
+    * global: 全局捕获，表示会按照字符串的顺序从左到右依次捕获
+    * 注意：用正则去校验的时候，如果你加g全局校验的话，每次校验的内容都不一样
+    * */
+
+    var str = 'zhu2018feng2019pei2020xun2021';
+    var reg = /\d+/g;
+    console.dir(reg.lastIndex);
+    console.log(reg.exec(str));// 2018
+    console.dir(reg.lastIndex);
+    console.log(reg.exec(str));// 2019
+    console.log(reg.lastIndex);
+    console.log(reg.exec(str));// 2020
+    console.log(reg.lastIndex);
+    console.log(reg.exec(str));// 2021
+    console.log(reg.lastIndex);
+    console.log(reg.exec(str));// null
+    // 在正则的原型上扩展一个方法，捕获所有符合内容的字符
+    RegExp.prototype.execAll = function(str){
+        // 第一次捕获到的内容
+        var value = this.exec(str),newAry = [];
+        // 创建一个新数组接收每次捕获到的内容
+        console.dir(this);
+        if(!this.global){ // 判断我们创建的正则是否有添加全局修饰符g，可以避免死循环
+            return value // 如果没有添加，直接输出字符串的详细信息
+        }
+        while(value){ // 通过value来判断我循环的条件
+            newAry.push(value[0]); // 只要value有值，我都会将其添加到新数组中
+            value = this.exec(str)//2019 不断的去跟新value的值，直到value为null的时候，停止循环
+        }
+        return newAry
+    }
+    reg = /\d+/g;
+    //console.log(reg.execAll(str));
+    console.log(str.match(reg));
+
+    // 正则的懒惰性
+    var reg = /\d+/;
+    console.log(reg.exec(str));//2
+    console.log(reg.exec(str));//2
+    /*
+    * 正则的懒惰性：每次捕获都只捕获到第一次匹配到的内容，剩余的不再捕获了；
+    * 解决正则的懒惰性：我们在元字符后面加一个量词元字符，每次捕获按最大值来捕获
+    *
+    * */
+
+    // 正则的贪婪性
+    var reg = /\d+?/;
+    console.log(reg.exec(str));//
+    console.log(reg.exec(str));//
+    /*
+    * 正则的贪婪性：每次捕获到的内容都的最多的，解决正则贪婪行我们在量词元字符后面添加一个？来解决，这样的话，每次捕获都按最小的单位来捕获
+    *
+    *
+    * */
+
+
+</script>

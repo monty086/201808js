@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    function fn(){
+        this.aaa = 'bbb';
+    }
+    fn.aaa = 'ccc';
+    ///fn.prototype.aaa = 'ddd';
+    fn.prototype.aaa = function aaa(){
+        return this;
+    };
+
+    console.log(fn.aaa);
+    console.log(fn.prototype.aaa);
+    console.log(new fn().aaa);
+    fn();
+    new fn()
+    //fn.aaa()
+    fn.aaa === fn.__proto__.aaa//ccc == undefined
+    new fn().aaa == new fn().__proto__.aaa ;
+    new fn().__proto__.aaa = fn.prototype.aaa;
+    //var f = new fn()
+    var a =new fn().__proto__.aaa;
+    console.log(a);
+    a() == fn.prototype.aaa()//true
+</script>

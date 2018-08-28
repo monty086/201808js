@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <span>用户名:</span>
+            <span id="username"></span>
+        </li>
+        <li>
+            <span>密码:</span>
+            <span id="password"></span>
+        </li>
+        <li>
+            <span>邮箱:</span>
+            <span id="email"></span>
+        </li>
+        <li>
+            <span>手机号:</span>
+            <span id="mobile"></span>
+        </li>
+        <li>
+            <span>个人主页:</span>
+            <span id="url"></span>
+        </li>
+    </ul>
+</body>
+</html>
+<script>
+    console.log(location.href);
+    let url = window.decodeURIComponent(location.href);//通过这个属性将url进行解码
+    console.log(url);
+    /*let reg = /[?&=]/g;
+    let ary = url.split(reg);
+    console.log(ary);
+    let obj = {}
+    for (var i = 1; i < ary.length; i+=2) {
+        obj[ary[i]] = ary[i+1]
+    }*/
+
+    var reg = /(\w+)=([\w//@:.]+)/g;
+    var obj = {}
+    /*url.replace(reg,function(){
+        console.log(arguments);
+        obj[arguments[1]]=arguments[2]
+    })*/
+    url.replace(reg,(...reg)=>obj[reg[1]]=reg[2]);
+    console.log(obj);
+    // for (var key in obj){
+   //     document.getElementById(key).innerHTML = obj[key]
+   // }
+
+    /*
+    * 1. 解析一个url
+    * 2. 正则匹配一个首位空格
+    * 3. 正则匹配一个数字
+    * 4.
+    * */
+</script>
