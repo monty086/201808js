@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            width: 600px;
+            height: 200px;
+            border:1px solid red;
+            margin:100px auto;
+            overflow: hidden;
+        }
+        #content{
+            width: 2400px;
+            height: 200px;
+            font-size: 0;
+        }
+        #begin,#end{
+            display: inline-block;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+            border:0;
+            filter: sepia(200%);
+        }
+        img:hover{
+            filter: blur();
+            transform: translateY(-5px);
+            transition: all 1s;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="content">
+        <div id="begin">
+            <img src="img/1.png" alt="">
+            <img src="img/2.png" alt="">
+            <img src="img/3.png" alt="">
+            <img src="img/4.png" alt="">
+            <img src="img/5.png" alt="">
+            <img src="img/6.png" alt="">
+        </div>
+        <div id="end">
+            <img src="img/1.png" alt="">
+            <img src="img/2.png" alt="">
+            <img src="img/3.png" alt="">
+            <img src="img/4.png" alt="">
+            <img src="img/5.png" alt="">
+            <img src="img/6.png" alt="">
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    let box = document.getElementById('box');
+    let begin = document.getElementById('begin');
+    let W = begin.offsetWidth;
+    function fn(){
+        if(this.scrollLeft>=W){
+            this.scrollLeft=0
+        }else{
+            this.scrollLeft+=3
+        }
+    }
+    // 在动画里13-17是比较流畅的一个速度值
+    let timer = setInterval(fn.bind(box),17)
+
+    // 鼠标划入停止，滑出继续
+    box.onmouseover = function(){
+        clearInterval(timer)
+    }
+    box.onmouseout = function(){
+        timer = setInterval(fn.bind(box),17)
+    }
+</script>

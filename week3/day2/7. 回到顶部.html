@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        html,body{
+            height: 500%;
+            width: 100%;
+            background: -webkit-linear-gradient(red ,orangered,yellow,green,royalblue,blue,purple);
+        }
+        #box{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: fixed;
+            right:50px;
+            bottom:50px;
+            text-align: center;
+            line-height: 50px;
+            color:white;
+            background: rgba(0,0,0,.5);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">UP</div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    /*
+    * window.onscroll // 当滚动条滚动的时候，执行这个方法,鼠标和键盘都可以触发它
+    *
+    * */
+    let box = document.querySelector('#box');
+    let bok = false;
+    window.onscroll =function(){
+        /*
+        * 每次执行setInterval的时候，滚动条都会向上走一步，再向上走的时候，会触发onscroll事件，如果我们手动干预的话，onscroll事件会再下一次触发之前，再触发一次，让bok变成true，让定时器清除，
+        * 如果没有手动干预，每一次bok都会被重新赋值为false
+        * */
+        if(bok){
+            clearInterval(box.timer)
+        }
+        bok=true;
+
+    // 1.先让回到顶部进行显示
+        // 浏览器卷出去的距离
+        let winScroll = utils.win('scrollTop');
+        // 计算出浏览器一屏幕的高度
+        let winClient = utils.win('clientHeight');
+        // 判断scroll如果大于client的时候，我让回到顶部显示
+        if(winScroll>=winClient){
+            box.style.display = 'block'
+        }else{
+            box.style.display = 'none'
+        }
+    }
+
+    box.onclick = function(){
+        let winScroll = utils.win('scrollTop');
+        // 使用定时器来实现不断返回到顶部
+        this.timer = setInterval(()=>{
+            // 每17ms回滚10px
+            winScroll-=100;
+            if(winScroll<=0){
+                clearInterval(this.timer);
+                // 可以会因为每次走的步长的原因，出超出距离，所以我们需要手动设置回到顶部的距离为 0
+                utils.win('scrollTop',0);
+                return;
+            }
+            // 变量改变以后，重新设置给滚动条
+            utils.win('scrollTop',winScroll);
+            bok=false
+        },50)
+        // 时间调整为50
+    }
+</script>
+

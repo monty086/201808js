@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            width: 260px;
+            height: 200px;
+            border:1px solid red;
+            margin:2000px auto;
+            background: url('img/loading.gif') no-repeat center center;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="" data-src="img/gougou.jpg" alt="">
+    </div>
+</body>
+</html>
+<script>
+    /*
+    * 延迟加载：又名懒加载，是项目当中性能优化一个非常重要的环节，目的主要是为了节省流量，提高性能优化，提高用户体验
+    * 操作方式： 当网页中有多张图片加载时，我们先尝试加载小的loading图，当用户将浏览器窗口滑到此图片位置时，再将图片进行加载渲染，这种操作方式，多用于图片比较多的网站，比如图库、社交网站、电商、企业网站
+    * 原理：当滚动条滚动的时候，我们会实时的计算浏览器卷上去的高度，当浏览器卷上去的高度+浏览器一屏的高度，大于图片所在整个body页面位置距离顶部偏移量的时候，我们开始让图片进行显示，这就是延迟加载的原理
+    * */
+</script>
+<script src="utils.js"></script>
+<script>
+    let box = document.querySelector('#box');
+    let img = box.getElementsByTagName('img')[0];
+    // 拿到浏览器屏幕的高度
+    let winH = utils.win('clientHeight');
+    // 拿到盒子距离body顶部的偏移量
+    let boxT = utils.offset(box).top;
+    // 拿到盒子整个的高度
+    let boxH = box.offsetHeight;
+
+
+    // 我们需要onscroll事件不断的被触发的时候，再开始比
+    window.onscroll = function (){
+        // 拿到浏览器卷出去的高度
+        let winS = utils.win('scrollTop');
+        if(winH+winS>=boxT+boxH){// 当浏览器的窗口底部，触碰到图片的底部的时候，执行这个判断体
+            if(img.flg)return;
+            //新建一个图片
+            let newImg = new Image();
+            // 拿到真实图片上的地址
+            let url = img.getAttribute('data-src');
+            // 将图片地址给newImg
+            newImg.src = url;
+            // 让newImg进行尝试加载，如果加载成功，把这个真实的路径还给真实的元素
+            newImg.onload = function(){
+                img.src = this.src;
+                // 让图片渐隐渐显显示
+                lazyImg(img)
+                img.flg = true
+            }
+            newImg.onerror = function(){
+                img.src = 'img/error.jpg'
+            }
+        }
+    }
+    function lazyImg(ele){
+        // 通过这个属性获取到元素内嵌式的属性
+        var a = window.getComputedStyle(ele)['opacity'];
+        // 因为它是字符串，所以我们需要转化成数字
+        a = Number(a)
+        // 让图片渐隐渐显显示
+        ele.timer = setInterval(function () {
+            a+=0.01;
+            if(a>=1){
+                clearInterval(ele.timer);
+                ele.style.opacity =1 ;
+                return;
+            }
+            // 加return是为了方式下面这一行js再继续执行
+            ele.style.opacity = a
+        },17)
+    }
+
+</script>

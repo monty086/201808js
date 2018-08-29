@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{
+            margin: 0;
+            height: 500%;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            padding: 10px;
+            border:10px solid blue;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    /*
+    * client系列
+    * clientWidth：盒子真实内容的宽度【content+padding左右】，不包括边线【border】和滚动条;
+    * clientHeight：盒子真实内容的高度【content+padding上下】，不包括边线【border】和滚动条;
+    * clientLeft: 盒子左边框的宽度 【border-left】
+    * clientTop: 盒子上边框的宽度 【border-top】
+    * */
+    var box = document.getElementById('box');
+
+    /*
+    * 获取当前浏览器可视窗口的宽度和高度
+    * document.documentElement => html元素
+    * document.body => body元素
+    * 一般情况下，body和html元素宽高都是相等的
+    *
+    * */
+    document.documentElement.clientWidth // html元素的宽度
+    document.body.clientWidth  // body元素的宽度
+
+    document.documentElement.clientWidth || document.body.clientWidth
+
+    function win (key,value){
+        // 通过判断value的值，我们可以得知是否要对可视窗口进行修改
+        if(value == undefined){
+            // 只是对可视窗口进行获取值
+            return document.documentElement[key]|| document.body[key]
+        }
+        // 传了参数，要对它进行设置，而且没有单位
+        document.documentElement[key]=value;
+        document.body[key] = value
+    }
+    win('clientWidth')
+    win('scrollTop',100)
+</script>

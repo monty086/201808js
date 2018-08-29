@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{
+            margin: 0;
+            /*height: 500%;*/
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            padding: 10px;
+            border:10px solid blue;
+            margin:10px;
+        }
+        .outer{
+            position: relative;
+            border:20px solid black;
+        }
+    </style>
+</head>
+<body>
+<div class="outer">
+    <div id="box"></div>
+</div>
+
+</body>
+</html>
+<script>
+    /*
+    * offset系列
+    * offsetWidth：整个盒子的宽度【content+padding左右+border左右】
+    * offsetHeight： 整个盒子的高度【content+padding上下+border上下】
+    * offsetParent : 父级参照物：一个元素的父级参照物，就看它的父级是否有发生定位，如果有，那么它的父级就是当前元素的父级参照物，如果没有，那么它的父级参照物就是body
+    * offsetLeft : 当前元素的外边框距离父级参照物内边框的左偏移量
+    * offsetTop :  当前元素的外边框距离父级参照物内边框的上偏移量
+    *
+    * */
+
+    // 再js中，通过client系列和offset系列让盒子垂直水平居中
+    /*let box = document.getElementById('box');
+    let boxW = box.offsetWidth;
+    let boxH = box.offsetHeight;
+    let winW = document.documentElement.clientWidth || document.body.clientWidth;
+    let winH = document.documentElement.clientHeight || document.body.clientHeight;
+    box.style.marginLeft = (winW-boxW)/2+ 'px';
+    box.style.marginTop = (winH-boxH)/2 + 'px';*/
+
+    console.log(box.offsetWidth);
+    console.log(box.offsetParent);
+
+    // 封装一个方法，求出当前元素距离body的偏移量
+    function offset(ele){
+        // 先求出元素距离父级参照物的偏移量
+        let l = ele.offsetLeft;
+        let t = ele.offsetTop;
+        let parent = ele.offsetParent;
+        console.dir(parent)
+        // 判断父级参照物是不是body，如果是body，证明已经到了最外层的body元素，就不用再循环了，如果不是body，我们继续循环父级参照物，累加父级参照物的边框以及偏移量
+        while(parent.tagName!='BODY'){
+            // 需要累加父级参照物的左边框
+            l+= parent.clientLeft;
+            t+= parent.clientTop;
+            // 累加父级参照物的左偏移量
+            l+= parent.offsetLeft;
+            t+= parent.offsetTop;
+            //  跟新父级参照物
+            parent = parent.offsetParent
+            //window.navigator.userAgent
+        }
+        /*
+        * 再 ie8 有兼容问题，它的偏移量包括边框的宽度
+        * window.navigator.userAgent  来判断当前浏览器是什么版本的浏览器
+        * /MSIE 8/.test(window.navigator.userAgent)
+        * */
+        return {left:l,top:t}
+    }
+    offset(box).left
+</script>
