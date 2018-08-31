@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box" style="opacity: 0.5" height='500'></div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    var box = document.getElementById('box');
+    console.log(box.width);
+    console.log(box.getAttribute('height'));//
+    console.log(box.style.opacity);
+    console.log(box.style.width);// 元素的style属性上有样式，但是都是空字符串
+    console.dir(box.style)//通过style属性只能拿到元素上的行内样式
+
+    // 如果我们想要拿到内嵌中的样式
+    // 参数1：当前的元素， 参数2：元素上的伪类【默认不写】
+    // getComputedStyle：获取当前元素计算后的样式，在内嵌中
+    var a = window.getComputedStyle(box);
+    console.log(a['width']);
+
+    // utils.setCss(box,'width',100);
+    // utils.setCss(box,'height',100);
+    // utils.setGroupCss(box,{width:100,height:200})
+
+
+    // console.log(utils.a);
+    // utils.offset(box)
+    // utils.getRandom('1',100)
+    // utils.getRandom(5,3)
+    function f(){
+        return 1
+    }
+
+    function fn(){
+      return  f()//1
+    }
+
+    console.log(fn());//1
+    console.log(f());//1
+
+    // utils.setCss(box,'width',500)
+    utils.setCss(box,'background','blue');
+    utils.setCss(box,'marginLeft',100);
+    utils.setCss(box,'left',100);
+    utils.setCss(box,'margin',100);
+
+    // for (var i = 0; i < 5; i++) {
+    //     debugger
+    //     console.log(i);
+    //     fn()
+    // }
+</script>
