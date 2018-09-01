@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            border:10px solid red;
+            padding:10px;
+            /*box-sizing: border-box;*/
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    // 盒子模型的属性在元素对象的私有属性上
+    var box = document.getElementById('box');
+    console.dir(box)
+    // box.onclick
+    // box.clientWidth
+
+    // 注意：我们学的13个盒子模型的属性，大部分都是只读的，只有scrollTop和scrollLeft着两个属性可以进行修改
+
+    // client 系列
+    /*
+    clientWidth : 盒子真实内容的宽度，不包括边框和滚动条 【content+padding左右】
+    clientHeight : 盒子真实内容的高度，不包括边框和滚动条 【content+padding上下】
+    clientLeft : 盒子左边框的宽度 【左border】
+    clientTop  : 盒子上边框的宽度 【上border】
+    */
+    // 一般情况下，我们用这个属性表示浏览器可视窗口的宽高，也可以用来表示元素的宽高
+    // 表示浏览器可视窗口的宽高【如果html没有的话，我们默认用body的宽高，一般情况下，html元素和body元素的宽高都是一样的】
+    document.documentElement.clientWidth || document.body.clientWidth;
+    document.documentElement.clientHeight || document.body.clientHeight;
+
+</script>

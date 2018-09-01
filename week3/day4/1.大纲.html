@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #outer{
+            box-sizing: border-box;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            box-sizing: inherit;
+            border:10px solid red;
+            padding:10px;
+            /*position: absolute;*/
+            /*top:0;*/
+            /*left:0;*/
+            /*right:0;*/
+            /*bottom:0;*/
+            /*margin:auto;*/
+
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-left:-100px;
+            margin-top:-100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="box">123123123123123</div>
+    </div>
+
+</body>
+</html>
+<script>
+    /*
+    * css盒子模型
+    * 标准盒模型：内容+padding
+    * 怪异盒模型：box-sizing: border-box content-box inherit
+    * border-box: 表示盒子的宽度包括border
+    * content-box: 标准盒模型
+    * inherit： 继承父级的盒模型属性
+    * */
+</script>

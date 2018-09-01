@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            border:10px solid red;
+            padding:10px;
+            /*position: absolute;*/
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    /*
+    * offset系列
+    * offsetWidth: 整个盒子的宽度【border+padding+content】
+    * offsetHeight：整个盒子的高度【border+padding+content】
+    * offsetParent：父级参照物，【当父级设置了定位属性，脱离文档流之后，父级就变成了父级参照物】 如果元素的父级以上元素都没有设置定位，那么元素的父级参照物就是body，而body的父级参照物是null
+    * offsetLeft：当前元素外边框距离父级参照物内边框的左偏移量
+    * offsetTop： 当前元素外边框距离父级参照物内边框的上偏移量
+    * */
+
+    // 让盒子水平居中的方法
+    box.style.marginLeft = ( (document.documentElement.clientWidth || document.body.clientWidth) - (box.offsetWidth) )/2 +'px';
+</script>

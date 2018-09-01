@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,p{
+            margin: 0;
+        }
+        #box{
+            width: 150px;
+            height: 150px;
+            border:1px solid red;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容</p>
+    </div>
+</body>
+</html>
+<script>
+    /*
+    * scroll 系列
+    * scrollWidth : 盒子真实内容的宽度【包括溢出和未溢出】
+    * 溢出： 真实内容的宽度【clientWidth】+ 溢出的宽度
+    * 未溢出： 真实内容的宽度【clientWidth】
+    * scrollHeight： 盒子真实内容的高度【包括溢出和未溢出】
+    * scrollLeft ： 当前盒子内容，向左卷出去的距离
+    * scrollTop ： 当前盒子内容，向上卷出去的距离
+    *
+    * 注意： scroll会计算盒子内容的高度或者宽度，包括溢出隐藏和溢出滚动
+    *
+    * */
+
+    // onscroll 滚动条触发以后，执行这个方法
+    // 简单的方法实现下拉加载
+    box.onscroll = function () {
+        //console.log(box.scrollTop);
+        let boxT = box.scrollTop;
+        let boxH = box.clientHeight;
+        let boxS = box.scrollHeight;
+        // console.log(boxT,boxH,boxS);
+        if(boxT+boxH+50>boxS){
+            // console.log(1);
+            box.children[0].innerHTML+='我是新的内容'
+        }
+    }
+    // 当滚动条滑到最底部的时候，
+    // scrollHeight = clientHeight + scrollTop
+</script>

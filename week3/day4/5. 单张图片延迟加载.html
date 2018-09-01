@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            width: 480px;
+            height: 320px;
+            margin:1000px auto;
+            background: url('img/loading1.gif')no-repeat center center;
+            background-size: cover;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src='' data-src="img/23.png" alt="这是一辆车">
+    </div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    /*
+    * 延迟加载：又名懒加载，在性能优化中非常重要的一个环节，多用于图片量大的网站和移动端；
+    * 延迟加载的过程：当浏览器滑动到当前的图片的时候，我们再准备去请求数据、和展示图片，再展示图片的时候，我们先创建一个临时的图片去试加载，一旦加载成功，将正确地址返回给真实的标签元素，【如果直接是img图片加载失败的话，页面上会有加载失败的裂图，是非常不友好的】。
+    *
+    * */
+    let img = box.getElementsByTagName('img')[0];
+
+    // 1. 计算滚动条滑到图片位置这一块的距离
+    let winH = utils.win('clientHeight');// 浏览器一屏的高
+    let imgH = box.offsetHeight; // 图片的自身的高
+    let imgT = utils.offset(box).top; // 图片距离body顶部的距离
+
+
+    window.onscroll = function(){
+        // 只有滚动条不断的触发，才会让scrollTop不断的改变
+        let winT = utils.win('scrollTop');// 注意：我是不断变化的scrollTop;
+        if(winH+winT>imgH+imgT){// 这样的值计算，表示浏览器已经滑动到图片的底部
+           //if(img.load)return;
+            // let newImg = new Image;
+           let newImg = document.createElement('img');
+            console.log(newImg);
+            // 创建一个img标签的原因：因为img标签上天生自带src属性，而src属性所对应的属性值是必须是图片的路径地址
+            // 获取到图片上的data-src
+           newImg.src = img.getAttribute('data-src');
+           // <img src="img/2.png">
+           // 让新图片试着加载
+           // onload 当图片加载成功【路径正确】的时候，执行这个方法，我们将加载成功后的地址，给原有的图片
+           newImg.onload = function () {
+               img.src = this.src;
+               img.load =true
+               img.style.opacity=1;
+           };
+           newImg.onerror =function(){
+               console.log(456);
+               img.src = 'img/error.jpg';
+               img.style.opacity=1;
+           }
+        }
+    }
+
+    window.onload=function(){} // 表示整个文档中图片，结构全部加载完执行的方法
+
+</script>
