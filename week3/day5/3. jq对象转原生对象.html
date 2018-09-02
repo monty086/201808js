@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">box</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+</html>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    /*
+    * 我们通过jq获取到的元素，是没有办法直接操作原生js上的方法，我们需要将jq对象转成原生对象，再进行操作
+    *
+    * */
+    console.log($('#box'));//返回是一个类数组，这个类数组就是jq对象，它可以操作jq这个类上的 所有公共方法和属性
+    // jq对象转原生对象
+    // 给jq对象加一个索引
+    console.log($('#box')[0]);
+    // 通过get这个方法也可以拿到相对应的索引，找到原生对象
+    console.log($('#box').get(0));
+    // 通过eq这个方法可以拿到jq对象种的某一个元素，返回的是一个jq对象
+    console.log($('ul li').eq(0));
+
+    // 原生对象转jq对象
+    // 给原生对象外面用jq来执行就行了
+    box.onclick = function(){
+        console.log($(this));
+    }
+
+</script>

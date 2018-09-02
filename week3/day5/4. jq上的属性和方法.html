@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    /*
+    * jq上的属性和方法
+    *
+    * jq它是一个类，在jq上有一个prototype存放的是所有的jq实例的公共方法
+    * 同时 jq也是一个对象，在jq的对象上也存在一些属性和方法，可以直接来调用
+    *
+    * */
+
+
+    // jq原型上的方法
+       $('#box').append()
+       $('#box').appendTo('#outer') // 和append元素的位置进行互换
+       $('#box').insertBefore() //
+       $('#box').insertAfter() //
+       $('#box').css('width') // 获取
+       $('#box').css('width','100px') // 设置
+       $('#box').css({width:'100px'}) // 批量设置
+       $('#box').offset().left // 当前元素距离body左侧的距离
+       $('#box').offset().top // 当前元素距离body上面的距离
+       $('#box').position() // 当前元素距离父级的距离
+       $('#box').scrollTop() // 当前元素卷上去的高度
+       $('#box').scrollLeft() // 当前元素左侧卷出去的高度
+       $('#box').innerHeight() // client
+       $('#box').outerHeight() // offset
+
+
+    /// jq的属性方法
+    $('#box').attr() // attribute  通过attr设置，就通过attr获取
+    // 给元素设置行内的自定义属性
+    $('#box').prop() //  . 通过prop给元素设置自定义属性
+    $('#box').addClass() // 给元素添加类名
+    $('#box').removeClass() // 给元素移除类名
+    $('#box').toggleClass() // 如果有就移除，如果没有就添加
+    $('#box').html() // innerHtml
+    $('#box').text() // innerText
+    $('#box').value() // 给表单元素设置value值
+
+    // jq对象上的一些方法
+    $.each([1,2,3,4],function(){})//用来便利的
+    $.extend({}) // 给jq对象上扩展一些方法
+    $.fn.extend({}) // 给jq的原型上扩展一些方法
+    $.unique([1,2,1,2,1,2,4,2,21]) // jq的去重
+    $.uniqueSort([1,2,1,2,1,2,4,2,21]) // jq的去重后排序
+    $.type(obj) // 检测数据类型
+    $.trim(str) // 去除首尾空格
+    $.ajax({
+        url:'product.json',// 地址
+        method:'get', // 请求方式
+        async:false, // 是否异步
+        data:'', // 发送数据
+        dataType:'json', // 要求返回数据格式
+        success:function(value){ }, // 返回数据成功后执行的方法
+        error:function(error){}, // 失败后拿到的报错信息
+    })
+
+    $('#box').click(function(){
+
+    })
+    $('#box').on('click',function(){
+
+    })
+    // 事件预留：给未来的元素的添加一个点击事件
+    // 在未来给box元素插入一个p标签，都可以让p标签实现点击事件
+    $('#box').on('click','p',function(){
+
+    })
+    $('#box').mouseout(function(){})
+
+    // each
+    /*
+    * 1. 存在于jq对象中，它可以对传入的值进行循环，这个值是数组、对象、类数组
+    * 2. 存在于jq的原型上，它可以对jq的实例，获取到的jq对象进行便利
+    * 3. 存在于jq元素内嵌中；比如给元素设置类名式，会调用原型上的each方法给每一个元素都添加一个类名
+    * */
+    $.each([1,2,3,54],function(index,item){
+    })
+    $('ul li').each(function(index,item){
+        item // item是每一个li的原生对象
+        // 在这个函数中是this也表示每一个item
+    })
+    $('ul li').addClass('bg')
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    /*
+    * 类库：js库，封装了一些常用的方法，再项目任何时候需要这些方法都可以进行调用，比如常用的类库，jQuery，zepto，utils
+    * 插件：一般情况下它具有一定的业务逻辑，我们再调用它的时候必须按照它提供的结构进行编写，比如说：轮播图插件，选项卡插件，回到顶部插件，常用的插件有：Swiper scroll Echarts ...
+    * 组件：由html、css、js 共同编写而成，调用的时候直接引入即可，比如常用的ui组件有，bootstrap antDesign
+    * 框架：它具有一定的编程思想和语法，我们再开发的时候，必须按照它提供编程思想进行开发；比如常用的框架：Vue React Angular backbone
+    *
+    * */
+
+    // jQuery =>JQ
+    // 它是一个非常优秀的js类库，它可以兼容所有的浏览器；简化操作，封装了一些常用的方法和属性
+    /*
+    * jQ的版本
+    * 1.xx.xx jq最早设计开发而来的这个版本，兼容所有的浏览器，运行在pc端比较多
+    * 2.xx.xx 它的推出是为了更加适配移动端，不兼容ie6-8，但是移动端我们用的比较多的是zepto
+    * 3.xx.xx 这个版本推出以后，进行了一些跟新，但是框架angular出现，现在我们下载的jq最新的版本都是3.xx.xx
+    * 1.9.1
+    * 1.11.3
+    * 1.12.0
+    * */
+
+    /*
+    * 下载jq
+    * 官网下载 ： www.jquery.com
+    * github下载 ：www.github.com/jquery/jquery
+    * 百度搜索
+    * 通过npm【包管理器】进行下载
+    * npm install jquery // 下载的jq的最新版本
+    * npm install jquery@1.11.3
+    *
+    * 查看jq有哪些版本
+    * npm view jquery versions
+    *
+    * */
+
+    /*
+    * 如果学习jq
+    * 通过查看jq源码来学习jquery，在研究jq的源码的时候，有助于我们加强原生js的开发能力、封装，编写设计模式的能力
+    * 通过中文文档来学习 http://jquery.cuishifeng.cn/
+    * 通过书：锋利的jQuery
+    * 通过视频
+    * */
+
+</script>
+<script>
+    // var box = document.getElementById('box');
+    // $('#box')
+
+    (function (global,factory){
+        // 1.node环境
+        // 2.前端开发的环境
+        factory(global)
+    })(typeof window !== "undefined" ? window : this,function(window){
+        //
+        var
+            version = "1.11.3",
+            // Define a local copy of jQuery
+            jQuery = function( selector, context ) {
+            // selector: 选择器
+            // context ： 环境
+                // The jQuery object is actually just the init constructor 'enhanced'
+                // Need init if jQuery is called (just allow error to be thrown if not included)
+                return new jQuery.fn.init( selector, context );
+            };
+
+        jQuery.fn = jQuery.prototype = {
+            // The current version of jQuery being used
+            jquery: version,
+
+            constructor: jQuery,
+
+            // Start with an empty selector
+            selector: "",
+            //....
+        }
+
+        jQuery.extend = jQuery.fn.extend = function() {
+            // 继承
+            // 这个方法的目的，就是给jq扩展方法用的
+        }
+        // jQuery => {a:a}
+        jQuery.extend({
+            a:a
+        })
+        // jQuery的原型上 =>{b:b}   new jQuery().b
+        jQuery.fn.extend({
+            b:b
+        })
+
+        var init = jQuery.fn.init = function( selector, context ) {
+            // 这个函数就是选择器，用来选择元素
+            //....
+        }
+
+        init.prototype = jQuery.fn;
+
+        window.jQuery = window.$ = jQuery;
+
+    })
+
+    jQuery.xxx()
+    new jQuery().xxx() // $().xxx()
+    $()
+
+    // $ =>jQuery
+    $.each();
+    $.ajax();
+    $().each();
+
+    // 让一个函数执行，返回这个函数的实例
+    function jq(){
+        jq.fn.extend({
+            each:function(){
+                // 找到选择器，进行相对应的操作
+            }
+        })
+        var init = jq.fn.init =  function(s,c){
+            // 我这里是一个选择器
+
+        }
+        init.prototype = jq.prototype
+        return new jq.fn.init(s,c)
+    }
+    jq('#box').each()
+</script>

@@ -1,4 +1,5 @@
-function Waterfall (){
+function Waterfall (ele,n){
+    this.n =n
     this.box = document.querySelector('#box');
     this.uls = box.getElementsByTagName('ul');
     this.uls = utils.toArray(this.uls);
@@ -22,7 +23,7 @@ Waterfall.prototype = {
     xhr.onreadystatechange = ()=>{
         if(xhr.readyState==4&&xhr.status==200){
             this.data = JSON.parse(xhr.responseText);
-            this.bindHtml(10)
+            this.bindHtml(this.n)
         }
     }
     xhr.send();

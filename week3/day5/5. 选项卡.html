@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #box{
+            width: 300px;
+            height: 350px;
+            margin:100px auto;
+            border:1px solid red;
+        }
+        #box ul li{
+            width: 100px;
+            text-align: center;
+            background: #f5f5f5;
+            line-height: 50px;
+            float: left;
+        }
+        #box ul li.active{
+            background: red;
+        }
+        #box ul:after{
+            display: block;
+            content: '';
+            clear:both
+        }
+        #box div{
+            width: 300px;
+            height: 300px;
+            background: #2b7dd1;
+            display: none;
+        }
+        #box div.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li class="active">选项一</li>
+        <li>选项二</li>
+        <li>选项三</li>
+    </ul>
+    <div class="active">1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+</body>
+</html>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+   /* let box = document.getElementById('box');
+    let lis = box.getElementsByTagName('li');
+    let contents = box.getElementsByTagName('div');
+    for (var i=0;i<lis.length;i++){
+        lis[i].index = i;
+        lis[i].onclick = function () {
+            for (var j=0;j<lis.length;j++){
+                lis[j].classList.remove('active');
+                contents[j].classList.remove('active')
+            }
+            this.classList.add('active')
+            contents[this.index].classList.add('active')
+        }
+    }*/
+   $('#box ul li').on('click',function(){
+       console.log(this);//each  li=>原生对象
+       // 原生转jq
+       // 在jq中可以事件链式调用的原因是因为有return this
+       $(this).addClass('active').siblings().removeClass('active').parent().nextAll('div').eq($(this).index()).addClass('active').siblings('div').removeClass('active');
+   })
+</script>

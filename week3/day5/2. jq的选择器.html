@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box1">
+        <a href="javascript:;">1</a>
+        <p>
+        </p>
+    </div>
+    <div id="box2">
+        <p>2</p>
+    </div>
+    <div class="bg">
+        hahaah
+    </div>
+    <!--<p id="p2"></p>-->
+    <ul>
+        <li>4</li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    function jq(s,c){
+        jq.fn = jq.prototype;
+        jq.fn.each=function(){
+                // 找到选择器，进行相对应的操作
+            console.log('each');
+        }
+
+        var init = jq.fn.init =  function(s,c){
+            // 我这里是一个选择器
+            console.log(s);
+            // 返回是一个实例
+        }
+        init.prototype = jq.prototype
+        return new jq.fn.init(s,c)
+    }
+    // jq('#box').each() //
+
+    /*
+    * jq中的选择器
+    * 共有两个参数，1参数：选择的那个值【选择的对象】，第二个参数是当前元素的上下文【默认不写，是document】
+    *
+    * 参数1有三种情况
+    * 1. 当参数是字符串的时候，属于选择当前的这个元素，返回一个jq的对象
+    * 2. 当参数是元素对象，会转化成一个jq对象【方便调用jq上的方法】
+    * 3. 当参数是一个函数的时候，表示整个页面的文档全部加载过后，在执行，和$(document).ready() 这个方法是一样
+    *
+    * */
+    //console.log($('#box'));
+    console.dir($)
+    console.dir($===jQuery)//true
+    /*
+    *
+    *   0:div#box   // 选择的内容
+        context:document  // 上下文
+        length:1   // 选中的长度
+        selector:"#box" // 选择器的名称
+    * */
+    // 根据上下文的不同，选择不同的p标签【默认不写是document】
+    // console.log($('p',box));
+    // console.log($('p',box2));
+    // jq中的选择器和css的选择器是一样的
+    // console.log($('.bg'))
+
+    let p2 = document.getElementById('p2');
+    console.log($(p2)) // 会自动转化成jq对象
+
+    // 第三种情况
+    $(function(){
+        console.log(123);
+    })
+    // 这个函数会在所有的dom文档加载完之后，执行这个方法
+    // 这个函数和$(document).ready()这个方法是一样
+    $(document).ready(function(){
+        console.log(456);
+    })
+    // 这个方法属于，所有的dom结构包括文件，图片，链接地址... 全部加载完之后才会执行这个方法
+    // window.onload 这个方法写多次会进行覆盖，只会执行最后一个方法。而document.ready可以执行多次，且不会重复
+    window.onload =function(){
+        console.log(789);
+    }
+    window.onload =function(){
+        console.log(12);
+    }
+
+    /*
+    *
+    * jq的选择器
+    * */
+    // 基本选择器
+    $('#box');
+    $('.box');
+    $('div');
+    $('*')
+    console.log($('#box,#box2'));
+    // 层级选择器
+    console.log($('#box2 p')); //后代选择器
+    console.log($('#box1>a'));
+    console.log($('#box2+div'));
+    console.log($('#box2~div'));
+
+    // 基本选择器
+    $('ul li:first')//
+    $('ul li:even')//
+    $('ul li:odd')//
+    $('ul li:eq(1)')//
+    $('ul li:gt(1)')//
+    $('ul li:lt(1)')//
+
+    // 内容选择器
+    $('ul li:contains(4)');
+    $('ul li:empty')
+
+    var $box = $('#box')
+    $box.on('click',function(){})
+
+
+
+</script>
