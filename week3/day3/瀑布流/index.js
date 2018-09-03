@@ -36,7 +36,7 @@ function bindHtml (n){
         uls[0].innerHTML+=`
             <li>
             <div style="height:${data[num].height}px">
-                <img data-src="${data[num].img}" alt="">
+                <img data-src="${data[num].img}" alt="" style='transition: opacity 1s'>
             </div>
             <p>这是第${num}张图片</p> 
         </li>
@@ -52,12 +52,12 @@ window.onscroll = function(){ // 触发onscroll事件
     // 我们再请求一次数据
     let winT = utils.win('scrollTop');//不断变化的值
     if(winH+winT>minH){
-        stop++;
-        if(stop>10){
-            alert('已经没有更多了');
-            window.onscrll=null;
-            return
-        }
+        // stop++;
+        // if(stop>10){
+        //     alert('已经没有更多了');
+        //     window.onscrll=null;
+        //     return
+        // }
         ajax();
     }
     // 便利每一张图片，然后对图片进行延迟加载
@@ -97,7 +97,8 @@ function lazyImg(ele){
             newImg=null;
             ele.load = true;// 给图片一个自定义属性，下次再碰到这张图片的时候，直接不要再继续加载了、
             ele.parentNode.style.background = 'none'// 图片已经有了，就不需要loading图了，我直接去掉它就好
-            fadeIn(ele)
+            // fadeIn(ele)
+            ele.style.opacity=1
         }
     }
 }
@@ -107,7 +108,8 @@ function fadeIn(ele){
     let opacity = utils.css(ele,'opacity');
     // 设置定时器让图片逐渐显示
     ele.timer = setInterval(()=>{
-        opacity+=0.04;
+        console.log(opacity)
+        opacity=Number(opacity)+0.04;
         // 透明度加完之后还给ele图片标签
         utils.css(ele,'opacity',opacity)
         // 当图片透明度大于等于1的时候让定时器停止

@@ -21,13 +21,13 @@ ul li{
     margin-top:10px;
     margin-bottom: 20px;
     border-radius: 4px;
-    background: #fff;
+    background: #f5f5f5;
     overflow: hidden;
     transition: all 0.5s;
 }
 ul li div{
     background: url(img/loading1.gif) no-repeat center center;
-    background-size: cover;
+    background-size: auto;
 }
 ul li img{
     width: 100%;
