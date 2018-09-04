@@ -20,6 +20,8 @@
         obj[newStr[i]]=newStr[i+1]
     }
     console.log(obj);
+    let {wd:wd} = obj;
+    xhr.send(obj.wd)
     //console.log(Object.keys(obj).length);
 
     //match
@@ -47,7 +49,7 @@
     str = window.decodeURIComponent(str1);
 
     document.write(str)
-    var reg = /([\w-%]|[\u4e00-\u9fa5]+)+=([\w-%]|[u4e00-u9fa5]+)+/g;
+    var reg = /([\w-%]|[\u4e00-\u9fa5]+)+=([\w-%]|[\u4e00-\u9fa5]+)+/g;
     var obj = {}
     str.replace(reg,function () {
         obj[arguments[1]]=arguments[2]

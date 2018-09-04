@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    $.extend({
+        a:function(){
+            console.log(1);
+        }
+    })
+    $.fn.extend({
+        a:function(){
+            console.log(2);
+        }
+    })
+    $.a() // 1
+    $('#box').a() //2
+</script>

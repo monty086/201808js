@@ -33,7 +33,7 @@ var waterfall = (function(){
             let num = Math.round(Math.random()*21);
             uls[0].innerHTML+=`<li>
             <div style="height:${data[num].height}px">
-                <img data-src="${data[num].img}" alt="">
+                <img data-src="${data[num].img}" alt="" style="transition: opacity 2s">
                 <p>这是第${num}张图片</p>
             </div>
             </li>`
@@ -74,7 +74,8 @@ var waterfall = (function(){
             newImg.onload = function (){
                 // 把拿到的图片地址给真实的标签赋值
                 ele.src = this.src;
-                ele.style.opacity=1
+                ele.style.opacity=1;
+                ele.parentNode.style.background = 'none'
             }
         }
     }

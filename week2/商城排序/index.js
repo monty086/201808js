@@ -22,14 +22,14 @@ function bindHtml(data){
     data.forEach(function(item,index){
         //console.log(item);
         str+=`<li>
-                <div>
+                <a>
                 <img src="${item.img}" alt="">
                 <p class="title">${item.title}</p>
                 <p class="hot">热度 ${item.hot}</p>
                 <del>￥9999</del>
                 <span>￥${item.price}</span>
                 <p class="time">上架时间：${item.time}</p>
-                </div>
+                </a>
             </li>`
     })
     shopList.innerHTML = str

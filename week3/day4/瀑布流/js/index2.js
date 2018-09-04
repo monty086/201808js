@@ -14,41 +14,43 @@ function Waterfall (ele,n){
         this.loadImg()
     }
 }
+
 Waterfall.prototype = {
-    constructor:Waterfall,
+    constructor: Waterfall,
     ///////ajax
-    ajax: function ajax(){
-        let xhr= new XMLHttpRequest();
-    xhr.open('get','product.json',false);
-    xhr.onreadystatechange = ()=>{
-        if(xhr.readyState==4&&xhr.status==200){
-            this.data = JSON.parse(xhr.responseText);
-            this.bindHtml(this.n)
+    ajax: function ajax() {
+        // console.log(this);
+        // let that =this
+        let xhr = new XMLHttpRequest();
+        xhr.open('get', 'product.json', false);
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                this.data = JSON.parse(xhr.responseText);
+                this.bindHtml(this.n)
+            }
         }
-    }
-    xhr.send();
-},
+        xhr.send();
+    },
 /////////bindHtml
-bindHtml: function (n){
-    for (var i=0;i<n;i++){
-        this.uls.sort(function(a,b){
-            return a.offsetHeight-b.offsetHeight
-        })
-        var str =``
-        let value = utils.getRandom(0,21);
-        str+=`
+    bindHtml: function (n) {
+        for (var i = 0; i < n; i++) {
+            this.uls.sort(function (a, b) {
+                return a.offsetHeight - b.offsetHeight
+            })
+            var str = ``
+            let value = utils.getRandom(0, 21);
+            str += `
             <li >
             <div style="height:${this.data[value].height}px" >
             <img data-src="${this.data[value].img}" alt="">
 </div>
-            
             <p>这是第${value}张</p>
             </li>
             `
-        this.uls[0].innerHTML+=str;
-        this.minH = this.uls[0].offsetHeight;
-    }
-},
+            this.uls[0].innerHTML += str;
+            this.minH = this.uls[0].offsetHeight;
+        }
+    },
 /////////scroll
 scrollFn:function(){
     let winS = utils.win('scrollTop');

@@ -34,4 +34,59 @@
         console.log($(this));
     }
 
+    /*$('ul li').on('click',function(){
+        console.log(this.innerText);// 原生对象
+        console.log($(this).index());// 转化成jq对象
+    })*/
+
+    ///*
+    //    1. jq对象中的each 【数组、类数组、对象】
+    //    2. jq原型上的each
+    //    3. jq内置上each
+    // */
+    //$.each()
+    /*$('ul li').each(function(index,item){
+        console.log(this, index, item);
+    })*/
+    let obj = {name:'zf',age:8};
+    let lis = document.getElementsByTagName('li')
+    /*$.each(obj,function(index,item){
+        this
+        if(index=='age'){
+            return false
+        }
+        console.log(index, item);
+    })*/
+    $.each(lis,function(index,item){
+        console.log(index, item);
+    })
+    // 如果我们封装一个each 实现 类数组、数组、对象，都可以进行便利，一旦发现return false ，停止循环
+    function each(obj,fn){
+        // 判断obj是： 类数组 、数组 、 对象
+        if('length' in obj){
+            // 证明obj是类数组或者数组
+            for (var i = 0; i < obj.length; i++) {
+                var cur = fn && fn.call(obj[i],i,obj[i])
+                if(cur === false ){
+                    break
+                }
+            }
+        }else{
+            for (var key in obj){
+                var cur = fn && fn.call(obj[key],key,obj[key]);
+                if(cur === false){
+                    break
+                }
+            }
+        }
+    }
+
+    console.log(lis);
+    each(lis,function(index,item){
+        console.log(this);// item
+        if(item.innerText==2){
+            return false
+        }
+    })
+
 </script>

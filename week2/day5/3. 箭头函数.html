@@ -25,6 +25,10 @@
     // 在箭头函数中没有arguments
     let  fn2 = (...arg)=>arg;
     fn2(1,2,3,4)
+    let fnx  =(...arg)=>{
+        arg.sort()
+    }
+    fnx(1,2,3,4,5)
 
     // 箭头函数中没有this
     // 输出this，this是当前函数定义的上下文【环境】
@@ -38,5 +42,13 @@
     // 高级箭头函数
     let fn4 = a=>b=>c=>a+b+c;
     fn4(1)(2)(3)
+
+    function Fn(){
+        console.log(this);//
+        let f =()=>{
+            console.log(this);
+        }
+    }
+    new Fn()
 
 </script>

@@ -15,6 +15,7 @@
     *
     * */
     var reg = /\d/g;
+    // var reg = /\w\d\w\d\w(\d)\w\d/
     var str = 'z1f2p3x4';
     console.log(reg.exec(str));//['1',index:1,input:xxx,groups:undefined]；
     console.log(reg.exec(str))//2
@@ -44,7 +45,11 @@
     * 解决正则的懒惰性：加一个量词元字符即可
     * */
     var reg = /\d+/;
-    var str = 'a123'
+    var str = 'a123';
+    reg.exec(str)//123  []
+    reg.exec(str)//123  []
+    reg.exec(str)//123
+    reg.exec(str)//123
     /*
     * 正则的贪婪性：每次捕获都全部捕获出来，是因为有量词元字符的存在，
     * 解决方法：需要在量词元字符的后面加一个？,按最少的输出
@@ -52,5 +57,7 @@
     * */
     var reg = /\d{2,4}?/;
     var str = 'a123456789';
+    console.log(reg.exec(str));//1234
+    console.log(reg.exec(str));//1234
     console.log(reg.exec(str));//1234
 </script>

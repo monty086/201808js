@@ -96,13 +96,15 @@
         jQuery.fn.extend({
             b:b
         })
-
+        //
         var init = jQuery.fn.init = function( selector, context ) {
             // 这个函数就是选择器，用来选择元素
             //....
         }
 
         init.prototype = jQuery.fn;
+        // init.prototype = jQuery.prototype
+        // init.prototype = jQuery.fn.init.prototype
 
         window.jQuery = window.$ = jQuery;
 
