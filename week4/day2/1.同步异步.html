@@ -2,9 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
 </body>
 </html>
+<script>
+    /*
+    * 浏览器是多线程运行的，它给js分配一个线程；js就是单线程运行的【一次只干一件事】
+    *
+    * 线程： 每一个应用程序可以理解为一个进程，在一个进程中我们可以做很多事，可以分配很多的线程，【比如说浏览器打开一个页面就属于分配一个线程】，多线程：就属于分配多个任务去完成。
+    *
+    * js执行分为同步和异步，其中异步来自于浏览器提供的异步队列，在浏览器中分为两个任务队列，一个是主任务队列【同步编程】，一个是等待任务队列【异步编程】
+    *
+    * 同步编程： 按照你设定的任务依次去执行，当前这件事没有完成，下一件事不会开始
+    *
+    * 异步编程： 我们在执行任务的时候，碰到了异步代码【需要等待很长的时间才能完成】，此时我们不等，继续执行下面的同步任务【主任务队列】，等同步任务完成之后，在去执行没有完成的事情
+    *
+    * 异步代码：
+    * 1. 所有的事件都属于异步代码；【onclick onmouseover onload onerror onsrcoll.. 】
+    * 2. 所有的定时器都属于异步代码【setInterval setTimeout】
+    * 3. 一般情况下ajax都设定为异步【因为等待事件不确定】
+    * 4. 回调函数也属于异步代码【牵强】
+    * */
+
+    // 定时器：都属于异步
+    /*setTimeout(()=>{
+        console.log(4);
+    },10)
+    console.log(5);
+    setTimeout(()=>{
+        console.log(2);
+    },100)
+    for (var i=0;i<100000000;i++){
+
+    }
+    console.log(1);
+    setTimeout(()=>{
+        console.log(3);
+    },50)
+    console.log(6); */ //5  1 6  4 32 // 5 4 1 6 32 // 5 4 21 63
+    // 5 1 6 4 3 2
+
+   /* console.log(1);
+    var time = new Date()
+    for (var i=0;i<100000000;i++){
+    }
+    console.log(new Date()-time);
+    console.log(2);*/
+
+
+   /* setTimeout(()=>{
+       console.log(1);
+   },1000)
+       console.log(2);
+   setTimeout(()=>{
+       console.log(3);
+   },100)
+    for (var i=0;i<100000000;i++){};//299 //399
+        console.log(4);
+    while(1==1){}
+    setTimeout(()=>{
+        console.log(5);
+    },500)
+    console.log(6) */
+    // 2 4 3 1 5 // 2 4 3 5 1 // 2 4 3 5 1 // 2 4
+
+    /* 
+        死循环的时候，不会再继续执行代码了，包括同步代码和异步代码
+    */
+
+    setTimeout(()=>{
+        console.log(1)
+    },0)
+    console.log(2)
+
+    /* 
+        setTimeout就算时间为0的时候，它也会等同步代码执行结束之后，再去执行异步代码，而0ms在浏览器当中不是最小时间单位，在谷歌浏览器中5-6ms， ie下面是10-13ms
+    
+     */
+</script>
