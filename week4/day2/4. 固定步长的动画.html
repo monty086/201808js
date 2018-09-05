@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    var box = document.getElementById('box');
+    var step = 0;
+    var boxW = box.offsetWidth;// 当前盒子本身的宽度
+    var winW = utils.win('clientWidth');// 当前浏览器一屏的宽度
+    var target = winW-boxW;// 盒子要走的距离
+    box.onclick = function(){
+        this.timer = setInterval(()=>{
+            // 固定步长50
+            step+=50;
+            if(step+50>=target){
+               /* console.log(step);//
+                console.log(target);//!*/
+                clearInterval(this.timer);
+                // 清除定时器之后，我们让它会到终点
+                utils.css(this,'left',target)// 让当前的这个盒子，还差一点的时候，最后给补齐
+                return
+            }
+            utils.css(this,'left',step)
+        },17)
+    }
+
+    /*box.onclick = function(){
+        this.timer= setInterval(()=>{
+            // 固定步长50
+            step+=540;
+            utils.css(this,'left',step);
+            if(step+540>=target){
+                console.log(step);//1600
+                console.log(target);//1100
+                clearInterval(this.timer);
+                // 清除定时器之后，我们让它会到终点
+                utils.css(this,'left',target)// 让当前的这个盒子，还差一点的时候，最后给补齐
+            }
+        },1000)
+    }*/
+</script>

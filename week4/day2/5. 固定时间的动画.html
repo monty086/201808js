@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    var box = document.getElementById('box');
+    var duration = 1000;
+    var winW = utils.win('clientWidth');
+    // target是计算后的要运动的距离
+    var target = winW-box.offsetWidth;
+    var timer = 0;
+    // speed 是总的路程除以总的时间等于速度
+    var speed = target/duration;
+    box.onclick = function () {
+        //this => box
+        this.time = setInterval(()=>{
+            // 每执行依次定时器，都让timer在原有的基础上加50ms
+           timer+=50;
+           // 当timer的时间到达总时间的时候，我们开始清除定时器
+           if(timer>=duration){
+               clearInterval(this.time);
+               // 如果有超出的部分，我们可以让盒子再回到最终的位置
+               utils.css(this,'left',target);
+               // 加return的原因是因为，清除定时器之后，还会继续把当前的函数执行完，所以加return，让下面的代码不再继续执行
+               return;
+           }
+           // 速度speed*时间timer=》我要运动的距离，利用utils.CSS让盒子走相对应的距离
+           utils.css(this,'left',speed*timer)
+        },17)
+    }
+</script>

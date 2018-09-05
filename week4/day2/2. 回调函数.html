@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 回调函数:把一个函数b当作参数传给另外一个函数a，当a这个函数执行的时候，也同时让函数b执行，这种机制就叫做回调函数机制
+    *
+    * 回调函数[callback]特点：
+    * 1. 回调函数可以根据情况执行多次
+    * 2. 回调函数中的this可以修改,一般情况都是window
+    * 3. 可以给回调函数传参数，只需要让回调函数设置形参即可
+    * 4. 可以在宿主函数【a】当中接收回调函数的返回值
+    * */
+    function a(fn){
+        console.log(2);
+        var num =1;
+        // fn.call(this);
+        console.log(fn(num));
+        //fn();
+        /*for (var i=0;i<5;i++){
+            a++%2?fn():null;
+        }
+        fn()*/
+        /*xhr.onreadystatechange =function(){
+            if(xhr.readyState==4&&xhr.status==200){
+                fn(xhr.responseText)
+            }
+        }*/
+    }
+    function b(num){
+        //console.log(this);//window
+        // console.log(1);
+        // console.log(num)
+        return num++
+    }
+    a(b)
+    // 2 1
+    /*
+    * forEach(function(){})
+    * map(function(){})
+    * setInterval(function(){})
+    * setTimeout(function(){})
+    * $.each(obj,function(){})
+    * */
+
+    function each(obj,callback){
+        if('length' in obj){
+            for (var i=0;i<obj.length;i++){
+                var cur = callback&& callback.call(obj[i],i,obj[i]);
+                if(cur===false){
+                    break
+                }
+            }
+        }else{
+            for(var key in obj){
+                var cur = callback&&callback.call(obj[key],key,obj[key])
+                if(cur===false){
+                    break
+                }
+            }
+        }
+    }
+    each([1,2,3,4],function(index,item){
+        console.log(this);
+        // 如果当前函数return false， 结束循环
+    })
+
+    // 封装一下 forEach 和 map
+</script>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    // 匀速直线运动
+    let linear = function(t,d,c,b){
+        // t=》time d=》duration c=>change b=>begin
+        return t/d*c+b
+    };
+    // begin: 盒子最初始的状态
+    let begin ={
+        width:utils.css(box,'width'),
+        height:utils.css(box,'height'),
+        opacity:1,
+        left: utils.css(box,'left'),
+        top:utils.css(box,'top'),
+    };
+    // target: 盒子最后运动到的距离
+    let target ={
+        width:200,
+        height:300,
+        opacity:0.4,
+        left:1000,
+        top:300,
+    }
+    var change = {},duration=2000,timer = 0;
+    for (var key in target){
+        // change：就是盒子要发生变化的属性键值对
+        change[key] = target[key]-begin[key]
+    }
+
+    box.onclick = function () {
+        var a = setInterval(()=>{
+            timer+=50;
+            // timer:控制的时间 如果时间大于总时间的话，定时器清除
+            if(timer>=duration){
+                clearInterval(a);
+                // 设置这个盒子直达终点
+                utils.css(this,target)// {} =》 setGroupCss
+                return
+            }
+            // change 就是要改变的值
+            for (var key in change){
+                // 通过匀速直线运动，把盒子每一个时间段，要改变的属性都求出来
+                var cur = linear(timer,duration,change[key],begin[key]);
+                utils.css(this,key,cur);
+            };
+        },17)
+    }
+</script>

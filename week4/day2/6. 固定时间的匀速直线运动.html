@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    // t b c d
+    // t : timer 表示运动的时间
+    // b ：begin 表示开始的位置
+    // c : change 表示要运动的距离  【终点-开始的距离】 【target-begin】
+    // d : duration 表示所花费的时间
+
+    let linear = function (time,begin,change,duration){
+        // time/duration => 所花费的时间/总时间=》 花费时间占总时间的百分比
+        // time/duration*change => 花费时间的百分比*总路程 =》 我要运动的距离
+        // time/duration*change+begin => 运动的距离 + 盒子开始的位置 =》 盒子现在所在的位置
+        return time/duration*change+begin
+    };
+
+    // let linear2 = function (time,begin,duration,target){
+    //     return (target-begin)/duration *time+begin;
+    // }
+    let time = 0;
+    let duration = 2000 ;
+    let target = utils.win('clientWidth');
+    let begin =  utils.css(box,'left');
+    let change = target - box.offsetWidth;
+    box.onclick = function (){
+        this.timer = setInterval(()=>{
+          time+=50;
+            if(time>=duration){
+               clearInterval(this.timer);
+               utils.css(this,'left',change);
+               return
+           }
+           //let cur = linear(time,duration,target,begin)
+            utils.css(this,'left',linear(time,begin,change,duration));
+        },50)
+    }
+
+</script>

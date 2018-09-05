@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    let target = 1000;
+    let begin =0 ;
+    let interval = 20;
+    let linear = function(time,duration,target,begin){
+        return time/duration*(target-begin)+begin;
+    }
+
+    function go(){
+        let duration = 1000;
+        let time = 0;
+        var timer = setInterval(()=>{
+            time+=interval;
+            if(time>=duration){
+                clearInterval(timer);
+                utils.css(box,'left',target)
+                back();
+                return
+            }
+            utils.css(box,'left',linear(time,duration,target,begin))
+        },interval)
+    }
+    function back(){
+        let duration = 3000;
+        let time = 0;
+        var timer = setInterval(()=>{
+            time+=interval;
+            if(time>=duration){
+                clearInterval(timer);
+                utils.css(box,'left',begin)
+                go()
+                return
+            }
+            utils.css(box,'left',linear(time,duration,begin,target))
+        },interval)
+    }
+    go()
+</script>
