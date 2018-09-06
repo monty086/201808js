@@ -98,7 +98,53 @@ lazyIMG();
         }
     }
 // 滑入停止
+outer.onmouseover = function(){
+        //清除定时器可以让轮播图停止轮播
+     clearInterval(timer);
+     // 让左右按钮显示
+     utils.css(left,'display','block');
+     utils.css(right,'display','block');
+};
 // 滑出继续
+outer.onmouseout = function(){
+        // 滑出以后让轮播图继续轮播
+      timer = setInterval(autoMove,2000);
+      // 让左右按钮消失
+      utils.css(left,'display','none');
+      utils.css(right,'display','none');
+};
 // 点击小圆点跳转
-// 点击左按钮跳转
+function roundClick(){
+    // 循环每一个li
+    for (let i=0;i<lis.length;i++){
+        // 给每一个li添加一个点击事件
+        lis[i].onclick = function(){
+            // 修改step的值，让它等于i-1
+            step = i-1;
+            // 再继续执行一次autoMove
+            autoMove()
+        }
+    }
+}
+roundClick()
 // 点击右按钮跳转
+right.onclick = function(){
+    autoMove()
+}
+// 点击左按钮跳转
+left.onclick = function(){
+    // 当step小于0的时候，
+    if(step<=0){
+        // 让step等于最后的那一张
+        step=data.length;
+        // 让图片瞬间跳到最后的那一张
+        utils.css(swiper,'left',-1000*step)
+    }
+    // 点击左按钮的时候，让step递减
+    step--;
+    // 轮播图向左再移动1000像素
+    utils.css(swiper,'left',-1000*step)
+    // 让小圆点跟着显示
+    focusTip()
+}
+

@@ -57,6 +57,7 @@ ul{
     height: 50px;
     margin-top:-25px;
     background: url('../img/pre.png') no-repeat;
+    display: none;
 }
 .left{
     left:0
