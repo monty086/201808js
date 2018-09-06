@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<div id="outer">
-    <div id="swiper">
+<div id="banner" class="outer">
+    <div class="swiper">
         <!--<div><img src="img/banner1.jpg" alt=""></div>
         <div><img src="img/banner2.jpg" alt=""></div>
         <div><img src="img/banner3.jpg" alt=""></div>
         <div><img src="img/banner4.jpg" alt=""></div>-->
     </div>
-    <ul id="focus">
+    <ul class="focus">
        <!-- <li class="selected"></li>
         <li></li>
         <li></li>
@@ -22,7 +22,29 @@
     <a href="javascript:;" class="left"></a>
     <a href="javascript:;" class="right"></a>
 </div>
+<!--<div class="outer" id="banner2">-->
+    <!--<div class="swiper">-->
+        <!--&lt;!&ndash;<div><img src="img/banner1.jpg" alt=""></div>-->
+        <!--<div><img src="img/banner2.jpg" alt=""></div>-->
+        <!--<div><img src="img/banner3.jpg" alt=""></div>-->
+        <!--<div><img src="img/banner4.jpg" alt=""></div>&ndash;&gt;-->
+    <!--</div>-->
+    <!--<ul  class="focus">-->
+        <!--&lt;!&ndash; <li class="selected"></li>-->
+         <!--<li></li>-->
+         <!--<li></li>-->
+         <!--<li></li>&ndash;&gt;-->
+    <!--</ul>-->
+    <!--<a href="javascript:;" class="left"></a>-->
+    <!--<a href="javascript:;" class="right"></a>-->
+<!--</div>-->
 </body>
 </html>
 <script src="js/animate.js"></script>
-<script src="js/index.js"></script>
+<script src="js/index2.js"></script>
+<script>
+    banner('banner','data.json',3000)
+    // new Banner('outer','data.json',2000);
+    // new Banner('banner','data.json',3000);
+    // new Banner('banner2','data2.json',2000)
+</script>
