@@ -1,0 +1,112 @@
+
+let const
+块级作用域
+字符串
+    字符串模板
+    带标签的字符串模板
+    字符串方法
+    includes(): 参数是否在字符串里面 【参数2表示开始搜索的索引】
+    startWith(): 参数是否在字符串的头部 【参数2表示开始搜索的索引】
+    endWith(): 参数是否在字符串的尾部  【参数2表示开始搜索的索引】
+    repeat() : 参数表示复制多少个，0的话表示清空
+数组
+    Array.from() : 讲数组或者类数组变成一个数组【复制一份】
+    Array.of(3,4): 将一组数值转化成一个数组 【2个值以上和Array()一样】
+    copyWithin(target,start,end): 从索引n开始到索引m，从目标索引的位置开始覆盖
+    find((item,index,arr)=>{return item>18}) :找到对应的值和索引【只要找到就返回，不会继续向下找】
+    fill(value,start,end) : 将目标值重复覆盖【从索引start到所有end】
+对象
+    对象中属性名和属性值一样可以简写
+    let fn = ()=>{},a=1;
+    let obj = {fn,a};
+    Object.is(a,a) :判断两个值是否相等，严格比较
+    Object.assign({},obj,obj2): 将第二个参数以后的对象复制到第一个对象中【克隆一个新对象】
+    super: 通过super可以调用对象所属类原型上的方法【__proto__上的方法】
+
+Symbol：es6中独一无二的值,基本数据类型
+
+class：es6的定义的类
+
+class Person {
+    constructor(name){
+        this.name = name;
+    }
+    getName(){
+        console.log(this.name);
+    }
+    static add(a,b){ // 把person当成一个对象来添加方法
+           return a+b;
+    }
+}
+let person = new Person('zfpx');
+person.getName();
+
+Set：表示不能有重复的数组的集合
+var books = new Set();
+books.add('js');
+books.add('js');//添加重复元素集合的元素个数不会改变
+books.add('html');
+books.forEach(function(book){//循环集合
+    console.log(book);
+})
+console.log(books.size);//集合中元数的个数
+console.log(books.has('js'));//判断集合中是否有此元素
+books.delete('js');//从集合中删除此元素
+console.log(books.size);
+console.log(books.has('js'));
+books.clear();//清空 set
+console.log(books.size);
+
+Map 通过map来设置各种名值对的数据
+var books = new Map();
+books.set('js',{name:'js'});//向map中添加元素 // 只能通过set来设置
+books.set('html',{name:'html'});
+console.log(books.size);//查看集合中的元素
+console.log(books.get('js'));//通过key获取值 //只能通过get来获取
+books.delete('js');//执照key删除元素
+console.log(books.has('js'));//判断map中有没有key
+books.forEach((value, key) => { //forEach可以迭代map
+    console.log( key + ' = ' + value); //value为值，key为属性名
+});
+books.clear();//清空map
+
+导入导出
+导出：export var name = 'zf';
+导入：import * as haha from  index.js
+from.name.log => 'zf'
+
+
+解构赋值
+剩余运算符
+箭头函数
+promise
+
+Pending Promise对象实例创建时候的初始状态
+Fulfilled 可以理解为成功的状态
+Rejected 可以理解为失败的状态
+
+
+继承
+call继承
+原型继承
+寄生组合继承
+es6的继承
+
+
+function Promise(fn){
+    fn((data)=>{},()=>{})
+}
+new Promise((resolve,reject)=>{
+    if(true){
+        resolve(data)
+    }else{
+        reject()
+    }
+})
+
+axios
+fetch
+react-redux
+saga
+koa
+async await

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let str = 'abcde'
+    // 返回的都是布尔值
+    console.log(str.includes('b'));
+    console.log(str.startsWith('b',1)); //从字符串的开头进行查找，
+    console.log(str.endsWith('d')); // 从字符串的末尾进行查找
+    console.log(str.repeat(2));// 重复的个数，如果是0的话，清空字符串
+
+    Array.from([1,2,3]) // 将类数组或者数组转成数组【类数组=》转数组】【数组=》克隆】
+    console.log(Array.of(1,2));// 将数值转化成数组，但是Array一个值的时候，会有问题。Array.of没有问题
+    console.log(Array(1,2));//
+
+     var ary = [1,2,3,4,5];
+    //copyWithin(target,start,end) // 从索引start到索引end开始截取【包前不包后】，从索引target的位置开始覆盖
+    console.log([2, 3, 4, 5, 6].copyWithin(0, 1, 3)); //
+
+    // find 便利数组，参数是一个函数，直到函数的返回值条件成立，不再继续便利，把条件成立的返回值直接输出
+    var a = ary.find(function(item,index,inputs){
+       // console.log(item, index, inputs);
+        return item>1
+    });
+    console.log(a);
+
+    // fill(value,start,end): 将目标值从索引start到索引end开始覆盖【包前不包后】
+    var a = ary.fill('x',0,2);
+    console.log(a);
+
+// 对象
+    // 判断两个值是否相等，使用的严格比较，主要是针对由NaN的情况下
+    Object.is(NaN,NaN) //true
+    // assign{...{name:'zf'}}:将第二个及第二个以后的参数全部都赋值到第一个参数中，如果第一个参数是空对象的话，相当于克隆一个新对象
+    console.log(Object.assign({age: 9}, {name: 'zf'}));
+
+    // Symbol: es6中的独一无二的值，基本数据类型
+
+    // Set 是一个类似数组的值，它是一个引用数据类型，是一个新的数据类型
+    // 我们可以通过new Set创建一个实例，
+    // Set这个数据类型，
+    // add 向Set中增加一个值  delete 删除一个值  has 判断是否有值 clear 清空
+    var newAry = new Set([2,3,4,5,2]);
+    newAry.add('x');
+    newAry.delete(2);
+    console.log(newAry.has(3));
+    console.log(newAry.clear());
+    console.log(newAry);
+
+    // Map ,通过new关键字创建一个Map对象
+    //  set ：给map对象增加键值对 ，delete删除某个键值对 ，has判断是否有某个键值对， clear：清空 get，拿到某个值
+    var newObj = new Map();
+    newObj.set('name','zf');
+    console.log(newObj.has('name'));
+    console.log(newObj.get('name'));
+    console.log(newObj.delete('name'));
+    console.log(newObj);
+
+</script>

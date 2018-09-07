@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * Promise: 承诺；es6中的一个类 ，它是用来处理js当中的异步代码，我们可以称它为Promise设计模式
+    * 本身Promise是同步的，在Promise中我们会传一个函数，并且让这个函数执行,函数执行的时候，有两个参数一个resolve成功，reject表示失败
+    *
+    *
+    * */
+    var a = new Promise((resolve,reject)=>{
+        //console.log(2);
+        if(1%2){//1 true
+            resolve(1000)// 表示成功，让resolve执行
+        }else{
+            reject()// 失败让reject执行
+        }
+    });
+    //a.then(fn1,fn2)
+    // Promise的原型上有一个then方法，可以供Promise的实例来调用，这个then方法有两个实参分别表示，Promise构造函数当中的resolve成功，和reject失败
+    a.then((res)=>{
+        //console.log(res);//1000
+    },()=>{
+
+    })
+
+    // 返回值a表示Promise的一个实例
+
+    // console.dir(Promise)
+
+    // Promise是专门处理异步代码，
+    /*var a = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            let value = Math.round(Math.random()*10)
+               if(value%2){
+                   reject()
+               }else{
+                   resolve()
+               }
+
+        })
+    })*/
+    // 原型上的then方法，参数中的两个函数，触发的条件必须是Promise中的resolve和reject，这两个形参执行才可以进行触发
+    /*a.then((res)=>{
+        console.log(1);
+    },()=>{
+        console.log(2);
+    })*/
+
+    // 异步代码=》 定时器，事件 ，ajax，回调函数
+
+    // 通过Promise来封装一个ajax
+
+    var ajax = new Promise((resolve,reject)=>{
+        var xhr = new XMLHttpRequest();
+        xhr.open('get','data.json',true);
+        xhr.onreadystatechange =function(){
+            if(xhr.readyState==4&&xhr.status==200){
+                resolve(xhr.responseText) // 成功后接收到是数据
+            }
+            // 准备的状态有可以能成功也有可能失败，我们只看接收的状态，如果接收不到，我们就让失败函数执行，参数为失败的原因
+            if(xhr.status != 200){
+                reject(xhr.statusText)// 失败后接收到的原因
+            }
+        }
+        xhr.send()
+    })
+   /* ajax.then((data)=>{
+        console.log(data);
+    },(reason)=>{
+        console.log(reason);
+    })*/
+   // catch和then方法中的第二个函数的意思是一样的，catch能够接收更多的报错信息
+   /*ajax.then((data)=>{
+       console.log(data);
+   }).catch((reason)=>{
+       console.log(reason);
+   })*/
+   // 两个及两个以上的then方法，只要第一个then执行，下面的then方法中的函数都会相应的去执行【同步执行】,每次then方法的return返回值就是下一个then方法的形参
+   /*ajax.then((data)=>{
+       console.log(data);
+       return data
+   },(reason)=>{
+       console.log(reason);
+   }).then((ary)=>{
+       var newAry = JSON.parse(ary);
+       console.log(newAry)
+       return 1
+   }).then((num)=>{
+       console.log(num);
+       return num+100
+   }).then((newNum)=>{
+       console.log(newNum)
+   })*/
+
+   ajax.then((data)=>{
+       return new Promise((resolve,reject)=>{
+           setTimeout(()=>{
+               resolve(1)
+           })
+       })
+   }).then((num)=>{
+       console.log(num);
+   })
+
+
+</script>

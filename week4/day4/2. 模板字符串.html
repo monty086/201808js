@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * es5 : ''  "" +obj
+    *
+    * es6 模板字符串 ``
+    * ${}:既可以添加变量，也可以添加三元运算符 函数执行
+    * */
+    let name = 'zhufeng';
+    let age = 9;
+    let code = '学习'
+    // 我来自zhufeng，我今年9岁了，我热爱’学习‘。
+    let str = '我来自'+name+', 我今年'+age+'岁了，我热爱'+code+'。';
+    let str1 = '我来自'+name+', 我今年'+age+'岁了，我热爱“'+code+'”。';
+    let str2 = `我来自${name},我今年${age}岁了,我热爱"${code}"。`;
+    // let str3 = `<li class="${i==0?'selected':''}"></li>`
+    let str4 = `<li class="${fn()}"></li>`;
+    // let str4 = `<li class="${}"></li>`;
+    console.log(str4);
+    function fn(){
+        console.log(1)
+        return 'selected'
+    }
+    // 'I am a student'
+    // 'I\'m a student';
+
+    /*function tag(str,...arg){
+        console.log(str,arg)
+    }
+    tag`我来自${name},我今年${age}岁了,我热爱"${code}"。`*/
+
+
+</script>

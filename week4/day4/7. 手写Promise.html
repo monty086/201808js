@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * pending:初始化成功
+    * fulfilled:成功
+    * rejected：失败
+    * */
+
+    function Promise(executor) {// 执行器
+        this.status = 'pending';
+        this.value = undefined;
+        this.reason = undefined;
+        this.fulfilledCallback = [];
+        this.rejectCallback = [];
+        let resolve = (value)=>{
+            if(this.status=='pending'){
+                this.status = 'resolve';
+                this.value = value;
+                this.fulfilledCallback.forEach(fn=>fn())
+            }
+        }
+        let reject = (reason)=>{
+            if(this.status =='pending'){
+                this.status = 'reject';
+                this.reason = reason;
+                this.rejectCallback.forEach(fn=>fn())
+            }
+        }
+        try{
+            executor(resolve,reject)
+        }catch(e){
+            reject(e)
+        }
+    }
+    Promise.prototype.then = function (onfulfilled,onrejected) {
+        if(this.status == 'resolve'){
+            onfulfilled(this.value)
+        }
+        if(this.status == 'reject'){
+            onrejected(this.reason)
+        }
+        if(this.status == 'pending'){
+            this.fulfilledCallback.push(()=>{
+                onfulfilled(this.value)
+            })
+            this.rejectCallback.push(()=>{
+                onrejected(this.reason)
+            })
+        }
+    }
+
+    var a = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(10)
+        })
+    })
+    a.then((res)=>{
+        console.log(res);
+    })
+</script>

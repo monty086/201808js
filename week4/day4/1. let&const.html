@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * let 和const
+    * 共同点：
+    * 1. 都没有变量提升
+    * 2. let和const声明的变量，不可以重复声明
+    * 3. let和const声明的变量，不会给全局对象window增加一个属性
+    *
+    * 不同点：const
+    * const声明的变量必须赋值
+    * const声明的变量不可以进行修改【基本数据类型】，【引用数据类型不可以重新修改地址，但是可以修改引用数据类型中的值】
+    *
+    * 注意： 在当前作用于下，let声明的变量会全局进行检查，只要发现有相同的变量名直接报错
+    * */
+    // fn => undefined
+    // fn();
+    /*let fn = function(){
+        console.log(1);
+    };
+    let fn = function(){  // 'fn' has already been declared
+        console.log(2);
+    }
+    fn()*/
+
+    //a=1
+    // a
+    // var a=1;
+    // function a(){}
+    // console.log(window.a);
+    // let a;
+    // console.log(a); => undefined
+    /*  console.log(window.a);
+     console.log(a);*/
+    // a=1  window.a =1
+    // a => 变量 ：a is not defined ;
+    // console.log('a' in window);//true
+    // console.log(window.a);// undefined
+
+    /*var fn = function(){
+
+    }*/
+
+    // const 声明的变量为静态变量，又称为常量
+    // 一般情况下我们用const声明的常量都是字符串，而且大多数都是大写
+
+    const NAME = 'ZHUFENG';
+    // NAME = 'BEIJING' 不能重新赋值
+    // let NAME = 1;  不可以重复声明
+    console.log(NAME);
+</script>

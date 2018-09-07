@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 块级作用域
+    * es6推出了块级作用域，它就是一对大括号，但是不包括对象
+    * 比如我们常用的块级作用域有：if else for while switch case for in try catch 普通大括号
+    *
+    * 块级作用域中，声明的变量如果有变量提升，那么在外面可以拿到，如果没有变量提升，那么外界拿不到
+    * */
+    // console.log(a);// a=undefined
+    {
+        // var a=1
+        // let a =1  // 如果在块级作用域中定义的let，在下面拿不到，【块级作用域和let声明的变量结合紧密】
+        //function a(){} // function关键字声明的变量会进行提前声明，【因为有了块级作用域的存在，由原来的声明+定义，变成只声明】，定义：【第一时间进入块级作用域后进行函数的定义】
+        //let a = ()=>{
+            // console.log(1);}  // 和用let声明的变量道理相同
+        var a = ()=>{console.log(1)} // 用var声明的箭头函数，和块级作用域结合不紧密
+    }
+    //a a()
+    //console.log(a());// 1 'a is not defined'
+
+    for (let i=0;i<5;i++){
+        // setTimeout(()=>{
+        //     console.log(i); //5=> 0-4 0-4
+        // })
+        /*let i=i+1;
+        console.log(i);// 1-5*/
+    }
+    // console.log(i);//1=>5 报错
+    // 6
+
+    // {
+    //     let i=0
+    //     {
+    //         let i= 5
+    //     }
+    // }
+
+
+
+</script>

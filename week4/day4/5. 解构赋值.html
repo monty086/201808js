@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 解构赋值：根据等号两边的数据结构，进行解析并且获取其中的内容
+    * 常用的解构赋值一般用来操作数组和对象
+    * */
+
+    // 字符串的解构赋值，我们用的比较少
+    //let [a,b,c,d,...e] = 'zhufeng';
+    //console.log(a, b, c, d, e);
+
+    //let {length} = 'zhufeng';
+    //console.log(length);
+
+    // 数组的解构赋值
+    // var ary = [4,5,6,8];
+    //var ary = [4,[5,{name:'zf',ary:[6,7,88]}],8];
+    //var [,a,b,]  = ary;
+    //let [,[a,{name:b}],]=ary;
+    // console.log(a, b);
+
+   /* var ary = [4,5,6,7,8];
+    var [b,...arg] = ary;
+    console.log(arg);*/
+
+   // let a = 1 ,b=2;
+   // let c = null;
+   // c = a;
+   // a = b;
+   // b = c;
+    /*a = a+b;
+    b = a-b;
+    a = a-b;*/
+    // [a,b] = [b,a];
+    // console.log(a, b);
+
+    // 给声明数组的一个默认值
+    /*var ary = [1,'x'];
+    var [a,b=6] = ary;
+    console.log(a,b);
+    data = ['苹果xs',10000];
+    var [name,price='暂未定价'] = data;
+    box.innerHTML = name;
+    box2.innerHTML = price;*/
+    // box2.innerHTML = data.price?'...':data.price;
+
+
+    // 对象的解构赋值
+    let obj = {name:'zf',age:[3,4,{sex:8},2]};
+    // let {a,b} = obj;
+    // let {name} = obj;
+    // let {name:name,age:age} = obj;
+    let {age:[,,{sex:b},]} = obj;
+    console.log(b);// 8
+    // console.log(a, b);//
+
+    let {...a} = obj; // 可以实现对象克隆
+    let c = Object.assign({},obj); // 也可以实现对象的克隆
+    let d = JSON.parse(JSON.stringify(obj)); // 可以实现对象的深拷贝
+    console.log(d === obj);
+    console.log(c === obj);
+    console.log(a === obj);
+
+    // 通过等号给对象添加默认值
+    obj.say = 'heihei';
+    let {say='haha'} = obj;
+    console.log(say);
+
+    let name = 'china';
+    // 通过冒号给对象起一个别名
+    let {name:Name} = obj;
+    console.log(Name);
+
+    // 函数中的解构赋值
+    /*function fn(...arg){
+        // arguments
+        console.log(arg);
+    }
+    fn(1,2,3,5)*/
+    /*function fn(arg){
+        console.log(arg);//[3,4,5,6]
+        //console.log(...arg);//[[3,4,5,6]][0]
+    }
+    fn([3,4,5,6])*/
+    // 通过函数执行，我们可以设置形参给默认值，或者起一个别名
+    function fn({age=0,name:school}={}){
+        console.log(age);
+        console.log(school);
+    }
+    fn({name:'zf',age:1})
+    fn()
+
+</script>
