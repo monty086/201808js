@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    /*
+    * 匀速直线运动
+    * time:所花费的时间
+    * duration：总时间
+    * change：终点-开始的位置 =》要走的距离
+    * begin：开始的位置
+    * */
+    function linear (time,duration,change,begin){
+        return time/duration*change+begin;
+    }
+    let begin ={
+        width:box.offsetWidth,
+        height:box.offsetHeight,
+        opacity:1,
+        left:utils.css(box,'left'),
+        top:utils.css(box,'top')
+    }
+    let target = {
+        width:300,
+        height:50,
+        opacity:0.4,
+        left:utils.win('clientWidth')-300,
+        top:utils.win('clientHeight')-50,
+    }
+    let time=0,duration=2000,change={};
+    // let begin=utils.css(box,'left');
+    // let target = utils.win('clientWidth')-box.offsetWidth;
+    for(var key in target){
+        change[key] = target[key]-begin[key]
+    }
+    box.onclick = function(){
+        this.timer = setInterval(()=>{
+            time+=17;
+            if(time>=duration){
+                clearInterval(this.timer);
+                utils.css(this,target);
+                return
+            }
+
+            // 2000=> 10 500=> 39
+            /*console.log(linear(time, duration, target - begin, begin));
+            utils.css(this,'left',linear(time,duration,target-begin,begin))*/
+            // 需要循环change
+            var step= {};
+            for(var key in change){
+                step[key] = linear(time,duration,change[key],begin[key])
+                //utils.css(this,key,step)
+            }
+            utils.css(this,step)
+        },17)
+    }
+</script>

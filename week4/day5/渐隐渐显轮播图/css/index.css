@@ -1,0 +1,60 @@
+body{
+    margin: 0;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.outer{
+    width: 800px;
+    height: 350px;
+    margin:50px auto;
+    overflow: hidden;
+    position: relative;
+}
+.outer .swiper img{
+    width: 800px;
+    height: 350px;
+    position: absolute;
+    display: none;
+}
+.outer .focus{
+    padding: 5px;
+    background: rgba(0,0,0,.5);
+    border-radius: 4px;
+    position: absolute;
+    bottom:15px;
+    left:50%;
+    transform: translateX(-50%);
+}
+.focus li{
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    margin:0 5px;
+    float: left;
+}
+.focus li.selected{
+    background: red;
+}
+.left,.right{
+    width: 30px;
+    height: 50px;
+    background: url(../images/pre.png) no-repeat;
+    position: absolute;
+    top:50%;
+    margin-top: -25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: none;
+}
+.left{
+    left: 0;
+}
+.right{
+    right:0;
+    background-position: -45px 0;
+}

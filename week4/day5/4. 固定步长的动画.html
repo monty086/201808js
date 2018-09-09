@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    var target = utils.win('clientWidth')-box.offsetWidth;
+    var step = 0;
+    box.timer = setInterval(()=>{
+        step+=17;
+        if(step+17>=target){//59 1003  // 58=>986+17>1000
+            clearInterval(box.timer);
+            utils.css(box,'left',target)//1000 =>14
+            return
+        }
+        utils.css(box,'left',step)
+    },17)
+</script>

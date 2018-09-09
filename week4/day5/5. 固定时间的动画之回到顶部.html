@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        html,body{
+            height: 500%;
+            background: -webkit-linear-gradient(red,orange,yellow,green,lightblue,blue,purple);
+        }
+        #box{
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            line-height: 50px;
+            text-align: center;
+            color:white;
+            background: rgba(0,0,0,.5);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="box">UP</div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    // 1.
+    let winH = utils.win('clientHeight');
+    window.onscroll= function (){
+        let winS = utils.win('scrollTop');
+        if(winS>winH){
+            box.style.display = 'block'
+        }else{
+            box.style.display = 'none'
+        }
+    };
+    var timer = 0;
+    var duration = 2000;
+
+    // 1.控制时间回到顶部
+    /*box.onclick = function (){
+        box.timer =setInterval(()=>{
+            let winS = utils.win('scrollTop');
+            var speed = winS/duration;
+            duration-=17;
+            if(duration<=0){
+                clearInterval(this.timer);
+                utils.win('scrollTop',0);
+                duration=2000
+                return
+            }
+            console.log(timer * speed);
+            utils.win('scrollTop',duration*speed)
+        },17)
+    }*/
+    // 2.根据时间算步长
+    /*box.onclick = function (){
+        let winT = utils.win('scrollTop');
+        var step = winT/duration*17;
+        box.timer =setInterval(()=>{
+            if(winT<=0){
+                clearInterval(this.timer);
+                utils.win('scrollTop',0);
+                return
+            }
+            winT-=step;
+            utils.win('scrollTop',winT)
+        },17)
+    }*/
+</script>

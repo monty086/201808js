@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"> </div>
+    <p id="p"></p>
+</body>
+</html>
+<script>
+    /*
+    * 什么是回调函数：将一个普通函数b，当作参数传给函数a的时候，当a执行的时候，顺便把b也执行了，这种机制就叫做回调函数
+    *
+    * */
+    /*function a(b){
+        b()
+    }
+    function b(){
+
+    }
+    a(b)*/
+    /*
+    * forEach(function(){})
+    * map
+    * setTimeout
+    * setInterval
+    * sort
+    * ...
+    * $.each()
+    * */
+
+    var str = `9月13日凌晨1点，苹果将于Apple Park内的乔布斯剧院发布新iPhone系列。虽然还有不到一周时间，但新iPhone的命名貌似已经被确认下来，而且还长的惊人！`;
+    var str2 = `敬请期待`;
+    //
+    function interval (ele,time,str,callback){
+        var step = 0
+        ele.timer = setInterval(function(){
+                ele.innerHTML+=str[step++]
+                if(step>=str.length){
+                    clearInterval(ele.timer)
+                    callback && callback.call(ele)
+                }
+        },time)
+    }
+    interval(box,100,str,function(){
+        // this.innerHTML+='敬请期待'
+/*        // this.timer = setInterval(function(){
+        //     ele.innerHTML+=str1[step++]
+        //     if(step>=str1.length){
+        //         clearInterval(this.timer)
+        //     }
+        // },800)*/
+        p.style.fontSize='100px';
+        p.style.color='red';
+        interval(p,1000,str2)
+    })
+</script>
