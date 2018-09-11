@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * es6中的继承
+    * class
+    *
+    *
+    *
+    * */
+
+    function Parent (name){
+        this.name = name
+    }
+    Parent.prototype.getX = function (){
+        return this.name
+    }
+    new Parent();
+    Parent.a = function(){} // 把parent当作一个对象
+    // 通过es6的方式来创建一个类
+    /*class Child {
+        constructor(){
+            // 都是子类的私有属性和方法
+            this.age = 8
+        }
+        // 子类的公有属性和方法
+        getY(){
+            return this.age
+        }
+        // 把Child当作一个对象来用,在对象中扩展一个属性b
+        static b(){
+            return this
+        }
+    }*/
+    // 将子类Child继承父类Parent，通过关键字extends来实现
+    class Child extends Parent{
+        constructor(){
+            super('zf') // 就算Parent的私有属性，如果添加constructor，必须添加super，否则会报错
+            this.age=9
+        }
+        getY(){
+            return this
+        }
+        static  getZ(){
+            return this
+        }
+    }
+
+    console.dir(new Child());
+    /*
+    * es6中的继承就是es5我们说的 寄生组合继承，通过extends继承父类是私有属性和公有属性，如果有添加constructor函数的话，我们必须添加super，不然会报错，super就属于call继承，可以通过super给父类传参。除此之外都是公有属性。子类的公有属性通过原型链__proto__可以找到父类的公有属性，【constructor没有丢失】
+    *
+    *
+    * */
+
+    /*
+    * 在继承当中，我们可以通过，原型继承，寄生组合继承，可以修改父类上的属性和方法，这种方式属于重写：【重新修改父类上的属性和方法通过继承】
+    *
+    *
+    * */
+</script>

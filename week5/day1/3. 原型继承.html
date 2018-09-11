@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 原型继承：
+    * 子类的公有继承父类的私有+公有属性
+    *
+    * */
+    function Parent(){
+        this.name = 'zf'
+    }
+    Parent.prototype.getX= function (){
+        return this.name
+    }
+    function Child(){
+        this.age = 8
+    }
+    Child.prototype.getY= function (){
+        return this.age
+    }
+    // 父类的私有+公有属性=》只有父类的实例才会拥有
+    //  子类的公有 =》 子类的原型属性=》 子类的公有位置
+    Child.prototype = new Parent()
+    // new Parent() // {name:'zf'}
+    // Child.prototype = {name:'zf'}
+    // 这样做会导致子类的原型上的constructor丢失
+    Child.prototype.constructor = Child
+    // new Child().__proto__.name == new Parent().name
+    console.log(new Parent().constructor); // Parent
+    console.log(new Child().constructor);// Child
+
+    Child.prototype.getZ = function(){
+        return this
+    };
+    // 通过给Child的原型添加getZ方法，只供Child实例来调用，不会给父类的私有属性添加任何一个属性
+    console.log(new Child().getZ());// Child实例
+    // 通过关键字new来执行Parent类，this会被重新修改
+    console.log(new Parent().getZ);
+
+    /*
+    * 通过这种方式，子类的实例就可以调用父类的私有属性和公有属性
+    * 注意
+    * 我们要给子类的原型上扩展公共方法，必须等到继承完之后，再给添加才生效
+    * 弊端
+    * 我们给父类的私有属性添加多少，子类的公有属性就会拥有多少，最好的方法是子类的私有拥有父类的私有，子类的公有拥有父类的公有。所以我们需要学习寄生组合继承
+    *
+    * */
+    console.log(new Child());
+</script>

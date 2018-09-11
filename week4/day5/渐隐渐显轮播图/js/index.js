@@ -80,5 +80,5 @@ $left.click(function(){
 $('.focus li').hover(function(){
     step = $(this).index()-1;
     autoMove()
-})
+});
 

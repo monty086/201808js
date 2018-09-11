@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 寄生组合继承
+    * 子类私有继承父类私有，子类公有继承父类公有
+    *
+    * */
+    function Parent (){
+        this.name='zf';
+    }
+    Parent.prototype.getX = function(){
+        return this.name
+    };
+    function Child (){
+        Parent.call(this)// 通过call继承达到子类私有继承父类私有
+        this.age=8;
+    }
+    Child.prototype.getY = function(){
+        return this.age
+    };
+
+    // 子类的公有继承父类的公有
+    var obj = {name:'zf'}
+    var o = Object.create(obj)
+    console.log(o);
+    // Object.create=>把参数当作公有属性和方法给当前这个函数的返回值
+    console.log(o.__proto__ == obj);//true
+    Child.prototype = Object.create(Parent.prototype);
+    console.log(Child.prototype.__proto__ == Parent.prototype);//true
+    console.log(Child.prototype instanceof Parent);
+    console.dir(Child)
+    // Child.prototype =>此时变成了一个空对象，而且丢失了constructor，而且之前给子类原型上添加的属性和方法都丢失
+
+    /*
+    * 寄生组合继承
+    * 总结
+    * 子类私有继承父类私有：通过call继承的方法，将父类中的私有属性复制一份到子类的私有属性中。
+    * 子类的公有继承父类的公有：我们可以通过Object.create()这个方法，将父类的原型当作参数传入，返回值是一个空对象，将其赋值给子类的原型；这样子类的原型就可以通过__proto__原型链找到父类的原型。
+    * 但是这样做，对导致子类的原型constructor丢失，而且之前添加的公共方法也会被清空。为了构造函数机制的完成，我们需要手动添加constructor，在继承之后给子类的原型扩展属性。
+    *
+    *
+    * */
+</script>

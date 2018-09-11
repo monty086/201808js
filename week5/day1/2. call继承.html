@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 什么是继承？
+    * 子类继承父类的一些属性和方法【私有属性和方法，或者公有属性和方法】
+    * 在js中继承有很多种，常用的几种，call继承、原型继承、寄生组合继承，es6继承
+    * 继承：获取或者操作父类的一些属性和方法
+    * */
+
+    /*
+    * call继承
+    * 子类私有继承父类私有
+    *
+    * */
+    function Parent (){
+        this.name='zf';
+        this.age = 7;
+    }
+    Parent.prototype.getX = function(){
+        return this.name
+    };
+    function Child (){
+        // this=> 子类是私有对象
+        Parent.call(this)// 通过call方法改变父类中的this，是把父类当作了一个普通的函数，现在父类当中的this被改变成子类的实例，就相当于把父类上的全部私有属性和方法，复制了一份到子类的私有中
+        // 缺点，这样做的话父类的公有方法和子类的实例就没有关系了
+        // 这样的话，子类的实例也拥有父类的私有属性和方法
+        // 注意：如果父类私有属性和子类的私有属性重名的话，我们以子类为准
+        this.age = 8
+    }
+    Child.prototype.getY =function () {
+        return this.age
+    };
+    console.log(new Child().name);
+    console.log(new Child().age);
+</script>
