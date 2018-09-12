@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">112233</div>
+    <input type="text" id="input">
+</body>
+</html>
+<script>
+    /*
+    * 什么是事件？
+    * 事件是元素身上天生的一个行为方式，它可以理解为一个行为或者做某一件事，大多数的事件都是元素天生自带的。
+    *
+    * 事件分为
+    * 鼠标事件行为 mouseEvent
+    * 键盘事件行为 keyboardEvent
+    * 普通事件行为 event
+    *
+    * 鼠标的事件行为【常用事件】
+    * onclick // 点击事件
+    * ondblclick //  双击事件
+    * onmouseover // 鼠标滑入触发
+    * onmouseout  // 鼠标移出触发
+    * onmouseenter  // 鼠标滑入触发 【没有冒泡传播】
+    * onmouseleave  // 鼠标移出触发 【没有冒泡传播】
+    * onmousedown  // 鼠标按下触发
+    * onmousemove  // 鼠标移动触发
+    * onmouseup   // 鼠标抬起时触发
+    * onmousewheel  // 滚轮滚动的时候触发
+    *
+    * 键盘的事件行为
+    * onkeydown  键盘按下的时候触发
+    * onkeyup  键盘的松开的时候触发
+    * onkeypress 和onkeydown差不多，但是它返回到是ASCII码值
+    *
+    * 表单的事件行为
+    * onfocus 获取焦点的时候触发
+    * onblur  失去焦点的时候触发
+    * onchange 当内容发生改变的时候触发
+    * onseleted  当选择框选中的时候触发
+    * onreset  点击重置按钮的时候触发
+    * onsubmit  当点击提交的时候进行触发
+    *
+    * 其他的一些事件行为
+    * onload  当图片或者文本加载结束后触发
+    * onerror  当图片或者文本加载失败后触发
+    * onresize  当窗口尺寸发生改变后触发
+    * onabort   当图片或文本加载中断时触发
+    * onscroll   滚动的时候进行触发
+    *
+    *
+    * 移动端的事件
+    * //单手指
+    * ontouchstart  手指按下的时候触发
+    * ontouchmove  手指移动的时候触发
+    * ontouchend  手指抬起的时候触发
+    * ontouchchange  手指操作被迫中断的时候触发
+    *
+    * // 多手指
+    * ongesturestart  多手指按下后触发
+    * ongestureend   多手指抬起后触发
+    * ongesturechange  多手指改变后触发
+    *
+    *
+    * // 注意在移动端的时候，onclick属于单击事件，既然是单击事件，他会在300ms内等待判断用户是否会连续触发两次，所以移动端的onclick事件有300ms延迟；
+    *
+    * 解决方法：可以用移动端的一些原生事件来代替onclick，或者引入插件fastclick.js；或者调用百度事件库，等等...
+    * */
+
+    console.dir(box)
+    console.dir(input)
+</script>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">box</div>
+</body>
+</html>
+<script>
+    /*
+    * 事件绑定
+    * 当元素身上的天生自带事件行为被触发的时候，我们要执行相对应的方法【函数】，目的是为了达到某个效果，做成某件事情。
+    *
+    * 在js中事件绑定分为两种
+    *
+    * dom0级事件
+    *
+    * 添加事件
+    * 元素.xxx[事件行为] = function(){}
+    * // box.onclick = function(){}
+    * 移除事件
+    * 元素.xxx[事件行为] = null
+    * // box.onclick = null ;
+    *
+    * dom2级事件
+    * // 添加事件
+    * 元素.addEventListener(事件行为，执行的方法，是否捕获)
+    * box.addEventListener('click',fn,false)// false 属于冒泡。true属于捕获
+    * // 移除事件
+    * 元素.removeEventListener(事件行为，执行的方法，是否捕获)
+    * // 注意一点：在dom2级事件当中移除事件，需要满足元素、事件行为、执行的方法、是否捕获，都必须和要移除的事件相同才可以移除
+    *
+    * ie6~8的dom2级事件
+    * // 添加事件
+    * 元素.attachEvent(事件行为，执行的方法)
+    * box.attachEvent('onclick',fn)
+    * // 移除事件
+    * 元素.detachEvent(事件行为，执行的方法)
+    * box.detachEvent('onclick',fn)
+    *
+    * //ie6-8dom2级事件存在的问题 this 重复绑定问题 执行顺序问题
+    *
+    *
+    * dom2级事件的执行原理【dom2级事件池原理】：
+    * 当我给元素通过dom2级事件绑定一个方法的时候，浏览器会通过元素上的EventTarget类上面找到这个方法，浏览器会给当前元素的事件行为开辟一个事件池【事件队列】，然后通过这个方法addEventListener【增加事件监听】，向事件池当中添加方法，当元素的事件行为触发的时候，浏览器会去当前元素的事件池当中，按照之前添加的顺序，依次执行里面的方法
+    *
+    * */
+    //box.onclick = function(){}
+    box.onmouseover = function(){};
+    box.onhaha = function(){}
+
+
+    // dom 0级事件
+    // 由此可以推断，dom0级事件只能绑定一个方法
+    /*box.onclick = function(){
+        console.log(1);
+    };
+    box.onclick = function(){
+        console.log(2);
+    }*/
+
+    // dom2级事件
+   /* box.addEventListener('click',function(){
+        console.log(1);
+    },false);
+    box.addEventListener('click',function(){
+        console.log(2);
+    },false);*/
+    function fn1(){
+        //console.log(this); // 当前元素
+        console.log(1);
+    }
+    function fn2(){
+        console.log(2);
+    }
+    function fn3(){
+        console.log(3);
+    }
+    box.addEventListener('click',fn1,false);
+    box.addEventListener('mouseover',fn3,true);
+    box.addEventListener('click',fn2,false);
+    box.addEventListener('click',fn2,false);// 在标准浏览器下的dom2级事件中，不会给元素添加重复的方法【去重】
+    //  在标准浏览器下执行的dom2级事件，执行的顺序和添加的顺序一致
+    // 这种添加方法有一个弊端
+    // 总结：我们在给元素通过dom2级事件添加方法的时候最好写函数名，主要原因是为了方便移除
+    box.removeEventListener('mouseover',fn3,true)
+    // 移除的时候必须确保元素一致，事件行为、添加的方法、是否捕获都必须一致才可以进行移除
+
+    // ie 6~8 下dom2级事件
+    // attachEvent detachEvent
+    // 有一些问题：
+    /*
+    * 1. this问题=> 不是当前元素=》window
+    * 2. 重复绑定问题 => 会重复添加添加方法
+    * 3. 执行顺序问题 => 乱序执行
+    * 综上原因，ie下的dom2级事件是因为它的事件池机制不完整导致的。
+    * 而且ie下的dom2级事件，没有捕获，只有冒泡
+    *
+    * */
+</script>
