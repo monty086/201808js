@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #outer{
+            width: 300px;
+            height: 300px;
+            background: red;
+        }
+        #center{
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    outer
+    <!--<div id="inner">-->
+        <!--inner-->
+        <div id="center">
+            center
+        </div>
+    <!--</div>-->
+</div>
+</body>
+</html>
+<script>
+   /* outer.onmouseover = function (){
+        console.log('outer=>over');
+    }
+    outer.onmouseout = function (){
+        console.log('outer=>out');
+    }
+    center.onmouseover = function (){
+        console.log('center=>over');
+    }
+    center.onmouseout = function (){
+        console.log('center=>out');
+    }*/
+   outer.onmouseenter = function (){
+       console.log('outer=>over');
+   }
+   outer.onmouseleave = function (){
+       console.log('outer=>out');
+   }
+   center.onmouseenter = function (){
+       console.log('center=>over');
+   }
+   center.onmouseleave = function (){
+       console.log('center=>out');
+   }
+    /*
+    * onmouseover 有冒泡传播， onmouseenter没有冒泡传播
+    *
+    * 使用onmouseover的时候，当父元素进入到子元素当中时，【它会认为已经离开了父元素】会先触发父元素的离开，然后在触发子元素的进入，【但是由于事件有冒泡传播，也会把父元素的进入事件也相应触发】
+    *
+    * 使用onmouseenter的时候,当从父元素进入到子元素当中时，不会触发父元素的离开，【因为它会认为你还在父元素当中】，紧接着会触发子元素的进入，【但是onmouseenter没有冒泡机制，所以不会触发父元素 的onmouseenter】
+    *
+    * 因为onmouseover在项目中会有很多的问题，所以我们一般情况下用onmouseenter比较多
+    *
+    * */
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="outer">
+    outer
+    <div id="inner">
+        inner
+        <div id="center">
+            center
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    /*
+    * 事件的传播机制
+    * 事件的冒泡传播：当一个元素触发一个事件行为时，其父级元素也会进行相对应的触发【如果父级有相对应的事件类型，那么也会进行执行】，一直传播的祖先元素，这种传播机制叫做事件的冒泡传播
+    *
+    * dom0的冒泡传播【dom0级没有捕获，只有冒泡】
+    *
+    * */
+    //dom0的冒泡传播
+    /*outer.onclick = function () {
+        console.log('outer')
+    }
+    inner.onclick = function () {
+        console.log('inner');
+    }
+    center.onclick = function () {
+        console.log('center');
+    }*/
+
+    // dom2 事件
+    // 既有捕获 也有冒泡
+    /*
+    * dom2事件传播：
+    * 会先进行捕获【从最外层的元素到触发的元素】，然后在到目标阶段【触发的元素】，然后会进行冒泡传播【从触发的元素再到最外层会依次进行冒泡传播】
+    *  定义最外层：
+    *  1. chrome ：window => document => html => body
+    *  2. ie9~ : window => html => body
+    *  3. ~ie8 : html => body
+    * */
+    function fn1(){ console.log(1);}
+    function fn2(){ console.log(2);}
+    function fn3(){ console.log(3);}
+    function fn4(){ console.log(4);}
+    outer.addEventListener('click',fn1,true);
+    center.addEventListener('click',fn2,true);
+    center.addEventListener('click',fn3,false);
+    outer.addEventListener('click',fn4,false);
+</script>

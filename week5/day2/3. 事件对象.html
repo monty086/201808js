@@ -78,8 +78,8 @@
         //  事件的冒泡传播
         e.stopPropagation ? e.stopPropagation(): e.cancelBubble = true ;
         //  事件的触发的时候距离body的距离
-        e.pageX = e.pageX || e.clientX + (document.documentElement.scrollLeft||document.body.scrollLeft)
-        e.pageY = e.pageY || e.clientY + (document.documentElement.scrollTop|| document.body.scrollTop)
+        e.pageX = e.pageX || e.clientX + (document.documentElement.scrollLeft||document.body.scrollLeft);
+        e.pageY = e.pageY || e.clientY + (document.documentElement.scrollTop|| document.body.scrollTop);
     }
 
 </script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    /*
+    * 谷歌浏览器最外层元素  window => document => html => body
+    * ie9~ 最外层元素  window => html => body
+    * ~ie8 最外层元素  html => body
+    * */
+    window.onkeydown = function (e){
+        // e事件对象
+        // e.keyCode => 所按键的键值
+        e = e || window.event;
+        e.keyCode = e.which || e.keyCode;
+        //console.log(e);
+        if(e.keyCode === 37){
+            box.style.left = css(box,'left') -10+'px'
+        }else if(e.keyCode === 38){
+            box.style.top = css(box,'top') -10+'px'
+        }else if(e.keyCode === 39){
+            box.style.left = css(box,'left') +10+'px'
+        }else if(e.keyCode === 40){
+            box.style.top = css(box,'top') +10+'px'
+        }
+    };
+    function css (ele,attr){
+        return parseFloat(window.getComputedStyle(ele)[attr])
+    }
+</script>

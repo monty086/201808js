@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{ margin: 0; }
+        /*p{margin:0;padding:0}*/
+        #box{
+            width: 300px;
+            height: 300px;
+            background: #81ace2;
+            margin:50px auto;
+            position: relative;
+        }
+        #mark{
+            width: 50px;
+            height: 50px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    var p = document.createElement('p');
+    p.id = 'mark';
+    box.onmouseenter = function(){
+        this.appendChild(p);
+        // 当盒子移动的时候
+        this.onmousemove = function(e){
+            mark.style.left = e.clientX - this.offsetLeft  +'px';
+            mark.style.top = e.clientY - this.offsetTop +'px';
+        }
+    }
+    box.onmouseleave = function(){
+        this.removeChild(p)
+    }
+</script>
