@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="outer">
+        outer
+        <div id="inner">
+            inner
+            <div id="center">
+                center
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    /*
+    * 事件委托：
+    * 事件委托又称为事件代理，当我们给父元素下面的子元素进行绑定事件的时候，我们没有必要给每一个子元素都绑定，我们可以利用事件冒泡的原理，给父元素绑定一个事件，这样的话，我们不管触发哪个子元素，都会冒泡传播到父元素，然后进行相对应的执行，而且我们可以利用事件对象中的事件源，控制操作的子元素达到相对应的效果。
+    *
+    * 注意：
+    * 事件委托是依据事件冒泡的原理来实现的，onmouseenter没有冒泡传播，所以它用不了事件委托
+    * 我们利用事件委托操控子元素，比给每一个子元素逐个绑定方法，提高性能50%以上。
+    * */
+
+    outer.onclick = function (e) {
+        if(e.target.id =='center'){
+            center.innerHTML+='你咋知道我点的是center呢？'
+        }else if(e.target.id =='inner'){
+            inner.innerHTML+='你咋知道我点的是inner呢？'
+        }else if(e.target.id =='outer'){
+            outer.innerHTML+='你咋知道我点的是outer呢？'
+        }
+    }
+</script>

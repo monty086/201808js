@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box1,#box2{
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: absolute;
+            box-shadow: 1px 1px 1px #666;
+        }
+        #box1 img{
+            width: 100%;
+            height: 100%;
+        }
+        #mark{
+            width: 50px;
+            height: 50px;
+            background: rgba(214, 226, 51, 0.5);
+            position: absolute;
+            display: none;
+        }
+        #box2{
+            left:360px;
+            display: none;
+        }
+        #box2 img{
+            width: 300%;
+            height: 300%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="box1">
+    <img src="img/iphone.jpg" alt="">
+    <div id="mark"></div>
+</div>
+<div id="box2">
+    <img src="img/iphone_big.jpg" alt="" id="img2">
+</div>
+</body>
+</html>
+<script>
+    var box1 = document.getElementById('box1');
+    var box2 = document.getElementById('box2');
+    var mark = document.getElementById('mark');
+    var img2 = document.getElementById('img2');
+    // 声明变量记录最小值和最大值
+    let minL =0,minT = 0, maxL =0 ,maxT = 0;
+    let L = 0 ,T = 0;
+    box1.onmouseenter = function () {
+        // 让小方块和图片2都显示
+        box2.style.display ='block';
+        mark.style.display ='block';
+        // 小方块移动的最大距离
+        maxL = this.offsetWidth - mark.offsetWidth;
+        maxT = this.offsetHeight - mark.offsetHeight;
+        // 小方块移动
+        this.onmousemove = function (e) {
+            // L 和 T 是小方块移动的距离
+            L = e.clientX - this.offsetLeft - mark.offsetWidth/2;
+            T = e.clientY - this.offsetTop - mark.offsetHeight/2;
+            // 需要给小方块设定边界，最小值和最大值
+            L = L < minL? minL : L>maxL?maxL : L;
+            T = T < minT ? minT : T > maxT? maxT : T;
+            // 限定好距离后，还给mark
+            mark.style.left = L +'px';
+            mark.style.top = T +'px';
+            img2.style.left = -3*L +'px';
+            img2.style.top = -3*T +'px';
+        }
+    }
+    box1.onmouseleave =function (){
+        box2.style.display ='none';
+        mark.style.display ='none';
+    }
+</script>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .province{
+            width: 300px;
+            padding:30px;
+            background: -webkit-linear-gradient(top left, #c3ef64, #ffac4c, #f480e6);
+            border:1px solid red;
+            margin:50px auto;
+        }
+        .province li{
+            position: relative;
+        }
+        em,span{
+            display: inline-block;
+        }
+        .province li em{
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top:7px;
+            left:0;
+            background: url("img/icon.png") no-repeat;
+            background-position: -59px -28px;
+        }
+        .province li em.open{
+            background-position: -42px -28px;
+        }
+        .province li span{
+            height: 30px;
+            line-height: 30px;
+            margin-left: 25px;
+        }
+        .province li ul{
+            margin-left: 40px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+ <ul class="province">
+     <li>
+         <em></em><span>山西</span>
+         <ul class="city">
+             <li>
+                 <em></em><span>晋城</span>
+                 <ul class="county">
+                     <li>
+                         <span>泽州县</span>
+                     </li>
+                 </ul>
+             </li>
+             <li>
+                 <span>太原</span>
+             </li>
+         </ul>
+     </li>
+     <li>
+         <em></em><span>山东</span>
+         <ul class="city">
+             <li>
+                 <span>青岛</span>
+             </li>
+         </ul>
+     </li>
+     <li>
+         <span>河南</span>
+     </li>
+ </ul>
+</body>
+</html>
+<script>
+    let province  = document.getElementsByClassName('province')[0];
+    province.onclick = function (e) {
+        // 判断事件源是哪个元素
+        if(e.target.tagName ==='EM'){
+            shopList(e.target.nextElementSibling)
+        }else if(e.target.tagName ==='SPAN'){
+            shopList(e.target)
+        }
+    }
+
+    // 显示下面的列表
+    function shopList (span){
+        // 拿到span下面的 ul标签，主要操作的ul
+        let ul = span.nextElementSibling;
+        if(ul){
+            let flag = getComputedStyle(ul)['display'];
+            if(flag ==='none'){
+                ul.style.display = 'block';
+                span.previousElementSibling.className='open'//- => 展开
+            }else{
+                ul.style.display = 'none';
+                span.previousElementSibling.className='';// + => 收缩
+                // ul下面的子元素还是它原来的状态，=>让所有的子菜单[都收起来]
+                let uls = ul.getElementsByTagName('ul');
+                for (var i=0;i<uls.length;i++){
+                    // 让所有ul都进行隐藏=>收缩
+                    uls[i].style.display = 'none';
+                    // 让ul的上一个哥哥的上一个哥哥进行显示+号
+                    uls[i].previousElementSibling.previousElementSibling.className = ''// open - '' + =>收缩
+                }
+            }
+        }
+    }
+</script>
