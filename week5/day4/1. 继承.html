@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 继承：子类继承【操作或者获取】父类的一些属性和方法
+    *
+    * */
+
+    /*
+    * call继承：子类私有继承父类私有
+    * 函数的三种身份：
+    * 1. 普通函数
+    * 2. 构造函数【类】
+    * 3. 函数类的一个实例【对象】
+    * */
+    function fn(){};
+    // 把函数当作一个对象
+    fn.a=1;
+    console.log('a' in fn);
+    // 函数是一个普通函数
+    fn()
+    // 函数是一个构造函数
+    new fn
+    /*$.ajax()//
+    $()//
+    $().each()//*/
+
+    ;(function (){
+        function Parent(){
+            //this
+            this.name='zf'; //
+            //this.age;
+        }
+        // Parent()
+        function Child(){
+            //this
+            // this // 内存空间
+            //this.name ='china';
+            Parent.call(this);// 相当于在Child的内存空间添加了Parent的this的两个属性
+            //this.name='china';// 属性名重名会被重写
+            //this.age;
+            // 注意：call继承需要写在开头,再给它添加私有属性不会被重写
+            //document.addEventListener('click',this.move)
+        }
+
+        console.log(new Child().name);
+    })()
+
+
+    /*
+    * 原型继承：子类继承父类的私有属性和公有属性
+    *
+    *
+    * */
+    function Parent(){
+        this.sex = '男'
+    }
+    Parent.prototype= {
+        getS(){
+            console.log(1);
+        },
+        // getY :()=> {}
+    };
+    // new Parent().constructor// Object
+    //new Parent().getS()
+
+    function Child(){}
+    // 继承放在这
+    Child.prototype.getX = 'zf';
+    /*Object.assign(Child.prototype,Parent.prototype);
+    // {Child.prototype,...Parent.prototype}
+    new Child().getS()*/
+    // 子类的原型等于父类的实例【私有属性和公有属性】
+    Child.prototype = new Parent();// 实例 =》对象 {sex:'男'}
+    Child.prototype.getX = 'zf';//
+    // new Parent();
+    // console.log(Child.prototype.getX);
+    console.log(new Child().sex);
+
+    // 重新修改Child.prototype
+    Child.prototype.constructor = Child;
+    // 补充constructor，就可以把子类的实例当作父类的原型对象，【相当于继承了父类是私有属性】
+    new Child().sex='中'; //'男'
+    new Child().getS();
+
+    /*var obj = {name:1},obj1 = {age:2};
+    Object.assign(obj1, obj);
+    console.log(obj1);
+    obj1.name =3;
+    console.log(obj.name);*/
+
+    /*
+    *  寄生组合继承：子类私有继承父类私有，子类公有继承父类公有
+    *
+    *
+    * */
+
+    /*//Object.create()
+    // 将形参当作返回值的公有属性和方法，而返回值默认是一个对象
+    Object.create = function (obj) {
+        /!*var a = {};
+        a.__proto__ = obj;*!/
+        function Fn(){};
+        Fn.prototype = obj;
+        return new Fn()
+    };
+    var obj = {name:'zf'};
+    console.log(Object.create(obj));*/
+    (function () {
+        function Parent(){
+            this.name = 'zf'
+        }
+        Parent.prototype.getX = function (){
+            console.log(1);
+        }
+        function Child(){
+            Parent.call(this)// this.name = 'zf'
+            // 通过call继承，不管父类增加多少私有属性，子类都具有
+            this.age = 8
+        }
+        Child.prototype.getY = function (){
+            console.log(2);
+        }
+        //var obj = Object.create(Parent.prototype);
+        // obj ={} ,
+        // Parent.prototype 上的方法就是obj上的公有属性和方法
+        // obj.__proto__ = Parent.prototype
+        // obj 是 Parent的一个实例 obj instanceof Parent // true
+        // 将obj换成 Child.prototype
+        Child.prototype = Object.create(Parent.prototype);
+        Child.prototype.__proto__ == Parent.prototype;
+        Child.prototype instanceof Parent;// true
+        new Child().__proto__ == Child.prototype;
+        new Child().__proto__.__proto__ == Parent.prototype;
+        new Child().getX();
+        Child.prototype.constructor = Child;
+        console.log(new Child());
+    })()
+
+    /*
+    * es6中的继承
+    *
+    *
+    * */
+
+    ;(function () {
+        // var function let const class【类名】 import【模块名】
+        class Parent{
+            constructor(age){ // constrctor 就是当前Parent这个类
+                // 放的都是私有属性和方法
+                this.name = 'zf';
+                this.age = age;
+            }
+            // 放的方法都是公有方法
+            getX(str){
+                // console.log(this.constructor.getY());
+                return this.name+'今年'+this.age+str;
+            }
+            // static  把类当作对象来用
+            static getY(){
+                // console.log(this.name);
+                //console.log(this.age);//undefined
+                //console.log(new this(9).getX('岁了'));
+                return this.haha;
+            }
+            //static 'haha'
+        }
+        Parent.haha ='d';
+        console.log(new Parent(8).getX('岁了'));
+        console.log(Parent.getY());
+    })()
+
+    ;(function () {
+        class Parent{
+            constructor(name){
+                this.name=name;
+                this.aaa ='bbb';
+                //this.getY=()=>{return '123'}
+            }
+            getY(){
+                return this.name;
+            }
+        }
+        // extends 把父类的私有属性和公有属性全部都继承过来了
+        class Child extends Parent{
+            // 想在子类中添加私有属性【必须添加super】
+            constructor(){
+                // 子类继承父类之后，子类中的私有属性可以不用加，如果加了，必须添加super(),让其执行
+                // 继承过后，首先应该写super,不可以在super上给this赋值
+                super('zf1');
+                //this.name='china';
+            };
+            getX(){
+                console.log(1);
+                // 子类的公有属性上可以输出父类的私有属性
+                // return this.name;
+                return this.getY();
+            }
+        }
+    /*    console.log(new Child().name);
+        console.log(new Child().getY());*/
+        console.log(new Child().getX());
+        console.log('constructor' in Child.prototype);
+        console.log(typeof Child.prototype.constructor);
+        console.dir(Child);
+    })()
+
+</script>

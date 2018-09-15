@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">aaa</div>
+</body>
+</html>
+<script>
+    /*
+    * 事件绑定分为2中
+    * dom 0 级
+    * 元素的私有属性
+    * 元素.onclick = function(){}
+    * 元素.onclick = null
+    * dom 2 级
+    * 标准浏览器
+    * 在元素的EventTarget这个类上
+    * 元素.addEventListener('click',fn,false)// 是否捕获
+    * 元素.removeEventListener('click',fn,false) //
+    *
+    * ie低版本浏览器
+    * 元素.attachEvent('onclick',fn)
+    * 元素.detachEvent('onclick',fn)
+    * // dom2 ie版本没有捕获
+    *
+    * dom2级事件的事件池
+    * 当元素操作dom2级事件的时候，浏览器会对当前元素的事件类型开辟一个事件池，将操作的方法依次放入事件池当中，元素行为触发的时候，会到浏览器的事件池当中，将里面的方法按照之前添加的顺序依次执行
+    *
+    * */
+
+    function fn1(){console.log(1)}
+    function fn2(){console.log(2)}
+    function fn3(){console.log(3)}
+
+    /*box.addEventListener('click',fn1);
+    box.addEventListener('click',fn2);
+    box.addEventListener('click',fn2);
+    box.removeEventListener('click',fn2);
+    box.addEventListener('click',fn3);*/
+    // 123
+
+    /*box.onclick =fn1
+    box.onclick =fn2
+    box.onclick =fn3
+    box.onclick = function () {
+
+    }*/
+    // box.onclick =fn1
+    // box.addEventListener('click',fn1);
+    // box.onclick = fn3;
+
+
+    box.attachEvent('onclick',fn1);
+    box.attachEvent('onclick',fn2);
+    box.attachEvent('onclick',fn3);
+    box.detachEvent('onclick',fn1);
+    /*
+    * 1. this=> window
+    * 2. 重复绑定 => 多个相同方法会重复添加
+    * 3. 乱序 => 没有按照顺序执行
+    * */
+
+</script>

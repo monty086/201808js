@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">aa</div>
+    <a href="http://www.baidu.com">baidu</a>
+
+    <div id="outer">
+        outer
+        <div id="center">
+            center
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    /*
+    * 事件对象
+    * 当元素的事件行为触发的时候，函数执行的时候，浏览器会给这个函数传一个值e，这个形参就是事件对象；
+    * 事件对象是一个对象数据类型，它记录了元素触发时的一瞬间信息，比如：事件的类型，事件源【触发的元素】，事件点击的点距离浏览器窗口的信息、距离body的信息
+    *
+    *  鼠标事件对象 MouseEvent
+    *  键盘事件对象 KeyboardEvent
+    *  普通事件对象 Event
+    *
+    *  鼠标事件对象
+    *  e.clientX  距离可视窗口X轴的距离
+    *  e.clientY  距离可视窗口Y轴的距离
+    *  e.pageX  距离body的X轴的距离
+    *  e.pageY  距离body的Y轴的距离
+    *  e.type  事件类型
+    *  e.target  事件源【触发的元素】
+    *  e.preventDefault  阻止事件的默认行为
+    *  e.stopPropagation  阻止事件冒泡
+    *
+    * */
+    // box.onclick = function (e){
+    //     console.log(e)
+    // }
+    // chrome => window=> document => html => body
+    // ie9~   => window  => html => body
+    // ~ie9   => html => body
+
+    window.onmousemove = function (e) {
+        // console.log(e.clientX, e.clientY);
+        // console.log(e.pageX, e.pageY);
+        /*if(e.target.tagName=='DIV'){
+            box.style.fontSize='50px'
+        }else{
+            box.style.fontSize='16px'
+        }*/
+    }
+    
+    /*
+    * 事件的默认行为
+    *
+    * a标签=> 点击a标签会默认跳转到href当中
+    * 锚点链接：点击a标签会跳转到href中id所在的位置
+    * input => 把输入的内容保存到输入框中
+    * submit => 点击submit按钮，会跳转到form的action对应的属性值中
+    *
+    * 在结构中阻止
+    * <a href="javascript:;"></a>
+    * <a href="javascript:void 0"></a>
+    * <a href="javascript:null"></a>
+    *
+    * 在事件方法中阻止
+    * a.onclick = function(e){
+    *   ...
+    *   // return false
+    *   // e.preventDefault() // e.returnValue = false
+    * }
+    * $.each([1,2,3],function(index){
+    *   index==1?return false:null
+    * })
+    * // 先会执行事件，再执行默认行为
+    * // e.target  // e.srcElement
+    * // e  // window.event
+    * e = e || window.event
+    * // e.preventDefault  // e.returnValue = false
+    * // e.stopPropagation // e.cancelBubble = true
+    * // e.pageX = e.clientX + (document.documentElement.scrollLeft||...)
+    *
+    *
+    * */
+
+    /*
+    * 事件的传播机制
+    * 捕获和冒泡
+    * 事件冒泡：触发当前元素的事件行为，元素的父级相对应的事件行为也会被触发，这种传播机制就叫做冒泡传播
+    *
+    * dom 0  只有冒泡
+    * dom 2  有冒泡有捕获
+    * dom 2 ie 只有冒泡
+    *
+    *
+    *
+    * */
+
+    //box.addEventListener('click',fn,false);// false =>冒泡
+    // true => 捕获
+
+    function fn1(){console.log(1)}
+    function fn2(e){console.log(2)};
+    function fn3(e){
+        e.stopPropagation?e.stopPropagation():e.cancelBubble=true;
+        console.log(3);
+    }
+    function fn4(){console.log(4)}
+    /*outer.addEventListener('click',fn1,true);
+    center.addEventListener('click',fn2,true);
+    center.addEventListener('click',fn3,false);
+    outer.addEventListener('click',fn4,false);*/
+
+    // 事件委托
+    // 事件代理：利用事件冒泡传播机制来实现的。
+
+
+    outer.addEventListener('click',function(e){
+        if(e.target.id == 'outer'){
+            box.style.fontSize = '100px'
+            box.innerHTML = '你咋知道我点的是outer呢？'
+        }else if(e.target.id == 'center'){
+            box.style.fontSize = '100px'
+            box.innerHTML = '你咋知道我点的是center呢？'
+        }
+    })
+
+</script>

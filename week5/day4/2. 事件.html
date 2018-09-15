@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    /*
+    * 什么是事件
+    * 事件是元素天生自带的行为方式，一般情况下元素的事件都是天生自带的
+    *
+    * */
+    console.log(box.onhaha);// undefined
+    console.log(box.onclick); // null
+    box.onclick = function () {
+
+    }
+    box.onclick =  null;
+    console.log(Object.prototype.__proto__);//null
+
+    console.dir(box)
+    /*
+    * 鼠标点击事件
+    * onclick
+    * ondblclick
+    * onmouseover
+    * onmouseout
+    * onmouseenter
+    * onmouseleave
+    * onmousedown
+    * onmousemove
+    * onmouseup
+    * onmousewheel 鼠标滚轮滚动是触发
+    *
+    * onkeydown
+    * onkeyup
+    * onkeypress
+    *
+    * 表单
+    * onfocus
+    * onblur
+    * onchange
+    * onselected
+    * onreset
+    * onsubmit
+    *
+    * onload
+    * onerror
+    * onscroll
+    * onresize
+    * onabort
+    *
+    * 移动端
+    * ontouchstart
+    * ontouchmove
+    * ontouchend
+    * ontouchcancel
+    * */
+</script>
