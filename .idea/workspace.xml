@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75ec7cf8-f450-409c-b841-102d3e172c52" name="Default" comment="add2234">
-      <change afterPath="$PROJECT_DIR$/week5/day1/1. 动画.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day1/2. call继承.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day1/3. 原型继承.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day1/4. 寄生组合继承.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day1/5. es6中的继承.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week5/day3/4. 拖拽.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week5/day3/5. 拖拽2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week5/day3/5. 拖拽3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week5/day3/6. dom2级拖拽.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week5/day3/7. 发布订阅模式.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week5/day3/8. 发布订阅2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week5/day3/9. jq下的发布订阅.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week5/day3/drag.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week4/day5/渐隐渐显轮播图/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/week4/day5/渐隐渐显轮播图/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week5/day3/1. JD放大镜.html" beforeDir="false" afterPath="$PROJECT_DIR$/week5/day3/1. JD放大镜.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,80 +25,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week4/day5/渐隐渐显轮播图/js/index.js">
+      <file leaf-file-name="4. 拖拽.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week5/day3/4. 拖拽.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="67">
+              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="15" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="5. 拖拽2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week5/day3/5. 拖拽2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="5. 拖拽3.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week5/day3/5. 拖拽3.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="407">
+              <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="6. dom2级拖拽.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week5/day3/6. dom2级拖拽.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="271">
-              <caret line="82" column="3" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
+              <caret line="29" column="44" lean-forward="true" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1. 动画.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week5/day1/1. 动画.html">
+      <file leaf-file-name="7. 发布订阅模式.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week5/day3/7. 发布订阅模式.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="156" lean-forward="true" selection-start-line="156" selection-end-line="156" />
+            <state relative-caret-position="475">
+              <caret line="49" column="12" lean-forward="true" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="8. 发布订阅2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week5/day3/8. 发布订阅2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1080">
+              <caret line="15" column="24" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="9. jq下的发布订阅.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week5/day3/9. jq下的发布订阅.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="543">
+              <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/week3/day5/node_modules/jquery/dist/jquery.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1286">
+              <caret line="3326" column="36" lean-forward="true" selection-start-line="3326" selection-start-column="36" selection-end-line="3326" selection-end-column="36" />
               <folding>
-                <element signature="e#712#866#0" />
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#86703#87511#0" />
+                <element signature="e#87573#88016#0" />
+                <element signature="e#88171#88254#0" />
+                <element signature="e#88552#88576#0" />
+                <element signature="e#88639#88733#0" />
+                <element signature="e#88905#89146#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2. call继承.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week5/day1/2. call继承.html">
+      <file leaf-file-name="drag.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week5/day3/drag.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="29" column="6" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="29" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="3. 原型继承.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week5/day1/3. 原型继承.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="4. 寄生组合继承.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week5/day1/4. 寄生组合继承.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="5. es6中的继承.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/week5/day1/5. es6中的继承.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
-              <folding>
-                <element signature="e#417#694#0" />
-              </folding>
+            <state relative-caret-position="204">
+              <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="data.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week4/day5/渐隐渐显轮播图/data.json">
+        <entry file="file://$PROJECT_DIR$/week5/day3/data.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/week4/day5/渐隐渐显轮播图/css/index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1734">
-              <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
+            <state relative-caret-position="238">
+              <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -116,6 +140,7 @@
     <findStrings>
       <find>jQuery.fn.ini</find>
       <find>rootjQuery</find>
+      <find>callback</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,27 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/week3/day5/2. jq的选择器.html" />
-        <option value="$PROJECT_DIR$/week3/day5/3. jq对象转原生对象.html" />
-        <option value="$PROJECT_DIR$/week4/day1/2.html" />
-        <option value="$PROJECT_DIR$/week4/day2/1.同步异步.html" />
-        <option value="$PROJECT_DIR$/week4/day2/2. 回调函数.html" />
-        <option value="$PROJECT_DIR$/week4/day2/3. 动画.html" />
-        <option value="$PROJECT_DIR$/week4/day2/4. 固定步长的动画.html" />
-        <option value="$PROJECT_DIR$/week4/day2/5. 固定时间的动画.html" />
-        <option value="$PROJECT_DIR$/week4/day2/6. 固定时间的匀速直线运动.html" />
-        <option value="$PROJECT_DIR$/week4/day2/7. 多方向运动的动画.html" />
-        <option value="$PROJECT_DIR$/week4/day2/7.html" />
-        <option value="$PROJECT_DIR$/week4/day2/8. animate.html" />
-        <option value="$PROJECT_DIR$/week4/day2/animate.js" />
-        <option value="$PROJECT_DIR$/week4/day3/轮播图/animate.js" />
-        <option value="$PROJECT_DIR$/week4/day3/轮播图/img/index.html" />
-        <option value="$PROJECT_DIR$/week4/day3/轮播图/data.json" />
-        <option value="$PROJECT_DIR$/week4/day3/轮播图/js/index.js" />
-        <option value="$PROJECT_DIR$/week4/day3/轮播图/js/index-animate.js" />
-        <option value="$PROJECT_DIR$/week4/day3/轮播图/css/index.css" />
-        <option value="$PROJECT_DIR$/week4/day3/轮播图/js/index3.js" />
-        <option value="$PROJECT_DIR$/week4/day3/轮播图/data2.json" />
         <option value="$PROJECT_DIR$/week4/day3/轮播图/js/index2.js" />
         <option value="$PROJECT_DIR$/week4/day3/轮播图/index.html" />
         <option value="$PROJECT_DIR$/week4/day4/1. let&amp;const.html" />
@@ -175,6 +179,27 @@
         <option value="$PROJECT_DIR$/week5/day1/4. 寄生组合继承.html" />
         <option value="$PROJECT_DIR$/week5/day1/5. es6中的.html" />
         <option value="$PROJECT_DIR$/week5/day1/5. es6中的继承.html" />
+        <option value="$PROJECT_DIR$/week5/day2/1. 什么是事件.html" />
+        <option value="$PROJECT_DIR$/week5/day2/3. 事件对象.html" />
+        <option value="$PROJECT_DIR$/week5/day2/2. 事件绑定.html" />
+        <option value="$PROJECT_DIR$/week5/day2/4. 推箱子.html" />
+        <option value="$PROJECT_DIR$/week5/day2/5. 事件的默认行为.html" />
+        <option value="$PROJECT_DIR$/week5/day2/6. 事件的传播机制.html" />
+        <option value="$PROJECT_DIR$/week5/day2/7. onmouseover&amp;onmouseout.html" />
+        <option value="$PROJECT_DIR$/week5/day2/7. over&amp;out.html" />
+        <option value="$PROJECT_DIR$/week5/day2/8. 鼠标跟随.html" />
+        <option value="$PROJECT_DIR$/week5/day3/2. 事件委托.html" />
+        <option value="$PROJECT_DIR$/week5/day3/3. 多级菜单.html" />
+        <option value="$PROJECT_DIR$/week5/day3/data.json" />
+        <option value="$PROJECT_DIR$/week5/day3/1. JD放大镜.html" />
+        <option value="$PROJECT_DIR$/week5/day3/4. 拖拽.html" />
+        <option value="$PROJECT_DIR$/week5/day3/5. 拖拽2.html" />
+        <option value="$PROJECT_DIR$/week5/day3/6. dom2级拖拽.html" />
+        <option value="$PROJECT_DIR$/week5/day3/5. 拖拽3.html" />
+        <option value="$PROJECT_DIR$/week5/day3/drag.js" />
+        <option value="$PROJECT_DIR$/week5/day3/7. 发布订阅模式.html" />
+        <option value="$PROJECT_DIR$/week5/day3/8. 发布订阅2.html" />
+        <option value="$PROJECT_DIR$/week5/day3/9. jq下的发布订阅.html" />
       </list>
     </option>
   </component>
@@ -189,10 +214,9 @@
       <path value="$PROJECT_DIR$/week3/day5/node_modules/jquery/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-15" />
-    <option name="width" value="1932" />
-    <option name="height" value="1041" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="width" value="1920" />
+    <option name="height" value="1044" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -202,6 +226,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -212,19 +237,53 @@
             <path>
               <item name="201808js" type="b2602c69:ProjectViewProjectNode" />
               <item name="201808js" type="462c0819:PsiDirectoryNode" />
+              <item name="week3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="201808js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="201808js" type="462c0819:PsiDirectoryNode" />
+              <item name="week3" type="462c0819:PsiDirectoryNode" />
+              <item name="day5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="201808js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="201808js" type="462c0819:PsiDirectoryNode" />
+              <item name="week3" type="462c0819:PsiDirectoryNode" />
+              <item name="day5" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="201808js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="201808js" type="462c0819:PsiDirectoryNode" />
+              <item name="week3" type="462c0819:PsiDirectoryNode" />
+              <item name="day5" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="201808js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="201808js" type="462c0819:PsiDirectoryNode" />
+              <item name="week3" type="462c0819:PsiDirectoryNode" />
+              <item name="day5" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="201808js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="201808js" type="462c0819:PsiDirectoryNode" />
               <item name="week5" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="201808js" type="b2602c69:ProjectViewProjectNode" />
               <item name="201808js" type="462c0819:PsiDirectoryNode" />
               <item name="week5" type="462c0819:PsiDirectoryNode" />
-              <item name="day1" type="462c0819:PsiDirectoryNode" />
+              <item name="day3" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -242,19 +301,19 @@
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Linters.JSLint" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\yuanmeng\Desktop\201808js\week4\day5\渐隐渐显轮播图" />
-      <recent name="C:\Users\yuanmeng\Desktop\201808js\week4\day5" />
-      <recent name="C:\Users\yuanmeng\Desktop\201808js\week4\day3\轮播图" />
-      <recent name="C:\Users\yuanmeng\Desktop\201808js\week4\day3\轮播图\js" />
-      <recent name="C:\Users\yuanmeng\Desktop\201808js\week4\day2" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\yuanmeng\Desktop\201808js\week4\day5\渐隐渐显轮播图\js" />
       <recent name="C:\Users\yuanmeng\Desktop\201808js\week4\day3\轮播图\js" />
       <recent name="C:\Users\yuanmeng\Desktop\201808js\week4\day3\轮播图" />
       <recent name="C:\Users\yuanmeng\Desktop\201808js\week4" />
       <recent name="C:\Users\yuanmeng\Desktop\201808js\week3" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yuanmeng\Desktop\201808js\week5\day3" />
+      <recent name="C:\Users\yuanmeng\Desktop\201808js\week4\day5\渐隐渐显轮播图" />
+      <recent name="C:\Users\yuanmeng\Desktop\201808js\week4\day5" />
+      <recent name="C:\Users\yuanmeng\Desktop\201808js\week4\day3\轮播图" />
+      <recent name="C:\Users\yuanmeng\Desktop\201808js\week4\day3\轮播图\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -288,6 +347,8 @@
       <workItem from="1536115927763" duration="79926000" />
       <workItem from="1536456753569" duration="26952000" />
       <workItem from="1536636461831" duration="18529000" />
+      <workItem from="1536716269463" duration="25019000" />
+      <workItem from="1536805108865" duration="20269000" />
     </task>
     <task id="LOCAL-00001" summary="商城排序">
       <created>1535190813813</created>
@@ -387,16 +448,38 @@
       <option name="project" value="LOCAL" />
       <updated>1536490744285</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="event">
+      <created>1536727095562</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1536727095562</updated>
+    </task>
+    <task id="LOCAL-00016" summary="event2">
+      <created>1536751328676</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1536751328676</updated>
+    </task>
+    <task id="LOCAL-00017" summary="event3">
+      <created>1536816147873</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1536816147873</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="380071000" />
+    <option name="totallyTimeSpent" value="425359000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20374708" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.011709602" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50039715" side_tool="true" weight="0.32984293" />
@@ -452,161 +535,17 @@
     <MESSAGE value="add223" />
     <MESSAGE value="add2234" />
     <MESSAGE value="add" />
-    <option name="LAST_COMMIT_MESSAGE" value="add" />
+    <MESSAGE value="event" />
+    <MESSAGE value="event2" />
+    <MESSAGE value="event3" />
+    <option name="LAST_COMMIT_MESSAGE" value="event3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/week3/day4/瀑布流/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day1/2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day2/1.同步异步.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="78" column="18" lean-forward="true" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day2/2. 回调函数.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="56" column="32" lean-forward="true" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day2/3. 动画.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day2/4. 固定步长的动画.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day2/7.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-244">
-          <caret line="36" column="37" lean-forward="true" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../TEST/2018年9月4日/封装animate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day2/7. 多方向运动的动画.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="51" column="33" lean-forward="true" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day2/8. animate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="815">
-          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day2/animate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="60" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day2/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day3/轮播图/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2822">
-          <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day3/轮播图/js/animate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-253">
-          <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day3/轮播图/js/index-animate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day3/轮播图/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2176">
-          <caret line="64" column="7" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day3/轮播图/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day3/轮播图/data2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day3/轮播图/js/index3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="4" column="63" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day3/轮播图/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="45" column="18" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week4/day3/轮播图/js/index2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="1" column="37" lean-forward="true" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/week4/day4/2. 模板字符串.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
@@ -710,10 +649,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
           <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
-          <folding>
-            <element signature="e#1084#1554#0" />
-            <element signature="e#1576#1954#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -775,48 +710,208 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/week4/day5/渐隐渐显轮播图/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
+        <state relative-caret-position="2788">
           <caret line="82" column="3" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/week5/day1/1. 动画.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="156" lean-forward="true" selection-start-line="156" selection-end-line="156" />
-          <folding>
-            <element signature="e#712#866#0" />
-          </folding>
+        <state relative-caret-position="5304">
+          <caret line="156" selection-start-line="156" selection-end-line="156" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/week5/day1/3. 原型继承.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
+        <state relative-caret-position="1870">
           <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/week5/day1/2. call继承.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="29" column="6" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="29" selection-end-column="6" />
+        <state relative-caret-position="986">
+          <caret line="29" column="6" selection-start-line="23" selection-start-column="3" selection-end-line="29" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/week5/day1/4. 寄生组合继承.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
+        <state relative-caret-position="1632">
           <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/week5/day1/5. es6中的继承.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+        <state relative-caret-position="68">
+          <caret line="52" column="23" lean-forward="true" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day2/4. 推箱子.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day2/5. 事件的默认行为.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="77" column="13" lean-forward="true" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
           <folding>
-            <element signature="e#417#694#0" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day2/7. over&amp;enter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="65" column="56" selection-start-line="65" selection-start-column="56" selection-end-line="65" selection-end-column="56" />
+          <folding>
+            <element signature="e#586#902#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day2/8. 鼠标跟随.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day2/2. 事件绑定.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-355">
+          <caret line="90" column="17" lean-forward="true" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day2/1. 什么是事件.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="51" column="26" lean-forward="true" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day2/3. 事件对象.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="39" column="26" lean-forward="true" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day2/6. 事件的传播机制.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day3/2. 事件委托.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="25" column="41" lean-forward="true" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day3/3. 多级菜单.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="61" column="22" lean-forward="true" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+          <folding>
+            <element signature="n#li#1;n#ul#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#2;n#ul#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day3/1. JD放大镜.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="79" column="35" lean-forward="true" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day3/4. 拖拽.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="15" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day3/5. 拖拽2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day3/5. 拖拽3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day3/drag.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day3/6. dom2级拖拽.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="29" column="44" lean-forward="true" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day3/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day3/7. 发布订阅模式.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="49" column="12" lean-forward="true" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day3/8. 发布订阅2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1080">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week5/day3/9. jq下的发布订阅.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week3/day5/node_modules/jquery/dist/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1286">
+          <caret line="3326" column="36" lean-forward="true" selection-start-line="3326" selection-start-column="36" selection-end-line="3326" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#86703#87511#0" />
+            <element signature="e#87573#88016#0" />
+            <element signature="e#88171#88254#0" />
+            <element signature="e#88552#88576#0" />
+            <element signature="e#88639#88733#0" />
+            <element signature="e#88905#89146#0" />
           </folding>
         </state>
       </provider>

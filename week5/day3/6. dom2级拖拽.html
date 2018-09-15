@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+
+    box.addEventListener('mousedown',function (e) {
+        this.move = (e)=>{
+            this.style.left = e.clientX - this.l+'px'
+            this.style.top = e.clientY - this.t+'px'
+        };
+        this.l = e.clientX - this.offsetLeft;
+        this.t = e.clientY - this.offsetTop;
+        document.addEventListener('mousemove',this.move)
+    })
+    box.addEventListener('mouseup',function () {
+        document.removeEventListener('mousemove',this.move)
+    })
+</script>

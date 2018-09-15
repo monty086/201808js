@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    console.log($);
+    // 再jq当中也有发布订阅
+    // add remove fire empty has
+    function fn1(a,b){console.log(a+b)}
+    function fn2(){console.log(2)}
+    function fn3(){console.log(0)}
+
+    var cb = $.Callbacks();
+    cb.add(fn1,fn2,fn3); // 向事件池当中增加方法
+    cb.remove(fn2);   // 在事件池当中移除方法
+    console.log(cb.has(fn1));  // 判断事件池当中是否有某方法
+    //cb.empty()  //  清空事件池
+    cb.fire(1,2)  // 让事件池当中的方法按照添加的顺序依次执行
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+
+<script>
+    box.onmousedown = function (e){
+        // 通过事件对象和左偏移量相减，求出鼠标距离盒子的距离
+        this.l = e.clientX - this.offsetLeft;
+        this.t = e.clientY - this.offsetTop;
+        // 由于鼠标滑动过快，回脱离到盒子以外的地方，这样的话，onmousemove方法就不会继续执行，所以我们需要给最外层的元素绑定事件，利用事件委托的原理，解决盒子滑动过快的问题
+        document.onmousemove =  (e)=>{
+            var l = e.clientX - this.l;
+            var t = e.clientY - this.t;
+            box.style.left = l+'px';
+            box.style.top = t+'px'
+        }
+    };
+    box.onmouseup =function (){
+        document.onmousemove = null;
+    }
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div id="box"></div>
+</body>
+</html>
+<script>
+    /*
+    * 给元素添加发布订阅
+    *
+    * */
+    function on(ele,type,fn){
+        ele[type] = ele[type] || [];
+        if(!ele[type].includes(fn)){
+            ele[type].push(fn)
+        }
+    }
+    function off(ele,type,fn){
+        if(ele[type] && ele[type].includes(fn)){
+            var n = ele[type].indexOf(fn)
+            ele[type].splice(n,1)
+        }
+    }
+    function fire(ele,type){
+        if(ele[type] instanceof  Array){
+            ele[type].forEach(item=>{
+                if(typeof item==='function'){
+                    item()
+                }
+            })
+        }
+    }
+    function fn1(){
+        console.log('判断用户是否登陆');
+        //..
+    }
+    function fn2(){
+        console.log('判断用户是否是移动端或其他手持设备');
+        //
+    }
+    function fn3(){
+        console.log('用户选择的城市信息数据库是否显示有');
+        //...
+    }
+    on(box,'changeCity',fn1)
+    on(box,'changeCity',fn2)
+    on(box,'changeCity',fn3)
+
+    function city(){
+        off(box,'changeCity',fn2)
+        fire(box,'changeCity')
+    }
+    city()
+</script>

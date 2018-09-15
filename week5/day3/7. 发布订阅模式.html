@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 订阅
+    *
+    * 取消订阅
+    *
+    * 发布
+    *
+    * 1. 创建一个事件池
+    * 2. 按照顺序，将方法依次添加到事件池当中
+    * 3. 只要指令一旦触发，到事件池当中将所有方法依次执行
+    * */
+
+    // on 将方法添加到事件池当中
+    // off 判断方法是否再事件池当中，如果有的话移除
+    // fire  将事件池当中的方法，按照顺序依次执行
+
+    var ary = [];
+    function on(fn){
+        ary.push(fn)
+    }
+    function off(fn){
+        if(ary.includes(fn)){
+            var n = ary.indexOf(fn);
+            ary.splice(n,1)
+        }
+    }
+    function fire(){
+        ary.forEach(item=>{
+            item&&item()
+        })
+    }
+
+    function fn1(){console.log(1)}
+    function fn2(){console.log(2)}
+    function fn3(){console.log(3)}
+    on(fn2)
+    on(fn3)
+    on(fn1)
+    off(fn3)
+    fire()
+</script>
