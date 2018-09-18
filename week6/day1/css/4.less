@@ -1,0 +1,19 @@
+
+
+// less中的继承 用extend表示
+// less中导入用@import
+@import 'reset.less';
+@import (reference) "public.less"; // 公共的一个样式库,只导入不编译，里面可以写很多的公共方法
+
+.pub{
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
+#box:extend(.pub){
+
+}
+#box{
+  &:extend(.pub);
+}

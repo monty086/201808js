@@ -1,0 +1,21 @@
+
+/*
+less 中的层级嵌套
+&:表示当前的这个元素
+&>p:表示子代选择器
+*/
+.pub{
+  width: 100px;
+}
+#box{
+  .pub{
+    width: 200px;
+  }
+  &:hover{
+    font-size:50px;
+  }
+  &>p{ // #box>p
+    color:red;
+    #box .pub;
+  }
+}

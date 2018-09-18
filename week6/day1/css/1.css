@@ -1,0 +1,23 @@
+/*
+#box{
+  width: 100px;
+  height: 100px;
+  background: red;
+  p{
+    font-size: 20px;
+  }
+}*/
+/*
+less中的变量是@符号,存储值和代表值的
+less 中声明的变量，在作用域下又变量提升的效果
+less 中引入的图片 在字符串当中需要写 @{img}
+*/
+#box {
+  width: 100px;
+  height: 100px;
+  color: blue;
+  background: url('../img/1.png');
+}
+#box p {
+  color: blue;
+}

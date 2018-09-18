@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet/less" href="css/1.less">-->
+    <link rel="stylesheet" href="css/2.css">
+    <!--<style type="text/less">
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            p{
+                font-size: 30px;
+            }
+        }
+    </style>-->
+</head>
+<body>
+    <div id="box">
+        我是box盒子
+        <p>zhufeng</p>
+    </div>
+</body>
+</html>
+<script src="less-2.5.3.min.js"></script>
+<script>
+    /*
+    * css 标记语言
+    * less 预编译语言，面向对象的思想，因为浏览器不识别less的语法，所以我们需要通过一些外界方式，编译less，转成css语法，让浏览器渲染
+    *
+    * 编译less的几种方式
+    * 1. 使用考拉来进行编译less
+    *    创建一个less文件
+    *    <link rel="stylesheet/less" href="css/1.less">
+    *    直接引入考拉编译好的css文件即可。
+    *
+    * 2. 通过引入less.js来进行编译【生产环境和开发环境】
+    *    外链式:需要修改 rel="stylesheet/less" href = '1.less'
+    *    内嵌式: <style type='text/less'>
+    *    注意：一般多用于开发环境，主要是防止用户浏览网页会进行多次的less编译。
+    *    开发环境：开发环境主要用来让开发人员进行调试，测试，以及mock数据的一个环境，开发人员在开发环境是用来测试项目问题。
+    *    生产环境：生产环境又叫做线上环境，是我们开发人员开发完项目之后，将项目发布到远程服务器上，供用户进行浏览操作
+    *    测试环境： 开发人员写完项目之后，将项目发布到测试环境，供测试人员进行测试，测试没有问题之后，发布到线上环境，也就是俗称“项目上线”
+    *
+    * 3. 通过npm包管理器进行安装less模块，编译less
+    *    npm install less -g  // 全局安装less模块
+    *    lessc -v // 查看版本安装
+    *    到写less文件对应的cmd【打开终端窗口】，输入命令编译less
+    *    lessc  1.less  11.css  // 将less编译到同目录下的一个css文件
+    *    lessc  1.less  11.min.css -x // 将less编译到同目录下的一个css文件,-x表示进行压缩
+    * */
+</script>

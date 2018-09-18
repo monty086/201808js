@@ -1,0 +1,35 @@
+
+
+/*
+less 当中的函数
+
+
+*/
+
+.pub(@w:100px,@h:200px){ // 如果类名后面加括号就表示函数
+  width: @w;
+  height: @h;
+  background: red;
+
+}
+.pub2(@pro:all,@duration:1s,@sport:linear,@delay:1s){
+  -webkit-transition:@arguments;
+  -moz-transition:@arguments;
+  -ms-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+.pub3(@w:100px) when(@w>100){
+  width: 400px;
+}
+.pub3(@w:100px) when(@w<100) and (@w>50){
+  width: 400px;
+  @result:500px;
+}
+#box{
+  .pub3(50)
+  //.pub(500px,400px); // 混合应用
+  //.pub(@h:400px); // 混合应用
+  //.pub2()
+  // background: blue;
+}

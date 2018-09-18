@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin:0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script src="drag2.js"></script>
+<script>
+    /*function fn1(a,b){console.log(a+b) };
+    function fn2(){console.log(2) };
+    function fn3(){console.log(3) };
+    var cb = new Callbacks();
+    cb.add('登录',fn1,fn2,fn3);
+    cb.remove('登录',fn2);
+    console.log(cb.has('登录',fn3));
+    cb.fire('登录',1,2)*/
+    let box = document.getElementById('box');
+    new Drag(box).jump()
+
+</script>
