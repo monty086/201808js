@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            width:200px;
+            height: 200px;
+            margin: 200px auto;
+            position: relative;
+            /*景深效果*/
+            perspective: 2000px;
+        }
+        #box ul{
+            position: absolute;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            transform-style:preserve-3d;
+            animation: move 5s linear infinite;
+            transform-origin: 100px 100px -100px;
+        }
+        #box ul li{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background: rgba(102, 255, 107, 0.27);
+            text-align: center;
+            line-height: 200px;
+            border:1px solid #666;
+            box-sizing: border-box;
+        }
+        ul li:nth-child(1){
+            top:-200px;
+            transform-origin: bottom;
+            transform: rotateX(90deg);
+        }
+        ul li:nth-child(2){
+            top:200px;
+            transform-origin: top;
+            transform: rotateX(-90deg);
+        }
+        ul li:nth-child(3){
+            left:-200px;
+            transform-origin:right;
+            transform: rotateY(-90deg);
+        }
+        ul li:nth-child(4){
+            left:200px;
+            transform-origin:left;
+            transform: rotateY(90deg);
+        }
+        ul li:nth-child(5){
+            transform: translateZ(-200px);
+        }
+        @keyframes move {
+            0%{
+                transform: rotateX(0) rotateY(0);
+            }
+            100%{
+                transform: rotateX(360deg) rotateY(360deg)
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</div>
+</body>
+</html>

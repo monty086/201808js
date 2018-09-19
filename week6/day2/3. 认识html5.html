@@ -1,0 +1,112 @@
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"-->
+        <!--"http://www.w3.org/TR/html4/loose.dtd">-->
+<!--html4的文档申明-->
+<!DOCTYPE html>
+<!--html5特有的文档申明-->
+<html lang="en">
+<!--语言=>english-->
+<head>
+    <!--utf-8，编码格式，最好前端，后端，数据，都使用这个格式utf-8，避免出现乱码-->
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+</head>
+<body>
+<form action="" autocomplete=""></form>
+<input type="range" id="range">
+<input type="search" placeholder="请输入你搜索的内容！">
+<input type="color">
+<input type="time">
+<input type="date">
+<input type="week">
+
+<input type="number" id="num" autofocus>
+<form action="" autocomplete="on">
+    <input type="text" required pattern="\d+">
+    <input type="submit">
+</form>
+</body>
+</html>
+<script>
+    /*
+    * html: 超文本标记语言，它可以识别文档、图片、音频、视频等等
+    * xhtml： 更规范的标记语言
+    * xml： 一般表示用来装载数据的。使用这种格式装载的数据具有标识性。
+    * html5：html语言第五个版本，也是最新的版本，因为它有很多的方法，在移动端开发非常适用，所以H5也就成为移动端的代名词
+    *
+    * html页面
+    * 块级标签  div h1-h6 p ul li ol li dl dd dt form option table
+    * 行内标签  a span i em b strong label
+    * 行内块级标签  img textarea input select
+    *
+    * html5  =>全部都是块级元素
+    * header 头部标签
+    * footer  尾部标签
+    * main  主要区域，主体
+    * nav   导航区域
+    * section  块级区域，用来划分区域
+    * article  文章
+    * aside  广告
+    * figure  图片
+    * figcaption  图片描述
+    *
+    * mark 语法高亮
+    * progress 进度条
+    * time 时间
+    * canvas  画布
+    *
+    * 这些标签在ie低版本全部不支持。所以没有办法给它添加样式，如果想兼容ie
+    * 需要引入一个js =>html5.min.js
+    * 还需要在head标签加入一个判断
+    * lt 小于 gt 大于
+    <!--[if lt IE 9]> <script type="text/javascript" src="html5.min.js">\<\/script> <![endif]-->
+    *
+    * h1 => 一个页面最好有且只有一个h1，方便搜索引擎收录关键字，方便seo优化
+    *
+    * html5 也针对表单做了优化
+    * input => text password checkbox radio select button sumbit
+    * html5 input提供
+    * input => search email number range[滚动条] data week time color
+    *
+    * 这些特有的类型在移动端会非常好用，也加深我们对表单的验证
+    * 表单上的一些常用属性
+    * placeholder  默认显示内容
+    * autocomplete  自动保存用户的输入  on / off
+    * autofocus  光标自动锁定
+    * required  必填
+    * pattern  正则验证
+    *
+    * html5还提供了video 和audio 音频和视频
+    * 在传统的页面当中，音频和视频都需要使用flash播放，需要安装 adobe flash player 插件，但是这个插件，移动端支持的不好。
+    * 但是移动端支持 video 和 audio ，ie低版本不支持，它只支持flash
+    *
+    * html5提供了canvas 这个画布
+    * 我们可以在这个画布当中添加js动画，通过canvas制作h5游戏，百度的echarts【图表的库】就是通过canvas制作的
+    *
+    * html5提供一些常用api
+    * 获取地理位置的api
+    * navigator.geolocation.getCurrentPosition(success,error,option)
+    * success此函数接收到的形参就是对应的地理位置经纬度
+    *
+    * 本地存储 web Storage
+    * localStorage  本地永久存储
+    * sessionStorage  会话本地存储
+    * 在html5推出本地存储之前，全部用的是cookie来保存数据的
+    *
+    * html5 提供的 web Socket
+    * 下面的一个框架Socket.io用来支持 即时通讯项目
+    *
+    * html5 提供的离线存储 manifest
+    * 加载过一次就保存下来，再下次断网之前还可以看上一次加载的页面
+    *
+    * */
+
+</script>
+<script>
+    // oninput : 当用户输入的时候触发这个事件
+    // onchange ： 当用户离开输入框的时候触发这个事件
+    range.oninput =function (){
+        console.log(this.value);
+        num.value = this.value;
+    }
+</script>
