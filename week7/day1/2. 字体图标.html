@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_843512_ydp3gh91xrn.css">
+</head>
+<body>
+<div class="iconfont icon-answer" style="font-size: 50px"></div>
+<div class="icon-mic" style="font-size: 50px"></div>
+</body>
+</html>
+<script>
+    /*
+    * 字体图标：按照字体的格式或者类型设置的图标，现在大部分网站的logo部分都用的是字体图标的格式
+    *
+    * 阿里出的字体图标库
+     [阿里字体图标库]
+     http://iconfont.cn/
+     先选择自己需要的图标,下载下来(SVG)
+     在网站的个人中心，创建一个字体图标库，把自己刚才下载的图标都上传到图标库中，然后提交阿里审核
+
+     [Font Awesome]
+     http://fontawesome.dashgame.com/
+
+     [icomoon]
+     http://icomoon.io/app/
+
+     [fontello]
+     http://fontello.com/
+    *
+    *
+    *
+    * 字体图标和普通的图片之间的区别：
+    * 字体图标可以通过设置fontSize值改变它的大小，但是普通的图片，会根据用户所用浏览器屏幕的不同，将图片进行方法和缩小，导致图片变模糊
+    *
+    * 优点：
+    * 1. 矢量图：可以根据屏幕的放大和缩小改变的字体图标的大小，而且不会变模糊
+    * 2. 通过设置字体大小来设置，优先应用移动端响应式布局当中
+    * 3. 所有的网站的都适配
+    *
+    * 弊端
+    * 1. 只能显示单色，或者css3当中的渐变色，不能像图片一项显示其他的图像
+    * 2. 制作字体图标会有版权问题，耗费的时间长
+    * */
+
+    /*
+    * 制作字体图标
+     1. 字体图标网站： https://icomoon.io/  到这个网站点击iconapp 选择想要的图标
+     2. 然后右下角修改设置改成class类名选择器
+     3. 然后选择download,下载下来把里面的文件夹font放到要放的目录下
+     4. 然后将style.css中的@font-size和icon的css样式复制到制定目录下
+     5. 给标签中添加带有icon类名的标签
+     6. 在css中通过伪元素进行添加样式，这样就可以修改大小和颜色了
+
+
+     字体图标使用方法
+     1. 在阿里的iconfont打开，账户后台创建项目，将要的图标添加进去
+     2. 默认上面就会有一个css地址，上面的地址可以浏览器打开，默认我们引入到index。html里面的link
+     3. 然后在想要的改变的结构的标签上，添加响应的class名，默认的class名为iconfont xxx第二个class名为该图标的名，添加到标签class上。
+    *
+    * */
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div id="box" style="font-size: 1rem">112233</div>
+<div id="box1" style="font-size: 50px">112233</div>
+</body>
+</html>
+<script>
+    /*
+    * 响应式布局
+    * 就是根据不同设备的屏幕尺寸进行完整的适配
+    *
+    * 再写响应式布局时必须写mate标签，让屏幕的尺寸和设备的尺寸保持一致
+    * meta:vp+tab 【再head标签当中】
+    *
+    * 流式布局【百分比布局】
+    * 媒体查询 【一般情况下用在pc端多】 16：9 【1200、960、1080、640、1920】
+    * @media all and (max-width:1920){// 小于1920的时候显示的样式}
+    * @media all and (min-width:1280){// 大于1280的时候显示的样式}
+    *
+    * rem布局【多用于移动端响应式开发】
+    * rem root element => 根元素的字号 html.fontSize
+    * html.fontSize=16px = 1rem
+    * 想再css当中表示一个盒子是160px，我想用rem单位来设置，width：10rem
+    * 注意：但是16px不方便我们计算【根据设计的切图随便的设置我们想要的大小】
+    *
+    * 设计需求：100px的盒子，你用rem来表示
+    * 16px / 1rem =  100px / ?[x]rem  x = 6.25rem // [100*1/16]
+    * 我们需要手动给根元素设置字号为100px ，我们求rem单位就比较方便了
+    * document.documentElement.fontSize = '100px' //16px
+    * 100px / 1rem  = 120px / ? ?=>[任何数除100] => 1.2rem
+    * 给根元素设置100px，这样的话方便我们计算rem单位
+    * 这个只是一个设备实现rem布局
+    *
+    * 如果想要其他设备都能使用rem布局，而且还是按照1：100的比例来设置的话，我们就需要实时的调整，根元素的字号
+    * 我们需要判断当前屏幕的尺寸和我现在操作的屏幕【一开始设置的屏幕的尺寸】的尺寸的比例
+    *
+    * 一开始设置的屏幕尺寸=>750 后续的移动设备的宽度 640 1240 都以750为基准调整比例
+    * 750【屏幕尺寸】/100【根元素字号】 =  640/？85.3【根元素字号】
+    * 750/100 = winW / ?   =>    ? = winW/750*100
+    * 根据一开始的屏幕尺寸比例，求出苹果5=>640宽度下的根元素字号
+    * */
+    // 再不断变换屏幕尺寸的时候，我们把修改根元素字号的方法封装起来
+    (function(){
+        window.addEventListener('resize',fn);
+        fn()
+        function fn(){
+            // 每次都刷新
+            let winW = (document.documentElement.clientWidth||document.body.clientWidth)
+            document.documentElement.style.fontSize = winW/750*100+'px'
+        }
+    })()
+
+    /*
+    * flex 弹性盒模型布局
+    * flex 可以很轻松的实现让元素垂直水平居中；也可以让元素实现不同大小的分布通过设置flex值
+    * 父元素有6个属性
+    * justify-content【水平的排布方向】  align-item【垂直的排布方向】  【主轴的方向 flex-direction】
+    * 子元素有6个属性
+    * flex 【子级元素分布的距离】
+    *
+    * */
+
+
+</script>
