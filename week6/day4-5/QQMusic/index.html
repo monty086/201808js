@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>珠峰培训</title>
+    <link rel="stylesheet" type="text/less" href="less/index.less">
+    <script src="js/less.js"></script>
+</head>
+<script>
+    //我们默认设计稿的宽度是640px
+    ~function () {
+        //1rem = 100px
+        let computedREM = ()=>{
+            let winW = document.documentElement.clientWidth,
+                desW = 640;
+            if(winW > desW){
+                document.documentElement.style.fontSize = '100px';
+                return
+            }
+            document.documentElement.style.fontSize = winW/desW*100 + 'px';
+        }
+        computedREM();
+        window.addEventListener('resize',computedREM,false);
+    }();
+</script>
+<body>
+<audio src="./imgs/thatGirl.m4a" preload="none" id="audio"></audio>
+<section class="QQMusic">
+    <div class="mask"></div>
+    <header>
+        <img src="./imgs/bg.jpg" alt="">
+        <div class="title">
+            <h1>that girl</h1>
+            <h2>OLLY MURS</h2>
+        </div>
+        <span href="javascript:;" class="playBtn"></span>
+    </header>
+    <section class="main">
+        <div class="songWord">
+            <p>that girl</p>
+            <p>it is my fault</p>
+        </div>
+    </section>
+    <footer>
+        <div class="songTime">
+            <div class="runTime">00:00</div>
+            <div class="runLine">
+                <div class="innerL"></div>
+            </div>
+            <div class="endTime">02:35</div>
+        </div>
+        <div class="downLoad">下载这首歌</div>
+    </footer>
+</section>
+</body>
+</html>
+<script src="js/zepto.js"></script>
+<script src="js/index.js"></script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left:100px;
+            top:100px;
+        }
+    </style>
+</head>
+<body>
+<div>111</div>
+<div>222</div>
+<div>333</div>
+<div>444</div>
+</body>
+</html>
+<script src="event.js"></script>
+<script src="drag.js"></script>
+<script>
+    //低耦合，高内聚
+    var index =0;
+    function increase(){ //按下时
+        this.style.zIndex = ++index;
+        this.style.background="yellow"
+    }
+    function backColor(){//松开时
+        this.style.border = "1px dashed deepSkyBlue";
+    }
+    let oDivs = document.querySelectorAll("div");
+    for(let i = 0;i<oDivs.length;i++){
+        let oDiv = oDivs[i];
+        new Drag(oDiv);
+        on(oDiv,"dragStart",increase);
+        on(oDiv,"dragUp",backColor);
+    }
+
+</script>

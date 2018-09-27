@@ -1,0 +1,117 @@
+@import "common.less";
+.QQMusic{
+  .fullPage;
+  background: url("../imgs/bg.jpg") center top no-repeat;
+  background-size: cover;
+  position: relative;
+  .mask{
+    .fullPage;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: -1;
+  }
+  header{
+    height: 1.2rem;
+    padding: 0.3rem;
+    position: relative;
+    background: rgba(0,0,0,0.5);
+    img{
+      width: 1.2rem;
+      height: 1.2rem;
+      display: inline-block;
+    }
+    .title{
+      color: #FFFFFF;
+      height: 1.2rem;
+      display: inline-block;
+      vertical-align: top;
+      h1{
+        font-size: 0.4rem;
+        height: 0.7rem;
+        line-height: 0.6rem;
+      }
+      h2{
+        font-size: 0.28rem;
+        height: 0.5rem;
+        line-height: 0.5rem;
+      }
+    }
+    .playBtn{
+      display: block;
+      width: .6rem;
+      height: 0.6rem;
+      position: absolute;
+      top: 0.6rem;
+      right: 0.2rem;
+      user-select: none;
+      background: url("../imgs/music.svg") no-repeat center center;
+      background-size: contain;
+      &.rotateClass{
+        animation: myRotate 1s infinite linear;
+      }
+    }
+  }
+  .main{
+    margin-top: 0.7rem;
+    overflow: hidden;
+    .songWord{
+      height: 6.2rem;
+      padding: 0.2rem;
+      transition: 0.5s ;
+      font-weight: 200;
+      p{
+        height: 1.2rem;
+        line-height: 0.4rem;
+        text-align: center;
+        font-size: 0.4rem;
+        color: #d6d6d6;
+      }
+      p.active{
+        color: #0eff14;
+      }
+    }
+  }
+  footer{
+    .songTime{
+      text-align: center;
+      height: 1rem;
+      line-height: 1rem;
+      font-size: 0.32rem;
+      >div{
+        display: inline-block;
+        color: #d6d6d6;
+      }
+      .runLine{
+        width: 4.2rem;
+        height: 0.05rem;
+        margin: 0 0.1rem;
+        background: #FFFFFF;
+        position: relative;
+        top: -.1rem;
+        .innerL{
+          width: 0%;
+          height: 100%;
+          background: aquamarine;
+        }
+      }
+    }
+    .downLoad{
+      width: 80%;
+      height: 1rem;
+      line-height: 1rem;
+      border-radius: 60px;
+      font-size: 0.5rem;
+      color: #FFFFFF;
+      margin: auto;
+      text-align: center;
+      background: url("../imgs/sprite_play.png")no-repeat #1DFF72;
+      background-size: .8rem 7rem;//1rem ---> 100px
+      background-position: 0.3rem -5.83rem;
+    }
+  }
+}
+.qq{
+  margin: 12px;
+}

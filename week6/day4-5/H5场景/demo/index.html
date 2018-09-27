@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="swiper.min.css">
+    <style type="text/css">
+        .swiper-container{
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper-container" id="swiper1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background: pink">Slide 1</div>
+            <div class="swiper-slide" style="background: yellow">Slide 2</div>
+            <div class="swiper-slide" style="background: deepskyblue">Slide 3</div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+</body>
+</html>
+<script src="swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper ('#swiper1', {
+        direction: 'horizontal',//vertical 纵向的 horizontal 横向的
+        loop: true,//循环的
+        autoplay:1000,
+        autoplayDisableOnInteraction:false,
+        effect : 'fade',//"cube","flip","coverflow","fade"
+        // 如果需要分页器
+        pagination: '.swiper-pagination',
+        paginationType:"progress",
+
+        // 如果需要前进后退按钮
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev'
+    })
+</script>
+

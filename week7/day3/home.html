@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header id="headBox"></header>
+<main></main>
+<footer id="footBox"></footer>
+</body>
+</html>
+<script src="ajax.js"></script>
+<script>
+    var header = ajax({
+        url:'header.html',
+     });
+    var footer = ajax({
+        url:'footer.html',
+    });
+
+    // header.then((res)=>{
+    //     console.log(res);
+    //     box.innerHTML+=res
+    // })
+    Promise.all([header,footer]).then((res)=>{
+        headBox.innerHTML+=res[0];
+        footBox.innerHTML+=res[1];
+    })
+
+</script>

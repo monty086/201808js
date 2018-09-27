@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        div{
+            width: 120px;
+            height: 120px;
+            background: red;
+            border-radius: 50%;
+            -webkit-user-select: none;
+            cursor: move;
+            position: absolute;
+            left:100px;
+            top:100px;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<div></div>
+</body>
+</html>
+<script src="event.js"></script>
+<script src="drag.js"></script>
+<script>
+    function getSpeed(e){
+        if(!this.prev){
+            this.prev = this.mx;
+        }
+        this.speedX  = e.clientX - this.prev;
+        this.prev = e.clientX;
+    }
+    function fly(){
+        clearTimeout(this.timer);
+        this.speedX*=0.98;
+        var rSide = (document.documentElement.clientWidth||document.body.clientWidth)-this.offsetWidth;
+        var lSide = 0;
+        var duration = this.offsetLeft+this.speedX;
+        if(duration>=rSide){
+            duration = rSide;
+            this.speedX*=-1;
+        }else if(duration<=0){
+            duration = 0;
+            this.speedX*=-1;
+        }
+
+        this.style.left = duration+"px";
+        if(Math.abs(this.speedX)>0.5){
+            this.timer = window.setTimeout(()=>{
+                fly.call(this);
+            },30);
+        }
+    }
+
+    let g = 9.8;
+    let flag = 0;
+    function drop(){
+        clearTimeout(this.dropTimer);
+        if(!this.dropSpeed){this.dropSpeed=0};
+        this.dropSpeed+=g;
+        this.dropSpeed*=0.98;
+        var tSide = (document.documentElement.clientHeight||document.body.clientHeight)-this.offsetHeight;
+        var duration = this.offsetTop+this.dropSpeed;
+        if(duration>=tSide){
+            this.style.top = tSide+"px";
+            this.dropSpeed*=-1;
+            flag++;
+        }else{
+            flag = 0;
+            this.style.top = duration+"px";
+        }
+        if(flag<2){
+            this.dropTimer = window.setTimeout(()=>{
+                drop.call(this);
+            },30);
+        }
+    }
+    let oDivs  = document.querySelectorAll("div");
+    for(let i = 0;i<oDivs.length;i++){
+        let oDiv = oDivs[i];
+        new Drag(oDiv);
+        on(oDiv,"dragMove",getSpeed);
+        on(oDiv,"dragUp",fly);
+        on(oDiv,"dragUp",drop);
+    }
+</script>

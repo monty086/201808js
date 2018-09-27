@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="jquery.min.js"></script>
+<script>
+    /*$.ajax({
+        url:'data.json',// 请求的地址
+        method:'get', // 请求的方式
+        async:true, // 是否异步
+        cache:true, // 是否有缓存
+        data:null, // 向后台发送的数据
+        dataType:'json', // 要求返回的数据格式
+        success: function (res){ // 成功后执行的方法
+            console.log(res);
+        },
+        error:function (err) { // 失败后执行的方法
+            console.log(err.statusText);
+        }
+    });*/
+
+    /*function ajax(option={}){
+        let {
+            url=null,
+            method='get',
+            async=true,
+            cache=true,
+            data = null,
+            dataType = 'json',
+            success = new Function(),
+            error = new Function(),
+        }=option;
+        // 判断success 是否是一个函数
+        if(typeof success !== 'function'){
+            success = new Function()
+        }
+        // 如果get请求方式，需要到url地址做拼接
+        if(Object.prototype.toString.call(data)==='[object Object]'){
+            var str = ``;
+            for(var key in data){
+                str+= `${key}=${data[key]}&`
+            };
+            str = str.slice(0,str.length-1);
+            // str = str.replace(/&$/g,'')
+            if(method === 'get'){
+                url+='?'+str;
+            }
+        }
+        // 如果cache为false的时候
+        if(cache === false && method==='get'){
+            if(url.includes('?')){
+                url+= `&_=${Math.random()}`
+            }else{
+                url+= `?_=${Math.random()}`
+            }
+        }
+        let xhr = new XMLHttpRequest();
+        xhr.open(method,url,async);
+        xhr.onreadystatechange = function (){
+            if(xhr.readyState ===4){
+                if(/^(2|3)\d{2}$/.test(xhr.status)){
+                    var newDate = null
+                    if(dataType === 'json'){
+                        // 将json字符串转成json对象 '<div>'
+                        try{
+                            newDate = JSON.parse(xhr.responseText)
+                        }catch (e) {
+                            newDate = xhr.responseText
+                        }
+                    }else if(dataType === 'xml'){
+                        newDate = xhr.responseXML
+                    }
+                    success(newDate)
+                }else if(/^[45]\d{2}$/.test(xhr.status)){
+                    if(typeof error ==='function'){
+                        error(xhr.statusText)
+                    }
+                }
+
+            }
+        }
+        // 如果是post发送数据，将数据放到xhr.send参数里面
+        if(method === 'post'&& data instanceof Object){
+            data = JSON.stringify(data);
+            xhr.send(data);
+            return
+        }
+        xhr.send(data);
+    }*/
+
+    function ajax(option={}){
+        let {
+            url=null,
+            method='get',
+            async=true,
+            cache=true,
+            data = null,
+            dataType = 'json',
+        }=option;
+        // 如果get请求方式，需要到url地址做拼接
+        if(Object.prototype.toString.call(data)==='[object Object]'){
+            var str = ``;
+            for(var key in data){
+                str+= `${key}=${data[key]}&`
+            };
+            str = str.slice(0,str.length-1);
+            // str = str.replace(/&$/g,'')
+            if(method === 'get'){
+                url+='?'+str;
+            }
+        }
+        // 如果cache为false的时候
+        if(cache === false && method==='get'){
+            if(url.includes('?')){
+                url+= `&_=${Math.random()}`
+            }else{
+                url+= `?_=${Math.random()}`
+            }
+        }
+        let xhr = new XMLHttpRequest();
+        return new Promise((resolve,reject)=>{
+            xhr.open(method,url,async);
+            xhr.onreadystatechange = function (){
+                if(xhr.readyState ===4){
+                    if(/^(2|3)\d{2}$/.test(xhr.status)){
+                        var newDate = null
+                        if(dataType === 'json'){
+                            // 将json字符串转成json对象 '<div>'
+                            try{
+                                newDate = JSON.parse(xhr.responseText)
+                            }catch (e) {
+                                newDate = xhr.responseText
+                            }
+                        }else if(dataType === 'xml'){
+                            newDate = xhr.responseXML
+                        }
+                        resolve(newDate)
+                    }else if(/^[45]\d{2}$/.test(xhr.status)){
+                            reject(xhr.statusText)
+                    }
+                }
+            }
+            // 如果是post发送数据，将数据放到xhr.send参数里面
+            if(method === 'post'&& data instanceof Object){
+                data = JSON.stringify(data);
+                xhr.send(data);
+                return
+            }
+            xhr.send(data);
+        })
+    }
+
+    /*ajax({
+        url:'data.json',
+        data:{name:'zf'},
+        method:'get',
+        cache:false,
+        success:function (res){
+            console.log(res);
+        },
+        error:function (err){
+            console.log(err);
+        }
+    })*/
+
+    /*ajax({
+        url:'data.json'
+    }).then((res)=>{
+        console.log(res); // '[{"name":"zf"}]'
+    });*/
+
+    /*ajax({
+        url:'data.json'
+    }).then((res)=>{
+        console.log(res);
+        return ajax({
+            url:'1. 复习.html'
+        })
+    }).then((res)=>{
+        console.log(res);
+    }).catch((rej)=>{
+        console.log(rej);
+    })*/
+
+    /*var p1 = ajax({
+        url:'data.json'
+    })
+    var p2 = ajax({
+        url:'1. 复习1.html'
+    });*/
+    // 当数组当中2个promise实例都返回成功状态才会去执行then方法
+    // then方法当中的res是一个数组，数组中的参数分别是成功之后传给resolve的参数
+    // 页面当中有5个接口，怎么保证前4个接口全部按照顺序依次成功调用后，调用第5个接口
+    /*Promise.all([p1,p2]).then((res)=>{
+        console.log(res);
+    })*/
+
+    // Promise.race 会依次查看数组中的promise实例是否会返回成功态，只要有一个成功直接返回，其他的实例不会去管，只要有一个失败直接返回失败态
+   /* Promise.race([p1,p2]).then((res)=>{
+        console.log(res);
+    })*/
+
+    var p = new Promise((res,rej)=>{
+        setTimeout(()=>{
+            // throw new Error('query is error')
+            res(17)
+        },17)
+    });
+   /* p.then((res)=>{
+        console.log(res);
+    }).catch((rej2)=>{
+        console.log(rej2);
+    })*/
+    console.log(1);
+    p.then((res)=>{
+       console.log(res);
+       return res
+   }).then((res)=>{
+       console.log(res);
+       return new Promise((res,rej)=>{
+           setTimeout(()=>{
+               res(100)
+           },17)
+       })
+   }).then((res)=>{
+       console.log(res);
+   }).then((res)=>{
+       console.log(res);
+   }).then((res)=>{
+       console.log(res);
+   });
+    console.log(2);
+</script>

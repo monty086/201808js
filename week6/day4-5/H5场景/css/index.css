@@ -1,0 +1,157 @@
+html,body,.main{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.swiper-container{
+    width: 100%;
+    height: 100%;
+}
+.slide1{
+    background: url(../img/swiper/bg1.jpg) no-repeat;
+    background-size:100% 100%;
+}
+.slide2{
+    background: url(../img/swiper/bg2.jpg) no-repeat;
+    background-size:100% 100%;
+}
+.slide1 img:nth-child(1){
+    width: 0.96rem;
+    height: 2.32rem;
+    position: absolute;
+    left: 2rem;
+    top: 0.28rem;
+}
+.slide1 img:nth-child(2){
+    width: 3.7rem;
+    height: 6.1rem;
+    position: absolute;
+    right: 0;
+    top: 0.28rem;
+}
+.slide1 img:nth-child(3){
+    width: 5.51rem;
+    height: 5.13rem;
+    position: absolute;
+    left: 0.5rem;
+    bottom: 0.8rem;
+}
+.slide1 img:nth-child(4){
+    width: 7.86rem;
+    height: 5.89rem;
+    position: absolute;
+    left: 1.6rem;
+    bottom: 0.8rem;
+}
+.slide2 img:nth-child(1){
+    width: 3.4rem;
+    height: 1.74rem;
+    position: absolute;
+    left: 0;
+    top:0;
+}
+.slide2 img:nth-child(2){
+    width: 0.61rem;
+    height: 6.38rem;
+    position: absolute;
+    left: 1.48rem;
+    top: 2.5rem;
+}
+.slide2 img:nth-child(3){
+    width: 0.62rem;
+    height: 6.23rem;
+    position: absolute;
+    left: 3rem;
+    top: 2.5rem;
+}
+.slide2 img:nth-child(4){
+    width: 0.54rem;
+    height: 6.17rem;
+    position: absolute;
+    left: 4.5rem;
+    top: 2.5rem;
+}
+.slide1 img,.slide2 img{
+    opacity: 0;
+}
+/*到这屏才增加效果,处理方案,到这一屏增加相应的id名或类名
+第一屏 增加id名page1
+第二屏 增加id名page2
+.....
+提前把动画效果先调试好,js动态操作每个滑块的id名
+*/
+#page1 img,#page2 img{
+    opacity: 1;
+}
+#page1 img:nth-child(1){
+    -webkit-animation:bounceInLeft 1s both;
+    animation:bounceInLeft 1s both;
+}
+#page1 img:nth-child(2){
+    -webkit-animation: bounceInRight 1s 0.3s both;
+    animation: bounceInRight 1s 0.3s both;
+}
+#page1 img:nth-child(3){
+    -webkit-animation:bounceInUp 1s 0.6s both;
+    animation:bounceInUp 1s 0.6s both;
+}
+#page1 img:nth-child(4){
+    -webkit-animation:bounceInUp 1s 0.9s both;
+    animation:bounceInUp 1s 0.9s both;
+}
+
+#page2 img:nth-child(1){
+    -webkit-animation:bounceInLeft 1s both;
+    animation:bounceInLeft 1s both;
+}
+
+#page2 img:nth-child(2){
+    -webkit-animation:zoomIn 1s 0.3s both;
+    animation:zoomIn 1s 0.3s both;
+}
+#page2 img:nth-child(3){
+    -webkit-animation:zoomIn 1s 0.6s both;
+    animation:zoomIn 1s 0.6s both;
+}
+#page2 img:nth-child(4){
+    -webkit-animation:zoomIn 1s 0.9s both;
+    animation:zoomIn 1s 0.9s both;
+}
+.music{
+    width: 0.6rem;
+    height: 0.6rem;
+    position: absolute;
+    right:0.2rem;
+    top:0.2rem;
+    background: url(../audio/music.svg) no-repeat;
+    background-size:100% 100%;
+    z-index: 1111;
+    opacity: 0;
+}
+
+.musicMove{
+   -webkit-animation:move 1s infinite linear both;
+   animation:move 1s infinite linear both;
+}
+@-webkit-keyframes move {
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+
+}
+@keyframes move {
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+
+}

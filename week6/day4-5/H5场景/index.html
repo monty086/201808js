@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰-H5场景</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!--处理移动适配-->
+    <script>
+        ~(function(){
+            var desW = 640;
+            var winW = document.documentElement.clientWidth;
+            document.documentElement.style.fontSize = winW/desW*100+"px";
+        })();
+    </script>
+</head>
+<body>
+<div class="main">
+   <!-- <div class="music">
+        <audio src="audio/beyond.mp3"  preload="none" id="beyond"></audio>
+    </div>-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">
+                <img src="img/swiper/page1-text1.png" alt="">
+                <img src="img/swiper/page1-text2.png" alt="">
+                <img src="img/swiper/page1-text3.png" alt="">
+                <img src="img/swiper/page1-text4.png" alt="">
+            </div>
+            <div class="swiper-slide slide2">
+                <img src="img/swiper/page2-text1.png" alt="">
+                <img src="img/swiper/page2-text2.png" alt="">
+                <img src="img/swiper/page2-text3.png" alt="">
+                <img src="img/swiper/page2-text4.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="js/swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper(".swiper-container",{
+        direction:"vertical",
+        onTransitionEnd:function(swiper){//当滑块滑动结束时触发
+            var curIndex = swiper.activeIndex;//当前显示滑块的索引
+            var slides = swiper.slides;//所有的滑块
+            [].forEach.call(slides,function(item,index){
+                item.id = "";
+                //如何确定这个滑块是当前显示的滑块
+                if(curIndex===index){
+                    item.id = "page"+(index+1);//给显示的滑块添加id名
+                }
+            })
+        },
+        onInit:function(swiper){
+            var slides = swiper.slides;//获取所有的滑块
+            slides[0].id="page1";
+        }
+    })
+</script>

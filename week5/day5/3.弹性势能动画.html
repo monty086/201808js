@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        #div1{
+            width: 120px;
+            height: 120px;
+            background: red;
+            border-radius: 50%;
+            -webkit-user-select: none;
+            cursor: move;
+            position: absolute;
+            left:100px;
+            top:100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById("div1");
+    oDiv.addEventListener("mousedown",down,false);
+    function down(e){
+        e = e||window.event;
+        this.x = this.offsetLeft;
+        this.y = this.offsetTop;
+        this.mx = e.clientX;
+        this.my = e.clientY;
+        if(this.setCapture){
+            this.setCapture();
+            this.addEventListener("mousemove",move,false);
+            this.addEventListener("mouseup",up,false);
+        }else{
+            this.MOVE = move.bind(this);
+            this.UP = up.bind(this);
+            document.addEventListener("mousemove",this.MOVE,false);
+            document.addEventListener("mouseup",this.UP,false);
+        }
+    }
+    function move(e){
+        this.style.left =  this.x+(e.clientX-this.mx)+"px";
+        this.style.top = this.y +(e.clientY-this.my)+"px";
+        //记录下鼠标移动的距离 this.speedx
+        // this.prev 记录鼠标上次的坐标
+        if(!this.prev){//在if语句中操作若没有值赋一个初始值
+            this.prev = this.mx;
+        }
+        this.speedX  = e.clientX - this.prev;
+        this.prev = e.clientX;
+    }
+    function up(e){
+        if(this.releaseCapture){
+            this.releaseCapture();
+            this.removeEventListener("mousemove",move,false);
+            this.removeEventListener("mouseup",up,false);
+        }else{
+            document.removeEventListener("mousemove",this.MOVE,false);
+            document.removeEventListener("mouseup",this.UP,false);
+        }
+        fly.call(this);
+        drop.call(this);
+    }
+
+    //浏览器每隔5ms~6ms会反应下鼠标移动的移动
+    //单位时间内移动的距离称为速度
+
+    function fly(){
+        clearTimeout(this.timer);
+       this.speedX*=0.98; //速度
+       //处理边界
+        var rSide = (document.documentElement.clientWidth||document.body.clientWidth)-this.offsetWidth;//右边的边界：小球最大能移动的距离
+        var lSide = 0;//左边的边界
+        var duration = this.offsetLeft+this.speedX;//小球现在的位置
+        if(duration>=rSide){//现在的位置超出右边边界
+            duration = rSide;//让小球回到右边边界然后反弹回去
+            this.speedX*=-1;//往相反方向运动
+        }else if(duration<=0){//小球的位置超出左边的边界
+            duration = 0;//让小球回到左边边界然后反弹回去
+            this.speedX*=-1;
+        }
+       //小球的位置 = 现在的位置+速度
+        this.style.left = duration+"px";
+        if(Math.abs(this.speedX)>0.5){ //动画停止，定时器开启的条件
+            this.timer = window.setTimeout(()=>{
+                fly.call(this);
+            },30);
+        }
+    }
+    var g = 9.8;//加速度
+    var flag = 0;
+    function drop(){
+        clearTimeout(this.dropTimer);
+        if(!this.dropSpeed){this.dropSpeed=0};
+        this.dropSpeed+=g; //加速度速度是越来越快，让速度不断的累加9.8
+        this.dropSpeed*=0.98;//给速度设置摩擦力，让速度能停下来
+        var tSide = (document.documentElement.clientHeight||document.body.clientHeight)-this.offsetHeight;//小球往下能移动的最大的距离
+        var duration = this.offsetTop+this.dropSpeed;//小球现在位置
+        if(duration>=tSide){//现在的位置超出边界
+            this.style.top = tSide+"px";//回到边界位置
+            this.dropSpeed*=-1;//反弹回去
+            flag++;//连续两次走到这边就说明小球到达边界并且停下来 flag>=2
+        }else{//没有到达边界
+            flag = 0;
+            this.style.top = duration+"px";
+        }
+        if(flag<2){ //动画停止的判断条件 定时器开启的条件 flag<2说明小球还在运动中
+            this.dropTimer = window.setTimeout(()=>{
+                drop.call(this);
+            },30);
+        }
+        //flag值为2表示小球停止了
+    }
+    //事件
+    //定时器积累
+    //this关键字
+    //动画边界，动画停止的条件
+</script>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        #div1{
+            width: 120px;
+            height: 120px;
+            background: red;
+            border-radius: 50%;
+            -webkit-user-select: none;
+            cursor: move;
+            position: absolute;
+            left:100px;
+            top:100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>
+<script>
+    //1.按下时(mousedown) 记录下盒子的初始位置和鼠标坐标
+    //2.移动时(mousemove) 要求移动后盒子的位置 = 盒子初始的位置+鼠标移动的距离
+    //3.松开时(mouseup) 停止移动 解除绑定的事件
+    var oDiv = document.getElementById("div1");
+    oDiv.addEventListener("mousedown",down,false);
+    function down(e){//按下时
+        e = e||window.event;
+        this.x = this.offsetLeft;//盒子初始的位置
+        this.y = this.offsetTop;
+        this.mx = e.clientX;//按下时鼠标的坐标
+        this.my = e.clientY;
+        if(this.setCapture){ //IE和火狐的方式
+            this.setCapture();
+            this.addEventListener("mousemove",move,false);
+            this.addEventListener("mouseup",up,false);
+        }else{//谷歌浏览器
+            //绑定时move方法改变this关键字后返回的小函数
+            //需要给绑定的小函数起个名字，方便解绑时找到绑定的元素
+            this.MOVE = move.bind(this);
+            this.UP = up.bind(this);
+            document.addEventListener("mousemove",this.MOVE,false);
+            document.addEventListener("mouseup",this.UP,false);
+        }
+    }
+
+    function move(e){//移动时
+        //设置移动后盒子的位置
+        this.style.left =  this.x+(e.clientX-this.mx)+"px";
+        this.style.top = this.y +(e.clientY-this.my)+"px";
+    }
+    function up(e){//松开时
+        if(this.releaseCapture){
+            this.releaseCapture();
+            this.removeEventListener("mousemove",move,false);
+            this.removeEventListener("mouseup",up,false);
+        }else{
+            document.removeEventListener("mousemove",this.MOVE,false);
+            document.removeEventListener("mouseup",this.UP,false);
+        }
+
+    }
+
+    //当你移动的非常快时，盒子与鼠标没法绑定在一起，盒子就丢了，可以拿根绳子把它俩绑定在一起 this.setCapture();  IE和火狐是支持的，但是谷歌不支持
+</script>
