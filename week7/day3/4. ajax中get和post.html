@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * get 和post的区别
+    *
+    * */
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('get','data.json?_='+Math.random(),true);
+
+    // 我的ajax请求结束，再添加监听状态的事件已经没有意义了
+    xhr.onreadystatechange = function (){
+        console.log(1);
+    };
+    xhr.send();
+
+    /*var xhr = new XMLHttpRequest();
+    xhr.open('post','data.json',false);
+    // 我的ajax请求结束，再添加监听状态的事件已经没有意义了
+    xhr.onreadystatechange = function (){
+
+    };
+    xhr.send(JSON.stringify({name:'zf',login:456}));*/
+    /*
+    * get 和 post 请求方式的不同
+    * 1. get和post的传参方式不同
+    * // get
+    * xhr.open('get','data.json?user=zf&login=123#box',false)
+    * // post
+    * xhr.send(JSON.stringify({name:'zf',login:456}));
+    *
+    * 2. get会进行缓存，post不会进行缓存
+    * get请求第一次的时候，浏览器会将页面内容缓存到本地，第二次请求的时候，默认会走缓存内容,访问速度变快，
+    * 不想让它走缓存
+    * xhr.open('get','data.json?user=zf&login=123&_='+Math.random(),false)
+    * xhr.open('get','data.json?user=zf&login=123&_='+new Date().getTime(),false)
+    * xhr.open('get','data.json?user=zf&login=123&_='+Date.now(),false)
+    * post 默认不会
+    *
+    * 3. 传输的大小
+    * get  chrome 8k  moz 7k ie 2k ，超过默认值的话，浏览器会给截断
+    * post 严格意义来说，没有限制大小，但是为了请求数据能够快速响应，一般建议在100k之内
+    *
+    * 4. 安全性
+    * get 传参的方式是添加在url地址上，很容易被窃取
+    * post 一般情况下不会轻易被拿到
+    *
+    * 登录注册
+    * 注册： 将用户名和密码发送给服务端 ，服务端将用户名和密码保存到数据库当中
+    * 登录： 用户登录的时候，输入用户名和密码登录，服务端去数据中进行筛选验证，通过之后返回一个成功指令，并且返回给客户端cookie中种一个=>token码
+    * 下次客户端再访问当前网站的其他页面的时候，会默认发送ajax请求，客户端默认会带有cookie=>服务端下发的token再其中，服务端发现客户端带有我下发的token码，请求页面的时候，服务端就允许客户端进行请求访问，并且不需要再重新登录；
+    *
+    * 同样也可以给token设置过期时间，防止客户端长时间不操作，让客户端在点击的时候重新在登录
+    * */
+</script>
