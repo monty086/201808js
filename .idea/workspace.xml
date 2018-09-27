@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75ec7cf8-f450-409c-b841-102d3e172c52" name="Default" comment="add2234">
-      <change afterPath="$PROJECT_DIR$/week5/day5/.idea/day5.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day5/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day5/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day5/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day5/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day5/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day5/1.拖拽.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day5/2.拖拽.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day5/3.弹性势能动画.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day5/4.面向对象版拖拽.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day5/5.弹性势能动画插件版.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day5/drag.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week5/day5/event.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week7/day3/5. jq中的ajax.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week7/day3/6. axios&amp;fetch.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week7/day3/ajax.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week7/day3/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week7/day3/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week7/day3/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week7/day3/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week7/day3/5. jq中的ajax.html" beforeDir="false" afterPath="$PROJECT_DIR$/week7/day3/5. jq中的ajax.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -45,11 +25,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week7/day3/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+            <state relative-caret-position="282">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="6. axios&amp;fetch.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/week7/day3/6. axios&amp;fetch.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="5. jq中的ajax.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/week7/day3/5. jq中的ajax.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="214" column="25" lean-forward="true" selection-start-line="214" selection-start-column="25" selection-end-line="214" selection-end-column="25" />
+              <folding>
+                <element signature="e#175#565#0" />
+                <element signature="e#571#2784#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,13 +146,13 @@
         <option value="$PROJECT_DIR$/week7/day3/data.json" />
         <option value="$PROJECT_DIR$/week7/day3/3. ajax的同步异步.html" />
         <option value="$PROJECT_DIR$/week7/day3/4. ajax中get和post.html" />
-        <option value="$PROJECT_DIR$/week7/day3/5. jq中的ajax.html" />
         <option value="$PROJECT_DIR$/week7/day3/6. axios.html" />
         <option value="$PROJECT_DIR$/week7/day3/6. axios&amp;fetch.html" />
         <option value="$PROJECT_DIR$/week7/day3/ajax.js" />
         <option value="$PROJECT_DIR$/week7/day3/header.html" />
         <option value="$PROJECT_DIR$/week7/day3/footer.html" />
         <option value="$PROJECT_DIR$/week7/day3/home.html" />
+        <option value="$PROJECT_DIR$/week7/day3/5. jq中的ajax.html" />
       </list>
     </option>
   </component>
@@ -165,7 +167,7 @@
       <path value="$PROJECT_DIR$/week3/day5/node_modules/jquery/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="909" />
     <option name="y" value="132" />
     <option name="width" value="1920" />
@@ -190,18 +192,6 @@
               <item name="201808js" type="b2602c69:ProjectViewProjectNode" />
               <item name="201808js" type="462c0819:PsiDirectoryNode" />
               <item name="week7" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="201808js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="201808js" type="462c0819:PsiDirectoryNode" />
-              <item name="week7" type="462c0819:PsiDirectoryNode" />
-              <item name="day1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="201808js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="201808js" type="462c0819:PsiDirectoryNode" />
-              <item name="week7" type="462c0819:PsiDirectoryNode" />
-              <item name="day2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="201808js" type="b2602c69:ProjectViewProjectNode" />
@@ -280,7 +270,7 @@
       <workItem from="1536716269463" duration="25019000" />
       <workItem from="1536805108865" duration="20269000" />
       <workItem from="1536975120477" duration="76214000" />
-      <workItem from="1537842245852" duration="77590000" />
+      <workItem from="1537842245852" duration="78183000" />
     </task>
     <task id="LOCAL-00001" summary="商城排序">
       <created>1535190813813</created>
@@ -440,7 +430,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="579163000" />
+    <option name="totallyTimeSpent" value="579756000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
@@ -846,25 +836,6 @@
     <entry file="file://$PROJECT_DIR$/week7/day3/jquery.min.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/week7/day3/6. axios&amp;fetch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week7/day3/5. jq中的ajax.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding>
-            <element signature="e#175#565#0" />
-            <element signature="e#571#2784#0" />
-            <element signature="e#2815#4903#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/week7/day3/ajax.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -888,8 +859,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/week7/day3/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+        <state relative-caret-position="282">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week7/day3/6. axios&amp;fetch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week7/day3/5. jq中的ajax.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="214" column="25" lean-forward="true" selection-start-line="214" selection-start-column="25" selection-end-line="214" selection-end-column="25" />
+          <folding>
+            <element signature="e#175#565#0" />
+            <element signature="e#571#2784#0" />
+          </folding>
         </state>
       </provider>
     </entry>
