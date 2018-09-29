@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="jquery.min.js"></script>
+<script>
+    /*
+    * promise 是es6当中提供的一个类，它是用来解决异步问题的
+    * 每一个promise的实例，用来解决一个异步代码问题。
+    * promise  pending fulfiled rejected
+    * 准确的说一共有2个状态，一个是初始态，另外一个完成态【成功/失败】
+    *
+    * Promise 这个类执行的话，里面传是回调函数，不传的会报错
+    * 这个回调函数有两个参数
+    * resolve =》成功之后执行的方法
+    * reject  =》失败之后执行的方法
+    * 在Promise当中默认只会返回一个状态，只要有返回，就代表这个promise模式执行结束
+    * 而promise本身属于同步执行，里面的异步代码会放到异步队列当中
+    *
+    * Promise这个类执行结束后，会默认返回一个【promise实例】。我们可以利用实例来调用它上【公共方法】 （then\catch\finally）
+    *
+    * 【Promise这个类】本身也带有方法，比如（all\race\resolve\reject）
+    *
+    * Promise.prototype.then = function(res,jec){}
+    * then方法也属于同步执行，但是then当中的函数属于异步执行
+    * */
+    // var f = new Promise((resolve,reject)=>{
+    //     setInterval(()=>{
+    //         resolve(100);
+    //         // reject(200);
+    //     },1000)
+    // });
+    // var result = f.then(
+    //     resolve=>{
+            // console.log(resolve);//100
+            // a();
+            // try catch
+            // return 300
+            // return new Promise((resolve,reject)=>{
+            //     setTimeout(()=>{
+            //         reject(400)
+            //     },10)
+            // })
+    //     },
+    //     reject=>{
+    //         console.log(reject);//200
+    //     }
+    // )
+    //result 属于第一个then方法返回的promise实例的状态有关系，默认是成功态
+    // 【第二个then方法】
+    // result.then(res=>{
+    //     console.log('二then 成功',res);
+    // },rej=>{
+    //     console.log('二then 失败',rej)
+    // }).then(res=>{
+    //     console.log(res);
+    // });
+
+    /*
+    被动执行
+    * 第二个及第二个以后的成功态和失败态执行与否取决于上一个then方法返回的状态，【默认是成功，只要代码不会出现报错默认都是成功态】
+    * 第二个then方法中的参数1【成功态】中的实参是return的返回值，参数2【失败态】中的实参是上一个then方法的报错信息
+    * */
+
+    /*
+    主动执行
+    * 如果我们想手动让第二个then方法执行成功或者失败态，我们可以默认返回一个Promise实例。让resolve或者reject执行
+    * 【注意】每一个then方法不管是成功态还是失败态，它都会返回一个promise实例
+    *
+    * */
+
+    // result =>promise实例，可以继续调用promise上的公共属性和方法
+    // console.log(result);
+
+    /*var A = $.Callbacks();// jq当中的发布订阅模式 // 表示回调函数集合，A相当于一个事件池
+
+    setTimeout(()=>{
+        A.fire()
+    },1000);
+    A.add(resolve=>{
+
+    })*/
+
+
+
+    // console.log(Promise.prototype);
+</script>
+
+<script>
+    var f = new Promise((resolve,reject)=>{
+        setInterval(()=>{
+            // resolve(100);
+            reject(200);
+        },1000)
+    });
+
+    f.catch(cat=>{
+
+
+
+    }).then(res=>{
+        console.log(res);
+        a()
+
+    }).catch(cat=>{
+
+    }).then(res=>{
+
+    }).catch(cat=>{
+        console.log(cat+'123');
+    }).finally(fin=>{
+        console.log(fin);
+    })
+    /*
+    * then中的第二个失败态和catch方法都会执行promise当中的reject方法
+    * 只要有第二个方法不会执行catch
+    *
+    * catch方法：不仅可以接受reject失败态，还可以检测上一个then方法当中是否报错的代码
+    *
+    * 建议优化：一般情况下，我们最好用catch方法代替then当中的第二个失败态的函数【能用catch不用rej】【也有写多了会乱的原因】
+    *
+    * promise的实例操作的时候，调用then、catch、finally他们属于一个整体。跟我们用的try、catch、finally相似
+    * */
+
+
+</script>

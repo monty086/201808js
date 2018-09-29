@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="jquery.min.js"></script>
+<script>
+    // 登录进来，=》用户的好友列表，=》用户的个人中心
+    /*$.ajax({
+        url:'https://www.easy-mock.com/mock/5ab497e674cb3a490381870f/api/user/signin',
+        method:'post',
+        data:{username:'zhufengpeixun'},
+        success:(res)=>{
+            console.log(res);
+            // 确保已经登录进来之后再次发送请求
+            $.ajax({
+                url:'https://www.easy-mock.com/mock/5ab497e674cb3a490381870f/api/order/list',
+                method:'post',
+                success:(res)=>{
+                    console.log(res);
+                    // 别的去需求。。
+                }
+            })
+        }
+    })*/
+    // 如果接口嵌套很多层的话，会形成回调地狱。
+    // promise这种回调地狱
+    function login (){
+        return new Promise((res,rej)=>{
+            // 处理异步代码,ajax异步代码
+            $.ajax({
+                url:'https://www.easy-mock.com/mock/5ab497e674cb3a490381870f/api/user/signin',
+                method:'post',
+                data:{username:'zhufengpeixun'},
+                success:(data)=>{
+                    res(data)
+                },
+                error:msg=>{
+                    rej(msg)
+                }
+            })
+        })
+    }
+
+    function list (){
+        return new Promise((res,rej)=>{
+            $.ajax({
+                url:'https://www.easy-mock.com/mock/5ab497e674cb3a490381870f/api/order/list',
+                method:'post',
+                success:(data)=>{
+                    res(data)
+                },
+                error:msg=>{
+                    rej(msg)
+                }
+            })
+        })
+    }
+
+    /*login().then(res=>{
+        console.log(res);
+        if(res){
+            return list()
+        }
+    }).then(res=>{
+        console.log(res);
+    })*/
+    // Promise中的all方法，数组参数中的实例都为成功态才会执行这个方法，如果有一个失败则不执行。都成功之后，会返回一个数组，数组中是每个实例成功态的参数
+    /*Promise.all([login(),list()]).then((res)=>{
+        // console.log(res);//[a,b]
+        var [a,b] = res;
+        console.log(b);
+    })*/
+
+    // Promise中的race会在参数的数组当中，判断promise实例那个更快返回，如果返回的话，会拿到最快返回的promise实例中的成功态参数
+    Promise.race([login(),list()]).then(res=>{
+        console.log(res);
+    })
+
+
+</script>

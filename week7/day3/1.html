@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="ajax.js"></script>
+<script>
+    ajax({url:'data.json',async:true}).then((res)=>{
+        console.log(res);
+    })
+    ajax({url:'data1.json',async:false}).then((res)=>{
+        console.log(res);
+    })
+</script>

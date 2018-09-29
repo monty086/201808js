@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png" alt="">
+
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<input type="text">
+</body>
+</html>
+<script>
+    /*
+    * 跨域：
+    * 在当前服务器当中想要获取其他服务器中的内容叫做跨域
+    * 学习跨域我们需要了解什么叫同源非同源
+    *
+    * 【同源】
+    * 当前服务器的地址：http://localhost:63342/201808js/week7/day4/6.跨域.html
+    * 请求服务器的地址：http://localhost:63342/201808js/week7/day4/data1.json
+    * ajax默认不跨域
+    *
+    * 如果是同源的话，保证
+    * 协议相同
+    * 域名相同
+    * 端口相同
+    * 就不存在跨域，只要有一个不同，就存在跨域现象
+    * 【非同源】
+    * 当前服务器的地址：http://localhost:63342/201808js/week7/day4/6.跨域.html
+    * 当前服务器的地址：http://localhost:8080/201808js/week7/day4/6.跨域.html
+    * 当前服务器的地址：http://qq.com/
+    * 请求服务器的地址：http://sport.qq.com/
+    *
+    * 当前服务器的地址：http://qq.com/
+    * 请求服务器的地址：https://qq.com/
+    *
+    * 当前服务器的地址：https://jd.com/create
+    * 请求服务器的地址：https://jd.com/login
+    *
+    * 一级域名向二级域名访问的话，也属于跨域
+    * 协议不同也会造成跨域现象
+    *
+    * 什么情况下会用到跨域
+    * 1. 我当前的网站想要放其他网站的一些数据的时候，比如我当前的博客放其他的一些信息【微博】，需要跨域请求微博的接口，进行页面展示
+    * 2. 我当前的服务器的一些资源文件，比如图片，音频视频，不会放到本服务器增加负荷，我可能放到其他的服务器进行实时调用，当用户访问我的网站的时候，去请求的这些资源也会造成跨域，常用的一些标签有 script img audio video iframe link
+    * 3. 当我主服务器访问人数超过限额的时候，我们采用302临时重定向，将访问的用户引导到另外一台服务器上，这样情况下也会造成跨域
+    * 
+    * 跨域的解决方案
+    * 1. jsonp
+    * 2. cros  跨域资源共享
+    * 3. crossDomain
+    * 4. window.name
+    * 5. iframe
+    * 6. webpack proxy
+    * 7. 服务端nginx反向代理 
+    * 8. document.domain
+    *
+    *
+    * // jsonp 解决跨域的一种方案
+    * jsonp原理：在加载页面结构的时候，有一些标签没有同源非同源之分，比如img script link video audio iframe 这些标签都可以插入非同源的地址。我们可以利用script标签上是src可以访问非同源的特性来实现跨域，这个就属于jsonp跨域
+    *
+    * 具体的操作步骤：我们可以在请求的数据地址当中，加一个回调函数，在当前的页面让回调函数执行，那么回调函数当中的参数，就是对方服务器返回给我的数据
+    *
+    *
+    * */
+
+    /*var xhr = new XMLHttpRequest();
+    xhr.open('get','data1.json',false);
+    xhr.onreadystatechange=function(){
+       if(xhr.readyState==4 && xhr.status==200) {
+           console.log(xhr.responseText);
+       }
+    };
+    xhr.send()*/
+</script>
+<!--<script>
+    function jsonp_cb_0_1538214880531_167(res){
+        console.log(res);
+    }
+</script>
+
+<script src="https://t.gdt.qq.com/conv/web/cookies/jsonp?cb=jsonp_cb_0_1538214880531_167&callback=jsonp_cb_0_1538214880531_167"></script>-->
+
+<script>
+    //jQuery1102021997362692896805_1538211067101('你想要数据')
+    let jQuery1102021997362692896805_1538211067101=res=>{
+        console.log(res);
+    }
+</script>
+<script src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=100&json=1&p=3&sid=26523_1461_21107&req=2&csor=0&cb=jQuery1102021997362692896805_1538211067101&_=1538211067102" id="box"></script>

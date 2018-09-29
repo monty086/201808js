@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="node_modules/axios/dist/axios.js"></script>
+<script>
+    axios.get('data1.json').then(res=>{
+        // console.log(res);
+        console.log(res.data);
+    }).catch(rej=>{
+        console.log(rej);
+    })
+
+    axios.post('https://www.easy-mock.com/mock/5ab497e674cb3a490381870f/api/user/signin',{
+       username:'zhufengpeixun'
+    }).then(res=>{
+        // console.log(res);
+        console.log(res.data);
+    }).catch(rej=>{
+        console.log(rej);
+    });
+
+    // var ajax = axios.create({
+    //     baseURL: 'https://www.easy-mock.com/mock/5ab497e674cb3a490381870f/api/',
+    //     timeout: 1000,
+    //     headers: {'X-Custom-Header': 'foobar'}
+    // });
+    // ajax.get('user/signin').then(res=>{
+    //
+    // })
+
+    // axios.all([])
+    // jsonp 跨域
+    // cors 跨域资源共享 跨域的一种方式
+    // window.name
+    // cross domain
+    // proxy 代理 webpack
+    // iframe
+    // 后台设置
+
+    // es2018=>提供的新api =>内嵌promise设计模式
+    fetch('https://www.easy-mock.com/mock/5ab497e674cb3a490381870f/api/user/signin').then(res=>{
+        console.log(res);
+    })
+
+</script>
