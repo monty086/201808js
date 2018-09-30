@@ -1,0 +1,415 @@
+【免费课】
+
+1. 前端页面的组成
+   html+css+js
+   js组成的部分
+   DOM 对元素的一个操作、获取元素、元素增删改查、对节点的操作
+   BOM 浏览器的对象模型 【浏览器、微信第三方、webview】 宿主环境
+       location.href\全局对象window
+   ECMAScript => 基础语法和核心规范，比如变量提升、数据类型的方法、表达式
+2. js的输出方式
+   alert()
+   confirm() // true/false
+   prompt  // 输入的内容/null
+   document.write()  // 页面的底部添加document.write('<h1>11</h1>')
+   innerHTML / innerText  // 指定的元素上进行添加
+3. js的引入方式
+   内嵌、外链、 导入【import=>es6】  行内【vue react】
+   <box onclick='fn()'></box> 可以在script中定义fn
+4. 数据类型
+   基本数据类型：number string boolean null undefined symbol
+   引用数据类型：object array regexp map set 时间  function
+5. number
+   正数 负数 小数 0 NaN
+   Number() // 强制转换
+      '' => 0
+      '12px' => NaN
+      ' '=>0
+      true =>1
+      false=> 0
+      null => 0
+      undefined => NaN
+      [] => 0
+      {} => NaN  '[object Object]'=>NaN
+   isNaN()   // TRUE/FALSE
+      isNaN(NaN) // TRUE
+      NaN == NaN  // FALSE
+   parseInt() / parseFloat()  // 整数/小数 => 字符串
+   toFixed(2)  // 小数点后保留多少位
+   (1).toFixed(2) 1..toFixed(2)  1 .toFixed(2)
+6. string
+   ""  ``【模板字符串】 ${变量、三元运算、函数执行、简单表达式}
+   toString() // 所有的数据类型都有这个方法【对象须注意】
+   charAt() // 根据索引找字符
+   charCodeAt() // unicode 编码
+   indexOf()  // 根据字符找索引
+   lastIndexOf()  // 从后向前找
+   substr(索引，个数) // 截取
+   substring(索引，索引) // 包前不包后
+   slice(索引，索引) // 支持负值  【-值+length】
+   toUpperCase(无) // 转大写
+   toLowerCase(无) // 转小写
+   match(正则/字符串) // 字符串详细信息
+   replace(正则/字符串,替换的内容/函数) // 字符串替换
+   search(字符串/正则)  // 根据字符找索引
+   split(字符串/正则)  // 转数组
+   trim() // 去字符串左右空格 trimLeft trimRight
+   includes(字符串) // 判断是否有指定字符
+   repeat(个数)  // 复制字符串多少个
+   startWidth(字符串,起始位置)   // 是否是字符串的头部
+   endWidth(字符串，结束位置)   // 是否是字符串尾部
+
+7. boolean
+   true / false
+   false: 0 NaN '' NULL UNDEFINED
+   Boolean()
+   !
+   !!
+8. null/undefined
+   null
+   清空一个引用数据类型/初始化一个变量/浏览器默认给一个值为空
+   undefined
+   未定义都是undefined /对象未定义属性名/ 形参未定义/ 函数没有返回值/变量未赋值
+   注意： null和undefined 没有所属的类，而且他们身上没有方法
+   null == undefined // true   null===undefined //false
+9. 一般比较和严格比较
+   ==  引用数据类型 => 字符串  => 数字
+       布尔值  => 数字
+   [] == [] // false 不同的引用地址
+   [] == ![]  // 0 == 0 true
+   [] == false  // true
+   ![] == false // true
+   [] == '     ' // ''=='  '  false
+   null == []  // false  null和undefined和其他任何值比都是false
+   undefined == null // true
+   ===  数据类型和值都相同
+   undefined === null // false
+10. for(var [key,value] of obj)
+    for
+    break // 阻断代码，跳出循环体
+    continue // 停止循环，继续执行下一轮
+11. i++ ++i // 先运算后取值++i， 先取值后运算i++
+    i = i+1
+    i+=1
+12. && ||
+    if(a&&b) // a和b都通知满足
+    a&&b  // a为true执行b
+    var c = a&&b  //  a为true，b赋值给c，否则a赋值给c
+    if(a||b)  // a和b只要有一个满足即可
+    a||b  // a为false 执行b ，a为true执行a
+    e = e || window.event
+
+【免费课-2】
+
+1. 数组的方法
+   push
+   pop
+   shift
+   unshift
+   indexOf
+   lastIndexOf
+   splice
+   slice
+   sort
+   reverse
+   forEach
+   map
+   join
+   concat
+   //
+   find
+   filter
+   every
+   some
+   fill
+   reduce
+   includes
+   copywithin
+   Array.from()
+   Array.of()
+   Array.isArray()
+   Array()
+   "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce"
+2. 数组去重
+   sort去重
+   indexOf/includes
+   双循环
+   new Set
+3. 数组的排序
+   冒泡排序/快速排序/插入排序 => sort排序
+4. dom操作
+   获取元素 id/classname/tagname/name
+   querySelector()  / querySelectorAll ()  没有dom映射
+   createElement()
+   appendChild()
+   insetBefore(new,old)
+   removeChild()
+   replaceChild(new,old)
+   cloneNodes(true/false)
+   parentNode
+   childNodes  //子节点
+   children //子元素
+   previousSibling
+   previousElementSibling
+   nextSibling
+   nextElementSibling
+   firstChild
+   lastChild
+   classList add remove toggle
+   nodeType 1 3 8 9  nodeName nodeValue
+5. 点和attribute 之间的区别
+6. Math函数
+   max
+   min
+   ceil
+   floor
+   round
+   random
+   abs
+   pow
+   sqrt
+   Math.round(Math.random()*(m-n)+n)
+7. 时间
+   new Date()
+   getFullYear()
+   getMonth()+1
+   getDate()
+   getDay()
+   getHours()
+   getMinutes()
+   getSeconds()
+   getTime() 19700101 08:00 到现在的ms数
+   getMilliseconds() // 当前 秒/1000
+   Date.now() // 获取现在的一个时间
+
+【正式课-1】
+1. 变量提升
+      变量提升的特殊情况*5
+       1. 等号右边不会进行变量提升
+       2. 自执行函数不会进行变量提升
+       3. return右边的不进行变量提升，return下面的会进行变量提升
+       4. 函数当作参数的时候不会进行变量提升
+       5. 在碰到块级作用域的时候，函数只声明不定义，比如判断，当条件一旦成立，进入到块级作用域中，第一时间给函数进行定义
+2.let 和 const
+       1. let声明的变量没有变量提升
+       2. let不允许重复声明
+       3. let声明的变量不会给全局对象window增加属性
+       const  【常量=》静态变量】
+       1. let的变量提升的特点，const都具有
+       2. const声明的变量必须赋值
+       3. const声明的变量不允许修改,其中可以修改引用数据类型的值
+3. 堆栈内存
+   堆内存：引用数据类型
+   栈内存：js执行的地方/作用域
+   释放
+   堆内存：赋值null
+   栈内存：执行结束
+   不释放
+   闭包：不销毁作用域=>引用数据类型被外界占有
+4. this
+   1. 全局作用域下的this都是window
+   2. 自执行函数中的this都是window
+   3. 函数当作参数的时候，一般情况下都是window，
+   4. 函数执行，看函数前面是否有“.”，如果有，那么点前面是谁就是谁，如果没有，this是window
+   5. 元素事件函数中是this一般情况下都是 元素本身
+   6. 构造函数当中的this都是实例本身
+   7. 通过call、apply、bind，可以改变this；
+   8. 箭头函数中的this，当前函数执行的上下文【函数定义】
+5. 设计模式
+   单例模式
+   高级单例模式
+   工厂模式【不常用】
+   构造函数模式
+   原型模式
+   发布订阅模式【观察者模式】
+   Promise设计模式
+
+6. 构造函数
+   类：自定义类/内置类
+   实例：对象/常用的数据类型
+   原型：类上的一个属性prototype/ 实例的公有属性和方法
+   construcor：指向当前类本身 【丢失=>Object】
+   __proto__ :所属类的原型
+
+7. 函数三种身份
+   普通函数
+   构造函数
+   对象
+8. 检测数据类型
+   typeof
+   instanceof
+   constructor
+   Object.prototype.toString.call()
+   【注意】：各个方法的优缺点
+【正式课-2】
+1. 函数的方法
+   call
+   apply
+   bind
+   共同点：改变函数中的this，让函数执行【bind不会】
+   不同点：apply传参=>数组  bind不会执行
+   注意：fn.bind(null) => 深拷贝函数
+   call.call.call.call(a,b,c,d) // a执行，b改this，c-d传参数
+
+2. 类数组转数组
+   1. slice.call()
+   2. [].push(类数组每一项)
+   3. [...类数组]
+   4. 修改原型链
+
+3. 捕获报错
+    try
+    catch
+    finally
+4. 正则
+   修饰符 元字符 特殊元字符 量词元字符
+   [] ^ - /d/w/s
+   () 提高优先级 分组引用 分组捕获
+   test【匹配】 exec【捕获】
+   懒惰性、贪婪行
+   案例：年龄区间
+        解析url
+        一个普通的数字
+        Match replace search split
+
+【正式课-3】
+1. 盒子模型
+   client =》 屏幕的宽高
+   offset =》 盒子的宽高【border】
+      offsetParent =》 父级参照物
+      offset.left/offset.top =》距离body的上或左偏移量
+   scroll =》 盒子滚动的距离
+      包括溢出 隐藏/滚动
+   scrollTop/scrollLeft可以修改，其他不可以修改
+   共同点：都是整数，四舍五入、没有单位
+2. jq的源码
+   选择器=》 css选择器
+   jq对象转原生对象
+   jq的一些方法
+   $.ajax()
+   $.each()
+   $.isFunction()
+   $.extends() // 在jq对象上扩展
+3. 案例
+   瀑布流
+   延迟加载
+   跑马灯
+4. 继承
+   call继承
+   原型继承
+   寄生组合继承
+   es6的继承
+
+【正式课-4】
+1. 同步异步
+    1. setTimeout/setInteval
+    2. 事件
+    3. ajax
+    4. 回调函数
+    宏任务和微任务
+    js执行异步的时候，会先执行宏任务【定时器】，再执行微任务【promise、process.nextTick】
+    https://segmentfault.com/a/1190000016278115
+2. 回调函数
+    1. forEach/map
+    2. 定时器
+3. 动画
+   固定步长动画
+   固定时间动画
+   匀速直线运动
+   function(time,duration,change,begin){
+        return time/duration*change+begin
+   }
+   多方向运动
+4. 轮播图
+   左右轮播图/渐隐渐显轮播图
+       原生
+       高级单例模式
+       构造函数
+       jq
+5. es6解构赋值
+   对象解构赋值
+   数组解构赋值
+   箭头函数
+   promise使用
+
+【正式课-5】
+1. 事件
+2. 事件绑定
+    dom0级
+    dom2级
+3. 事件对象
+    e = e || window.event
+    事件源  e.target || e.srcElement
+    事件阻止默认行为  e.preventDefault ? e.preventDefault():e.returnValue = false
+    阻止事件冒泡： e.stopPropagation? e.stopPropagation():e.cancelBubble = true
+    距离窗口： e.clientX || e.clientY
+    距离body： e.pageX || e.pageY
+    事件类型 ： e.type
+4. 事件的传播机制
+    捕获
+    dom2级才有
+    冒泡
+    dom2级可选
+    onmouseover onmouseenter【没有冒泡】
+5. 事件委托
+   事件代理 -多级菜单
+6. 拖拽
+   小球拖拽
+7. 发布订阅模式
+    封装发布订阅结合jq
+
+【正式课-6】
+1. html5
+   标签
+   input 属性
+   api
+   获取地理位置
+   websocket 及时通讯api
+   webstorage 本地存储
+   mainfest 本地缓存
+2. css3
+   transition 过渡动画
+   transform 变形
+   animate  帧动画  @keyframe 动画名
+3. h5+swiper / slick
+4. qq音乐
+5. 响应式布局
+   媒体查询
+   流式布局
+   rem
+   flexbox
+6. 字体图标
+
+【正式课-7】
+1.  http协议
+    当输入url发生什么事情
+    tcp协议 三次握手四次挥手
+    url的组成部分
+    http事务
+    http报文
+2. ajax
+    同步异步
+    局部刷新
+    ajax状态码
+    https状态码
+    get和post
+    封装jq的ajax和promise的ajax
+3. 跨域
+    jsonp
+    cors
+    window.name
+    iframe
+    document.domain
+    proxy -webpack
+    nginx
+4. 前端性能优化  *35条
+
+
+
+
+
+
+
+
+
+

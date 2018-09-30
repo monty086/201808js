@@ -1,0 +1,47 @@
+目前市场对于前端开发者的技术需求（P3~P5+）
+【以下是知识点大纲，不是课程讲解顺序】
+
+第一阶段：HTML（5） + CSS（3）
+
+  技术要点：HTML5、CSS3、响应式布局（rem/flex/@media等）、Hybrid混合APP开发、微信二次开发、小程序开发、React Native开发...
+  特殊说明：
+Hybrid、微信开发、小程序开发、React Native开发，这些都需要有JS和框架编程的基础，RN处于非刚需，属于辅助技术；
+H5不仅仅是标签，还需要掌握常用的API以及video和audio等，例如：localstorage、webscoket、getCurrentPosition等；
+
+第二阶段：JS包括ES6核心原理
+
+  技术要点：
+JS堆栈内存、闭包作用域、浏览器词法解析（v8渲染机制原理）、面向对象和THIS处理（主要是独立封装组件和插件，研究常用类库的源码）；
+ES6基础语法（包括class类的继承封装和多态）、ES6中的Promise（及Promise A+规范）、Generator生成器函数等深入用法；
+同步异步编程（包括运行机制和微任务、宏任务，以及实战应用）
+常用的编程思想和设计模式：函数的防抖和节流、柯理化函数、惰性函数、单例设计模式、发布订阅模式、Promise设计模式等
+DOM性能优化（重排和重绘的优化）、DOM事件（包括事件代理、事件池处理机制等）
+前端编程常规算法：去重、冒泡排序、插入排序、快速排序、递归等
+
+
+第三阶段：AJAX和HTTP
+
+   技术要点：
+ajax原理、ajax异步解决方案（promise）、axios（包括自己封装promise版ajax库）、fetch及封装处理、jquery中的ajax操作和库的封装等
+跨域解决方案及实现原理：jsonp、cors、webpack proxy（scoket.io）、document.domain、window.name+iframe、postMessage等
+HTTP报文（常用的响应请求头实战应用技巧）、HTTP（TCP）传输流程（包括三次握手四次挥手及TCP底层协议）、HTTP1和HTTP2的区别、HTTP和HTTPS的区别等
+   特殊说明：
+      HTTP是目前优秀公司重点考察的知识点，因为传统前端代码优化，性能上提高较小，HTTP相关优化手段是性能提高的重要方法（例如：304缓存、DNS缓存、减少HTTP传输次数和大小、HTTPS的加密等），这块是一个重点！
+
+第四阶段：框架开发
+
+   技术要点：目前市场上的项目大部分都是框架开发的，所以框架学习非常的重要，目前主流框架是 vue、react、angular，angular现在用的越来越少，一般都是老项目使用这个技术在维护（angular1.0版本居多）
+     vue全家桶：vue（MVVM实现的原理以及一些语法实现的原理）、vue-router(HASH路由实现的原理)、vuex（掌握原理）、axios、vue-cli（需要能够修改脚手架的webpack配置项）、iview/vux/vue element等常用框架的使用等
+     react全家桶：create-react-app（能够修改webpack的配置项）、react（掌握虚拟DOM渲染原理，掌握DOM-DIFF原理，掌握INDEX索引对比机制，掌握MVC实现的原理）、react-dom/react-native、react-router、react-redux/dva/mobx（掌握原理，自己可以基于原生JS写一套类似的插件、发现里面的一些不足点）、antd（最好可以自己封装一些基础的组件）等
+   特殊说明：
+     目前不管是实习生还是社招人员，基本上框架是硬要求（你不会框架，实习的时候很多项目都看不懂，都不知道在哪改）；而且随着框架的完善，现在企业追求的已经不是说会用，能做项目即可，而是基于框架做出高性能的项目，这样就要求了解框架的核心实现原理，才能写出高质量的代码，这也是为啥现在面试都在问原理的原因！
+
+第五阶段：辅助技能
+
+   技术要点
+     Webpack：掌握常用的脚手架使用和修改，会一些基础的webpack搭建
+     Git：熟练掌握团队协作开发中代码版本管控技巧，熟悉常用的操作命令
+     Node：掌握基础的API、掌握express/koa/egg等框架、可以编写伪API，可以基于node做跨域处理等，有精力的同学可以研究一下数据库操作等
+     Canvas：一些公司要求会可视化，需要掌握canvas/webGl/d3等，这个对于数学结构、算法等有一定的要求；这方面不好的，可以先掌握一些基础的操作，掌握echarts的用法等；
+
+以上内容是近期根据市场需求总结的，前端现在发展很好，但是同理要求的技术水平也变高了，所以踏踏实实学技术，轻轻松松拿高薪！

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<iframe src="http://baidu.com"></iframe>
+<div id="box" onclick="fn.call(this)">1111334</div>
+<div id="box2" onclick="fn1()">2222334</div>
+<!--<div id="box1" onclick="alert(1)">1111334</div>-->
+</body>
+</html>
+<script>
+    function fn(){
+        console.log(this);
+        console.log(123);
+    }
+    let fn1 =()=>{
+        console.log(this);
+    }
+</script>
