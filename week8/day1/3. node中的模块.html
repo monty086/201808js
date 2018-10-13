@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /* 
+    shift + ctrl +p 
+    
+    node中的模块，【node本身属于模块化开发，它也是一个一个的模块组成的】，在node当中模块分为三种：
+    1. 内置模块 【安装node之后天生自带的模块】 fs http url path ... 
+    2. 第三方模块 【别人开发好的模块，我们进行下载使用，通过npm包管理器去npmjs.com下载 】 下载完成之后，多出一个node_modules文件 例如：less jquery vue bootstarp ... 
+    3. 自定义模块 【自己写的js文件，当作一个模块进行调用】 
+
+    【第三方模块】
+    '跑环境'：跑环境又称为部署环境；
+     1. 我们在开发项目的时候，会先执行npm init // 形成一个模块清单 ,此时文件会多出一个文件【package.json】//这个文件就是 模块清单
+        npm init 生成模块清单  npm init -y 
+        【注意】：模块清单会默认区当前js父级文件夹的名称，所以需要注意：
+            1. 不要再清单当中写注释
+            2. 模块清单的名称不要有中文
+            3. 模块清单的名称不要和安装模块的名称相同
+            4. 模块清单的名称不能有大写
+             {
+            "name": "day1",    // 模块清单的名称
+            "version": "1.0.0",   // 版本
+            "description": "",
+            "main": "index.js",  // 主文件
+            "scripts": {   // 运行的脚本 ，通过npm test 
+                "test": "node server.js"
+            },
+            "devDependencies": {
+                "less": "^3.8.1"
+             }
+            "keywords": [],
+            "author": "",
+            "license": "ISC"
+            }
+     2. 我们可以通过
+      dependencies  // 生产环境：上线的时候需要的模块
+      devDependencies   // 开发环境： 开发人员再编写项目，测试项目的时候使用的模块
+      npm install xxx  |  npm install --save  // 默认安装到生产环境 
+      npm install xxx --sava-dev | npm install xxx -D  // 将模块安装到开发环境
+      npm install xxx@1.11.3  // 安装具体的模块
+      
+      // yarn [包管理] 来自于facebook ，特点是快
+      yarn add xxx 
+      yarn add xxx@1.11.3 
+      yarn remove xxx 
+      yarn install  // 跑环境
+
+      // brew 【包管理器】 
+
+      再本地生成一个文件 node_modules ，这里面添加的都是我们安装的第三方模块
+      当我们本地编写代码结束收，提交到远程共享给别的时候，不需要添加node_modules这个文件，我们可以创建一个忽略文件.gitignore【它是一个隐藏文件】里面输入的不需要提交的内容
+
+      这样做的好处：提交速度变快，别人下载代码变快 
+      当别人拿到你的模块清单的时候，会将你的模块挨个进行安装【npm install / yarn install】，这种方式就叫做跑环境
+      
+      
+
+      【自定义模块】
+      node规定：每一个js都是一个模块，他们之间可以进行相互调用
+      运行node node b.js
+      通过exports / require 命令进行导入导出
+      
+      【导出】
+      var name = 'zf'
+      module.exports = name 【对象】 
+      exports.name = 'zf'
+      
+      【导入】
+       require('./详细路径')
+       只有自定义模块有路径，第三方模块和内置模块没有路径【如果没有路径，会先取第三方模块，如果没有的话，再取内置模块】     
+    
+    */
+
+    /* 
+        es6 当中的导入导出 【框架当中会用到es6的导入导出 】
+        【导出】
+        需要再script 中 添加 type='module'这个属性 ；内嵌和外链都需要添加 
+        export 导出的对象 {name,fn} 
+        export var name = 'zf' | export function fn(){} 
+        export default  // 默认到出的内容    
+        【导入】
+        import xxx【变量名】 from '路径'
+        import * as xxx from '路径'  // xxx就会变成一个对象  xxx.name   xxx.fn 
+        import {name,fn} from '路径'  // 解构赋值中的导入 
+    
+    */
+      /* 
+        练习题 
+        a模块实现数组求和  a.js
+        b模式实现求和后取平均数  b.js
+        c模块实现输入一堆的数字进行求和并取平均数   c.js  => (12,34,12,42,12,54,433)
+        node c.js // xxx.xxxxxxxx
+      */
+   
+</script>
