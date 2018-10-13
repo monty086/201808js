@@ -46,7 +46,11 @@
         查看分支 git branch 
         删除分支 git branch -D xxx
         跳转分支 git checkout xxx
-        创建完分支立刻跳转  git branch -b xxx 
+        创建完分支立刻跳转  git checkout -b xxx 
+
+        创建完分支后，会以当前分支为基本，拷贝一模一样的代码到新分支上
+
+        在其他分支上，如果没有提交，直接切换，会将代码全部带到新的分支上
         
 
         svn
