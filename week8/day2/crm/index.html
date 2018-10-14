@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <a href="add.html">增加新客户</a>
+        <header>
+            <!-- <span>序号</span> -->
+            <span>姓名</span>
+            <span>年龄</span>
+            <span>电话</span>
+            <span>地址</span>
+            <span>操作</span>
+        </header> 
+        <ul id='list'>
+            <li>
+                <!-- <span>1</span> -->
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>
+                    <a href="">修改</a>
+                    <a href="">删除</a>
+                </span>
+            </li>
+        </ul>   
+    </div>
+</body>
+</html>
+<script src='ajax.js'></script>
+<script>
+    ajax({
+        url:'/getList',
+    }).then(res=>{
+        if(res.code==0){
+            bindHTML(JSON.parse(res.data))
+        }
+    })
+
+    function bindHTML(data){
+        var str = ``;
+        data.forEach(item => {
+            str+=`<li>
+                <span>${item.name}</span>
+                <span>${item.age}</span>
+                <span>${item.phone}</span>
+                <span>${item.address}</span>
+                <span>
+                    <a href="add.html">修改</a>
+                    <a href="javascript:;" id=${item.id}>删除</a>
+                </span>
+            </li>`
+        });
+       list.innerHTML = str 
+    }
+</script>

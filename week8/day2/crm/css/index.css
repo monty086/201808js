@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#box{
+    width: 800px;
+    border:1px solid red;
+    padding:30px;
+    margin:30px auto;
+}
+a{
+    text-decoration: none;
+}
+#box>a{
+    text-decoration: none;
+    background: rgb(8, 180, 60);
+    color:#fff;
+}
+#box header,ul li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#box header span{
+    flex:1;
+    text-align: center;
+    font-size: 18px;
+    line-height: 30px;
+    background: rgb(97, 175, 238);
+}
+ul li span{
+    flex:1;
+    text-align: center
+}
+ul li{
+    line-height: 30px;
+}
+ul li:nth-child(even){
+    background: rgb(146, 224, 238);
+}
+ul li:hover{
+    background: rgb(231, 233, 152);
+}

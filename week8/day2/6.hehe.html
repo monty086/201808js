@@ -10,3 +10,14 @@
     hahahahahah
 </body>
 </html>
+
+<script>
+    var xhr = new XMLHttpRequest;
+    xhr.open('get','/list',true);
+    xhr.onreadystatechange=function(){
+        if(xhr.stauts==200&&xhr.readyState==4){
+            console.log(xhr.responseText)
+        }
+    }
+    xhr.send()
+</script>
