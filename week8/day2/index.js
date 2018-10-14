@@ -1,5 +1,5 @@
 
-let Promise = require('./promise2')
+let Promise = require('./promise3')
 
 let p1 = new Promise((resolve,reject)=>{
     setTimeout(() => {
@@ -7,7 +7,7 @@ let p1 = new Promise((resolve,reject)=>{
     }, 0);
 })
 
-let p2 = p1.then(res=>{
+/* let p2 = p1.then(res=>{
     console.log(res);
     // throw new Error('lose1')
     // return res+1
@@ -23,5 +23,17 @@ p2.then(res=>{
 },rej=>{
     console.log(rej);
 })
-console.log(500);
+console.log(500); */
+
+let p2 = new Promise((res,rej)=>{
+    setTimeout(() => {
+       res(100)
+    }, 0);
+})
+
+Promise.all([p1,p2]).then(res=>{
+    console.log(res);
+},rej=>{
+    console.log(rej);
+})
 
