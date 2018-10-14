@@ -33,7 +33,13 @@ class Promise {
             }, 0);
 
         }
-        excutor(resolve, reject)
+        // 需要对构造器【回调函数】进行异常捕获
+        try{
+            excutor(resolve, reject)
+        }catch(e){
+            reject(e)
+        }
+        
     }
     // promise原型上的方法
     then(fulfilledCB,rejectedCB){
@@ -41,3 +47,5 @@ class Promise {
         this.rejectedAry.push(()=>{rejectedCB(this.value)})
     }
 }
+
+module.exports = Promise 

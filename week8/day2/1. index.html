@@ -38,7 +38,7 @@
     })
     console.log(500); */
 
-    let p1 = new Promise((resolve, reject) => {
+    /* let p1 = new Promise((resolve, reject) => {
         setTimeout(() => {
             Math.random() > 0.5 ? resolve(100) : reject(200)
 
@@ -52,7 +52,38 @@
         console.log(rej);
     })
 
-    console.log(500);
+    console.log(500); */
+
+    let p1 = new Promise((resolve, reject) => {
+        // setTimeout(() => {
+        //     Math.random() > 0.5 ? resolve(100) : reject(200)
+        // }, 0);
+        throw new Error('lose')
+        // promise函数当中如果有报错会执行p1.then方法当中的失败状态【失败状态对应的函数】
+    })
+   /*  let p2 = p1.then(res => {
+        console.log(res);
+        return 'xxx' 
+    }, rej => {
+        // console.log(rej);
+        return new Promise((res,rej)=>{
+            res(400)
+            rej(300)
+        })
+    }) */
+
+     let p2 = p1.then(res=>{
+     },null)
+    // p1.then这个方法默认会返回成功状态的promise实例
+    // 如果想要p1.then返回失败状态的promise实例，需要两个条件触发
+    //   1. p1.then方法会有程序报错 
+    //   2. 手动返回一个promise实例执行失败状态
+    // p2=>p1.then执行后返回的一个promise实例
+    p2.then(res=>{
+        console.log(res);
+    },rej=>{
+        console.log(rej);
+    })
 
 
 </script>
