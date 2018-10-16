@@ -41,7 +41,6 @@ class Promise {
         } catch (e) {
             reject(e)
         }
-
     }
     // promise原型上的方法
     then(fulfilledCB, rejectedCB) {

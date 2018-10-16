@@ -49,6 +49,7 @@ class Promise {
             return this.value
         }:fulfilledCB;
         rejectedCB = typeof rejectedCB !== 'function'? ()=>{
+            // return this.value
             throw new Error(this.value)
         }:rejectedCB
 

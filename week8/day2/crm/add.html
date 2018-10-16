@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 300px;
+            height: 200px;
+            border: 1px solid red;
+            padding: 50px;
+            margin: 10px auto;
+        }
+
+        ul li {
+            line-height: 45px;
+            text-align: center
+        }
+
+        ul li input {
+            width: 200px;
+            height: 30px;
+        }
+
+        ;
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <label for='nameU'>姓名</label>
+            <input type="text" id='nameU'>
+        </li>
+        <li>
+            <label for='age'>年龄</label>
+            <input type="text" id='age'>
+        </li>
+        <li>
+            <label for='phone'>电话</label>
+            <input type="text" id='phone'>
+        </li>
+        <li>
+            <label for='address'>地址</label>
+            <input type="text" id='address'>
+        </li>
+        <li>
+            <input type="submit" value='提交' id='submit'>
+        </li>
+    </ul>
+</body>
+
+</html>
+<script src='ajax.js'></script>
+<script>
+    var submit = document.getElementById('submit');
+
+    // 判断当前网址当中是否有“id=xxx”这个参数，如果有属于修改，如果没有属于新增
+    var url = window.location.href;
+    var flag = url.indexOf('=');
+    var id = url.substring(flag+1)
+    console.log(id);
+    if (flag > -1) {
+        // 通过id发送ajax给后台获取到当前这条数据的详细信息
+        ajax({
+            url:'/getInfo?id='+id,
+        }).then(res=>{
+            if(res.code==0){
+                var cur = res.data;
+                nameU.value = cur.name;
+                age.value = cur.age;
+                phone.value = cur.phone;
+                address.value = cur.address ;   
+            }
+        })
+        submit.onclick = function () {
+            var data = {
+                id:id,
+                name: nameU.value,
+                age: age.value,
+                phone: phone.value,
+                address: address.value
+            }
+            
+            // 请求修改数据的接口
+            ajax({
+                url:'/updateInfo',
+                method:'post',
+                data:JSON.stringify(data)
+            }).then(res=>{
+                if(res.code==0){
+                    window.location.href = 'index.html'
+                }
+            })
+        }
+    } else {
+        // 新增状态下点击事件
+        submit.onclick = function () {
+            console.log(nameU.value);
+            var data = {
+                name: nameU.value,
+                age: age.value,
+                phone: phone.value,
+                address: address.value
+            }
+            ajax({
+                url: '/addInfo',
+                method: 'post',
+                data: JSON.stringify(data)
+            }).then(res => {
+                if (res.code == 0) {
+                    window.location.href = 'index.html'
+                }
+            })
+        }
+    }
+
+</script>
