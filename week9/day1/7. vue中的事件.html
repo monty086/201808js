@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <!-- v-on指令可以实现事件 -->
+        <input type="text" @keyup.13='change' v-model='str'>
+        {{num.length==0?'':num}}
+    </div>
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    var vm = new Vue({
+        el:'#box',
+        data:{
+            num:[],
+            str:''
+        },
+        methods:{
+            change(){
+                this.num.push(this.str)
+                this.str=''    
+            }
+        }
+    })
+
+    // 在事件的后面添加的修饰符
+    // 
+    /* 
+        click
+        mouseover
+        mouseenter
+        ...
+
+        阻止事件冒泡  .stop
+        事件捕获的触发  .capture
+        阻止事件的默认行为  .prevent
+        事件只触发一次  .once
+    */
+
+    /* 
+        在事件当中直接添加修饰符
+        修饰符
+keys        
+        enter
+        space
+        ctrl
+        ...
+keyCode
+        13 =>keyCode
+        8 
+        37-40 => 上下左右
+    */
+        
+</script>
+
+
+

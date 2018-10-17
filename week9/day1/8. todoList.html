@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <!-- v-on指令可以实现事件 -->
+        <input type="text" @keyup.13='change' v-model='str'>
+        <input type="checkbox"> 全选
+        <!-- <input type="checkbox"> 已完成 -->
+        <ul>
+            <li v-for='(item,index) in num'>
+                <input type="checkbox">
+                {{item}}
+                <button @click='del(index)'>删除</button>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    var vm = new Vue({
+        el:'#box',
+        data:{
+            num:[],
+            str:''
+        },
+        methods:{
+            change(){
+                this.num.push(this.str)
+                this.str=''    
+            },
+            del(i){
+                console.log(i);
+                this.num = this.num.filter((item,index)=>{
+                    // i=>要删除的那一项的索引
+                    // index => 当前循环那一项的索引
+                    return i !== index
+                })
+            }
+        }
+    })
+</script>
+
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        {{obj.name}}
+        {{ary}}
+    </div>
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    var vm = new Vue({
+        el:'#box',
+        data:{
+            ary:[3,4,2,1],
+            num:5,
+            obj:{}
+        },
+        methods:{
+            // 所有方法
+        },
+        // computed:{
+
+        // },
+        // filter:{
+
+        // }
+        // 生命周期
+        // mounted(){
+        //     this.ary = this.ary.slice(0,2)
+        // }
+    })
+    // console.log(vm.ary);
+    // console.log(vm.obj.name =10);
+    
+    // console.log(vm.obj = {name:8});
+
+    // vm.ary.push(100)
+    // push pop shift unshift splice reverse sort =>操作会修改原数组，可以操作vue中的数据
+
+    // 不改变原数组不会对vue中的数据进行修改，我们可以将返回值进行重新赋值
+    vm.ary = vm.ary.slice(0,2)
+    vm.$set(vm,'ary',[5,6])  // vue提供修改数据的内置方法
+    /*  
+        初始化数据，或者以后修改数据可以这样操作：
+        1. 我们在页面当中添加数据一般情况下会默认给要赋值的属性一个初始的值，这个值就是''【空字符串】
+        2. 将数据当中属性变量【引用数据类型】，整体进行替换赋值
+    
+    */
+    
+</script>
+
+
+
