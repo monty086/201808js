@@ -11,9 +11,13 @@
     reduce
 */
 var ary = [4,5,6,7,8,'99'];
-/* ary.forEach((item,index,input) => {
+ary.forEach((item,index,input) => {
+    // console.log(this);// window
+},1);
+
+[1].forEach(function(item,index,input)  {
     console.log(this);// window
-},1); */
+},1);
 
 // map 将回调函数的返回值组成一个新的数组
 /* var newAry = ary.map((item,index)=>{
