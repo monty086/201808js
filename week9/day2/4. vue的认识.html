@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id='app'>
+         <div v-text='name'></div> 
+         <!-- 可以识别标签 -->
+         <div v-html='url'></div>
+         <!-- 表单元素当中的标签，操作的时候可以影响数据的变化 -->
+         {{model}}
+         <!-- 通过表单元素设置视图，并影响数据 -->
+         <input type="text" v-model.lazy='url'> 
+         <input type="number" v-model.number='url'> 
+         <!-- '112312'/  123123 -->  
+         <input type="text" v-model.trim='url'> 
+         <!-- 动态绑定属性 => : -->
+         <a v-bind:href="'http://www.baidu.com/s?wd='+url">baidu</a>
+         <!-- v-cloak 防止页面闪烁 -->
+         <div v-cloak>
+             {{model}}
+         </div>
+         <!-- v-on 表示事件 通过@  必须放函数名/或者data中的属性名 --> 
+         <button v-on:click='flag = !flag'>{{flag?'登录':'注册'}}</button>
+         <button v-on:click='flag?fn():fn2()'>{{flag?'登录':'注册'}}</button>
+         <!-- 在vue当中添加事件，加括号和不加括号的区别在于是否要给函数传参 -->
+         <button v-on:click='fn'>事件源</button>
+         <button v-on:click='fn($event,10,100)'>事件源2</button>
+         <button v-on:click='fn(10,100)'>{{flag?'登录':'注册'}}</button>
+         <div onclick='alert(1)'>1</div>
+         <!-- 在vue的事件当中还可以添加修饰符 -->
+         <!-- stop阻止事件冒泡  -->
+         <div @click.self='fn'> 
+             <a href="http://www.zhufengpeixun.com" @click.prevent='fn2'>zhufeng</a>
+             <div @click.stop.once='fn2'>fn2</div>
+             <div @click.self='fn3'>fn3</div>
+             <!-- <div @click.once='fn2'>fn2</div> -->
+         </div>
+         <!-- .enter
+              .tab
+              .delete (捕获“删除”和“退格”键)
+              .esc
+              .space
+              .up
+              .down
+              .left
+              .right -->
+         <input type="text" @keyup.enter='fn3'>
+         <!-- 除了添加按键的别名，也可以添加keyCode码 -->
+         <input type="text" @keyup.13='fn3'>
+         <!-- v-if  v-else-if  v-else -->
+         <!-- template是一个不可见的包裹元素，一般用于承接v-if判断用的 -->
+         <template v-if='flag'>
+             <div v-text='model'></div>
+             <!-- 组件 -->
+         </template>
+         <!-- 条件多个的时候用这个 -->
+         <!-- <div v-else-if='!flag'>
+              我是else-if  
+         </div> -->
+         <!-- 条件只有一个的时候，直接用else -->
+         <template v-else>
+            我是else  
+         </template>
+        <!-- v-show不支持template，因为它要控制元素的样式 -->
+        <!--  <template v-show='flag'>
+            我是v-show的template
+         </template>   --> 
+        <!-- v-for 你想要循环哪个标签，就给哪个标签添加这个指令 -->
+         <ul>
+             <li v-for='(item,index) in ary'>{{item.name}}
+                 <ul>
+                    <li v-for='itemColor in item.color'>{{itemColor}}</li>
+                 </ul>
+             </li>
+         </ul>
+         <input type="checkbox" @change='checkAll' v-model='checkA'>全选
+         <div v-for='(item,index) in ary'>
+            <input type="checkbox" v-model='checkS[index]' @change='checkOne' >{{item.name}}
+         </div>
+         {{plus}} 
+         {{flag}}        
+    </div>
+</body>
+</html>
+<script src='./node_modules/vue/dist/vue.js'></script>
+<script>
+    var obj = {name:'zf'}
+    var vm = new Vue({
+       el:'#app',
+       data:{
+           // data当中存放的键值对数据，全部都放在实例当中，可以通过实例调用
+          name:'',
+          obj, 
+        //   url:"<script src='http://www.baidu.com'/>",
+          model:'zhufeng',
+          url:'',
+          flag:true,
+          ary:[
+              {name:'apple',color:['red','yellow','green']},
+              {name:'banana',color:['yellow','green']},
+              {name:'orange',color:['yellow','green','black']},
+          ],
+          checkA:false,
+          checkS:[false,false,false],
+          
+       },
+       methods:{
+           // 专门用来放各种方法,在methods的函数都是普通函数，因为确定this是实例，想要调取实例上的数据
+           fn(key1,key2){
+               console.log(key1);
+               console.log(key2);
+                
+           },
+           fn2(){
+               alert(2)
+           },
+           fn3(val){
+               console.log(val);
+               if(val.srcElement.value){
+                    alert(3)
+               }
+           },
+           checkAll(){
+                // this.checkS.forEach(item => {
+                //     item=this.checkA
+                // });
+                for (let i = 0; i < this.checkS.length; i++) {
+                    this.checkS[i] = this.checkA
+                }
+
+           },
+           checkOne(){
+               // 全部选择为true， checkA为true
+               // 当里面有一项为false  checkA都不能为true
+
+            // for (let i = 0; i < this.checkS.length; i++) {
+            //     // 如果数组中都为false，则全选为false
+            //         if(!this.checkS[i]){   // 当子选项都为true的时候，判断为false
+            //             this.checkA = false
+            //             return 
+            //         }
+            //     }
+            //     this.checkA = true
+                this.checkA = this.checkS.every(item=>item)
+           }
+       },
+       // 计算属性
+       computed:{
+           // 一个plus属于get方法
+           // plus函数执行条件  1. 函数当中有实例所对应的数据发生改变，触发函数执行
+           //                  2. 必须在页面当中添加函数名{{plus}}
+           // plus当中的return 让页面显示相对应的内容，不写的话，页面为空 
+           // computed计算属性，属于多对一进行展示，只要函数当中有实例数据发生改变，当前函数就会执行，【其他数据发生改变，不会对他造成影响】 return的结果就是页面展示的结果 
+           // 注意：页面一刷新就会都执行一遍里面的方法
+           // 一般用来计算多个实例数据的结果。
+
+           /* plus(){
+            //    console.log(this.flag);
+            // this.flag
+               console.log(1);
+            //    
+               return 100
+           }, */
+           plus:{
+               get(val){
+                   // get当中的参数是实例本身，一般不用，
+                   // get当中的return我们常用
+                   this.flag;
+                   console.log(val==this);
+               },
+               // set属于设置，不太常用, 
+               set(val){
+                   this.url 
+                   console.log(123);
+                   
+                   // set当中的val属于设置的那个值
+                   // set当中的return没有意义
+                   // set方法是plus来调用的
+                   // set方法触发条件，只有在给对象名plus设置的时候才会触发
+                   this.url = val
+                   return 999
+               }
+           }
+       }
+    })
+</script>

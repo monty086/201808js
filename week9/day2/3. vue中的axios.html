@@ -15,8 +15,6 @@
 <script>
     /* 
         axios.
-        
-    
     */
 
     var url=' https://www.easy-mock.com/mock/5ab497e674cb3a490381870f/api';
@@ -47,11 +45,13 @@
         Promise.reject(rej)
     });
 
-    axios.get(getUrl).then(res=>{
+    axios.get(getUrl,{name:'zf'},{
+        
+    }).then(res=>{
 
-    })
+    });
+    
     axios.post(postUrl,{name:'zf'}).then(res=>{
         console.log(res);
-        
     })
 </script>
