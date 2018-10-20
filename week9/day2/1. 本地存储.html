@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /* 
+        localStorage sessionStorage cookie session
+
+        存储
+        【短时存储，长时存储】
+        长时存储：数据库 
+        短时存储：一般用于保存在本地【本地存储】
+
+        本地存储：
+
+        1. 离线缓存：mainfest: h5推出离线缓存，使用多用于移动端，用户打开页面，我可以通过这个api将页面保存在本地，当用户断网以后，我可以查看这个页面其他信息。这项技术不成熟，我们还需要搭配原生app进行缓存；
+
+        本地缓存
+
+        1. localStorage ：本地永久存储，我们可以通过这个api将数据永久存储到本地，没有过期时间，【但是如果想要访问存储的信息，不能跨域【域名】或者跨浏览器访问】，清除的话需要手动清除，存储大小有5m【其他浏览器分别是2m-10m不等，每个浏览器不同】；
+        2. sessionStorage ：本地会话存储，跟localStorage基本一样，不一样的是，它属于浏览器会话存储【打开浏览器页面，当前页面存储，关闭页面就没有了】
+
+        本地数据库  =>缓存数据
+        3. indexedDB: 本地数据库 H5新推出的本地数据库，存储大小在250m以上，会有一些表结构，【也是用js来操作的】
+        4. web SQL ：本地数据库
+
+        用户和服务端交互的存储信息
+        5. cookies：本地存储的信息，通常我们用cookies保存的数据和服务端进行交互，cookie只能保存4kb【英文是1b，汉字2b】，而且cookie还有 过期时间，当前域，是否允许访问/修改，...其他操作 
+
+        本地缓存
+        cache Storage 本地缓存信息 ，一般用户缓存页面
+        application cache 本地缓存信息
+
+        服务器存储
+
+        session
+        服务器用来存储信息的，和客户端的cookie是相互关联，可以设置session的大小时间及其他信息。会相对应的影响客户端的cookie
+
+        什么情况下使用本地存储？
+        当a页面想要访问b页面的信息的，我们可以将b页面的数据通过本地存储保存在本地，当a页面访问时，直接去本地取就可以了，【必须是一个网址，同浏览器】
+        登录注册
+        购物车
+        点击页面跳转之后再返回
+
+        localStorage
+        存储大小5m
+        没有过期时间可以永久存储
+        跟服务器没关系
+
+        cookies
+        大小为4kb
+        有过期时间
+        可以和服务器进行交互
+
+        共同点：只能再当前域和当前浏览器下进行保存
+        开启谷歌浏览器无痕模式【shift+ctrl+n】,不会记录cookie，但是会记录localStorage
+        清除浏览器缓存，会默认清除cookie，不会清除localStorage【分情况】
+
+
+        登录注册：当用户属于用户名密码发送到服务端之后，服务端拿到用户名密码到数据比对，比对成功之后，给客户端种cookie【设置一个响应头，set-cookie：[cookie权限信息]，返回给客户端】，客户端拿到这个响应头自动会将这个cookie设置到本地，下次再访问这个网址的其他页面，或者调取ajax接口，会自动带有本地的全部cookie信息，当服务端拿到这个请求头的的cookie信息，验证通过之后，允许将数据返回给你；
+
+        服务端可以设置一个过期时间比如10分钟，当客户端10分种内没有访问服务端，则需要重新登录。
+
+        localStorage.setItem(key,value) // 设置数据
+        localStorage.getItem(key);  // 获取某一条数据
+        localStorage.removeItem(key);  // 移除某一条数据
+        localStorage.clear()   // 全部清空
+
+        document.cookie  // 获取的时候，是把所有的信息都返回回来
+        document.cookie='key=value' // 设置cookie；需要用这种方式进行设置，而且每次只能设置一条，这里的设置不属于赋值，属于添加；设置和发送cookie的方式不一样是因为和http协议中客户端和服务端交互时传输的cookie方式一样。
+
+    
+     */
+</script>
