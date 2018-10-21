@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="app">
+        {{msg}}
+        <div ref='idha'>haha</div>
+        <li v-for='item in msg' ref ='a'></li>
+    </div>
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            msg:'zf',
+            
+        },
+        // 初始化实例，添加一些方法
+        beforeCreate(){
+            // debugger
+        },
+        // 创建实例，添加data属性
+        created(){
+            // data数据加载之后，可以被ajax携带发送【post】=>{name:this.msg}
+            // 创建完实例之后，我们一般情况下在这个函数当中发送ajax请求  
+            // debugger
+        },
+        // 会进行判断，判断是否有 el 或者 $mount 挂载元素
+        // 如果有的话【挂载元素】再进行判断：是否有内部的template属性【替代根元素】，或者外部的html标签【#app】作为模板【template】
+        // 保证有了以后进行dom渲染
+
+        // template:'<h1></h1>'
+        // 保证上面渲染成功执行这个钩子函数
+        beforeMount(){
+
+        },
+        // 挂载元素,有了根元素
+        mounted(){
+            // 再这个函数当中，我们可以操作这个根元素内部的标签
+            // 通常我们再这个函数中操作dom
+            //this.$refs.xxx.style.color = xxx
+            // dom-diff ：计算让dom操作性能消耗的更少
+            console.log(this.$refs);
+        },
+
+        // 所有数据改变都回触发 ，可以用watch代替  
+        // 数据发生改变，执行这个方法
+        beforeUpdate(){
+
+        },
+        // 当虚拟dom 重新渲染之后，再执行upadated
+        updated(){
+
+        },
+        
+        // 实例销毁之前
+        beforeDestroy(){
+            console.log(1);
+            // 清除一些绑定的事件，定时器，变量堆内存，
+        },
+        // 【移除所有的子组件、监听者、事件】 实例销毁之后
+        destroyed(){
+            console.log(2);
+            // 数据发生改变，页面不能识别
+        }
+    }).$mount('#app');
+
+    vm.$destroy() // 销毁实例
+    /* 
+        vue创建也有生命周期的过程，包括从 数据渲染，编译模板，实例挂载dom元素，跟新数据，卸载根元素，都会触发一系列生命周期不同时器的钩子函数 
+
+        beforeCreate  created  // 实例初始化    实例创建之后
+        beforeMount mounted   // 实例挂载dom之前   挂载dom之后
+        beforeUpdate updated  //  数据跟新之前    数据跟新之后
+        beforeDestroy destroyed // 实例销毁之前   实例销毁之后 
+
+        // 创建vue，1. 给实例添加方法  
+    */
+</script>

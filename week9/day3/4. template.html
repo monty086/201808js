@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <input type="checkbox" v-model='flag'>
+        <!-- template是一个空的包裹标签，没有实际意义，浏览器不会对其渲染，v-show 不识别  -->
+        <template v-if='flag'>
+            {{msg}}
+        </template>
+        <template v-else>
+            china
+        </template>
+    </div>
+</body>
+
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    let obj = '<h1>11222333</h1>'
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            msg: 'zhufeng',
+            flag: ''
+        },
+        // template作为vue的一个选项的时候，属于当前组件【Vue的构造函数】的一个模板，如果当前组件有挂载的元素，【template对应的属性值元素】会替换掉【当前挂在的元素 #app】
+        // template对应的属性值元素，只能有一个总元素【最大的父级】,可以对里面的多个标签进行包裹
+        //    template:'<div><h1>{{msg}}</h1><h1>china</h1></div>'
+        template: obj,
+    })
+
+</script>

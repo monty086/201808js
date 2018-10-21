@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <input type="text" v-model='msg'>
+        数量是:{{msg}}
+        总价是:{{price}}
+
+        <div>
+            <input type="text" v-model='first'>
+            <input type="text" v-model='last'> 
+            <!-- {{first}} · {{last}}    -->
+            {{fullName}}
+        </div>
+    </div>   
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+   let vm = new Vue({
+       el:'#app',
+       data:{
+           msg:'',
+           iphoneX:1000,
+           price:'',
+           first:'',
+           last:''
+       },
+       // watch 是vue当中的一个选项，它是用来监听数据，只要数据发生变化，自动会执行watch对应的方法
+       watch:{
+          // watch对应的函数名必须和数据属性名一样的才会生效
+          // watch对应的参数，参数1是新改变的值，参数2是之前的值
+          // watch监听的函数，如果对应的值没有改变，或者改变和原来一样，都不会触发当前函数
+          // return没有意义
+          // watch一次只能监听一个数据，computed可以监听多个数据
+          msg(newValue,oldValue){
+            //   console.log(arguments);
+            setTimeout(() => {
+                this.price = this.iphoneX * Number(this.msg) 
+            }, 1000);
+            //   return newValue+oldValue
+          },
+       },
+       computed:{
+           fullName(){
+               return this.first + '·' + this.last
+           }
+       },
+       // 生命周期
+       // 当全局数据改变执行这两个生命周期对应的钩子函数
+       // 监听所有的数据，watch只能监听一个数据，computed可以监听多个数据
+       beforeUpdate(){
+           console.log(arguments);
+       },
+       updated(){
+           console.log('改变后');
+       }
+
+   })
+    
+</script>

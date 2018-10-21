@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <select name="" id="" v-model='msg' >
+            <option value="" disabled >请选择</option>
+            <option value="m">男</option>
+            <option value="n">女</option>
+            <option value="undefined">未定义</option>
+        </select>
+        
+        <input type="radio" v-model='sex' value='m'> 男
+        <input type="radio" v-model='sex' value='n'> 女
+
+        <input type="checkbox" v-for='item in ary' > 
+        <input type="text">
+
+    </div>
+    
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+
+    /* 
+        select
+        radio
+        checkbox
+    */
+   let vm = new Vue({
+       el:'#app',
+       data:{
+           msg:'',
+           sex:'m',
+           ary:['x','y','z']
+       }
+   })
+    
+</script>

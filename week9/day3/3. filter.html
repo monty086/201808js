@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <!-- filters必须搭配管道符来使用，第二个值为filters当中执行的方法，默认将前面一个值当作参数传进去 ，这个方法加于不加括号都回执行，加括号是表明给其传参,函数当中必须有return ,表示计算后的结果展示到页面中-->
+        {{ msg | toFixed(3) | addName }}
+        {{ msg | toFixed }}
+        时间：{{hour | toZero}} : {{minute | toZero}} : {{second | toZero}}
+    </div>
+
+    <div id='box'>
+        {{ msg | toFixed(5) }}
+        <haha></haha>
+        <haha></haha>
+        <haha></haha>
+        <haha></haha>
+    </div>
+
+    <template>
+
+    </template>    
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    // 全局给Vue这个类上添加了一个过滤方法；让其他的Vue实例都可以使用
+    Vue.filter('toFixed',function(val,value){
+        return val.toFixed( value|| 2 )
+    })
+    Vue.component('haha',{
+        template:'<h1>haha</h1>'
+    })
+
+    new Vue({
+        el:'#app',
+        data:{
+            msg:500,
+            hour:5,
+            minute:9,
+            second:12,
+        },
+        // 过滤，一般情况下添加处理数据的一些方法
+        filters:{
+            toFixed(val,value){
+                console.log(arguments) //[500, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+                return val.toFixed(value || 2)
+            },
+            toZero(val){
+                return val<10?'0'+val:val;
+            },
+            addName(val){
+                return val+'zhufengpeixun'
+            }
+        }
+    })
+
+    // new Vue就是一个组件，组件当中的template就是当前组件的事例模板
+    new Vue({
+        data:{
+            msg : 400
+        },
+        // template:'<h1>112233 {{msg|toFixed(5)}} </h1>'
+    }).$mount('#box')
+
+//  
+   
+</script>
