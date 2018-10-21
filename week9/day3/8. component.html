@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <shop-header></shop-header>
+        <Hm></Hm>
+        <heade></heade>
+        <foote></foote>
+    </div>
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    let obj = {
+        haha:'hahazhufeng',
+        heihei:'heiheizhufeng'
+    }
+    
+    // 组件名可以随便定义,但是要注意规范
+    // 组件名注册的时候，可以用驼峰命名法，但在在展示的时候就需要用短横线进行隔开【短横线分隔命名】
+    Vue.component('shopHeader',{
+        data(){
+            return obj
+        },
+        template:'<h1>{{haha}}</h1>'
+    })
+    Vue.component('Hm',{
+        data(){
+            return obj
+        },
+        template:'<h1>{{heihei}}</h1>'
+    })
+
+    ////////////////////////////////////////////////////////////////
+    /* 
+        局部组件需要
+        1. 创建组件
+        2. 注册组件: 表示这个组件可以在vue【所挂载的dom】中使用
+        3. 引入组件: 在页面中展示 
+    */
+    let heade = {
+        data(){
+            return {msg:'我是头部信息'}
+        },
+        template:'<h1>{{msg}}</h1>'
+    }
+    new Vue({
+        el:'#app',
+        data:{},
+        components:{
+            // heade属于app下子组件
+            heade:heade,
+            foote:{
+                data(){
+                    return{msg:'我是底部信息'}
+                },
+                methods:{
+                    showBox(){
+                        alert('hehe')
+                    }    
+                },
+                template:'<a @click=\'showBox\'>{{msg}}</a>'
+            }
+        }
+    })
+
+    /* 
+        组件
+        组件是vue中的非常重要的一个部分，整个vue也可以算是一个组件，使用vue开发也属于组件化开发
+        组件分为 页面组件 和 基础组件 两步
+        页面组件：在项目当中，每一个展示的页面都可以算是一个组件 static文件【login页，home页，user页面，secondPage页面】
+        基础组件：将可复用的一些功能或者样式页面封装成一个组件，例如【header组件，footer组件，轮播图组件，选项卡组件】
+
+        组件也分为全局组件和局部组件
+    
+    */
+</script>

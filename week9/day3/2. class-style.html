@@ -19,15 +19,15 @@
 </head>
 <body>
     <div id='app'>
-        {{msg}}
+        <!-- {{msg}} -->
         <div class='a b c'>普通样式</div>
-        <div class='c' :class="classAry">数据类名</div>
+        <div  class='c' :class="classAry">数据类名</div>
         <div :class="{a:classA,b:true}">数据类名</div>
-        <div :class="computedClass">数据类名</div>
+        <div :class="computedClass">数据类名555</div>
 
-        <div style='fontSize:30px'>样式A</div>
-        <div :style='styleA'>样式B</div>
-        <div :style='styleB'>样式C</div>
+        <div  style='fontSize:30px'>样式A</div>
+        <div :style='styleB'>样式B</div>
+        <div :style='{styleA:true}'>样式C</div>
         <div :style='{color:"yellow",...styleB}'>样式D</div>
         <div :style='[styleA,styleC]'>样式E</div>
     </div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <grand-father></grand-father>
+    </div> 
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    var son = {
+        template:'<div>我是son</div>'
+    }
+    var father = {
+        components:{
+            son:son
+        },
+        template:'<div>我是你的father <son></son> </div>'
+    }
+    var grandFather = {
+        components:{
+            father:father
+        },
+        template:'<div>我是你的grandFather: <father></father>  </div>'
+    }
+    new Vue({
+        el:'#app',
+        data:{},
+        components:{
+            grandFather
+        }
+    })
+
+</script>

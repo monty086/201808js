@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <p v-color.lazy>我是红色</p>
+        <p v-drag>我是红色</p>
+        <a v-drag href.prevent="www.baidu.com">baidu</a>
+        <div>hahah</div>
+    </div>    
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+
+<script>
+    // 全局指令名 'xxx' => 页面上表示 v-xxx
+    // Vue.directive('color',function(ele,option){
+    //     console.log(arguments);
+    //     ele.style.color = 'red'
+    // })
+    // 
+    new Vue({
+        el:'#app',
+        data:{},
+        methods:{},
+        computed:{},
+        watch:{},
+        filters:{},
+        directives:{
+            // directives 属于局部指令，我们可以再这个对象当中添加我们定义的指令，它可以是一个对象【需要再对象当中插入方法】，也可以是一个函数【bind和update方法】
+            drag:{
+                inserted:function(ele,option){
+                    // console.log(arguments);
+                    ele.style.position = 'absolute';
+                    ele.onmousedown = function(e){
+                        // 鼠标距离盒子的距离【上和左】
+                        let left = e.clientX - this.offsetLeft;
+                        let top = e.clientY - this.offsetTop;
+                        e.preventDefault()
+                        document.onmousemove = function(e){
+                            ele.style.left = e.clientX - left + 'px';
+                            ele.style.top = e.clientY - top +'px'
+                        }
+                        document.onmouseup = function(){
+                            document.onmousemove = document.onmouseup = null;
+                        }    
+                    }
+                }
+            },
+            color(ele,option){
+                console.log(arguments);
+                ele.style.color = 'red'
+            }
+            
+        }, // 自定义指令
+        components:{}, // 组件
+        // template:'xxx',
+        beforeCreate(){},
+        created(){},
+        beforeMount(){},
+        mounted(){},
+        beforeUpdate(){},
+        updated(){},
+        beforeDestroy(){},
+        destroyed(){}
+    })
+
+    /* 
+        再vue当中，有一些vue提供的内置的指令
+        自己创建一个指令=>自定义指令 directives
+    
+    */
+
+</script>
