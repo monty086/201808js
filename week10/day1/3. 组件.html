@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <shop-header></shop-header> 
+        <!-- <child><div>112233</div></child>        -->
+        <child></child>  
+        <parent></parent>         
+    </div>
+    <template id='box'>
+        <div>111</div>
+    </template>            
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    // shopHeader [定义]  shop-header[展示]
+    // 全局组件是不需要注册的【vue的选项components】
+    Vue.component('shopHeader',{
+        // 对象当中有选项，和vue当中的选项差不多一样。
+        template:'#box'
+    })
+
+    // 组件是有html+css+js => xxx.vue
+    // 组件分为 页面组件和基础组件
+    // 页面组件：形成我们展示的页面 , static 静态页面
+    // 基础组件：重复的内容，只需要给组件传输数据改变它的值 ，components，基础组件
+
+    // 局部组件
+    // 实现局部组件三部曲，创建、注册、使用
+    let child = {
+        // data不是一个对象，防止其他vue实例调用的时候，只要组件当中发生改变，其他的vue实例也会收到影响
+        // data(){},
+        // data:{data:1},
+        data(){
+            return {
+                msg:'zf'
+            }
+        },
+        template:'<div>{{msg}}</div>'
+    }
+    let parent ={
+        data(){
+            return {
+                msg:'zf'
+            }
+        },
+        template:'<div>parent<child></child></div>',
+        components:{
+            child
+        }
+    }
+
+    new Vue({
+        el:'#app',
+        data:{
+            name:'china'
+        },
+        // 注册 
+        components:{
+            child,parent
+        }
+    })
+
+    // new Vue({
+    //     el:'#app2',
+    //     data:{
+
+    //     },
+    //     // 注册 
+    //     components:{
+    //         child,
+    //     }
+
+
+    // })
+</script>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <table class="table table-border">
+                    <tr>
+                        <td>
+                            <input type="checkbox" v-model='checkAll' @change='changeAll'>全选
+                        </td>
+                        <td>产品</td>
+                        <td>价格</td>
+                        <td>数量</td>
+                        <td>小计</td>    
+                        <td>操作</td>
+                    </tr>
+                    <tr v-for='(item,index) in products'>
+                        <td><input type="checkbox" v-model='item.isSelected' @change='checkOne'></td>
+                        <td><img :src="item.productCover" :alt="item.productName" ></td>
+                        <td>{{item.productPrice}}</td>
+                        <td><input type="number" v-model='item.productCount' style='width:50px' min=0 ></td>
+                        <td>{{item.productPrice * item.productCount | toFixed }}</td>
+                        <td><button @click='removeItem(index)'>删除</button></td>  
+                    </tr>
+                    <tr>
+                        <td>总价格：{{sum | toFixed}}</td>   
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script src='node_modules/axios/dist/axios.js'></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            products:[],
+            checkAll:'',
+        },
+        watch:{
+        },
+        computed:{
+            sum(){
+                // reduce 
+                return this.products.reduce((prev,next)=>{
+                    if(!next.isSelected){return prev}
+                    // 第一次循环的时候把产品价格和产品数量的积给prev
+                     return prev+ next.productPrice * next.productCount
+                },0)// 0就是上一次的计算结果    
+            }
+        },
+        methods:{
+            changeAll(){
+                this.products.forEach(item => {
+                    item.isSelected = this.checkAll    
+                });
+            },
+            checkOne(){
+                this.checkAll = this.products.every(item=>{
+                    return item.isSelected
+                })
+            },
+            removeItem(i){
+                //filter过滤 返回值=>数组
+                //i == 1 
+                this.products = this.products.filter((item,index)=>{
+                    // index=>1  i => 1  return 后面为false为了删除这一项 ，返回一个修改后的数组
+                    return index !== i
+                })
+
+            }
+        },
+        filters:{
+            toFixed(val,value){
+                return val.toFixed(value || 2)
+            }
+        },
+        created(){
+            axios.get('./data.json').then(res=>{
+                if(res){
+                    this.products = res.data
+                }
+            })
+            this.checkOne()
+        }
+    })
+</script>

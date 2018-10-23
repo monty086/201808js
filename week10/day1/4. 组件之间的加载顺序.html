@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <parent></parent>
+    </div>
+
+    <!-- <script type='text/x-template' id='box'> -->
+    <!-- </script> -->
+    <template id='box'>
+        <!-- // template里面定义的标签，有且只能有一个 -->
+        <div>
+            <p v-for='item in msg' ref='aryP'>{{item}}</p>
+        </div>
+    </template>
+</body>
+
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    /* 
+        再加载vue的时候，会先加载子组件当中的dom，然后再去加载父级组件当中的元素，渲染dom属于异步渲染
+        为什么先加载子组件的dom再去加载父组件的dom，因为再父组件当中有可能去操作子组件当中的dom元素，如果子组件没有加载结束，父组件就拿不到子组件的元素
+     */
+    let parent = {
+        mounted() {
+            console.log('我是子组件');
+            this.msg.push(5,6)
+            console.log(this.$refs.aryP.length) // length 3 
+            // 渲染dom属于异步操作
+            // $nextTick:当所有的dom元素加载结束之后，才会取执行这个方法，而且它也是异步执行
+            // 总结：只要想操作dom，我们可以再$nextTick回调函数当中操作
+            this.$nextTick(function(){
+                console.log(this.$refs.aryP.length)
+            })
+        },
+        data() {
+            return {
+                msg: [1, 2, 3]
+            }
+        },
+        template: '#box',
+        methods:{
+            fn(){
+                this.$nextTick()
+            }
+        }
+    }
+
+   var vm = new Vue({
+        // a:1,
+        el: '#app',
+        data: {
+            name: 'china'
+        },
+        mounted() {
+            // 挂载完根元素就会执行这个方法
+            // this 
+            // 官网：mounted方法执行不能保证所有的dom都渲染完成,不能保证所有的子组件都加载完成，需要搭配使用$nextTick方法来操作dom
+            // 一般情况下我们不会再vue选项当中直接使用实例vm，我们会用this
+            /* 
+                this.$el // 拿到挂载的元素
+                $nextTick // 所有dom加载完成后执行
+                $mount // 设置挂载的根元素
+                $data  // 拿到实例上的数据
+                $set   // 设置实例的上的数据
+                $watch  // 监听数据
+                $on  // 订阅
+                $emit  // 发布
+                $options // 拿到实例上的属性
+            
+             */
+
+            console.log(this.$options);
+            
+            console.log(vm===this);// false
+            this.$nextTick(function(){
+                console.log(vm===this);
+            })
+            console.log('我是父组件');
+        },
+        // template: '#box',
+        components:{
+            parent
+        }
+    })
+</script>

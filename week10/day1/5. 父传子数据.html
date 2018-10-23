@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{name}}
+        <!-- china -->
+        <!-- 使用冒号将属性值编程动态属性 -->
+        <child :data='name'></child>
+    </div>
+
+    <template id='box'>
+        <div>
+            {{data}}
+            <p v-for='item in msg' ref='aryP'>{{item}}</p>
+        </div>
+    </template>
+</body>
+
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+
+    let child = {
+        data() {
+            return {
+                msg: [1, 2, 3]
+            }
+        },
+        // 我们可以通过props拿到父组件传递过来的值data,这时候，data就变成子组件child的一个属性，可以通过this.data拿到这个值
+        // props:['data'],
+        // 如果props是一个对象，我们可以对父级传递的数据进行校验,相当于拦截器
+        props:{
+            data:{
+            //    type:Number
+                type:[Number,String,Boolean,Function,Object,Array,Symbol],
+                // 如果没传就用default，传了值就用传的值
+                default:'zhufeng', 
+                // 必须传值，不传报错
+                required:true,
+                // 校验器
+                validator(value){
+                    // 通过一个方法对传入的值做校验,返回true表示成功，可以传入，返回false，表示失败，会报错
+                    return value.length===5
+                }
+            }
+        },
+        template: '#box',
+        methods:{
+        }
+    };
+   var vm = new Vue({
+        el: '#app',
+        data: {
+            name: 'china'
+        },
+        mounted() { 
+        },
+        components:{
+            child
+        }
+    })
+    /* 
+        想要将父级的数据传递给子组件，通过子组件的标签进行传递
+    
+     */
+</script>
