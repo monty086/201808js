@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click='fatherFn'>显示/隐藏</button>
+        <child ref='childT'></child>   
+    </div>
+    <template id='box'>
+        <div v-show='flag'>
+            我是子组件当中的内容
+        </div>
+    </template>    
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    /* 
+        vue当中的数据是单向数据流，只能通过父传子这个方式进行传输数据。
+
+        【父传子】：子组件拿到父组件的数据，通过在子组件当中添加一个props，这个实时影响，【父组件的数据发生改变，子组件马上响应】
+        【子传父】：父组件想要拿到子组件的数据，我们通过vue提供发布订阅模式，执行父组件的方法，将子组件中的数据进行参数回传【this.$emit('事件名',数据)】
+        【父组件调用子组件的方法】：
+    
+     */
+    let child = {
+        template:'#box',
+        methods:{
+            fn(){
+                this.flag = !this.flag
+            }
+        },
+        data(){
+            return {flag:true}
+        }
+    } 
+    new Vue({
+        el:'#app',
+        components:{
+            child,
+        },
+        methods:{
+            fatherFn(){
+                console.log(this.$refs.childT);
+                // 获取到的是一个组件的实例，通过这个实例我们可以拿到组件上的数据、方法、元素
+                this.$nextTick(()=>{
+                    this.$refs.childT.fn() 
+                })
+                
+            }
+        }
+    })
+</script>

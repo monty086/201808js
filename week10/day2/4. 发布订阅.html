@@ -8,10 +8,11 @@
 </head>
 <body>
     <div id="app">
-        <child :n='msg'></child>   
+        <!-- 通过自定义事件【其实就是发布订阅当中的订阅】，将父级的方法订阅到方法名上面 -->
+        <child :n='msg' v-on:son-todo='fn'></child>   
     </div>  
     <template id='box'>
-        <div>
+        <div @click='childFn'>
             123
         </div>
     </template>         
@@ -37,6 +38,11 @@
             sum(){
                 return this.n+'zhufeng'
             }
+        },
+        methods:{
+            childFn(){
+                this.$emit('son-todo')
+            }
         }
     }
     // 父组件
@@ -48,11 +54,21 @@
         components:{
             child
         },
+        methods:{
+            fn(){
+                console.log('我是父组件的方法')
+            }
+        },
         mounted(){
             this
             // 
         }
     })
+
+    let study1 = function(){console.log('学习')}
+    // box.onclick = function(){}
+    vm.$on('休息',study1); // 订阅
+    vm.$emit('休息')  // 发布
 
 </script>
 

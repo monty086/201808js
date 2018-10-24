@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <!-- sync -->
+        <!-- 通过同步这个修饰符，可以实现简短父子传递的功能 -->
+        <!-- 需要注意的是在子组件当中，发布订阅当中的发布 this.$emit('update:n',xxx) -->
+        <!-- 父组件不用写方法和它对应，只需要提供数据名即可 -->
+        <!-- <child @son-data='item=>this.msg=item'  :n='msg'></child> -->
+        <!-- <child :n='msg' @update:n='item=>this.msg=item'  ></child> -->
+        <child :n.sync='msg'></child>
+    </div>
+    <template id='box'>
+        <div @click='childFn'>
+            123+{{n}}
+        </div>
+    </template>
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    // 让页面的msg显示子组件的数据zhufengpeixun
+    // 子组件
+    let child = {
+        template: '#box',
+        data() {
+            return {
+                name:'zhufengpeixun'
+            }
+        },
+        methods: {
+            childFn(){
+                // 在子组件当中，执行这个方法，触发发布订阅当中的【发布】
+                // 第二个参数就是传给【订阅】当中的每一个函数的实参
+                this.$emit('update:n',this.name)
+            }
+        },
+        props:['n']
+    }
+    // 父组件
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: '1234'
+        },
+        components: {
+            child
+        },
+        methods: {},
+    })
+</script>
