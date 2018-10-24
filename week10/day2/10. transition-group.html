@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.css">
+    <style>
+        html,body{
+            overflow: hidden;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click='flag=!flag'>{{flag?'变暗':'点亮'}}</button> 
+        <!-- <transition name='zf' enter-active-class='animated lightSpeedIn' leave-active-class='animated lightSpeedOut'>
+            <div v-show='flag'>你说我呢？</div>
+        </transition> -->
+        
+        <transition-group enter-active-class='animated lightSpeedIn' leave-active-class='animated lightSpeedOut' v-show='flag'>
+            <!-- 如果有循环元素，需要添加一个key值来进行区分 -->
+            <div v-for='(item,index) in ary' :key='index' :style='styleA' @click='fn(index)'>{{item.name}}
+              <transition enter-active-class='animated rubberBand'>
+                  <div v-show='item.selected'>-------</div> 
+              </transition>      
+            </div>
+        </transition-group>
+    </div>
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            flag: false,
+            ary:[
+                {name:'选项一',selected:true},
+                {name:'选项二',selected:false},
+                {name:'选项三',selected:false}
+            ],
+            styleA:{
+                float:'left',
+                margin:'0 10px',
+            }
+        },
+        methods:{
+            fn(i){
+                this.ary.forEach((item,index)=>{
+                    if(index==i){
+                        item.selected=true
+                    }else{
+                        item.selected=false;
+                    }
+                })
+            }
+        }
+    })
+</script>

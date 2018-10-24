@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 从进入的时候显示的样式 */
+        .zf-enter{
+            opacity: 0;
+        }
+        /* 我们设置动画进去的状态效果，默认最后显示全亮 */
+        .zf-enter-active{
+            transition: all 1s linear;
+        }
+        /* 离开的时候，让动画继续，最后的效果是opacity=0 */
+        .zf-leave-active{
+            transition: all 1s linear;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 组件都是标签，transiton也是一个组件，想让谁动画，就给谁添加transtion -->
+        <button @click='flag=!flag'>{{flag?'变暗':'点亮'}}</button> 
+        <transition name='zf' >
+            <div v-show='flag'>你说我呢？</div>
+        </transition>   
+    </div>
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            flag: false,
+        },
+    })
+</script>

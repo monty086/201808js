@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="radio" v-model='n' value='home'>home
+        <input type="radio" v-model='n' value='list'>list
+        <!-- {{n}} -->
+        <!-- component它是一个容器，判断那个组件放在里面 -->
+        <!-- 点击切换组件的时候，消失的组件属于销毁，会触发vue销毁的钩子函数，又因为组件销毁耗费的性能更高，所有我们可以给它外面包一层 keep-alive -->
+        <keep-alive>
+            <!-- 默认将组件缓存到本地 -->
+            <!-- keep-alive的意思是让组件切换的时候走缓存【前提会先将组件缓存到本地】 -->
+            <component :is='n' :m='n'></component>   
+        </keep-alive>  
+        <!-- keep-alive 会将组件缓存下来，让我们切换的时候会自动走缓存，这样的话，组件就不会重新加载了，就导致组件当中钩子函数不会执行 -->
+    </div>
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    let home = {
+        template:'<div>home</div>',
+        destroyed(){console.log('home销毁')},
+        // props:['m'],
+        // computed:{
+        //     sum(){
+        //         return this.m+'11'
+        //     }
+        // }
+    }
+    let list = {template:'<div>list</div>',destroyed(){console.log('list销毁')}}
+    new Vue({
+        el:'#app',
+        data:{
+            n:'home'
+        },
+        components:{
+            home,list
+        }
+    })
+</script>
