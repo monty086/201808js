@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <child></child>   
+        <son></son>      
+    </div>
+    <template id='son'>
+        <!-- 
+            1. 组件模板当中必须是一个标签
+            2. template是vue当中的一个内置的组件，它是一个包裹的空元素，它不会被渲染
+            3. 在template组件模板当中，有且只能有一个标签，如果你想用多个标签需要搭配v-if 条件判断来使用
+         -->
+        <div>
+            {{msg}}
+        </div>
+        <!-- <div>789</div> -->
+    </template>              
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    // 组件的表现形式就是一个标签
+    // 创建
+    let son = {
+        template:'#son',
+        data(){
+            return {
+                msg:'zhufeng'
+            }
+        }
+    };
+    let child = {template:'<div>123</div>'}
+
+    new Vue({
+        el:'#app',
+        components:{
+            // 注册
+            child,son
+        }
+    })
+
+</script>

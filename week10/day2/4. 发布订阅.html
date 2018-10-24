@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <child :n='msg'></child>   
+    </div>  
+    <template id='box'>
+        <div>
+            123
+        </div>
+    </template>         
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+  
+    let child = {
+        template:'#box',
+        // 通过属性props承接，属性值是一个数组【接收多个父级传来的数据】
+        // props所对应的属性值，必须是一个数组或者是一个对象
+        props:['n'],
+        mounted(){  
+        },
+        // 通过这两种方式可以给传入进来的值改名【官推】
+        data(){
+            return {
+                name:this.n
+            }
+        },
+        computed:{
+            sum(){
+                return this.n+'zhufeng'
+            }
+        }
+    }
+    // 父组件
+    var vm = new Vue({
+        el:'#app',
+        data:{
+           msg:'1234'
+        },
+        components:{
+            child
+        },
+        mounted(){
+            this
+            // 
+        }
+    })
+
+</script>
+
+<script>
+    // 发布 和 订阅
+    // on 向相对应的事件池添加方法
+    // emit 执行指定事件池当中的方法
+   /*  let cb = $.Callbacks();
+    cb.add()
+    cb.remove()
+    cb.fire()
+    cb.clear()
+
+    on('事件名',方法名)
+    fire('事件名')
+    remove('事件名',方法名) */
+    // 事件名：休息日
+    // 方法：学习 、听歌、 睡觉 
+    let study = function(name){console.log(name+'学习')}
+    let listen = function(name){console.log(name+'听歌')}
+    let sleep = function(name){console.log(name+'睡觉')};
+
+    class $vue{
+        constructor(){
+            this.eventName=[]
+        }
+        on(evName,...fn){
+           if(this.eventName[evName]){
+              fn.forEach(item=>{
+                this.eventName[evName].push(item)
+              }) 
+           }else{
+              this.eventName[evName]=[...fn]
+           } 
+        }
+        emit(evName,value){
+            if(this.eventName[evName]){
+                this.eventName[evName].forEach(item=>item(value))
+            }
+        } 
+    }
+    let $ = new $vue()
+    $.on('休息日',study,listen,sleep)
+    $.emit('休息日','小wang')
+</script>

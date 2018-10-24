@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 父组件向子组件传递数据，通过在子组件的标签上添加动态的属性进行传递，属性名在子组件内部的属性，属性值是父组件当中数据 -->
+
+        <a v-bind:href="msg"></a>
+        <!-- 通过这种方式【动态属性】来定义，msg就表示父组件的数据，n就表示在子组件的一个属性变量【前提：子组件必须有props属性进行承接】 -->
+        <child :n='msg'></child>   
+    </div>  
+    <template id='box'>
+        <div>
+            123
+            <!-- {{msg}} -->
+        </div>
+    </template>         
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    /* 
+
+     */
+    // 子组件
+    let child = {
+        template:'#box',
+        // 通过属性props承接，属性值是一个数组【接收多个父级传来的数据】
+        // props所对应的属性值，必须是一个数组或者是一个对象
+        props:['n'],
+        mounted(){
+            console.log(this.n);
+        }
+    }
+    // 父组件
+    new Vue({
+        el:'#app',
+        data:{
+           msg:'zhufeng'
+        },
+        components:{
+            child
+        }
+    })
+
+</script>
