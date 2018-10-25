@@ -65,6 +65,6 @@ node 导入导出
 安装的模块
 
 ```
-npm install babel-core babel-loader css-loader style-loader less less-loader babel-preset-es2015 babel-preset-stage-0 webpack-dev-server html-webpack-plugin vue-loader --save-dev
+npm install babel-core babel-loader css-loader style-loader less less-loader url-loader babel-preset-es2015 babel-preset-stage-0 webpack-dev-server html-webpack-plugin vue-loader --save-dev
 
 ```
