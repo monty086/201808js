@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        小米手机8
+        ￥：100
+        <child :num='msg' @child-num='sum'></child>
+    </div> 
+    <template id='box'>
+        <div>
+            总价格：{{num}}
+            <input type="text" v-model='s' @input='changeInput'> 数量
+        </div>
+    </template>       
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    let child = {
+        template:'#box',
+        props:['num'],
+        data(){
+            return {s:0}
+        },
+        methods:{
+            changeInput(){
+                this.$emit('child-num',Number(this.s))
+            }
+        }
+    }
+    new Vue({
+        el:'#app',
+        data:{
+            msg:100
+        },
+        components:{
+            child,
+        },
+        methods:{
+            sum(val){
+                this.msg = 100 * val;
+            }
+        }
+    })
+</script>

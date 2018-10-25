@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <brother1></brother1>
+        <brother2></brother2>
+    </div>
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script>
+    /* 
+        事件车【eventBus】：它是通过发布订阅的模式，将数据共享到另外一个vue实例当中，调用的时候直接拿去即可
+        【业务逻辑多的，不建议使用这种方式】
+    */
+    let vm = new Vue()
+    let brother1 = {
+        created(){
+            vm.$on('mountain',this.where)
+        },
+        data(){
+            return {
+                msg:'长城'
+            }
+        },
+        template:'<div>咱们去{{msg}} <button @click="fn">去长城吧</button></div>',
+        methods:{
+            where(val){
+                this.msg= val
+            },
+            fn(){
+                vm.$emit('greatWall','长城')
+                vm.$emit('mountain','长城')
+            }
+        }
+    }
+    let brother2 = {
+        created(){
+            vm.$on('greatWall',this.where)
+        },
+        data(){
+            return {
+                msg:'香山'
+            }
+        },
+        template:'<div>咱们去{{msg}} <button @click="fn">不行！得去香山</button></div>',
+        methods:{
+            where(val){
+               this.msg =val 
+            },
+            fn(){
+               vm.$emit('mountain','香山');
+               vm.$emit('greatWall','香山')
+            }
+        }
+    }
+
+    new Vue({
+        el:'#app',
+        components:{
+            brother1,brother2,
+        }
+    })
+</script>

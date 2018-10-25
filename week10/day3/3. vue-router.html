@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <!-- <a href="###">xxx</a> -->
+        <!-- <a href="#/home">首页</a>
+        <a href="#/list">列表页</a> -->
+        <router-link to='/home'>首页</router-link>
+        <router-link to='/list'>列表页</router-link>
+        <!-- 路由匹配的组件显示在这 -->
+        <router-view></router-view>
+    </div>
+</body>
+
+</html>
+<script>
+
+    /* 
+        vue属于渐进式框架，如果只开发一个单页，也可以不去引入vue-router这个文件
+        vue 全家桶  vue.js vue-router vuex axios webpack 
+        
+        如果我们开发项目的时候，考虑到页面的跳转，组件的加载，我们可以用到vue-router【路由】
+
+        vue是spa【single page application】单页面应用 ，只有一个html文件，只改变页面当中让组件进行切换
+
+        vue-router主要是让组件按照规定的路由地址进行显示或隐藏
+
+        使用vue-router 需要安装vue-router
+        npm install vue-router
+
+        页面跳转分为
+        #/xxx 【哈希模式跳转】 :一般我们开发的时候多会用到，【点击跳转的时候，不会跳转到其他页面】，上线的时候一般不用这种模式，因为不方便seo
+
+        /xxx  【传统模式的路径】 : 是h5提供的history.pushState('','','/aaa')一般我们在上线的时候，会用到这种模式进行跳转 【缺点：如果在开发的时候，用这种模式配置路由，会找到页面】 
+
+        vue-router 也是默认用的哈希模式路由跳转
+        前端后分离：前端只处理路由跳转、页面逻辑、页面渲染样式，后端只处理数据接口
+
+        所有前后端分离的项目都不方便做seo优化，不能够被搜索引擎的爬虫搜索到，然后首页然后后端提供，其他页面还是通过路由切换
+    
+     */
+</script>
+
+<script src='node_modules/vue/dist/vue.js'></script>
+<!-- vue-router必须在vue下面，要保持依赖关系 -->
+<script src='node_modules/vue-router/dist/vue-router.js'></script>
+
+<script>
+    // 创建2个组件
+    let home = {
+        template: '<div>首页</div>',
+        // 切换路由被销毁
+        destroyed() {
+            alert('ahah')
+        }
+    }
+    let list = { template: '<div>列表页</div>' }
+
+    // 创建组件所对应的映射表，[访问什么路径跳转什么组件]
+    let routes = [
+        { path: '/home', component: home },
+        { path: '/list', component: list }
+    ]
+    // 将路由的映射表放入vue-router提供的自定义类当中
+    let router = new VueRouter({
+        routes: routes,
+        // mode:'history', //h5提供的方法 history.pushState(),不能回车跳转，只有上线的时候，才会用到
+        linkActiveClass: 'active'
+    })
+
+    new Vue({
+        el: '#app',
+        router
+    })
+</script>
