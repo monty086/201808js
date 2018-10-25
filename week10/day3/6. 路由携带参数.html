@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    <router-link :to='{path:"/artical/1"}'>文章1</router-link>
+    <router-link :to='{path:"/artical/2"}'>文章2</router-link>
+    <router-link :to={path:"/artical/5",params:{c:haha}}>文章3</router-link>
+    <!-- <router-link :to='{path:"/artical",params:{c:2}}'>文章2</router-link> -->
+     <router-view></router-view>
+    </div>
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script src='node_modules/vue-router/dist/vue-router.js'></script>
+
+<script>
+    // 创建组件
+    let artical = {template:'<div>文章标题：{{$route.params.c}}</div>',
+        mounted(){
+            console.log(1);
+            console.log(this.$route);
+        },
+        // beforeUpdate(){
+        //     console.log(this.$route);
+        // },
+        watch:{
+            $route(){
+                console.log(this.$route);
+            }
+        }
+
+    }
+    // 创建路由映射表
+    let routes = [
+        // 如果在/后面添加:，相当于后面的值，我们可以通过路由的参数取到这个值
+        // $route.params  // 携带的参数是什么【属性】
+        // $router.push() // 跳转 【方法】
+        {path:'/artical/:c',component:artical,name:'haha'}  
+    ];
+    // 将映射表放到路由的类里面
+    let router = new VueRouter({
+        routes,
+    })
+    // 将路由的实例放到vue的实例上
+    let vm = new Vue({
+        el:'#app',
+        router,
+    })
+</script>

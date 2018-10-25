@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- // to ='/home' -->
+        <!-- // {path:'/home',params:{c:1}} -->
+        <router-link :to='{path:"/home"}'>首页</router-link>
+        <router-link :to='{path:"/list"}'>列表页</router-link>
+        <router-view></router-view>
+    </div>
+    <template id='list'>
+        <div>
+            欢迎你
+            <!-- /list/order -->
+            <router-link to='/list/order'>订单管理</router-link> 
+            <router-link to='/list/user'>人员管理</router-link> 
+            <router-view ></router-view> 
+        </div>
+    </template>
+</body>
+</html>
+<script src='node_modules/vue/dist/vue.js'></script>
+<script src='node_modules/vue-router/dist/vue-router.js'></script>
+
+<script>
+    // 创建组件
+    let home = {template:'<div>home</div>'}
+    let list = {template:'#list'}
+    let order = {template:'<div>order</div>'}
+    let user = {template:'<div>user</div>'}
+    let error = {template:'<div>404</div>'}
+    // 创建路由映射表
+    let routes = [   // 页面级的路由映射
+        {path:'/home',component:home},
+        {path:'/list',component:list,children:[
+            {path:'order',component:order},
+            {path:'user',component:user,
+            // children:[
+            //     // {path:'404',component:error}
+            // ]
+            }
+        ]}
+
+    ];
+    // 将映射表放到路由的类里面
+    let router = new VueRouter({
+        routes,
+    })
+    // 将路由的实例放到vue的实例上
+    let vm = new Vue({
+        el:'#app',
+        router,
+    })
+</script>
