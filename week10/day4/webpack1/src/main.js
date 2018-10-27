@@ -1,14 +1,28 @@
-// alert('打包成功')
-import sum from './a.js';  // 求平均数用的
 
-let a = sum('1',2,3,4,5);
+import Vue from 'vue';
+// vue 分为2个部分，一个 runtime 
+// 必须要用一个函数 render：funciton
 
-console.log(a);
+// 另一个是 compiler vue实例上的 解析 template
+import App from './App.vue';
 
-let c = b=>d=>e=>b+d+e;
-let x = c(1)(2)(3);
+// router
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);// 将 router-link 和 router-view 变成全局组件
+import Home from './page/home.vue';
+let routes = [
+    {path:'/home',component:Home}
+];
+let router = new VueRouter({
+    routes,
+})
 
-console.log(x);
+new Vue({
+    el:'#app',
+    render: h=>h(App),
+    router
+})
+
 
 
 
