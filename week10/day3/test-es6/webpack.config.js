@@ -16,7 +16,7 @@ module.exports = {
             {test:/\.css$/,use:['style-loader','css-loader']},
             {test:/\.less$/,use:['style-loader','css-loader','less-loader']},
             {test:/\.(png|jpg|jpeg)$/,use:'url-loader?limit=8000'},
-            // {test:/\.vue$/,use:'vue-loader'},
+            {test:/\.vue$/,use:'vue-loader'},
         ]
     },
     plugins:[
