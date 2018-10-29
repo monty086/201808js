@@ -7,7 +7,11 @@
             <Swiper></Swiper>  
             <h3>热门图书</h3>
             <ul>
-                <li></li>
+                <li v-for='(item,index) in books' :key='index'>
+                    <img :src="item.bookCover" :alt="item.bookInfo">
+                    <div>{{item.bookName}}</div>
+                    <div>￥：{{item.bookPrice}}</div>
+                </li>
             </ul>   
         </div>
     </div>
@@ -21,11 +25,13 @@
     export default {
         created(){            
             hotbooks().then(res=>{
-                console.log(res);
+                this.books = res;
             })
         },
         data(){
-            return {}
+            return {
+                books:[]
+            }
         },
         methods:{
 
@@ -39,8 +45,18 @@
 // 样式一本会适配到全局上，需要加一个属性scoped[表示当前的样式只再这个模板上用]
 <style scoped lang='less'>
     #box{
-        h1{
-            color:red;
-        }
+       h3{
+           line-height: 30px;
+            margin-left:15px;
+       }
+       ul li{
+           float:left;
+           width:50%;
+           box-sizing: border-box;
+           padding:10px;
+           img{
+               width: 120px;
+           } 
+       }
     }
 </style>

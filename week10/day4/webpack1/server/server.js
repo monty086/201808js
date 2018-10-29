@@ -15,8 +15,27 @@ let server = http.createServer((req,res)=>{
     if(pathname==='/hotbooks'){
         res.setHeader('content-type','application/json;charset=utf8');
         let books = fs.readFileSync('./book.json','utf-8');
-        
         res.end(JSON.stringify(books))
+        return;
+    }
+    // 收藏书籍
+    
+    if(pathname === '/collectbook'){
+        var str = ``;
+        req.on('data',res=>{
+            str+=res
+        });
+        req.on('end',re=>{
+        console.log(str);
+            var newStr = JSON.parse(str);
+            let ary = fs.readFileSync('./collectBook.json','utf-8');
+            ary = JSON.parse(ary);
+            ary.push(newStr)
+            console.log(ary);
+            
+            fs.writeFileSync('./collectBook.json',JSON.stringify(ary),'utf-8',)
+            res.end()
+        })
     } 
 });
 

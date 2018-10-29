@@ -5,9 +5,9 @@
                 <i class="iconfont icon-yidiandiantubiao04"></i>
                 首页
             </router-link>
-            <router-link to='/list'>列表</router-link>
+            <router-link :to='{name:"mList",params:{title:"列表页"}}'>列表</router-link>
             <router-link to='/collect'>收藏</router-link>
-            <router-link to='/user'>个人</router-link>
+            <router-link to='/add'>增加</router-link>
         </div>
     </div>
 </template>
