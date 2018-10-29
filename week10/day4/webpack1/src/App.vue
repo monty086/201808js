@@ -1,8 +1,6 @@
 
 <template>
     <div>
-        {{msg}}
-        <Home></Home>    
         <router-view></router-view>
         <Tab></Tab>
     </div> 
@@ -25,5 +23,16 @@
     }
 </script>  
 
-<style>
+<style lang='less'>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .content{
+        position: fixed;
+        top:50px;
+        bottom:50px;
+        left:0;
+        overflow: auto;
+    }
 </style>   

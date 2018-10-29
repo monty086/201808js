@@ -2,18 +2,25 @@
 // 组件的结构
 <template>
     <div id='box'>
-        <h1>你好我是首页</h1>
+        <MHead>首页</MHead>
+        <div class='content'>
+            <h1>haha</h1>
+        </div>
     </div>
 </template>
 
 // 行为+数据
 <script>
+    import MHead from '../base/head.vue'
     export default {
         data(){
             return {}
         },
         methods:{
 
+        },
+        components:{
+            MHead
         }
     }
 </script>
