@@ -29,6 +29,7 @@
         padding: 0;
     }
     .content{
+        width:100%;
         position: fixed;
         top:50px;
         bottom:50px;

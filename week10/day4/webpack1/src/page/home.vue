@@ -4,15 +4,26 @@
     <div id='box'>
         <MHead>首页</MHead>
         <div class='content'>
-            <h1>haha</h1>
+            <Swiper></Swiper>  
+            <h3>热门图书</h3>
+            <ul>
+                <li></li>
+            </ul>   
         </div>
     </div>
 </template>
 
 // 行为+数据
 <script>
-    import MHead from '../base/head.vue'
+    import MHead from '../base/head.vue';
+    import Swiper from '../base/swiper.vue';
+    import {hotbooks} from '../api/ajax.js';
     export default {
+        created(){            
+            hotbooks().then(res=>{
+                console.log(res);
+            })
+        },
         data(){
             return {}
         },
@@ -20,7 +31,7 @@
 
         },
         components:{
-            MHead
+            MHead,Swiper
         }
     }
 </script>
